@@ -1,2 +1,2 @@
-# crispy-octo-goggles
+# sophie-airp
 My AI roleplay website

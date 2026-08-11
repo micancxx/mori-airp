@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
 
 <title>Mori</title>
 
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Nunito:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+>
+
 <style>
+
 * {
   box-sizing: border-box;
 }
@@ -17,263 +32,399 @@ html {
 
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #eee9f1;
+
+  color: #eee8f0;
+
+  font-family: "Nunito", sans-serif;
+
   background:
     radial-gradient(
-      circle at 12% 0%,
-      rgba(50, 24, 58, 0.22),
+      circle at 10% 0%,
+      rgba(66, 35, 76, 0.20),
       transparent 32%
     ),
+
     radial-gradient(
-      circle at 90% 12%,
-      rgba(58, 18, 31, 0.16),
-      transparent 28%
+      circle at 92% 12%,
+      rgba(70, 22, 38, 0.14),
+      transparent 30%
     ),
+
     #070609;
 }
 
-/* =========================
+
+/* =================================
    HEADER
-========================= */
+================================= */
 
 header {
-  padding: 30px 7%;
-  border-bottom: 1px solid #1e1822;
+
+  padding: 34px 7% 30px;
+
   background: rgba(7, 6, 9, 0.96);
+
+  border-bottom: 1px solid #211a25;
 }
 
 .logo {
+
   display: flex;
+
   align-items: center;
-  gap: 10px;
-  font-size: 30px;
+
+  gap: 11px;
+
+  color: #e3d8e6;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: 42px;
+
   font-weight: 600;
-  letter-spacing: 1px;
-  color: #ddd2e2;
+
+  letter-spacing: 0.5px;
 }
 
 .logo-symbol {
-  color: #9b7ca7;
-  font-size: 25px;
+
+  color: #9876a2;
+
+  font-size: 27px;
+
   line-height: 1;
 }
 
 .tagline {
-  margin-top: 8px;
-  color: #817783;
-  font-size: 14px;
+
+  margin-top: 4px;
+
+  color: #837885;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: 18px;
+
+  font-style: italic;
+
   letter-spacing: 0.2px;
 }
 
-/* =========================
+
+/* =================================
    MAIN
-========================= */
+================================= */
 
 .container {
+
   width: 86%;
+
   max-width: 1200px;
-  margin: 38px auto;
+
+  margin: 40px auto;
 }
 
-/* =========================
+
+/* =================================
    SEARCH
-========================= */
+================================= */
 
 .search {
+
   width: 100%;
-  padding: 16px 20px;
+
+  padding: 15px 19px;
+
   border-radius: 13px;
-  border: 1px solid #28212c;
-  background: #0c090f;
+
+  border: 1px solid #28212d;
+
+  background: #0d0a10;
+
   color: #eee;
+
   outline: none;
-  font-size: 15px;
-  transition: 0.2s;
+
+  font-family:
+    "Nunito",
+    sans-serif;
+
+  font-size: 14px;
+
+  transition: 0.25s;
 }
 
 .search::placeholder {
-  color: #625b67;
+
+  color: #655d69;
 }
 
 .search:focus {
-  border-color: #4d3855;
-  box-shadow: 0 0 0 3px rgba(94, 57, 105, 0.08);
+
+  border-color: #50385a;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(92, 57, 103, 0.08);
 }
 
-/* =========================
+
+/* =================================
    SECTION TITLES
-========================= */
+================================= */
 
 .section-title {
-  margin-top: 48px;
+
+  margin-top: 50px;
+
   margin-bottom: 20px;
-  font-size: 22px;
-  font-weight: 500;
-  color: #d9d0dd;
+
+  color: #ddd3e1;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: 28px;
+
+  font-weight: 600;
+
   letter-spacing: 0.2px;
 }
 
-/* =========================
+
+/* =================================
    CHARACTER GRID
-========================= */
+================================= */
 
 .characters {
+
   display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(230px, 1fr)
-  );
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(230px, 1fr)
+    );
+
   gap: 22px;
 }
 
-/* =========================
-   CHARACTER CARD
-========================= */
+
+/* =================================
+   CARD
+================================= */
 
 .card {
-  overflow: hidden;
-  background: linear-gradient(
-    145deg,
-    #100c12,
-    #08070a
-  );
 
-  border: 1px solid #241c28;
-  border-radius: 18px;
+  overflow: hidden;
 
   padding: 14px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #110d13,
+      #08070a
+    );
+
+  border:
+    1px solid #261e2a;
+
+  border-radius: 19px;
+
+  box-shadow:
+    0 12px 30px
+    rgba(0, 0, 0, 0.48);
 
   transition:
     transform 0.25s ease,
     border-color 0.25s ease,
     box-shadow 0.25s ease;
-
-  box-shadow:
-    0 12px 30px rgba(0, 0, 0, 0.45);
 }
 
 .card:hover {
-  transform: translateY(-5px);
 
-  border-color: #493550;
+  transform:
+    translateY(-5px);
+
+  border-color:
+    #4d3754;
 
   box-shadow:
-    0 18px 42px rgba(0, 0, 0, 0.7);
+    0 18px 42px
+    rgba(0, 0, 0, 0.72);
 }
 
-/* =========================
-   CHARACTER IMAGE PLACEHOLDER
-========================= */
+
+/* =================================
+   IMAGE AREA
+================================= */
 
 .avatar {
+
   height: 190px;
 
-  border-radius: 14px;
-
   position: relative;
-  overflow: hidden;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
+  overflow: hidden;
+
+  border-radius: 15px;
+
+  border:
+    1px solid #251c2a;
+
   background:
+
     radial-gradient(
-      circle at 50% 35%,
-      rgba(89, 48, 98, 0.28),
+      circle at 45% 30%,
+      rgba(103, 59, 112, 0.25),
+      transparent 34%
+    ),
+
+    radial-gradient(
+      circle at 75% 80%,
+      rgba(103, 31, 48, 0.18),
       transparent 35%
     ),
-    radial-gradient(
-      circle at 70% 80%,
-      rgba(85, 27, 42, 0.20),
-      transparent 35%
-    ),
+
     linear-gradient(
       145deg,
-      #18101b,
-      #09070b 70%
+      #19101c,
+      #09070b 72%
     );
-
-  border: 1px solid #241b29;
 }
 
-/* Decorative glow */
+.avatar::before {
 
-.avatar::after {
   content: "";
 
   position: absolute;
+
+  width: 120px;
+
+  height: 120px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(106, 72, 115, 0.07);
+
+  filter: blur(25px);
+}
+
+.avatar::after {
+
+  content: "";
+
+  position: absolute;
+
   inset: 0;
 
   background:
     linear-gradient(
       135deg,
-      transparent 35%,
-      rgba(135, 92, 150, 0.06),
-      transparent 65%
+      transparent 30%,
+      rgba(157, 112, 169, 0.05),
+      transparent 68%
     );
-
-  pointer-events: none;
 }
-
-/* Character symbol */
 
 .avatar-symbol {
+
   position: relative;
+
   z-index: 2;
 
+  color: #705a74;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
   font-size: 42px;
-  font-weight: 300;
 
-  color: #6e586f;
-
-  opacity: 0.7;
+  opacity: 0.65;
 }
 
-/* =========================
+
+/* =================================
    CARD TEXT
-========================= */
+================================= */
 
 .card h3 {
-  margin: 17px 0 8px;
 
-  color: #d7cadb;
+  margin:
+    17px 0 7px;
 
-  font-size: 18px;
-  font-weight: 500;
+  color: #d9cedc;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: 23px;
+
+  font-weight: 600;
 }
 
 .description {
+
   margin: 0;
 
-  color: #8b818f;
+  min-height: 45px;
 
-  line-height: 1.55;
+  color: #8e8491;
 
-  min-height: 46px;
+  font-size: 13px;
 
-  font-size: 14px;
+  line-height: 1.6;
 }
 
 .stats {
-  margin: 13px 0 0;
 
-  color: #625b66;
+  margin:
+    13px 0 0;
+
+  color: #625a65;
 
   font-size: 12px;
 }
 
-/* =========================
+
+/* =================================
    BUTTON
-========================= */
+================================= */
 
 .button {
+
   display: block;
 
   margin-top: 15px;
 
-  padding: 12px;
+  padding: 11px;
+
+  color: #e9e2ec;
+
+  background:
+    linear-gradient(
+      90deg,
+      #34223b,
+      #391c29
+    );
+
+  border:
+    1px solid #45304b;
 
   border-radius: 10px;
 
@@ -281,132 +432,165 @@ header {
 
   text-decoration: none;
 
-  color: #e9e2ec;
+  font-family:
+    "Nunito",
+    sans-serif;
 
-  background:
-    linear-gradient(
-      90deg,
-      #332239,
-      #391c28
-    );
+  font-size: 13px;
 
-  border: 1px solid #432c49;
+  font-weight: 600;
 
-  transition:
-    background 0.2s ease,
-    border-color 0.2s ease;
+  transition: 0.2s;
 }
 
 .button:hover {
+
   background:
     linear-gradient(
       90deg,
-      #432c4d,
-      #4b202f
+      #472d50,
+      #4d2030
     );
 
-  border-color: #5c3d63;
+  border-color:
+    #634267;
 }
 
-/* =========================
-   EXPLORE CATEGORIES
-========================= */
+
+/* =================================
+   CATEGORIES
+================================= */
 
 .categories {
+
   display: flex;
 
-  gap: 10px;
-
   flex-wrap: wrap;
+
+  gap: 10px;
 }
 
 .category {
-  padding: 10px 17px;
 
-  border-radius: 30px;
+  padding:
+    9px 17px;
+
+  color: #968a9b;
 
   background: #0d0a10;
 
-  border: 1px solid #27202c;
+  border:
+    1px solid #29212e;
 
-  color: #968b9b;
+  border-radius: 30px;
 
-  font-size: 14px;
+  font-size: 13px;
 
-  transition:
-    background 0.2s ease,
-    border-color 0.2s ease,
-    color 0.2s ease;
+  transition: 0.2s;
 }
 
 .category:hover {
+
+  color: #c7b8cb;
+
   background: #151018;
 
-  border-color: #47334e;
-
-  color: #c2b4c7;
+  border-color:
+    #49344f;
 }
 
-/* =========================
+
+/* =================================
    FOOTER
-========================= */
+================================= */
 
 footer {
-  margin-top: 75px;
+
+  margin-top: 80px;
 
   padding: 30px;
 
-  text-align: center;
-
   color: #514a55;
 
-  border-top: 1px solid #18131b;
+  border-top:
+    1px solid #19141c;
 
-  font-size: 13px;
+  text-align: center;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: 15px;
 }
 
-/* =========================
+
+/* =================================
    MOBILE
-========================= */
+================================= */
 
 @media (max-width: 600px) {
 
   header {
-    padding: 25px 6%;
+
+    padding:
+      28px 6% 25px;
   }
 
   .container {
+
     width: 88%;
   }
 
   .logo {
-    font-size: 27px;
+
+    font-size: 36px;
   }
 
   .logo-symbol {
-    font-size: 23px;
+
+    font-size: 24px;
+  }
+
+  .tagline {
+
+    font-size: 17px;
+  }
+
+  .section-title {
+
+    font-size: 26px;
   }
 
   .avatar {
+
     height: 175px;
   }
 }
+
 </style>
+
 </head>
+
 
 <body>
 
-<!-- =========================
+
+<!-- =================================
      HEADER
-========================= -->
+================================= -->
 
 <header>
 
   <div class="logo">
 
-    <span class="logo-symbol">𓆱</span>
+    <span class="logo-symbol">
+      𓆱
+    </span>
 
-    <span>Mori</span>
+    <span>
+      Mori
+    </span>
 
   </div>
 
@@ -417,9 +601,9 @@ footer {
 </header>
 
 
-<!-- =========================
-     MAIN CONTENT
-========================= -->
+<!-- =================================
+     MAIN
+================================= -->
 
 <div class="container">
 
@@ -581,9 +765,9 @@ footer {
 </div>
 
 
-<!-- =========================
+<!-- =================================
      FOOTER
-========================= -->
+================================= -->
 
 <footer>
 

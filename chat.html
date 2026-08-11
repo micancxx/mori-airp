@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
+<title>Mori · Chat</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+>
+
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+
+  height: 100vh;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 10% 0%,
+      rgba(67, 35, 78, 0.18),
+      transparent 32%
+    ),
+    #070609;
+
+  color: #eee9f0;
+
+  font-family:
+    "Quicksand",
+    sans-serif;
+}
+
+
+/* =========================
+   TOP BAR
+========================= */
+
+.topbar {
+
+  height: 70px;
+
+  display: flex;
+
+  align-items: center;
+
+  padding: 0 24px;
+
+  border-bottom:
+    1px solid #211a25;
+
+  background:
+    rgba(7, 6, 9, 0.96);
+}
+
+.back {
+
+  color: #8d8291;
+
+  text-decoration: none;
+
+  font-size: 13px;
+
+  margin-right: 22px;
+}
+
+.back:hover {
+  color: #c4b6c8;
+}
+
+.character-name {
+
+  color: #ddd3df;
+
+  font-size: 16px;
+
+  font-weight: 600;
+}
+
+.online {
+
+  margin-left: 9px;
+
+  color: #786b7b;
+
+  font-size: 11px;
+}
+
+
+/* =========================
+   CHAT AREA
+========================= */
+
+.chat {
+
+  height:
+    calc(100vh - 130px);
+
+  overflow-y: auto;
+
+  padding: 35px 20px 50px;
+}
+
+.messages {
+
+  width: 100%;
+
+  max-width: 720px;
+
+  margin: auto;
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message {
+
+  display: flex;
+
+  margin-bottom: 22px;
+}
+
+.message.ai {
+  justify-content: flex-start;
+}
+
+.message.user {
+  justify-content: flex-end;
+}
+
+.bubble {
+
+  max-width: 72%;
+
+  padding: 13px 16px;
+
+  border-radius: 15px;
+
+  font-size: 13px;
+
+  line-height: 1.65;
+}
+
+.ai .bubble {
+
+  color: #c5bac8;
+
+  background:
+    #100c12;
+
+  border:
+    1px solid #28202d;
+
+  border-bottom-left-radius: 4px;
+}
+
+.user .bubble {
+
+  color: #e6dce8;
+
+  background:
+    linear-gradient(
+      135deg,
+      #33213a,
+      #391c29
+    );
+
+  border:
+    1px solid #49304e;
+
+  border-bottom-right-radius: 4px;
+}
+
+
+/* =========================
+   CHARACTER INTRO
+========================= */
+
+.intro {
+
+  text-align: center;
+
+  margin-bottom: 42px;
+
+  color: #665d69;
+
+  font-size: 12px;
+}
+
+.intro-name {
+
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #b9aabd;
+
+  font-size: 18px;
+
+  font-weight: 600;
+}
+
+
+/* =========================
+   INPUT
+========================= */
+
+.input-area {
+
+  height: 60px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 10px 18px;
+
+  border-top:
+    1px solid #211a25;
+
+  background:
+    rgba(7, 6, 9, 0.98);
+}
+
+.message-input {
+
+  flex: 1;
+
+  height: 40px;
+
+  padding: 0 15px;
+
+  outline: none;
+
+  color: #eee;
+
+  background: #0d0a10;
+
+  border:
+    1px solid #29212e;
+
+  border-radius: 11px;
+
+  font-family:
+    "Quicksand",
+    sans-serif;
+
+  font-size: 13px;
+}
+
+.message-input::placeholder {
+  color: #625a66;
+}
+
+.message-input:focus {
+  border-color: #50385a;
+}
+
+.send {
+
+  height: 40px;
+
+  padding: 0 17px;
+
+  border: 0;
+
+  border-radius: 11px;
+
+  color: #eee7f0;
+
+  background:
+    #38253f;
+
+  font-family:
+    "Quicksand",
+    sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.send:hover {
+  background: #493052;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  .topbar {
+    padding: 0 15px;
+  }
+
+  .chat {
+    padding:
+      28px 14px 40px;
+  }
+
+  .bubble {
+    max-width: 82%;
+  }
+
+  .back {
+    margin-right: 13px;
+  }
+
+  .input-area {
+    padding:
+      10px 12px;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- TOP -->
+
+<div class="topbar">
+
+  <a
+    class="back"
+    href="index.html"
+  >
+    ← Mori
+  </a>
+
+  <div class="character-name">
+    The Dangerous Lover
+  </div>
+
+  <div class="online">
+    here
+  </div>
+
+</div>
+
+
+<!-- CHAT -->
+
+<div class="chat">
+
+  <div class="messages">
+
+
+    <div class="intro">
+
+      <span class="intro-name">
+        The Dangerous Lover
+      </span>
+
+      A new story begins here.
+
+    </div>
+
+
+    <!-- AI MESSAGE -->
+
+    <div class="message ai">
+
+      <div class="bubble">
+
+        You finally came.
+
+      </div>
+
+    </div>
+
+
+    <!-- USER MESSAGE -->
+
+    <div class="message user">
+
+      <div class="bubble">
+
+        Who are you?
+
+      </div>
+
+    </div>
+
+
+    <!-- AI MESSAGE -->
+
+    <div class="message ai">
+
+      <div class="bubble">
+
+        Someone you probably shouldn't trust.
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+</div>
+
+
+<!-- INPUT -->
+
+<div class="input-area">
+
+  <input
+    class="message-input"
+    type="text"
+    placeholder="Write a message..."
+  >
+
+  <button class="send">
+    Send
+  </button>
+
+</div>
+
+
+</body>
+
+</html>

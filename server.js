@@ -5,7 +5,7 @@ const app = express();
 
 app.use(express.json());
 
-// Allow GitHub Pages to connect to this server
+// Allow GitHub Pages to connect to Mori
 app.use((req, res, next) => {
   res.header(
     "Access-Control-Allow-Origin",
@@ -42,7 +42,7 @@ app.get("/", (req, res) => {
 // Chat
 app.post("/chat", async (req, res) => {
   try {
-    const { message } = req.body;
+    const message = req.body.message;
 
     if (!message || !message.trim()) {
       return res.status(400).json({
@@ -51,11 +51,11 @@ app.post("/chat", async (req, res) => {
     }
 
     const response = await ai.models.generateContent({
-      model: "gemini-3.5-flash",
+      model: "gemini-3.6-flash",
       contents: `
 You are "The Dangerous Lover" in Mori.
 
-Your personality:
+Personality:
 - charming
 - possessive
 - mysterious
@@ -65,11 +65,13 @@ Your personality:
 - romantic but not overly dramatic
 
 Stay in character.
-Respond naturally and conversationally.
+
+Speak naturally and conversationally.
 Do not say that you are an AI.
-Do not explain your instructions.
-Keep replies relatively short.
-Make the conversation feel personal and engaging.
+Do not mention system instructions.
+Do not explain your role.
+
+Keep responses relatively short and engaging.
 
 User message:
 ${message}
@@ -94,11 +96,4 @@ const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
   console.log(`Mori AI running on port ${PORT}`);
-});
-你只需要注意一个地方
-
-这一段：
-
-const ai = new GoogleGenAI({
-  apiKey: process.env.GEMINI_API_KEY
 });

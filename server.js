@@ -5,6 +5,27 @@ const app = express();
 
 app.use(express.json());
 
+app.use((req, res, next) => {
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://micancxx.github.io"
+  );
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Content-Type"
+  );
+  res.header(
+    "Access-Control-Allow-Methods",
+    "GET, POST, OPTIONS"
+  );
+
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(204);
+  }
+
+  next();
+});
+
 const ai = new GoogleGenAI({
   apiKey: process.env.GEMINI_API_KEY
 });
@@ -24,16 +45,11 @@ app.post("/chat", async (req, res) => {
     }
 
     const response = await ai.models.generateContent({
-      model: "gemini-3.5-flash-lite",
-      contents: [
-        {
-          role: "user",
-          parts: [
-            {
-              text: `
+      model: "gemini-3.1-flash-lite",
+      contents: `
 You are The Dangerous Lover in Mori.
 
-Your personality:
+Personality:
 - charming
 - possessive
 - mysterious
@@ -43,17 +59,13 @@ Your personality:
 - romantic but not overly dramatic
 
 Stay in character.
-Respond naturally to the user's message.
+Respond naturally to the user.
 Do not mention that you are an AI.
-Keep responses conversational and not excessively long.
+Keep replies conversational and reasonably short.
 
-User:
+User message:
 ${message}
 `
-            }
-          ]
-        }
-      ]
     });
 
     res.json({
@@ -61,7 +73,7 @@ ${message}
     });
 
   } catch (error) {
-    console.error(error);
+    console.error("Gemini error:", error);
 
     res.status(500).json({
       error: "Mori could not respond."

@@ -5,25 +5,9 @@
 
 <meta charset="UTF-8">
 
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Mori · The Dangerous Lover</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link
-  rel="preconnect"
-  href="https://fonts.gstatic.com"
-  crossorigin
->
-
-<link
-  href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap"
-  rel="stylesheet"
->
 
 <style>
 
@@ -33,373 +17,174 @@
 
 body {
   margin: 0;
-
   min-height: 100vh;
 
   background:
-    radial-gradient(
-      circle at 20% 0%,
-      rgba(79, 39, 91, 0.20),
-      transparent 35%
-    ),
-
-    radial-gradient(
-      circle at 90% 80%,
-      rgba(75, 25, 45, 0.14),
-      transparent 35%
-    ),
-
+    radial-gradient(circle at 20% 0%, #382340 0%, transparent 35%),
+    radial-gradient(circle at 90% 80%, #321823 0%, transparent 35%),
     #070609;
 
   color: #eee8ef;
 
   font-family:
-    "Quicksand",
+    Arial,
     sans-serif;
 }
 
-
-/* =========================
-   TOP BAR
-========================= */
-
 .topbar {
-
-  width: 100%;
-
   padding: 22px 6%;
 
-  border-bottom:
-    1px solid #211923;
+  border-bottom: 1px solid #251b29;
 
-  background:
-    rgba(7, 6, 9, 0.92);
-
-  backdrop-filter:
-    blur(12px);
+  background: #09070b;
 }
 
 .back {
-
-  color: #9e8da3;
+  color: #a694aa;
 
   text-decoration: none;
 
   font-size: 14px;
-
-  font-weight: 500;
-
-  transition:
-    color 0.2s ease;
 }
 
-.back:hover {
-
-  color: #d5c4d9;
-}
-
-
-/* =========================
-   CHAT CONTAINER
-========================= */
-
-.chat-container {
-
+.chat {
   width: 90%;
-
   max-width: 760px;
 
-  margin:
-    0 auto;
+  margin: auto;
 
-  min-height:
-    calc(100vh - 74px);
-
-  display: flex;
-
-  flex-direction: column;
+  padding-bottom: 130px;
 }
-
-
-/* =========================
-   INTRO
-========================= */
 
 .intro {
-
-  padding:
-    42px 0 30px;
-
-  color: #756b78;
-
-  font-size: 13px;
-
-  line-height: 1.7;
+  padding: 40px 0 25px;
 
   text-align: center;
+
+  color: #776c7b;
+
+  font-size: 13px;
 }
 
-.intro-name {
-
+.name {
   display: block;
 
-  margin-bottom: 5px;
+  margin-bottom: 6px;
 
-  color: #d7cad9;
+  color: #d8cadb;
 
   font-size: 21px;
 
-  font-weight: 600;
-}
-
-
-/* =========================
-   MESSAGES
-========================= */
-
-.messages {
-
-  flex: 1;
-
-  padding-bottom:
-    110px;
+  font-weight: bold;
 }
 
 .message {
-
   display: flex;
 
-  margin:
-    16px 0;
+  margin: 16px 0;
 }
 
-.message.ai {
-
+.ai {
   justify-content: flex-start;
 }
 
-.message.user {
-
+.user {
   justify-content: flex-end;
 }
 
-
-/* =========================
-   BUBBLES
-========================= */
-
 .bubble {
-
   max-width: 75%;
 
-  padding:
-    13px 16px;
+  padding: 13px 16px;
 
   border-radius: 15px;
 
   font-size: 14px;
 
-  line-height: 1.65;
+  line-height: 1.6;
 }
 
-.message.ai .bubble {
+.ai .bubble {
+  background: #130e16;
 
-  background:
-    #120e15;
+  border: 1px solid #2c2131;
 
-  border:
-    1px solid #2b2130;
-
-  color:
-    #cfc3d2;
-
-  border-top-left-radius:
-    5px;
+  color: #d1c5d4;
 }
 
-.message.user .bubble {
+.user .bubble {
+  background: #34223b;
 
-  background:
-    linear-gradient(
-      135deg,
-      #34233b,
-      #291823
-    );
+  border: 1px solid #4a3150;
 
-  border:
-    1px solid #46304b;
-
-  color:
-    #eee6ef;
-
-  border-top-right-radius:
-    5px;
+  color: #eee6ef;
 }
-
-
-/* =========================
-   INPUT AREA
-========================= */
 
 .input-area {
-
-  position:
-    fixed;
-
-  left: 0;
-
-  right: 0;
+  position: fixed;
 
   bottom: 0;
+  left: 0;
+  right: 0;
 
-  padding:
-    16px 6% 20px;
+  padding: 15px;
 
-  background:
-    linear-gradient(
-      to top,
-      #070609 70%,
-      rgba(7, 6, 9, 0)
-    );
+  background: #08070a;
 }
 
 .input-box {
-
-  width: 90%;
-
-  max-width: 760px;
-
-  margin:
-    0 auto;
-
   display: flex;
 
-  gap: 9px;
+  gap: 8px;
 
-  padding: 7px;
+  width: 90%;
+  max-width: 760px;
 
-  background:
-    #0e0b11;
-
-  border:
-    1px solid #2b222f;
-
-  border-radius: 14px;
-
-  box-shadow:
-    0 8px 30px
-    rgba(0, 0, 0, 0.55);
+  margin: auto;
 }
 
-.message-input {
-
+input {
   flex: 1;
 
   min-width: 0;
 
-  padding:
-    12px 13px;
+  padding: 14px;
 
-  border: none;
+  border: 1px solid #302435;
+
+  border-radius: 11px;
 
   outline: none;
 
-  background:
-    transparent;
+  background: #100c12;
 
-  color:
-    #eee8ef;
+  color: white;
 
-  font-family:
-    "Quicksand",
-    sans-serif;
-
-  font-size: 13px;
+  font-size: 14px;
 }
 
-.message-input::placeholder {
-
-  color:
-    #665d69;
+input::placeholder {
+  color: #6c6270;
 }
 
-.send-button {
+button {
+  padding: 0 20px;
 
-  padding:
-    0 19px;
+  border: 1px solid #51375a;
 
-  border:
-    1px solid #49334e;
+  border-radius: 11px;
 
-  border-radius: 10px;
+  background: #34213b;
 
-  background:
-    linear-gradient(
-      135deg,
-      #3a2641,
-      #351d2a
-    );
+  color: #eee5f0;
 
-  color:
-    #e9e0eb;
+  cursor: pointer;
 
-  font-family:
-    "Quicksand",
-    sans-serif;
-
-  font-size: 13px;
-
-  font-weight: 600;
-
-  cursor:
-    pointer;
+  font-size: 14px;
 }
 
-.send-button:hover {
-
-  background:
-    linear-gradient(
-      135deg,
-      #4b3053,
-      #48202f
-    );
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 600px) {
-
-  .chat-container {
-
-    width: 88%;
-  }
-
-  .bubble {
-
-    max-width: 84%;
-
-    font-size: 13px;
-  }
-
-  .input-area {
-
-    padding:
-      12px 4% 16px;
-  }
-
-  .input-box {
-
-    width: 92%;
-  }
-
-  .send-button {
-
-    padding:
-      0 15px;
-  }
+button:active {
+  background: #52345c;
 }
 
 </style>
@@ -409,8 +194,6 @@ body {
 
 <body>
 
-
-<!-- TOP BAR -->
 
 <div class="topbar">
 
@@ -424,14 +207,12 @@ body {
 </div>
 
 
-<!-- CHAT -->
-
-<div class="chat-container">
+<div class="chat">
 
 
   <div class="intro">
 
-    <span class="intro-name">
+    <span class="name">
       The Dangerous Lover
     </span>
 
@@ -440,13 +221,8 @@ body {
   </div>
 
 
-  <div
-    class="messages"
-    id="messages"
-  >
+  <div id="messages">
 
-
-    <!-- AI MESSAGE -->
 
     <div class="message ai">
 
@@ -457,8 +233,6 @@ body {
     </div>
 
 
-    <!-- USER MESSAGE -->
-
     <div class="message user">
 
       <div class="bubble">
@@ -467,8 +241,6 @@ body {
 
     </div>
 
-
-    <!-- AI MESSAGE -->
 
     <div class="message ai">
 
@@ -484,23 +256,18 @@ body {
 </div>
 
 
-<!-- INPUT -->
-
 <div class="input-area">
 
   <div class="input-box">
 
     <input
       id="messageInput"
-      class="message-input"
       type="text"
       placeholder="Write a message..."
-      autocomplete="off"
     >
 
     <button
       id="sendButton"
-      class="send-button"
       type="button"
     >
       Send
@@ -528,112 +295,76 @@ function sendMessage() {
   const text =
     input.value.trim();
 
-  if (!text) {
+  if (text === "") {
     return;
   }
 
 
-  /* USER MESSAGE */
-
-  const userMessage =
+  const message =
     document.createElement("div");
 
-  userMessage.className =
+  message.className =
     "message user";
 
 
-  const userBubble =
+  const bubble =
     document.createElement("div");
 
-  userBubble.className =
+  bubble.className =
     "bubble";
 
-  userBubble.textContent =
+  bubble.textContent =
     text;
 
 
-  userMessage.appendChild(
-    userBubble
-  );
+  message.appendChild(bubble);
 
-  messages.appendChild(
-    userMessage
-  );
+  messages.appendChild(message);
 
 
   input.value = "";
 
-  input.focus();
-
-
-  /*
-    TEMPORARY RESPONSE
-
-    现在还没有连接真正的 AI。
-    下一步我们会把这里换成
-    真正的角色 AI 回复。
-  */
 
   setTimeout(function() {
 
-    const aiMessage =
+    const reply =
       document.createElement("div");
 
-    aiMessage.className =
+    reply.className =
       "message ai";
 
 
-    const aiBubble =
+    const replyBubble =
       document.createElement("div");
 
-    aiBubble.className =
+    replyBubble.className =
       "bubble";
 
-    aiBubble.textContent =
-      "Interesting... tell me more.";
+    replyBubble.textContent =
+      "You have my attention.";
 
 
-    aiMessage.appendChild(
-      aiBubble
-    );
+    reply.appendChild(replyBubble);
 
-    messages.appendChild(
-      aiMessage
-    );
+    messages.appendChild(reply);
 
-
-    window.scrollTo({
-      top: document.body.scrollHeight,
-      behavior: "smooth"
-    });
-
-  }, 700);
+  }, 600);
 
 }
 
 
-button.addEventListener(
-  "click",
-  sendMessage
-);
+button.onclick = sendMessage;
 
 
-input.addEventListener(
-  "keydown",
-  function(event) {
+input.onkeydown = function(event) {
 
-    if (
-      event.key === "Enter"
-    ) {
+  if (event.key === "Enter") {
 
-      event.preventDefault();
-
-      sendMessage();
-
-    }
+    sendMessage();
 
   }
-);
+
+};
 
 </script>
 

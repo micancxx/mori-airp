@@ -11,12 +11,11 @@
 
 <title>Mori</title>
 
-<!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link
-  href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Nunito:wght@400;500;600;700&display=swap"
+  href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap"
   rel="stylesheet"
 >
 
@@ -33,115 +32,102 @@ html {
 body {
   margin: 0;
 
-  color: #eee8f0;
-
-  font-family: "Nunito", sans-serif;
-
   background:
     radial-gradient(
       circle at 10% 0%,
-      rgba(66, 35, 76, 0.20),
+      rgba(67, 35, 78, 0.18),
       transparent 32%
     ),
-
     radial-gradient(
       circle at 92% 12%,
-      rgba(70, 22, 38, 0.14),
+      rgba(70, 22, 38, 0.12),
       transparent 30%
     ),
-
     #070609;
+
+  color: #eee9f0;
+
+  font-family:
+    "Quicksand",
+    sans-serif;
 }
 
 
-/* =================================
+/* =========================
    HEADER
-================================= */
+========================= */
 
 header {
+  padding: 30px 7% 27px;
 
-  padding: 34px 7% 30px;
+  background:
+    rgba(7, 6, 9, 0.96);
 
-  background: rgba(7, 6, 9, 0.96);
-
-  border-bottom: 1px solid #211a25;
+  border-bottom:
+    1px solid #211a25;
 }
 
 .logo {
-
   display: flex;
 
   align-items: center;
 
-  gap: 11px;
+  gap: 9px;
 
-  color: #e3d8e6;
+  color: #e2d8e5;
 
-  font-family:
-    "Cormorant Garamond",
-    serif;
-
-  font-size: 42px;
+  font-size: 29px;
 
   font-weight: 600;
 
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
 }
 
 .logo-symbol {
+  color: #9977a3;
 
-  color: #9876a2;
-
-  font-size: 27px;
+  font-size: 23px;
 
   line-height: 1;
 }
 
 .tagline {
+  margin-top: 5px;
 
-  margin-top: 4px;
+  color: #817783;
 
-  color: #837885;
+  font-size: 13px;
 
-  font-family:
-    "Cormorant Garamond",
-    serif;
-
-  font-size: 18px;
-
-  font-style: italic;
-
-  letter-spacing: 0.2px;
+  font-weight: 400;
 }
 
 
-/* =================================
+/* =========================
    MAIN
-================================= */
+========================= */
 
 .container {
-
   width: 86%;
 
   max-width: 1200px;
 
-  margin: 40px auto;
+  margin: 38px auto;
 }
 
 
-/* =================================
+/* =========================
    SEARCH
-================================= */
+========================= */
 
 .search {
-
   width: 100%;
 
   padding: 15px 19px;
 
-  border-radius: 13px;
+  border:
+    1px solid #28212d;
 
-  border: 1px solid #28212d;
+  border-radius: 13px;
 
   background: #0d0a10;
 
@@ -150,21 +136,21 @@ header {
   outline: none;
 
   font-family:
-    "Nunito",
+    "Quicksand",
     sans-serif;
 
-  font-size: 14px;
+  font-size: 13px;
+
+  font-weight: 500;
 
   transition: 0.25s;
 }
 
 .search::placeholder {
-
   color: #655d69;
 }
 
 .search:focus {
-
   border-color: #50385a;
 
   box-shadow:
@@ -173,36 +159,30 @@ header {
 }
 
 
-/* =================================
+/* =========================
    SECTION TITLES
-================================= */
+========================= */
 
 .section-title {
+  margin-top: 46px;
 
-  margin-top: 50px;
+  margin-bottom: 19px;
 
-  margin-bottom: 20px;
+  color: #dcd2df;
 
-  color: #ddd3e1;
-
-  font-family:
-    "Cormorant Garamond",
-    serif;
-
-  font-size: 28px;
+  font-size: 20px;
 
   font-weight: 600;
 
-  letter-spacing: 0.2px;
+  letter-spacing: 0.1px;
 }
 
 
-/* =================================
+/* =========================
    CHARACTER GRID
-================================= */
+========================= */
 
 .characters {
-
   display: grid;
 
   grid-template-columns:
@@ -215,12 +195,11 @@ header {
 }
 
 
-/* =================================
+/* =========================
    CARD
-================================= */
+========================= */
 
 .card {
-
   overflow: hidden;
 
   padding: 14px;
@@ -235,7 +214,7 @@ header {
   border:
     1px solid #261e2a;
 
-  border-radius: 19px;
+  border-radius: 18px;
 
   box-shadow:
     0 12px 30px
@@ -248,7 +227,6 @@ header {
 }
 
 .card:hover {
-
   transform:
     translateY(-5px);
 
@@ -261,12 +239,11 @@ header {
 }
 
 
-/* =================================
+/* =========================
    IMAGE AREA
-================================= */
+========================= */
 
 .avatar {
-
   height: 190px;
 
   position: relative;
@@ -279,7 +256,7 @@ header {
 
   overflow: hidden;
 
-  border-radius: 15px;
+  border-radius: 14px;
 
   border:
     1px solid #251c2a;
@@ -288,13 +265,13 @@ header {
 
     radial-gradient(
       circle at 45% 30%,
-      rgba(103, 59, 112, 0.25),
+      rgba(103, 59, 112, 0.24),
       transparent 34%
     ),
 
     radial-gradient(
       circle at 75% 80%,
-      rgba(103, 31, 48, 0.18),
+      rgba(103, 31, 48, 0.17),
       transparent 35%
     ),
 
@@ -306,7 +283,6 @@ header {
 }
 
 .avatar::before {
-
   content: "";
 
   position: absolute;
@@ -320,11 +296,11 @@ header {
   background:
     rgba(106, 72, 115, 0.07);
 
-  filter: blur(25px);
+  filter:
+    blur(25px);
 }
 
 .avatar::after {
-
   content: "";
 
   position: absolute;
@@ -341,45 +317,36 @@ header {
 }
 
 .avatar-symbol {
-
   position: relative;
 
   z-index: 2;
 
   color: #705a74;
 
-  font-family:
-    "Cormorant Garamond",
-    serif;
+  font-size: 36px;
 
-  font-size: 42px;
+  font-weight: 400;
 
-  opacity: 0.65;
+  opacity: 0.6;
 }
 
 
-/* =================================
+/* =========================
    CARD TEXT
-================================= */
+========================= */
 
 .card h3 {
-
   margin:
-    17px 0 7px;
+    16px 0 7px;
 
   color: #d9cedc;
 
-  font-family:
-    "Cormorant Garamond",
-    serif;
-
-  font-size: 23px;
+  font-size: 17px;
 
   font-weight: 600;
 }
 
 .description {
-
   margin: 0;
 
   min-height: 45px;
@@ -389,25 +356,27 @@ header {
   font-size: 13px;
 
   line-height: 1.6;
+
+  font-weight: 400;
 }
 
 .stats {
-
   margin:
-    13px 0 0;
+    12px 0 0;
 
   color: #625a65;
 
-  font-size: 12px;
+  font-size: 11px;
+
+  font-weight: 500;
 }
 
 
-/* =================================
+/* =========================
    BUTTON
-================================= */
+========================= */
 
 .button {
-
   display: block;
 
   margin-top: 15px;
@@ -433,7 +402,7 @@ header {
   text-decoration: none;
 
   font-family:
-    "Nunito",
+    "Quicksand",
     sans-serif;
 
   font-size: 13px;
@@ -444,7 +413,6 @@ header {
 }
 
 .button:hover {
-
   background:
     linear-gradient(
       90deg,
@@ -457,23 +425,21 @@ header {
 }
 
 
-/* =================================
+/* =========================
    CATEGORIES
-================================= */
+========================= */
 
 .categories {
-
   display: flex;
 
   flex-wrap: wrap;
 
-  gap: 10px;
+  gap: 9px;
 }
 
 .category {
-
   padding:
-    9px 17px;
+    8px 16px;
 
   color: #968a9b;
 
@@ -484,13 +450,14 @@ header {
 
   border-radius: 30px;
 
-  font-size: 13px;
+  font-size: 12px;
+
+  font-weight: 500;
 
   transition: 0.2s;
 }
 
 .category:hover {
-
   color: #c7b8cb;
 
   background: #151018;
@@ -500,13 +467,12 @@ header {
 }
 
 
-/* =================================
+/* =========================
    FOOTER
-================================= */
+========================= */
 
 footer {
-
-  margin-top: 80px;
+  margin-top: 75px;
 
   padding: 30px;
 
@@ -517,55 +483,47 @@ footer {
 
   text-align: center;
 
-  font-family:
-    "Cormorant Garamond",
-    serif;
+  font-size: 12px;
 
-  font-size: 15px;
+  font-weight: 400;
 }
 
 
-/* =================================
+/* =========================
    MOBILE
-================================= */
+========================= */
 
 @media (max-width: 600px) {
 
   header {
-
     padding:
-      28px 6% 25px;
+      27px 6% 24px;
   }
 
   .container {
-
     width: 88%;
   }
 
   .logo {
-
-    font-size: 36px;
+    font-size: 27px;
   }
 
   .logo-symbol {
-
-    font-size: 24px;
+    font-size: 21px;
   }
 
   .tagline {
-
-    font-size: 17px;
+    font-size: 12px;
   }
 
   .section-title {
-
-    font-size: 26px;
+    font-size: 19px;
   }
 
   .avatar {
-
     height: 175px;
   }
+
 }
 
 </style>
@@ -575,10 +533,6 @@ footer {
 
 <body>
 
-
-<!-- =================================
-     HEADER
-================================= -->
 
 <header>
 
@@ -601,14 +555,8 @@ footer {
 </header>
 
 
-<!-- =================================
-     MAIN
-================================= -->
-
 <div class="container">
 
-
-  <!-- SEARCH -->
 
   <input
     class="search"
@@ -617,8 +565,6 @@ footer {
   >
 
 
-  <!-- TRENDING -->
-
   <h2 class="section-title">
     Trending Characters
   </h2>
@@ -626,8 +572,6 @@ footer {
 
   <div class="characters">
 
-
-    <!-- CHARACTER 1 -->
 
     <div class="card">
 
@@ -661,8 +605,6 @@ footer {
     </div>
 
 
-    <!-- CHARACTER 2 -->
-
     <div class="card">
 
       <div class="avatar">
@@ -694,8 +636,6 @@ footer {
 
     </div>
 
-
-    <!-- CHARACTER 3 -->
 
     <div class="card">
 
@@ -731,8 +671,6 @@ footer {
   </div>
 
 
-  <!-- EXPLORE -->
-
   <h2 class="section-title">
     Explore
   </h2>
@@ -764,10 +702,6 @@ footer {
 
 </div>
 
-
-<!-- =================================
-     FOOTER
-================================= -->
 
 <footer>
 

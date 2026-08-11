@@ -1,2 +1,2 @@
-# sophie-airp
+# mori-airp
 My AI roleplay website

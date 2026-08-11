@@ -5,15 +5,18 @@ const app = express();
 
 app.use(express.json());
 
+// Allow GitHub Pages to connect to this server
 app.use((req, res, next) => {
   res.header(
     "Access-Control-Allow-Origin",
     "https://micancxx.github.io"
   );
+
   res.header(
     "Access-Control-Allow-Headers",
     "Content-Type"
   );
+
   res.header(
     "Access-Control-Allow-Methods",
     "GET, POST, OPTIONS"
@@ -26,14 +29,17 @@ app.use((req, res, next) => {
   next();
 });
 
+// Gemini
 const ai = new GoogleGenAI({
   apiKey: process.env.GEMINI_API_KEY
 });
 
+// Test
 app.get("/", (req, res) => {
   res.send("Mori AI is running.");
 });
 
+// Chat
 app.post("/chat", async (req, res) => {
   try {
     const { message } = req.body;
@@ -45,11 +51,11 @@ app.post("/chat", async (req, res) => {
     }
 
     const response = await ai.models.generateContent({
-      model: "gemini-3.1-flash-lite",
+      model: "gemini-3.5-flash",
       contents: `
-You are The Dangerous Lover in Mori.
+You are "The Dangerous Lover" in Mori.
 
-Personality:
+Your personality:
 - charming
 - possessive
 - mysterious
@@ -59,9 +65,11 @@ Personality:
 - romantic but not overly dramatic
 
 Stay in character.
-Respond naturally to the user.
-Do not mention that you are an AI.
-Keep replies conversational and reasonably short.
+Respond naturally and conversationally.
+Do not say that you are an AI.
+Do not explain your instructions.
+Keep replies relatively short.
+Make the conversation feel personal and engaging.
 
 User message:
 ${message}
@@ -81,8 +89,16 @@ ${message}
   }
 });
 
+// Start server
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
   console.log(`Mori AI running on port ${PORT}`);
+});
+你只需要注意一个地方
+
+这一段：
+
+const ai = new GoogleGenAI({
+  apiKey: process.env.GEMINI_API_KEY
 });

@@ -4,225 +4,593 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Sophie AI</title>
+<title>Mori</title>
 
 <style>
 * {
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  color: #eee6f5;
-  background:
-    radial-gradient(circle at 20% 10%, #1b0d20 0, transparent 35%),
-    radial-gradient(circle at 90% 20%, #210b16 0, transparent 30%),
-    #09070d;
+html {
+  scroll-behavior: smooth;
 }
 
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #eee9f1;
+  background:
+    radial-gradient(
+      circle at 12% 0%,
+      rgba(50, 24, 58, 0.22),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 90% 12%,
+      rgba(58, 18, 31, 0.16),
+      transparent 28%
+    ),
+    #070609;
+}
+
+/* =========================
+   HEADER
+========================= */
+
 header {
-  padding: 25px 7%;
-  border-bottom: 1px solid #2b1b35;
-  background: rgba(9, 7, 13, 0.9);
+  padding: 30px 7%;
+  border-bottom: 1px solid #1e1822;
+  background: rgba(7, 6, 9, 0.96);
 }
 
 .logo {
-  font-size: 28px;
-  font-weight: bold;
-  color: #d8a4ff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #ddd2e2;
+}
+
+.logo-symbol {
+  color: #9b7ca7;
+  font-size: 25px;
+  line-height: 1;
 }
 
 .tagline {
-  color: #95899e;
-  margin-top: 6px;
+  margin-top: 8px;
+  color: #817783;
+  font-size: 14px;
+  letter-spacing: 0.2px;
 }
+
+/* =========================
+   MAIN
+========================= */
 
 .container {
   width: 86%;
   max-width: 1200px;
-  margin: 35px auto;
+  margin: 38px auto;
 }
+
+/* =========================
+   SEARCH
+========================= */
 
 .search {
   width: 100%;
   padding: 16px 20px;
-  border-radius: 14px;
-  border: 1px solid #35223f;
-  background: #120d18;
-  color: white;
+  border-radius: 13px;
+  border: 1px solid #28212c;
+  background: #0c090f;
+  color: #eee;
   outline: none;
-  font-size: 16px;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+.search::placeholder {
+  color: #625b67;
 }
 
 .search:focus {
-  border-color: #8b5cf6;
+  border-color: #4d3855;
+  box-shadow: 0 0 0 3px rgba(94, 57, 105, 0.08);
 }
 
+/* =========================
+   SECTION TITLES
+========================= */
+
 .section-title {
-  margin-top: 45px;
+  margin-top: 48px;
   margin-bottom: 20px;
-  font-size: 24px;
+  font-size: 22px;
+  font-weight: 500;
+  color: #d9d0dd;
+  letter-spacing: 0.2px;
 }
+
+/* =========================
+   CHARACTER GRID
+========================= */
+
+.characters {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(230px, 1fr)
+  );
+  gap: 22px;
+}
+
+/* =========================
+   CHARACTER CARD
+========================= */
+
+.card {
+  overflow: hidden;
+  background: linear-gradient(
+    145deg,
+    #100c12,
+    #08070a
+  );
+
+  border: 1px solid #241c28;
+  border-radius: 18px;
+
+  padding: 14px;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+
+  border-color: #493550;
+
+  box-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.7);
+}
+
+/* =========================
+   CHARACTER IMAGE PLACEHOLDER
+========================= */
+
+.avatar {
+  height: 190px;
+
+  border-radius: 14px;
+
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      rgba(89, 48, 98, 0.28),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 70% 80%,
+      rgba(85, 27, 42, 0.20),
+      transparent 35%
+    ),
+    linear-gradient(
+      145deg,
+      #18101b,
+      #09070b 70%
+    );
+
+  border: 1px solid #241b29;
+}
+
+/* Decorative glow */
+
+.avatar::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      transparent 35%,
+      rgba(135, 92, 150, 0.06),
+      transparent 65%
+    );
+
+  pointer-events: none;
+}
+
+/* Character symbol */
+
+.avatar-symbol {
+  position: relative;
+  z-index: 2;
+
+  font-size: 42px;
+  font-weight: 300;
+
+  color: #6e586f;
+
+  opacity: 0.7;
+}
+
+/* =========================
+   CARD TEXT
+========================= */
+
+.card h3 {
+  margin: 17px 0 8px;
+
+  color: #d7cadb;
+
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.description {
+  margin: 0;
+
+  color: #8b818f;
+
+  line-height: 1.55;
+
+  min-height: 46px;
+
+  font-size: 14px;
+}
+
+.stats {
+  margin: 13px 0 0;
+
+  color: #625b66;
+
+  font-size: 12px;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.button {
+  display: block;
+
+  margin-top: 15px;
+
+  padding: 12px;
+
+  border-radius: 10px;
+
+  text-align: center;
+
+  text-decoration: none;
+
+  color: #e9e2ec;
+
+  background:
+    linear-gradient(
+      90deg,
+      #332239,
+      #391c28
+    );
+
+  border: 1px solid #432c49;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.button:hover {
+  background:
+    linear-gradient(
+      90deg,
+      #432c4d,
+      #4b202f
+    );
+
+  border-color: #5c3d63;
+}
+
+/* =========================
+   EXPLORE CATEGORIES
+========================= */
 
 .categories {
   display: flex;
+
   gap: 10px;
+
   flex-wrap: wrap;
 }
 
 .category {
   padding: 10px 17px;
+
   border-radius: 30px;
-  background: #17101e;
-  border: 1px solid #33213d;
-  color: #cdb8d8;
+
+  background: #0d0a10;
+
+  border: 1px solid #27202c;
+
+  color: #968b9b;
+
+  font-size: 14px;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .category:hover {
-  background: #281631;
-  border-color: #75458f;
+  background: #151018;
+
+  border-color: #47334e;
+
+  color: #c2b4c7;
 }
 
-.characters {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 22px;
-}
+/* =========================
+   FOOTER
+========================= */
 
-.card {
-  background: linear-gradient(145deg, #17101e, #100b14);
-  border: 1px solid #302039;
-  border-radius: 18px;
-  padding: 16px;
-  transition: 0.25s;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-}
+footer {
+  margin-top: 75px;
 
-.card:hover {
-  transform: translateY(-6px);
-  border-color: #7c4d91;
-  box-shadow: 0 15px 35px rgba(95, 40, 120, 0.25);
-}
+  padding: 30px;
 
-.avatar {
-  height: 190px;
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 65px;
-  background:
-    radial-gradient(circle, #38203d, #130d18 70%);
-}
+  text-align: center;
 
-.card h3 {
-  margin-bottom: 8px;
-  color: #e2b7ff;
-}
+  color: #514a55;
 
-.description {
-  color: #9d91a5;
-  line-height: 1.5;
-  min-height: 45px;
-}
+  border-top: 1px solid #18131b;
 
-.stats {
-  color: #716677;
   font-size: 13px;
 }
 
-.button {
-  display: block;
-  text-align: center;
-  margin-top: 15px;
-  padding: 12px;
-  border-radius: 10px;
-  text-decoration: none;
-  color: white;
-  background: linear-gradient(90deg, #4b2860, #591f36);
-}
+/* =========================
+   MOBILE
+========================= */
 
-.button:hover {
-  background: linear-gradient(90deg, #8950aa, #aa4b73);
-}
+@media (max-width: 600px) {
 
-footer {
-  margin-top: 70px;
-  padding: 30px;
-  text-align: center;
-  color: #62596a;
-  border-top: 1px solid #211626;
+  header {
+    padding: 25px 6%;
+  }
+
+  .container {
+    width: 88%;
+  }
+
+  .logo {
+    font-size: 27px;
+  }
+
+  .logo-symbol {
+    font-size: 23px;
+  }
+
+  .avatar {
+    height: 175px;
+  }
 }
 </style>
 </head>
 
 <body>
 
+<!-- =========================
+     HEADER
+========================= -->
+
 <header>
-  <div class="logo">🌙 Sophie</div>
-  <div class="tagline">Enter a world where every character has a story.</div>
+
+  <div class="logo">
+
+    <span class="logo-symbol">𓆱</span>
+
+    <span>Mori</span>
+
+  </div>
+
+  <div class="tagline">
+    A place where stories live.
+  </div>
+
 </header>
 
+
+<!-- =========================
+     MAIN CONTENT
+========================= -->
+
 <div class="container">
+
+
+  <!-- SEARCH -->
 
   <input
     class="search"
     type="text"
-    placeholder="🔍 Search characters..."
+    placeholder="Search characters..."
   >
 
-  <h2 class="section-title">🔥 Trending Characters</h2>
+
+  <!-- TRENDING -->
+
+  <h2 class="section-title">
+    Trending Characters
+  </h2>
+
 
   <div class="characters">
 
+
+    <!-- CHARACTER 1 -->
+
     <div class="card">
-      <div class="avatar">🖤</div>
-      <h3>The Calculating One</h3>
+
+      <div class="avatar">
+
+        <div class="avatar-symbol">
+          ◇
+        </div>
+
+      </div>
+
+      <h3>
+        The Calculating One
+      </h3>
+
       <p class="description">
         Cold, intelligent and impossible to read.
       </p>
-      <p class="stats">💬 2.4k chats · 🖤 Dark</p>
-      <a class="button" href="#">Start Chat</a>
+
+      <p class="stats">
+        2.4k chats · Dark
+      </p>
+
+      <a
+        class="button"
+        href="#"
+      >
+        Start Chat
+      </a>
+
     </div>
 
+
+    <!-- CHARACTER 2 -->
+
     <div class="card">
-      <div class="avatar">🌹</div>
-      <h3>The Dangerous Lover</h3>
+
+      <div class="avatar">
+
+        <div class="avatar-symbol">
+          ❧
+        </div>
+
+      </div>
+
+      <h3>
+        The Dangerous Lover
+      </h3>
+
       <p class="description">
         Charming, possessive and full of secrets.
       </p>
-      <p class="stats">💬 8.1k chats · 🌹 Romance</p>
-      <a class="button" href="#">Start Chat</a>
+
+      <p class="stats">
+        8.1k chats · Romance
+      </p>
+
+      <a
+        class="button"
+        href="#"
+      >
+        Start Chat
+      </a>
+
     </div>
 
+
+    <!-- CHARACTER 3 -->
+
     <div class="card">
-      <div class="avatar">🌙</div>
-      <h3>The Mysterious Stranger</h3>
+
+      <div class="avatar">
+
+        <div class="avatar-symbol">
+          ◌
+        </div>
+
+      </div>
+
+      <h3>
+        The Mysterious Stranger
+      </h3>
+
       <p class="description">
         A stranger who seems to know you already.
       </p>
-      <p class="stats">💬 1.2k chats · 🔮 Mystery</p>
-      <a class="button" href="#">Start Chat</a>
+
+      <p class="stats">
+        1.2k chats · Mystery
+      </p>
+
+      <a
+        class="button"
+        href="#"
+      >
+        Start Chat
+      </a>
+
     </div>
 
   </div>
 
-  <h2 class="section-title">✨ Explore</h2>
+
+  <!-- EXPLORE -->
+
+  <h2 class="section-title">
+    Explore
+  </h2>
+
 
   <div class="categories">
-    <div class="category">🌹 Romance</div>
-    <div class="category">🖤 Dark</div>
-    <div class="category">🔮 Mystery</div>
-    <div class="category">🧙 Fantasy</div>
-    <div class="category">🔥 Trending</div>
+
+    <div class="category">
+      Romance
+    </div>
+
+    <div class="category">
+      Dark
+    </div>
+
+    <div class="category">
+      Mystery
+    </div>
+
+    <div class="category">
+      Fantasy
+    </div>
+
+    <div class="category">
+      Trending
+    </div>
+
   </div>
 
 </div>
 
+
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
-  Sophie AI · A world of characters and stories.
+
+  Mori · A place where stories live.
+
 </footer>
+
 
 </body>
 </html>

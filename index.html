@@ -5,15 +5,11 @@
 
 <meta charset="UTF-8">
 
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Mori</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link
@@ -27,26 +23,25 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
 }
 
 body {
-  margin: 0;
-
   background:
     radial-gradient(
       circle at 10% 0%,
       rgba(67, 35, 78, 0.18),
       transparent 32%
     ),
-
     radial-gradient(
       circle at 92% 12%,
       rgba(70, 22, 38, 0.12),
       transparent 30%
     ),
-
     #070609;
 
   color: #eee9f0;
@@ -55,11 +50,12 @@ body {
 }
 
 
-/* =========================
-   HEADER
-========================= */
+/* HEADER */
 
 header {
+  position: relative;
+  z-index: 10;
+
   padding: 30px 7% 27px;
 
   background: rgba(7, 6, 9, 0.96);
@@ -69,26 +65,18 @@ header {
 
 .logo {
   display: flex;
-
   align-items: center;
-
   gap: 9px;
 
   color: #e2d8e5;
 
   font-size: 29px;
-
   font-weight: 600;
-
-  letter-spacing: 0.3px;
 }
 
 .logo-symbol {
   color: #9977a3;
-
   font-size: 23px;
-
-  line-height: 1;
 }
 
 .tagline {
@@ -97,35 +85,32 @@ header {
   color: #817783;
 
   font-size: 13px;
-
-  font-weight: 400;
 }
 
 
-/* =========================
-   MAIN
-========================= */
+/* MAIN */
 
 .container {
-  width: 86%;
+  position: relative;
+  z-index: 5;
 
+  width: 86%;
   max-width: 1200px;
 
   margin: 38px auto;
 }
 
 
-/* =========================
-   SEARCH
-========================= */
+/* SEARCH */
 
 .search {
+  display: block;
+
   width: 100%;
 
   padding: 15px 19px;
 
   border: 1px solid #28212d;
-
   border-radius: 13px;
 
   background: #0d0a10;
@@ -135,45 +120,23 @@ header {
   outline: none;
 
   font-family: "Quicksand", sans-serif;
-
   font-size: 13px;
-
-  font-weight: 500;
-}
-
-.search::placeholder {
-  color: #655d69;
-}
-
-.search:focus {
-  border-color: #50385a;
-
-  box-shadow:
-    0 0 0 3px
-    rgba(92, 57, 103, 0.08);
 }
 
 
-/* =========================
-   SECTION TITLE
-========================= */
+/* TITLES */
 
 .section-title {
-  margin-top: 46px;
-
-  margin-bottom: 19px;
+  margin: 46px 0 19px;
 
   color: #dcd2df;
 
   font-size: 20px;
-
   font-weight: 600;
 }
 
 
-/* =========================
-   CHARACTER GRID
-========================= */
+/* CARDS */
 
 .characters {
   display: grid;
@@ -187,12 +150,11 @@ header {
   gap: 22px;
 }
 
-
-/* =========================
-   CARD
-========================= */
-
 .card {
+  position: relative;
+
+  z-index: 10;
+
   overflow: hidden;
 
   padding: 14px;
@@ -207,41 +169,23 @@ header {
   border: 1px solid #261e2a;
 
   border-radius: 18px;
-
-  box-shadow:
-    0 12px 30px
-    rgba(0, 0, 0, 0.48);
-
-  transition:
-    transform 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-
   border-color: #4d3754;
-
-  box-shadow:
-    0 18px 42px
-    rgba(0, 0, 0, 0.72);
 }
 
 
-/* =========================
-   CHARACTER IMAGE
-========================= */
+/* AVATAR */
 
 .avatar {
-  height: 190px;
-
   position: relative;
+
+  height: 190px;
 
   display: flex;
 
   align-items: center;
-
   justify-content: center;
 
   overflow: hidden;
@@ -256,50 +200,15 @@ header {
       rgba(103, 59, 112, 0.24),
       transparent 34%
     ),
-
     radial-gradient(
       circle at 75% 80%,
       rgba(103, 31, 48, 0.17),
       transparent 35%
     ),
-
     linear-gradient(
       145deg,
       #19101c,
       #09070b 72%
-    );
-}
-
-.avatar::before {
-  content: "";
-
-  position: absolute;
-
-  width: 120px;
-
-  height: 120px;
-
-  border-radius: 50%;
-
-  background:
-    rgba(106, 72, 115, 0.07);
-
-  filter: blur(25px);
-}
-
-.avatar::after {
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
-
-  background:
-    linear-gradient(
-      135deg,
-      transparent 30%,
-      rgba(157, 112, 169, 0.05),
-      transparent 68%
     );
 }
 
@@ -312,15 +221,11 @@ header {
 
   font-size: 36px;
 
-  font-weight: 400;
-
   opacity: 0.6;
 }
 
 
-/* =========================
-   CARD TEXT
-========================= */
+/* TEXT */
 
 .card h3 {
   margin: 16px 0 7px;
@@ -328,7 +233,6 @@ header {
   color: #d9cedc;
 
   font-size: 17px;
-
   font-weight: 600;
 }
 
@@ -350,23 +254,28 @@ header {
   color: #625a65;
 
   font-size: 11px;
-
-  font-weight: 500;
 }
 
 
-/* =========================
-   BUTTON
-========================= */
+/* REAL BUTTON */
 
-.button {
+.chat-button {
+
+  position: relative;
+
+  z-index: 100;
+
   display: block;
+
+  width: 100%;
 
   margin-top: 15px;
 
-  padding: 11px;
+  padding: 12px;
 
-  color: #e9e2ec;
+  border: 1px solid #45304b;
+
+  border-radius: 10px;
 
   background:
     linear-gradient(
@@ -375,13 +284,7 @@ header {
       #391c29
     );
 
-  border: 1px solid #45304b;
-
-  border-radius: 10px;
-
-  text-align: center;
-
-  text-decoration: none;
+  color: #e9e2ec;
 
   font-family: "Quicksand", sans-serif;
 
@@ -389,10 +292,16 @@ header {
 
   font-weight: 600;
 
-  transition: 0.2s;
+  text-align: center;
+
+  cursor: pointer;
+
+  pointer-events: auto;
+
+  -webkit-appearance: none;
 }
 
-.button:hover {
+.chat-button:hover {
   background:
     linear-gradient(
       90deg,
@@ -404,9 +313,7 @@ header {
 }
 
 
-/* =========================
-   CATEGORIES
-========================= */
+/* CATEGORIES */
 
 .categories {
   display: flex;
@@ -428,22 +335,10 @@ header {
   border-radius: 30px;
 
   font-size: 12px;
-
-  font-weight: 500;
-}
-
-.category:hover {
-  color: #c7b8cb;
-
-  background: #151018;
-
-  border-color: #49344f;
 }
 
 
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 
 footer {
   margin-top: 75px;
@@ -460,9 +355,7 @@ footer {
 }
 
 
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
 @media (max-width: 600px) {
 
@@ -472,22 +365,6 @@ footer {
 
   .container {
     width: 88%;
-  }
-
-  .logo {
-    font-size: 27px;
-  }
-
-  .logo-symbol {
-    font-size: 21px;
-  }
-
-  .tagline {
-    font-size: 12px;
-  }
-
-  .section-title {
-    font-size: 19px;
   }
 
   .avatar {
@@ -503,8 +380,6 @@ footer {
 
 <body>
 
-
-<!-- HEADER -->
 
 <header>
 
@@ -527,12 +402,8 @@ footer {
 </header>
 
 
-<!-- MAIN -->
-
 <div class="container">
 
-
-  <!-- SEARCH -->
 
   <input
     class="search"
@@ -540,8 +411,6 @@ footer {
     placeholder="Search characters..."
   >
 
-
-  <!-- TRENDING -->
 
   <h2 class="section-title">
     Trending Characters
@@ -551,16 +420,14 @@ footer {
   <div class="characters">
 
 
-    <!-- CALCULATING ONE -->
+    <!-- CHARACTER 1 -->
 
     <div class="card">
 
       <div class="avatar">
-
         <div class="avatar-symbol">
           ◇
         </div>
-
       </div>
 
       <h3>
@@ -575,26 +442,24 @@ footer {
         2.4k chats · Dark
       </p>
 
-      <a
-        class="button"
-        href="chat.html"
+      <button
+        class="chat-button"
+        onclick="goToChat('The Calculating One')"
       >
         Start Chat
-      </a>
+      </button>
 
     </div>
 
 
-    <!-- DANGEROUS LOVER -->
+    <!-- CHARACTER 2 -->
 
     <div class="card">
 
       <div class="avatar">
-
         <div class="avatar-symbol">
           ❧
         </div>
-
       </div>
 
       <h3>
@@ -609,26 +474,24 @@ footer {
         8.1k chats · Romance
       </p>
 
-      <a
-        class="button"
-        href="chat.html"
+      <button
+        class="chat-button"
+        onclick="goToChat('The Dangerous Lover')"
       >
         Start Chat
-      </a>
+      </button>
 
     </div>
 
 
-    <!-- MYSTERIOUS STRANGER -->
+    <!-- CHARACTER 3 -->
 
     <div class="card">
 
       <div class="avatar">
-
         <div class="avatar-symbol">
           ◌
         </div>
-
       </div>
 
       <h3>
@@ -643,20 +506,18 @@ footer {
         1.2k chats · Mystery
       </p>
 
-      <a
-        class="button"
-        href="chat.html"
+      <button
+        class="chat-button"
+        onclick="goToChat('The Mysterious Stranger')"
       >
         Start Chat
-      </a>
+      </button>
 
     </div>
 
 
   </div>
 
-
-  <!-- EXPLORE -->
 
   <h2 class="section-title">
     Explore
@@ -691,13 +552,22 @@ footer {
 </div>
 
 
-<!-- FOOTER -->
-
 <footer>
-
   Mori · A place where stories live.
-
 </footer>
+
+
+<script>
+
+function goToChat(character) {
+
+  window.location.href =
+    "chat.html?character=" +
+    encodeURIComponent(character);
+
+}
+
+</script>
 
 
 </body>

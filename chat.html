@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8">
 
   <meta
@@ -13,7 +12,6 @@
   <title>The Dangerous Lover · Mori</title>
 
   <style>
-
     * {
       box-sizing: border-box;
     }
@@ -21,7 +19,6 @@
     body {
       margin: 0;
       min-height: 100vh;
-
       background:
         radial-gradient(
           circle at 12% 0%,
@@ -34,13 +31,8 @@
           transparent 32%
         ),
         #070609;
-
       color: #e4d9e7;
-
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+      font-family: Georgia, "Times New Roman", serif;
     }
 
     .page {
@@ -51,13 +43,9 @@
 
     .back {
       display: inline-block;
-
       margin-bottom: 45px;
-
       color: #9b79a5;
-
       font-size: 14px;
-
       text-decoration: none;
     }
 
@@ -67,39 +55,28 @@
 
     .intro {
       margin-bottom: 42px;
-
       color: #817783;
-
       font-size: 13px;
-
       line-height: 1.6;
-
       text-align: center;
     }
 
     .name {
       display: block;
-
       margin-bottom: 7px;
-
       color: #e4d9e7;
-
       font-size: 27px;
-
       font-weight: 500;
     }
 
     #messages {
       display: flex;
-
       flex-direction: column;
-
       gap: 18px;
     }
 
     .message {
       display: flex;
-
       width: 100%;
     }
 
@@ -113,79 +90,53 @@
 
     .bubble {
       max-width: 75%;
-
       padding: 12px 15px;
-
       border-radius: 12px;
-
       font-size: 14px;
-
       line-height: 1.6;
     }
 
     .message.ai .bubble {
       background: #151018;
-
       border: 1px solid #2b202f;
-
       color: #ddd1e0;
-
       border-bottom-left-radius: 4px;
     }
 
     .message.user .bubble {
       background: #302039;
-
       border: 1px solid #49344f;
-
       color: #eee5f0;
-
       border-bottom-right-radius: 4px;
     }
 
     .input-area {
       position: fixed;
-
       left: 0;
       right: 0;
       bottom: 0;
-
       padding: 15px 20px;
-
       background: rgba(7, 6, 9, 0.97);
-
       border-top: 1px solid #211a25;
     }
 
     .input-inner {
       display: flex;
-
       width: min(700px, 100%);
-
       margin: 0 auto;
-
       gap: 10px;
     }
 
     #messageInput {
       flex: 1;
-
       min-width: 0;
-
       padding: 12px 14px;
-
       background: #0f0c12;
-
       border: 1px solid #302638;
-
       border-radius: 10px;
-
       outline: none;
-
       color: #e9e2ec;
-
       font-family: inherit;
-
       font-size: 14px;
     }
 
@@ -199,17 +150,11 @@
 
     #sendButton {
       padding: 0 18px;
-
       background: #392347;
-
       border: 1px solid #51315f;
-
       border-radius: 10px;
-
       color: #e9e2ec;
-
       font-family: inherit;
-
       cursor: pointer;
     }
 
@@ -219,20 +164,14 @@
 
     #sendButton:disabled {
       opacity: 0.55;
-
       cursor: wait;
     }
-
   </style>
-
 </head>
-
 
 <body>
 
-
   <main class="page">
-
 
     <a
       class="back"
@@ -240,7 +179,6 @@
     >
       ← Mori
     </a>
-
 
     <div class="intro">
 
@@ -252,47 +190,33 @@
 
     </div>
 
-
     <div id="messages">
 
-
       <div class="message ai">
-
         <div class="bubble">
           You finally came.
         </div>
-
       </div>
 
-
       <div class="message user">
-
         <div class="bubble">
           Who are you?
         </div>
-
       </div>
 
-
       <div class="message ai">
-
         <div class="bubble">
           Someone you probably shouldn't trust.
         </div>
-
       </div>
-
 
     </div>
 
-
   </main>
-
 
   <div class="input-area">
 
     <div class="input-inner">
-
 
       <input
         id="messageInput"
@@ -301,7 +225,6 @@
         autocomplete="off"
       >
 
-
       <button
         id="sendButton"
         type="button"
@@ -309,11 +232,9 @@
         Send
       </button>
 
-
     </div>
 
   </div>
-
 
   <script>
 
@@ -326,28 +247,24 @@
     const messages =
       document.getElementById("messages");
 
-
     const API_URL =
       "https://mori-airp.onrender.com/chat";
 
 
     async function sendMessage() {
 
-      const text =
-        input.value.trim();
-
+      const text = input.value.trim();
 
       if (!text) {
         return;
       }
 
-
+      // Add user's message
       const userMessage =
         document.createElement("div");
 
       userMessage.className =
         "message user";
-
 
       const userBubble =
         document.createElement("div");
@@ -358,7 +275,6 @@
       userBubble.textContent =
         text;
 
-
       userMessage.appendChild(
         userBubble
       );
@@ -367,21 +283,18 @@
         userMessage
       );
 
-
       input.value = "";
 
-
       button.disabled = true;
-
       button.textContent = "...";
 
 
+      // Temporary AI bubble
       const aiMessage =
         document.createElement("div");
 
       aiMessage.className =
         "message ai";
-
 
       const aiBubble =
         document.createElement("div");
@@ -390,8 +303,7 @@
         "bubble";
 
       aiBubble.textContent =
-        "...";
-
+        "Thinking...";
 
       aiMessage.appendChild(
         aiBubble
@@ -427,12 +339,10 @@
 
 
         if (!response.ok) {
-
           throw new Error(
             data.error ||
             "Server error"
           );
-
         }
 
 
@@ -447,17 +357,15 @@
           error
         );
 
-
         aiBubble.textContent =
-          "Something went wrong. Please try again.";
+          "I couldn't reach Mori right now.";
+
+      } finally {
+
+        button.disabled = false;
+        button.textContent = "Send";
 
       }
-
-
-      button.disabled = false;
-
-      button.textContent =
-        "Send";
 
     }
 
@@ -484,7 +392,6 @@
     );
 
   </script>
-
 
 </body>
 

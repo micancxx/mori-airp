@@ -12,333 +12,7 @@
 
   <title>Mori</title>
 
-  <style>
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-
-      background:
-        radial-gradient(
-          circle at 15% 0%,
-          rgba(75, 38, 92, 0.22),
-          transparent 35%
-        ),
-        radial-gradient(
-          circle at 90% 20%,
-          rgba(67, 24, 49, 0.15),
-          transparent 32%
-        ),
-        #070609;
-
-      color: #e5dce8;
-
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-    }
-
-
-    .container {
-      width: min(1100px, 92%);
-      margin: 0 auto;
-      padding: 35px 0 70px;
-    }
-
-
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      margin-bottom: 70px;
-    }
-
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-
-      color: #e8deeb;
-
-      font-size: 24px;
-      letter-spacing: 1px;
-    }
-
-
-    .logo-symbol {
-      color: #9d78aa;
-      font-size: 25px;
-    }
-
-
-    .search {
-      width: 220px;
-
-      padding:
-        10px
-        14px;
-
-      background: #0f0c12;
-
-      border:
-        1px solid
-        #302638;
-
-      border-radius: 9px;
-
-      outline: none;
-
-      color: #e5dce8;
-
-      font-family: inherit;
-    }
-
-
-    .search::placeholder {
-      color: #665d69;
-    }
-
-
-    .search:focus {
-      border-color: #4c3654;
-    }
-
-
-    .title {
-      margin-bottom: 35px;
-    }
-
-
-    .title h1 {
-      margin: 0 0 8px;
-
-      font-size: 32px;
-      font-weight: 500;
-    }
-
-
-    .title p {
-      margin: 0;
-
-      color: #817783;
-
-      font-size: 14px;
-    }
-
-
-    .characters {
-      display: grid;
-
-      grid-template-columns:
-        repeat(
-          auto-fit,
-          minmax(260px, 1fr)
-        );
-
-      gap: 22px;
-    }
-
-
-    .card {
-      padding: 25px;
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(28, 20, 31, 0.95),
-          rgba(13, 11, 16, 0.98)
-        );
-
-      border:
-        1px solid
-        #2a202e;
-
-      border-radius: 16px;
-
-      transition:
-        transform 0.2s ease,
-        border-color 0.2s ease,
-        background 0.2s ease;
-    }
-
-
-    .card:hover {
-      transform: translateY(-4px);
-
-      border-color:
-        #493653;
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(35, 25, 40, 0.98),
-          rgba(15, 12, 18, 0.98)
-        );
-    }
-
-
-    .avatar {
-      width: 58px;
-      height: 58px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      margin-bottom: 22px;
-
-      background: #171119;
-
-      border:
-        1px solid
-        #38293e;
-
-      border-radius: 50%;
-    }
-
-
-    .avatar-symbol {
-      color: #a27cab;
-      font-size: 25px;
-    }
-
-
-    .card h3 {
-      margin: 0 0 10px;
-
-      color: #e6dce8;
-
-      font-size: 21px;
-      font-weight: 500;
-    }
-
-
-    .description {
-      min-height: 42px;
-
-      margin: 0 0 16px;
-
-      color: #9a8e9d;
-
-      font-size: 13px;
-
-      line-height: 1.6;
-    }
-
-
-    .stats {
-      margin: 0 0 22px;
-
-      color: #655c68;
-
-      font-size: 11px;
-    }
-
-
-    .chat-button {
-      display: inline-block;
-
-      padding:
-        10px
-        17px;
-
-      background: #302039;
-
-      border:
-        1px solid
-        #493452;
-
-      border-radius: 9px;
-
-      color: #e8deeb;
-
-      font-size: 13px;
-
-      text-decoration: none;
-
-      transition:
-        background 0.2s ease;
-    }
-
-
-    .chat-button:hover {
-      background: #46304f;
-    }
-
-
-    .categories {
-      display: flex;
-
-      flex-wrap: wrap;
-
-      gap: 9px;
-
-      margin-top: 45px;
-    }
-
-
-    .category {
-      padding:
-        7px
-        12px;
-
-      background: #100c13;
-
-      border:
-        1px solid
-        #29202e;
-
-      border-radius: 20px;
-
-      color: #817783;
-
-      font-size: 11px;
-    }
-
-
-    footer {
-      margin-top: 60px;
-
-      color: #5d5561;
-
-      font-size: 12px;
-
-      text-align: center;
-    }
-
-
-    @media (max-width: 600px) {
-
-      header {
-        align-items: flex-start;
-
-        flex-direction: column;
-
-        gap: 20px;
-
-        margin-bottom: 50px;
-      }
-
-
-      .search {
-        width: 100%;
-      }
-
-
-      .title h1 {
-        font-size: 28px;
-      }
-
-    }
-
-  </style>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 </head>
 
@@ -346,270 +20,387 @@
 <body>
 
 
-  <div class="container">
+<header>
 
+  <div class="logo">
 
-    <header>
+    <span class="logo-symbol">
+      𓆱
+    </span>
 
-      <div class="logo">
+    <span>
+      Mori
+    </span>
 
-        <span class="logo-symbol">
-          𓆱
-        </span>
+  </div>
 
-        <span>
-          Mori
-        </span>
 
-      </div>
+  <input
+    class="search"
+    type="text"
+    placeholder="Search characters..."
+    id="searchInput"
+  >
 
 
-      <input
-        class="search"
-        type="text"
-        placeholder="Search characters..."
-        id="searchInput"
-      >
+  <button
+    id="googleLogin"
+    type="button"
+  >
+    Continue with Google
+  </button>
 
-    </header>
 
+  <button
+    id="logoutButton"
+    type="button"
+    style="display:none;"
+  >
+    Sign out
+  </button>
 
-    <section class="title">
+</header>
 
-      <h1>
-        Choose someone to talk to.
-      </h1>
 
-      <p>
-        Every story begins with a conversation.
-      </p>
+<section class="title">
 
-    </section>
+  <h1>
+    Choose someone to talk to.
+  </h1>
 
+  <p>
+    Every story begins with a conversation.
+  </p>
 
-    <section
-      class="characters"
-      id="characters"
-    >
+</section>
 
 
-      <!-- THE CALCULATING ONE -->
+<section
+  class="characters"
+  id="characters"
+>
 
-      <div
-        class="card"
-        data-name="The Calculating One"
-      >
 
-        <div class="avatar">
+  <!-- THE CALCULATING ONE -->
 
-          <div class="avatar-symbol">
-            ◇
-          </div>
+  <div
+    class="card"
+    data-name="The Calculating One"
+  >
 
-        </div>
+    <div class="avatar">
 
-
-        <h3>
-          The Calculating One
-        </h3>
-
-
-        <p class="description">
-          Cold, intelligent and impossible to read.
-        </p>
-
-
-        <p class="stats">
-          2.4k chats · Dark
-        </p>
-
-
-        <a
-          class="chat-button"
-          href="chat.html?character=calculating"
-        >
-          Start Chat
-        </a>
-
-      </div>
-
-
-
-      <!-- THE DANGEROUS LOVER -->
-
-      <div
-        class="card"
-        data-name="The Dangerous Lover"
-      >
-
-        <div class="avatar">
-
-          <div class="avatar-symbol">
-            ❧
-          </div>
-
-        </div>
-
-
-        <h3>
-          The Dangerous Lover
-        </h3>
-
-
-        <p class="description">
-          Charming, possessive and full of secrets.
-        </p>
-
-
-        <p class="stats">
-          8.1k chats · Romance
-        </p>
-
-
-        <a
-          class="chat-button"
-          href="chat.html?character=lover"
-        >
-          Start Chat
-        </a>
-
-      </div>
-
-
-
-      <!-- THE MYSTERIOUS STRANGER -->
-
-      <div
-        class="card"
-        data-name="The Mysterious Stranger"
-      >
-
-        <div class="avatar">
-
-          <div class="avatar-symbol">
-            ◌
-          </div>
-
-        </div>
-
-
-        <h3>
-          The Mysterious Stranger
-        </h3>
-
-
-        <p class="description">
-          A stranger who seems to know you already.
-        </p>
-
-
-        <p class="stats">
-          1.2k chats · Mystery
-        </p>
-
-
-        <a
-          class="chat-button"
-          href="chat.html?character=stranger"
-        >
-          Start Chat
-        </a>
-
-      </div>
-
-
-    </section>
-
-
-    <div class="categories">
-
-      <div class="category">
-        Romance
-      </div>
-
-      <div class="category">
-        Dark
-      </div>
-
-      <div class="category">
-        Mystery
-      </div>
-
-      <div class="category">
-        Fantasy
-      </div>
-
-      <div class="category">
-        Trending
+      <div class="avatar-symbol">
+        ◇
       </div>
 
     </div>
 
 
-    <footer>
-      Mori · A place where stories live.
-    </footer>
+    <h3>
+      The Calculating One
+    </h3>
 
+
+    <p class="description">
+      Cold, intelligent and impossible to read.
+    </p>
+
+
+    <p class="stats">
+      2.4k chats · Dark
+    </p>
+
+
+    <a
+      class="chat-button"
+      href="chat.html?character=calculating"
+    >
+      Start Chat
+    </a>
 
   </div>
 
 
 
-  <script>
+  <!-- THE DANGEROUS LOVER -->
 
-    const searchInput =
-      document.getElementById(
-        "searchInput"
+  <div
+    class="card"
+    data-name="The Dangerous Lover"
+  >
+
+    <div class="avatar">
+
+      <div class="avatar-symbol">
+        ❧
+      </div>
+
+    </div>
+
+
+    <h3>
+      The Dangerous Lover
+    </h3>
+
+
+    <p class="description">
+      Charming, possessive and full of secrets.
+    </p>
+
+
+    <p class="stats">
+      8.1k chats · Romance
+    </p>
+
+
+    <a
+      class="chat-button"
+      href="chat.html?character=lover"
+    >
+      Start Chat
+    </a>
+
+  </div>
+
+
+
+  <!-- THE MYSTERIOUS STRANGER -->
+
+  <div
+    class="card"
+    data-name="The Mysterious Stranger"
+  >
+
+    <div class="avatar">
+
+      <div class="avatar-symbol">
+        ◌
+      </div>
+
+    </div>
+
+
+    <h3>
+      The Mysterious Stranger
+    </h3>
+
+
+    <p class="description">
+      A stranger who seems to know you already.
+    </p>
+
+
+    <p class="stats">
+      1.2k chats · Mystery
+    </p>
+
+
+    <a
+      class="chat-button"
+      href="chat.html?character=stranger"
+    >
+      Start Chat
+    </a>
+
+  </div>
+
+
+</section>
+
+
+<div class="categories">
+
+  <div class="category">
+    Romance
+  </div>
+
+  <div class="category">
+    Dark
+  </div>
+
+  <div class="category">
+    Mystery
+  </div>
+
+  <div class="category">
+    Fantasy
+  </div>
+
+  <div class="category">
+    Trending
+  </div>
+
+</div>
+
+
+<footer>
+  Mori · A place where stories live.
+</footer>
+
+
+<script>
+
+const SUPABASE_URL =
+  "https://luidkakxsmmrpnsoycof.supabase.co";
+
+const SUPABASE_KEY =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx1aWRrYWt4c21tcnBuc295Y29mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY0OTgzNjEsImV4cCI6MjEwMjA3NDM2MX0.DeRQ5cRPaBfb3ex6nFMhJqOnX_3gLcTugZH6zBxoxVg";
+
+const supabaseClient =
+  window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
+
+
+const googleLogin =
+  document.getElementById("googleLogin");
+
+const logoutButton =
+  document.getElementById("logoutButton");
+
+
+googleLogin.addEventListener(
+  "click",
+  async () => {
+
+    const { error } =
+      await supabaseClient.auth.signInWithOAuth({
+
+        provider: "google",
+
+        options: {
+          redirectTo:
+            window.location.origin +
+            window.location.pathname
+        }
+
+      });
+
+
+    if (error) {
+
+      console.error(error);
+
+      alert(
+        "Google login failed."
       );
 
+    }
 
-    const cards =
-      document.querySelectorAll(
-        ".card"
-      );
-
-
-    searchInput.addEventListener(
-      "input",
-      function() {
-
-        const query =
-          searchInput.value
-            .toLowerCase()
-            .trim();
+  }
+);
 
 
-        cards.forEach(
-          function(card) {
+logoutButton.addEventListener(
+  "click",
+  async () => {
 
-            const name =
-              card
-                .dataset
-                .name
-                .toLowerCase();
+    await supabaseClient.auth.signOut();
+
+    updateLoginState();
+
+  }
+);
 
 
-            if (
-              name.includes(query)
-            ) {
+async function updateLoginState() {
 
-              card.style.display =
-                "";
+  const {
+    data: {
+      session
+    }
+  } =
+    await supabaseClient.auth.getSession();
 
-            } else {
 
-              card.style.display =
-                "none";
+  if (session) {
 
-            }
+    googleLogin.style.display =
+      "none";
 
-          }
-        );
+    logoutButton.style.display =
+      "inline-block";
+
+  } else {
+
+    googleLogin.style.display =
+      "inline-block";
+
+    logoutButton.style.display =
+      "none";
+
+  }
+
+}
+
+
+supabaseClient.auth.onAuthStateChange(
+  () => {
+
+    updateLoginState();
+
+  }
+);
+
+
+updateLoginState();
+
+
+
+/* SEARCH */
+
+const searchInput =
+  document.getElementById(
+    "searchInput"
+  );
+
+const cards =
+  document.querySelectorAll(
+    ".card"
+  );
+
+
+searchInput.addEventListener(
+  "input",
+  () => {
+
+    const search =
+      searchInput.value
+        .toLowerCase()
+        .trim();
+
+
+    cards.forEach(
+      (card) => {
+
+        const name =
+          card.dataset.name
+            .toLowerCase();
+
+
+        if (
+          name.includes(search)
+        ) {
+
+          card.style.display =
+            "";
+
+        } else {
+
+          card.style.display =
+            "none";
+
+        }
 
       }
     );
 
-  </script>
+  }
+);
+
+</script>
 
 
 </body>

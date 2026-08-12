@@ -3,508 +3,342 @@
 
 <head>
 
-<meta charset="UTF-8">
+  <meta charset="UTF-8">
 
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-<title>Mori</title>
+  <title>Mori</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+  <style>
 
-<link
-  rel="preconnect"
-  href="https://fonts.gstatic.com"
-  crossorigin
->
+    * {
+      box-sizing: border-box;
+    }
 
-<link
-  href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap"
-  rel="stylesheet"
->
+    body {
+      margin: 0;
+      min-height: 100vh;
 
-<style>
+      background:
+        radial-gradient(
+          circle at 15% 0%,
+          rgba(75, 38, 92, 0.22),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at 90% 20%,
+          rgba(67, 24, 49, 0.15),
+          transparent 32%
+        ),
+        #070609;
 
-* {
-  box-sizing: border-box;
-}
+      color: #e5dce8;
 
-html {
-  scroll-behavior: smooth;
-}
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+    }
 
-body {
-  margin: 0;
-  min-height: 100vh;
 
-  background:
-    radial-gradient(
-      circle at 12% 0%,
-      rgba(78, 43, 91, 0.20),
-      transparent 34%
-    ),
+    .container {
+      width: min(1100px, 92%);
+      margin: 0 auto;
+      padding: 35px 0 70px;
+    }
 
-    radial-gradient(
-      circle at 90% 20%,
-      rgba(74, 25, 45, 0.13),
-      transparent 32%
-    ),
 
-    #070609;
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
-  color: #eee9f0;
+      margin-bottom: 70px;
+    }
 
-  font-family:
-    "Quicksand",
-    sans-serif;
-}
 
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
 
-/* =========================
-   HEADER
-========================= */
+      color: #e8deeb;
 
-header {
-  padding: 30px 7% 27px;
+      font-size: 24px;
+      letter-spacing: 1px;
+    }
 
-  background:
-    rgba(7, 6, 9, 0.97);
 
-  border-bottom:
-    1px solid #211a25;
-}
+    .logo-symbol {
+      color: #9d78aa;
+      font-size: 25px;
+    }
 
-.logo {
-  display: flex;
 
-  align-items: center;
+    .search {
+      width: 220px;
 
-  gap: 10px;
+      padding:
+        10px
+        14px;
 
-  color: #e4d9e7;
+      background: #0f0c12;
 
-  font-size: 29px;
+      border:
+        1px solid
+        #302638;
 
-  font-weight: 600;
+      border-radius: 9px;
 
-  letter-spacing: 0.2px;
-}
+      outline: none;
 
-.logo-symbol {
-  color: #9b79a5;
+      color: #e5dce8;
 
-  font-size: 24px;
+      font-family: inherit;
+    }
 
-  line-height: 1;
-}
 
-.tagline {
-  margin-top: 6px;
+    .search::placeholder {
+      color: #665d69;
+    }
 
-  color: #817783;
 
-  font-size: 13px;
+    .search:focus {
+      border-color: #4c3654;
+    }
 
-  font-weight: 400;
-}
 
+    .title {
+      margin-bottom: 35px;
+    }
 
-/* =========================
-   MAIN
-========================= */
 
-.container {
-  width: 86%;
+    .title h1 {
+      margin: 0 0 8px;
 
-  max-width: 1200px;
+      font-size: 32px;
+      font-weight: 500;
+    }
 
-  margin: 38px auto;
-}
 
+    .title p {
+      margin: 0;
 
-/* =========================
-   SEARCH
-========================= */
+      color: #817783;
 
-.search {
-  display: block;
+      font-size: 14px;
+    }
 
-  width: 100%;
 
-  padding: 15px 19px;
+    .characters {
+      display: grid;
 
-  border:
-    1px solid #28212d;
+      grid-template-columns:
+        repeat(
+          auto-fit,
+          minmax(260px, 1fr)
+        );
 
-  border-radius: 13px;
+      gap: 22px;
+    }
 
-  background: #0d0a10;
 
-  color: #eee;
+    .card {
+      padding: 25px;
 
-  outline: none;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(28, 20, 31, 0.95),
+          rgba(13, 11, 16, 0.98)
+        );
 
-  font-family:
-    "Quicksand",
-    sans-serif;
+      border:
+        1px solid
+        #2a202e;
 
-  font-size: 13px;
+      border-radius: 16px;
 
-  font-weight: 500;
-}
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+    }
 
-.search::placeholder {
-  color: #655d69;
-}
 
-.search:focus {
-  border-color: #50385a;
+    .card:hover {
+      transform: translateY(-4px);
 
-  box-shadow:
-    0 0 0 3px
-    rgba(92, 57, 103, 0.08);
-}
+      border-color:
+        #493653;
 
+      background:
+        linear-gradient(
+          145deg,
+          rgba(35, 25, 40, 0.98),
+          rgba(15, 12, 18, 0.98)
+        );
+    }
 
-/* =========================
-   SECTION TITLE
-========================= */
 
-.section-title {
-  margin-top: 46px;
+    .avatar {
+      width: 58px;
+      height: 58px;
 
-  margin-bottom: 19px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-  color: #dcd2df;
+      margin-bottom: 22px;
 
-  font-size: 20px;
+      background: #171119;
 
-  font-weight: 600;
-}
+      border:
+        1px solid
+        #38293e;
 
+      border-radius: 50%;
+    }
 
-/* =========================
-   CHARACTER GRID
-========================= */
 
-.characters {
-  display: grid;
+    .avatar-symbol {
+      color: #a27cab;
+      font-size: 25px;
+    }
 
-  grid-template-columns:
-    repeat(
-      auto-fit,
-      minmax(230px, 1fr)
-    );
 
-  gap: 22px;
-}
+    .card h3 {
+      margin: 0 0 10px;
 
+      color: #e6dce8;
 
-/* =========================
-   CARD
-========================= */
+      font-size: 21px;
+      font-weight: 500;
+    }
 
-.card {
-  overflow: hidden;
 
-  padding: 14px;
+    .description {
+      min-height: 42px;
 
-  background:
-    linear-gradient(
-      145deg,
-      #110d13,
-      #08070a
-    );
+      margin: 0 0 16px;
 
-  border:
-    1px solid #261e2a;
+      color: #9a8e9d;
 
-  border-radius: 18px;
+      font-size: 13px;
 
-  box-shadow:
-    0 12px 30px
-    rgba(0, 0, 0, 0.48);
+      line-height: 1.6;
+    }
 
-  transition:
-    transform 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease;
-}
 
-.card:hover {
-  transform:
-    translateY(-5px);
+    .stats {
+      margin: 0 0 22px;
 
-  border-color:
-    #4d3754;
+      color: #655c68;
 
-  box-shadow:
-    0 18px 42px
-    rgba(0, 0, 0, 0.72);
-}
+      font-size: 11px;
+    }
 
 
-/* =========================
-   AVATAR
-========================= */
+    .chat-button {
+      display: inline-block;
 
-.avatar {
-  height: 190px;
+      padding:
+        10px
+        17px;
 
-  position: relative;
+      background: #302039;
 
-  display: flex;
+      border:
+        1px solid
+        #493452;
 
-  align-items: center;
+      border-radius: 9px;
 
-  justify-content: center;
+      color: #e8deeb;
 
-  overflow: hidden;
+      font-size: 13px;
 
-  border-radius: 14px;
+      text-decoration: none;
 
-  border:
-    1px solid #251c2a;
+      transition:
+        background 0.2s ease;
+    }
 
-  background:
 
-    radial-gradient(
-      circle at 45% 30%,
-      rgba(103, 59, 112, 0.24),
-      transparent 34%
-    ),
+    .chat-button:hover {
+      background: #46304f;
+    }
 
-    radial-gradient(
-      circle at 75% 80%,
-      rgba(103, 31, 48, 0.17),
-      transparent 35%
-    ),
 
-    linear-gradient(
-      145deg,
-      #19101c,
-      #09070b 72%
-    );
-}
+    .categories {
+      display: flex;
 
-.avatar::before {
-  content: "";
+      flex-wrap: wrap;
 
-  position: absolute;
+      gap: 9px;
 
-  width: 120px;
+      margin-top: 45px;
+    }
 
-  height: 120px;
 
-  border-radius: 50%;
+    .category {
+      padding:
+        7px
+        12px;
 
-  background:
-    rgba(106, 72, 115, 0.07);
+      background: #100c13;
 
-  filter:
-    blur(25px);
-}
+      border:
+        1px solid
+        #29202e;
 
-.avatar::after {
-  content: "";
+      border-radius: 20px;
 
-  position: absolute;
+      color: #817783;
 
-  inset: 0;
+      font-size: 11px;
+    }
 
-  background:
-    linear-gradient(
-      135deg,
-      transparent 30%,
-      rgba(157, 112, 169, 0.05),
-      transparent 68%
-    );
-}
 
-.avatar-symbol {
-  position: relative;
+    footer {
+      margin-top: 60px;
 
-  z-index: 2;
+      color: #5d5561;
 
-  color: #705a74;
+      font-size: 12px;
 
-  font-size: 36px;
+      text-align: center;
+    }
 
-  opacity: 0.65;
-}
 
+    @media (max-width: 600px) {
 
-/* =========================
-   TEXT
-========================= */
+      header {
+        align-items: flex-start;
 
-.card h3 {
-  margin:
-    16px 0 7px;
+        flex-direction: column;
 
-  color: #d9cedc;
+        gap: 20px;
 
-  font-size: 17px;
+        margin-bottom: 50px;
+      }
 
-  font-weight: 600;
-}
 
-.description {
-  margin: 0;
+      .search {
+        width: 100%;
+      }
 
-  min-height: 45px;
 
-  color: #8e8491;
+      .title h1 {
+        font-size: 28px;
+      }
 
-  font-size: 13px;
+    }
 
-  line-height: 1.6;
-}
-
-.stats {
-  margin:
-    12px 0 0;
-
-  color: #625a65;
-
-  font-size: 11px;
-}
-
-
-/* =========================
-   CHAT LINK
-========================= */
-
-.chat-button {
-  display: block;
-
-  width: 100%;
-
-  margin-top: 15px;
-
-  padding: 12px;
-
-  background:
-    linear-gradient(
-      90deg,
-      #34223b,
-      #391c29
-    );
-
-  border:
-    1px solid #45304b;
-
-  border-radius: 10px;
-
-  color: #e9e2ec;
-
-  text-align: center;
-
-  text-decoration: none;
-
-  font-family:
-    "Quicksand",
-    sans-serif;
-
-  font-size: 13px;
-
-  font-weight: 600;
-
-  cursor: pointer;
-}
-
-.chat-button:hover {
-  background:
-    linear-gradient(
-      90deg,
-      #472d50,
-      #4d2030
-    );
-
-  border-color:
-    #634267;
-}
-
-
-/* =========================
-   CATEGORIES
-========================= */
-
-.categories {
-  display: flex;
-
-  flex-wrap: wrap;
-
-  gap: 9px;
-}
-
-.category {
-  padding:
-    8px 16px;
-
-  color: #968a9b;
-
-  background: #0d0a10;
-
-  border:
-    1px solid #29212e;
-
-  border-radius: 30px;
-
-  font-size: 12px;
-
-  font-weight: 500;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-  margin-top: 75px;
-
-  padding: 30px;
-
-  color: #514a55;
-
-  border-top:
-    1px solid #19141c;
-
-  text-align: center;
-
-  font-size: 12px;
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 600px) {
-
-  header {
-    padding:
-      27px 6% 24px;
-  }
-
-  .container {
-    width: 88%;
-  }
-
-  .logo {
-    font-size: 27px;
-  }
-
-  .avatar {
-    height: 175px;
-  }
-
-}
-
-</style>
+  </style>
 
 </head>
 
@@ -512,188 +346,270 @@ footer {
 <body>
 
 
-<header>
-
-  <div class="logo">
-
-    <span class="logo-symbol">
-      𓆱
-    </span>
-
-    <span>
-      Mori
-    </span>
-
-  </div>
-
-  <div class="tagline">
-    A place where stories live.
-  </div>
-
-</header>
+  <div class="container">
 
 
-<div class="container">
+    <header>
 
+      <div class="logo">
 
-  <input
-    class="search"
-    type="text"
-    placeholder="Search characters..."
-  >
+        <span class="logo-symbol">
+          𓆱
+        </span>
 
-
-  <h2 class="section-title">
-    Trending Characters
-  </h2>
-
-
-  <div class="characters">
-
-
-    <!-- THE CALCULATING ONE -->
-
-    <div class="card">
-
-      <div class="avatar">
-
-        <div class="avatar-symbol">
-          ◇
-        </div>
+        <span>
+          Mori
+        </span>
 
       </div>
 
-      <h3>
-        The Calculating One
-      </h3>
 
-      <p class="description">
-        Cold, intelligent and impossible to read.
-      </p>
-
-      <p class="stats">
-        2.4k chats · Dark
-      </p>
-
-      <a
-        class="chat-button"
-        href="chat.html"
+      <input
+        class="search"
+        type="text"
+        placeholder="Search characters..."
+        id="searchInput"
       >
-        Start Chat
-      </a>
 
-    </div>
+    </header>
 
 
-    <!-- THE DANGEROUS LOVER -->
+    <section class="title">
 
-    <div class="card">
+      <h1>
+        Choose someone to talk to.
+      </h1>
 
-      <div class="avatar">
+      <p>
+        Every story begins with a conversation.
+      </p>
 
-        <div class="avatar-symbol">
-          ❧
+    </section>
+
+
+    <section
+      class="characters"
+      id="characters"
+    >
+
+
+      <!-- THE CALCULATING ONE -->
+
+      <div
+        class="card"
+        data-name="The Calculating One"
+      >
+
+        <div class="avatar">
+
+          <div class="avatar-symbol">
+            ◇
+          </div>
+
         </div>
+
+
+        <h3>
+          The Calculating One
+        </h3>
+
+
+        <p class="description">
+          Cold, intelligent and impossible to read.
+        </p>
+
+
+        <p class="stats">
+          2.4k chats · Dark
+        </p>
+
+
+        <a
+          class="chat-button"
+          href="chat.html?character=calculating"
+        >
+          Start Chat
+        </a>
 
       </div>
 
-      <h3>
-        The Dangerous Lover
-      </h3>
 
-      <p class="description">
-        Charming, possessive and full of secrets.
-      </p>
 
-      <p class="stats">
-        8.1k chats · Romance
-      </p>
+      <!-- THE DANGEROUS LOVER -->
 
-      <a
-        class="chat-button"
-        href="chat.html"
+      <div
+        class="card"
+        data-name="The Dangerous Lover"
       >
-        Start Chat
-      </a>
 
-    </div>
+        <div class="avatar">
 
+          <div class="avatar-symbol">
+            ❧
+          </div>
 
-    <!-- THE MYSTERIOUS STRANGER -->
-
-    <div class="card">
-
-      <div class="avatar">
-
-        <div class="avatar-symbol">
-          ◌
         </div>
+
+
+        <h3>
+          The Dangerous Lover
+        </h3>
+
+
+        <p class="description">
+          Charming, possessive and full of secrets.
+        </p>
+
+
+        <p class="stats">
+          8.1k chats · Romance
+        </p>
+
+
+        <a
+          class="chat-button"
+          href="chat.html?character=lover"
+        >
+          Start Chat
+        </a>
 
       </div>
 
-      <h3>
-        The Mysterious Stranger
-      </h3>
 
-      <p class="description">
-        A stranger who seems to know you already.
-      </p>
 
-      <p class="stats">
-        1.2k chats · Mystery
-      </p>
+      <!-- THE MYSTERIOUS STRANGER -->
 
-      <a
-        class="chat-button"
-        href="chat.html"
+      <div
+        class="card"
+        data-name="The Mysterious Stranger"
       >
-        Start Chat
-      </a>
+
+        <div class="avatar">
+
+          <div class="avatar-symbol">
+            ◌
+          </div>
+
+        </div>
+
+
+        <h3>
+          The Mysterious Stranger
+        </h3>
+
+
+        <p class="description">
+          A stranger who seems to know you already.
+        </p>
+
+
+        <p class="stats">
+          1.2k chats · Mystery
+        </p>
+
+
+        <a
+          class="chat-button"
+          href="chat.html?character=stranger"
+        >
+          Start Chat
+        </a>
+
+      </div>
+
+
+    </section>
+
+
+    <div class="categories">
+
+      <div class="category">
+        Romance
+      </div>
+
+      <div class="category">
+        Dark
+      </div>
+
+      <div class="category">
+        Mystery
+      </div>
+
+      <div class="category">
+        Fantasy
+      </div>
+
+      <div class="category">
+        Trending
+      </div>
 
     </div>
+
+
+    <footer>
+      Mori · A place where stories live.
+    </footer>
 
 
   </div>
 
 
-  <h2 class="section-title">
-    Explore
-  </h2>
+
+  <script>
+
+    const searchInput =
+      document.getElementById(
+        "searchInput"
+      );
 
 
-  <div class="categories">
-
-    <div class="category">
-      Romance
-    </div>
-
-    <div class="category">
-      Dark
-    </div>
-
-    <div class="category">
-      Mystery
-    </div>
-
-    <div class="category">
-      Fantasy
-    </div>
-
-    <div class="category">
-      Trending
-    </div>
-
-  </div>
+    const cards =
+      document.querySelectorAll(
+        ".card"
+      );
 
 
-</div>
+    searchInput.addEventListener(
+      "input",
+      function() {
+
+        const query =
+          searchInput.value
+            .toLowerCase()
+            .trim();
 
 
-<footer>
+        cards.forEach(
+          function(card) {
 
-  Mori · A place where stories live.
+            const name =
+              card
+                .dataset
+                .name
+                .toLowerCase();
 
-</footer>
+
+            if (
+              name.includes(query)
+            ) {
+
+              card.style.display =
+                "";
+
+            } else {
+
+              card.style.display =
+                "none";
+
+            }
+
+          }
+        );
+
+      }
+    );
+
+  </script>
 
 
 </body>

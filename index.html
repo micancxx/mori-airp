@@ -12,7 +12,6 @@
 
   <title>Mori</title>
 
-  <!-- Supabase -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <style>
@@ -26,14 +25,8 @@
       min-height: 100vh;
       background: #0d0d0f;
       color: #eee;
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+      font-family: Georgia, "Times New Roman", serif;
     }
-
-
-    /* HEADER */
 
     header {
       display: flex;
@@ -42,7 +35,6 @@
       padding: 28px 7%;
       border-bottom: 1px solid #242429;
     }
-
 
     .logo {
       display: flex;
@@ -54,12 +46,10 @@
       white-space: nowrap;
     }
 
-
     .logo-symbol {
       color: #c8a98a;
       font-size: 28px;
     }
-
 
     .search {
       flex: 1;
@@ -75,354 +65,195 @@
       font-size: 14px;
     }
 
-
     .search::placeholder {
       color: #77777f;
     }
-
 
     .search:focus {
       border-color: #67584d;
     }
 
-
-    /* LOGIN BUTTONS */
-
     #googleLogin,
     #logoutButton {
-
       border: 1px solid #3b3b43;
-
       border-radius: 25px;
-
       padding: 11px 18px;
-
       background: #17171b;
-
       color: #eee;
-
       cursor: pointer;
-
       font-family: inherit;
-
       white-space: nowrap;
-
       transition: 0.2s;
-
     }
-
 
     #googleLogin:hover,
     #logoutButton:hover {
-
       background: #242429;
-
       border-color: #77716b;
-
     }
 
-
-    /* TITLE */
+    #googleLogin:disabled,
+    #logoutButton:disabled {
+      opacity: 0.6;
+      cursor: default;
+    }
 
     .title {
-
       text-align: center;
-
       padding: 75px 20px 45px;
-
     }
-
 
     .title h1 {
-
       margin: 0 0 14px;
-
       font-size: 34px;
-
       font-weight: normal;
-
       letter-spacing: 0.3px;
-
     }
-
 
     .title p {
-
       margin: 0;
-
       color: #898990;
-
       font-size: 15px;
-
     }
-
-
-    /* CHARACTERS */
 
     .characters {
-
       width: 86%;
-
       max-width: 1100px;
-
       margin: 0 auto;
-
       display: grid;
-
-      grid-template-columns:
-        repeat(3, 1fr);
-
+      grid-template-columns: repeat(3, 1fr);
       gap: 24px;
-
     }
 
-
     .card {
-
       padding: 30px 25px 28px;
-
       min-height: 350px;
-
       border: 1px solid #29292f;
-
       border-radius: 16px;
-
-      background:
-        linear-gradient(
-          145deg,
-          #151519,
-          #101012
-        );
-
+      background: linear-gradient(145deg, #151519, #101012);
       text-align: center;
-
       transition:
         transform 0.25s,
         border-color 0.25s,
         box-shadow 0.25s;
-
     }
-
 
     .card:hover {
-
       transform: translateY(-5px);
-
       border-color: #49434a;
-
-      box-shadow:
-        0 15px 40px
-        rgba(0, 0, 0, 0.3);
-
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
     }
-
 
     .avatar {
-
       width: 76px;
-
       height: 76px;
-
       margin: 0 auto 22px;
-
       display: flex;
-
       align-items: center;
-
       justify-content: center;
-
       border: 1px solid #38383f;
-
       border-radius: 50%;
-
       background: #111114;
-
     }
-
 
     .avatar-symbol {
-
       color: #c5a88d;
-
       font-size: 29px;
-
     }
-
 
     .card h3 {
-
       margin: 0 0 13px;
-
       font-size: 21px;
-
       font-weight: normal;
-
     }
-
 
     .description {
-
       min-height: 42px;
-
       margin: 0 auto 18px;
-
       max-width: 250px;
-
       color: #98989f;
-
       font-size: 14px;
-
       line-height: 1.6;
-
     }
-
 
     .stats {
-
       margin: 0 0 24px;
-
       color: #66666e;
-
       font-size: 12px;
-
     }
-
 
     .chat-button {
-
       display: inline-block;
-
       padding: 10px 22px;
-
       border: 1px solid #48434a;
-
       border-radius: 25px;
-
       color: #eee;
-
       text-decoration: none;
-
       font-size: 13px;
-
       transition: 0.2s;
-
     }
-
 
     .chat-button:hover {
-
       background: #242126;
-
       border-color: #71645a;
-
     }
-
-
-    /* CATEGORIES */
 
     .categories {
-
       width: 86%;
-
       max-width: 1100px;
-
       margin: 45px auto 0;
-
       display: flex;
-
       justify-content: center;
-
       gap: 10px;
-
       flex-wrap: wrap;
-
     }
-
 
     .category {
-
       padding: 8px 16px;
-
       border: 1px solid #29292f;
-
       border-radius: 20px;
-
       color: #77777f;
-
       font-size: 12px;
-
     }
-
-
-    /* FOOTER */
 
     footer {
-
       padding: 55px 20px 30px;
-
       text-align: center;
-
       color: #55555c;
-
       font-size: 12px;
-
     }
-
-
-    /* MOBILE */
 
     @media (max-width: 800px) {
 
       header {
-
         flex-wrap: wrap;
-
         padding: 22px 6%;
-
       }
-
 
       .search {
-
         order: 3;
-
         width: 100%;
-
         max-width: none;
-
+        margin-left: 0;
       }
-
 
       #googleLogin,
       #logoutButton {
-
         margin-left: auto;
-
       }
-
 
       .title {
-
         padding-top: 55px;
-
       }
-
 
       .title h1 {
-
         font-size: 28px;
-
       }
 
-
       .characters {
-
         grid-template-columns: 1fr;
-
         width: 90%;
-
         max-width: 500px;
-
       }
 
     }
@@ -435,539 +266,495 @@
 <body>
 
 
-<header>
+  <header>
 
+    <div class="logo">
 
-  <div class="logo">
+      <span class="logo-symbol">
+        𓆱
+      </span>
 
-    <span class="logo-symbol">
-      𓆱
-    </span>
-
-    <span>
-      Mori
-    </span>
-
-  </div>
-
-
-  <input
-    class="search"
-    type="text"
-    placeholder="Search characters..."
-    id="searchInput"
-  >
-
-
-  <button
-    id="googleLogin"
-    type="button"
-  >
-    Continue with Google
-  </button>
-
-
-  <button
-    id="logoutButton"
-    type="button"
-    style="display: none;"
-  >
-    Sign out
-  </button>
-
-
-</header>
-
-
-<section class="title">
-
-  <h1>
-    Choose someone to talk to.
-  </h1>
-
-  <p>
-    Every story begins with a conversation.
-  </p>
-
-</section>
-
-
-<section
-  class="characters"
-  id="characters"
->
-
-
-  <!-- THE CALCULATING ONE -->
-
-  <div
-    class="card"
-    data-name="The Calculating One"
-  >
-
-    <div class="avatar">
-
-      <div class="avatar-symbol">
-        ◇
-      </div>
+      <span>
+        Mori
+      </span>
 
     </div>
 
 
-    <h3>
-      The Calculating One
-    </h3>
-
-
-    <p class="description">
-      Cold, intelligent and impossible to read.
-    </p>
-
-
-    <p class="stats">
-      2.4k chats · Dark
-    </p>
-
-
-    <a
-      class="chat-button"
-      href="chat.html?character=calculating"
+    <input
+      class="search"
+      type="text"
+      placeholder="Search characters..."
+      id="searchInput"
+      autocomplete="off"
     >
-      Start Chat
-    </a>
-
-  </div>
 
 
+    <button
+      id="googleLogin"
+      type="button"
+    >
+      Continue with Google
+    </button>
 
-  <!-- THE DANGEROUS LOVER -->
 
-  <div
-    class="card"
-    data-name="The Dangerous Lover"
+    <button
+      id="logoutButton"
+      type="button"
+      style="display: none;"
+    >
+      Sign out
+    </button>
+
+  </header>
+
+
+  <section class="title">
+
+    <h1>
+      Choose someone to talk to.
+    </h1>
+
+    <p>
+      Every story begins with a conversation.
+    </p>
+
+  </section>
+
+
+  <section
+    class="characters"
+    id="characters"
   >
 
-    <div class="avatar">
 
-      <div class="avatar-symbol">
-        ❧
+    <div
+      class="card"
+      data-name="The Calculating One"
+    >
+
+      <div class="avatar">
+
+        <div class="avatar-symbol">
+          ◇
+        </div>
+
       </div>
+
+      <h3>
+        The Calculating One
+      </h3>
+
+      <p class="description">
+        Cold, intelligent and impossible to read.
+      </p>
+
+      <p class="stats">
+        2.4k chats · Dark
+      </p>
+
+      <a
+        class="chat-button"
+        href="chat.html?character=calculating"
+      >
+        Start Chat
+      </a>
 
     </div>
 
 
-    <h3>
-      The Dangerous Lover
-    </h3>
-
-
-    <p class="description">
-      Charming, possessive and full of secrets.
-    </p>
-
-
-    <p class="stats">
-      8.1k chats · Romance
-    </p>
-
-
-    <a
-      class="chat-button"
-      href="chat.html?character=lover"
+    <div
+      class="card"
+      data-name="The Dangerous Lover"
     >
-      Start Chat
-    </a>
 
-  </div>
+      <div class="avatar">
 
+        <div class="avatar-symbol">
+          ❧
+        </div>
 
-
-  <!-- THE MYSTERIOUS STRANGER -->
-
-  <div
-    class="card"
-    data-name="The Mysterious Stranger"
-  >
-
-    <div class="avatar">
-
-      <div class="avatar-symbol">
-        ◌
       </div>
+
+      <h3>
+        The Dangerous Lover
+      </h3>
+
+      <p class="description">
+        Charming, possessive and full of secrets.
+      </p>
+
+      <p class="stats">
+        8.1k chats · Romance
+      </p>
+
+      <a
+        class="chat-button"
+        href="chat.html?character=lover"
+      >
+        Start Chat
+      </a>
 
     </div>
 
 
-    <h3>
-      The Mysterious Stranger
-    </h3>
-
-
-    <p class="description">
-      A stranger who seems to know you already.
-    </p>
-
-
-    <p class="stats">
-      1.2k chats · Mystery
-    </p>
-
-
-    <a
-      class="chat-button"
-      href="chat.html?character=stranger"
+    <div
+      class="card"
+      data-name="The Mysterious Stranger"
     >
-      Start Chat
-    </a>
+
+      <div class="avatar">
+
+        <div class="avatar-symbol">
+          ◌
+        </div>
+
+      </div>
+
+      <h3>
+        The Mysterious Stranger
+      </h3>
+
+      <p class="description">
+        A stranger who seems to know you already.
+      </p>
+
+      <p class="stats">
+        1.2k chats · Mystery
+      </p>
+
+      <a
+        class="chat-button"
+        href="chat.html?character=stranger"
+      >
+        Start Chat
+      </a>
+
+    </div>
+
+
+  </section>
+
+
+  <div class="categories">
+
+    <div class="category">
+      Romance
+    </div>
+
+    <div class="category">
+      Dark
+    </div>
+
+    <div class="category">
+      Mystery
+    </div>
+
+    <div class="category">
+      Fantasy
+    </div>
+
+    <div class="category">
+      Trending
+    </div>
 
   </div>
 
 
-</section>
+  <footer>
+    Mori · A place where stories live.
+  </footer>
 
 
-<div class="categories">
 
-  <div class="category">
-    Romance
-  </div>
+  <script>
 
-  <div class="category">
-    Dark
-  </div>
 
-  <div class="category">
-    Mystery
-  </div>
+    /* =========================
+       SUPABASE
+    ========================= */
 
-  <div class="category">
-    Fantasy
-  </div>
 
-  <div class="category">
-    Trending
-  </div>
+    const SUPABASE_URL =
+      "https://luidkakxsmmrpnsoycof.supabase.co";
 
-</div>
 
+    /*
+      把你刚才复制的 anon key
+      粘贴在下面这一行。
 
-<footer>
+      不要使用 service_role / secret key。
+    */
 
-  Mori · A place where stories live.
+    const SUPABASE_KEY =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx1aWRrYWt4c21tcnBuc295Y29mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY0OTgzNjEsImV4cCI6MjEwMjA3NDM2MX0.DeRQ5cRPaBfb3ex6nFMhJqOnX_3gLcTugZH6zBxoxVg;
 
-</footer>
 
+    const supabaseClient =
+      window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+      );
 
-<script>
 
 
-/* ========================================
-   SUPABASE
-======================================== */
+    /* =========================
+       ELEMENTS
+    ========================= */
 
 
-const SUPABASE_URL =
-  "https://luidkakxsmmrpnsoycof.supabase.co";
+    const googleLogin =
+      document.getElementById(
+        "googleLogin"
+      );
 
 
-const SUPABASE_KEY =
-  "把你之前的 anon key 粘贴在这里";
+    const logoutButton =
+      document.getElementById(
+        "logoutButton"
+      );
 
 
-const supabaseClient =
-  window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_KEY
-  );
+    const searchInput =
+      document.getElementById(
+        "searchInput"
+      );
 
 
-/* ========================================
-   ELEMENTS
-======================================== */
+    const cards =
+      document.querySelectorAll(
+        ".card"
+      );
 
 
-const googleLogin =
-  document.getElementById(
-    "googleLogin"
-  );
 
+    /* =========================
+       LOGIN UI
+    ========================= */
 
-const logoutButton =
-  document.getElementById(
-    "logoutButton"
-  );
 
+    async function updateLoginState() {
 
-/* ========================================
-   UPDATE LOGIN UI
-======================================== */
-
-
-async function updateLoginState() {
-
-  const {
-    data,
-    error
-  } =
-    await supabaseClient.auth.getSession();
-
-
-  if (error) {
-
-    console.error(
-      "Session error:",
-      error
-    );
-
-    return;
-
-  }
-
-
-  const session =
-    data.session;
-
-
-  console.log(
-    "Current session:",
-    session
-  );
-
-
-  if (session) {
-
-    googleLogin.style.display =
-      "none";
-
-
-    logoutButton.style.display =
-      "inline-block";
-
-
-  } else {
-
-    googleLogin.style.display =
-      "inline-block";
-
-
-    logoutButton.style.display =
-      "none";
-
-  }
-
-}
-
-
-/* ========================================
-   GOOGLE LOGIN
-======================================== */
-
-
-googleLogin.addEventListener(
-  "click",
-  async () => {
-
-    googleLogin.disabled =
-      true;
-
-
-    googleLogin.textContent =
-      "Connecting...";
-
-
-    const {
-      data,
-      error
-    } =
-      await supabaseClient.auth
-        .signInWithOAuth({
-
-          provider: "google",
-
-          options: {
-
-            redirectTo:
-              "https://micancxx.github.io/mori-airp/"
-
-          }
-
-        });
-
-
-    if (error) {
-
-      console.error(
-        "Google login error:",
+      const {
+        data,
         error
-      );
+      } =
+        await supabaseClient.auth.getSession();
 
 
-      alert(
-        "Google login failed:\n\n" +
-        error.message
-      );
+      if (error) {
+
+        console.error(
+          "Session error:",
+          error
+        );
+
+        return;
+      }
 
 
-      googleLogin.disabled =
-        false;
+      const session =
+        data.session;
 
 
-      googleLogin.textContent =
-        "Continue with Google";
+      if (session) {
 
+        googleLogin.style.display =
+          "none";
 
-      return;
+        logoutButton.style.display =
+          "inline-block";
+
+      } else {
+
+        googleLogin.style.display =
+          "inline-block";
+
+        logoutButton.style.display =
+          "none";
+      }
 
     }
 
 
-    console.log(
-      "OAuth started:",
-      data
-    );
 
-  }
-);
+    /* =========================
+       GOOGLE LOGIN
+    ========================= */
 
 
-/* ========================================
-   LOGOUT
-======================================== */
+    googleLogin.addEventListener(
+      "click",
+      async () => {
+
+        googleLogin.disabled =
+          true;
+
+        googleLogin.textContent =
+          "Connecting...";
 
 
-logoutButton.addEventListener(
-  "click",
-  async () => {
+        const {
+          error
+        } =
+          await supabaseClient.auth
+            .signInWithOAuth({
 
-    logoutButton.disabled =
-      true;
+              provider: "google",
 
+              options: {
 
-    const {
-      error
-    } =
-      await supabaseClient.auth
-        .signOut();
+                /*
+                  关键：
+                  登录完成后回到当前
+                  GitHub Pages 页面。
+                */
 
+                redirectTo:
+                  window.location.origin +
+                  window.location.pathname
 
-    if (error) {
+              }
 
-      console.error(
-        "Logout error:",
-        error
-      );
-
-
-      alert(
-        "Sign out failed:\n\n" +
-        error.message
-      );
+            });
 
 
-      logoutButton.disabled =
-        false;
+        if (error) {
 
+          console.error(
+            "Google login error:",
+            error
+          );
 
-      return;
+          alert(
+            "Google login failed:\n\n" +
+            error.message
+          );
 
-    }
+          googleLogin.disabled =
+            false;
 
-
-    logoutButton.disabled =
-      false;
-
-
-    updateLoginState();
-
-  }
-);
-
-
-/* ========================================
-   AUTH STATE
-======================================== */
-
-
-supabaseClient.auth.onAuthStateChange(
-  (event, session) => {
-
-    console.log(
-      "Auth event:",
-      event
-    );
-
-
-    updateLoginState();
-
-  }
-);
-
-
-/* ========================================
-   INITIAL SESSION CHECK
-======================================== */
-
-
-updateLoginState();
-
-
-/* ========================================
-   SEARCH
-======================================== */
-
-
-const searchInput =
-  document.getElementById(
-    "searchInput"
-  );
-
-
-const cards =
-  document.querySelectorAll(
-    ".card"
-  );
-
-
-searchInput.addEventListener(
-  "input",
-  () => {
-
-    const search =
-      searchInput.value
-        .toLowerCase()
-        .trim();
-
-
-    cards.forEach(
-      (card) => {
-
-        const name =
-          card.dataset.name
-            .toLowerCase();
-
-
-        if (
-          name.includes(search)
-        ) {
-
-          card.style.display =
-            "";
-
-        } else {
-
-          card.style.display =
-            "none";
+          googleLogin.textContent =
+            "Continue with Google";
 
         }
 
       }
     );
 
-  }
-);
 
 
-</script>
+    /* =========================
+       SIGN OUT
+    ========================= */
+
+
+    logoutButton.addEventListener(
+      "click",
+      async () => {
+
+        logoutButton.disabled =
+          true;
+
+
+        const {
+          error
+        } =
+          await supabaseClient.auth
+            .signOut();
+
+
+        if (error) {
+
+          console.error(
+            "Sign out error:",
+            error
+          );
+
+          alert(
+            "Sign out failed:\n\n" +
+            error.message
+          );
+
+        }
+
+
+        logoutButton.disabled =
+          false;
+
+
+        await updateLoginState();
+
+      }
+    );
+
+
+
+    /* =========================
+       AUTH STATE
+    ========================= */
+
+
+    supabaseClient.auth.onAuthStateChange(
+      (event, session) => {
+
+        console.log(
+          "Auth event:",
+          event
+        );
+
+        updateLoginState();
+
+      }
+    );
+
+
+
+    /* =========================
+       INITIAL SESSION
+    ========================= */
+
+
+    updateLoginState();
+
+
+
+    /* =========================
+       SEARCH
+    ========================= */
+
+
+    searchInput.addEventListener(
+      "input",
+      () => {
+
+        const search =
+          searchInput.value
+            .toLowerCase()
+            .trim();
+
+
+        cards.forEach(
+          (card) => {
+
+            const name =
+              card.dataset.name
+                .toLowerCase();
+
+
+            card.style.display =
+              name.includes(search)
+                ? ""
+                : "none";
+
+          }
+        );
+
+      }
+    );
+
+
+  </script>
 
 
 </body>

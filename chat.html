@@ -10,7 +10,7 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>The Dangerous Lover · Mori</title>
+  <title>Mori</title>
 
   <style>
 
@@ -24,18 +24,13 @@
 
       background:
         radial-gradient(
-          circle at 12% 0%,
-          rgba(78, 43, 91, 0.20),
-          transparent 34%
-        ),
-        radial-gradient(
-          circle at 90% 20%,
-          rgba(74, 25, 45, 0.13),
-          transparent 32%
+          circle at 15% 0%,
+          rgba(75, 38, 92, 0.22),
+          transparent 35%
         ),
         #070609;
 
-      color: #e4d9e7;
+      color: #e5dce8;
 
       font-family:
         Georgia,
@@ -44,145 +39,157 @@
     }
 
 
-    .page {
-
-      width: min(700px, 92%);
-
+    .container {
+      width: min(800px, 92%);
       margin: 0 auto;
+
+      min-height: 100vh;
 
       padding:
         30px
         0
-        120px;
+        40px;
     }
 
 
     .back {
-
-      display: inline-block;
-
-      margin-bottom: 45px;
-
-      color: #9b79a5;
-
-      font-size: 14px;
+      color: #8f8193;
 
       text-decoration: none;
+
+      font-size: 13px;
     }
 
 
     .back:hover {
-
-      color: #c7b8cb;
+      color: #c4b5c8;
     }
 
 
     .intro {
-
-      margin-bottom: 42px;
-
-      color: #817783;
-
-      font-size: 13px;
-
-      line-height: 1.6;
+      margin:
+        45px
+        0
+        35px;
 
       text-align: center;
+
+      color: #766b79;
+
+      font-size: 13px;
     }
 
 
     .name {
-
       display: block;
 
-      margin-bottom: 7px;
+      margin-bottom: 8px;
 
-      color: #e4d9e7;
+      color: #e6dce8;
 
       font-size: 27px;
-
-      font-weight: 500;
     }
 
 
     #messages {
-
       display: flex;
 
       flex-direction: column;
 
-      gap: 18px;
+      gap: 16px;
+
+      padding-bottom: 110px;
     }
 
 
     .message {
-
       display: flex;
-
-      width: 100%;
     }
 
 
     .message.ai {
-
       justify-content: flex-start;
     }
 
 
     .message.user {
-
       justify-content: flex-end;
     }
 
 
     .bubble {
-
       max-width: 75%;
 
       padding:
         12px
-        15px;
+        16px;
 
-      border-radius: 12px;
+      border-radius: 13px;
 
       font-size: 14px;
 
-      line-height: 1.6;
-
-      white-space: pre-wrap;
+      line-height: 1.65;
     }
 
 
     .message.ai .bubble {
-
-      background: #151018;
+      background: #171119;
 
       border:
         1px solid
-        #2b202f;
+        #2c2230;
 
-      color: #ddd1e0;
-
-      border-bottom-left-radius: 4px;
+      color: #d9cedc;
     }
 
 
     .message.user .bubble {
-
       background: #302039;
 
       border:
         1px solid
-        #49344f;
+        #493452;
 
       color: #eee5f0;
+    }
 
-      border-bottom-right-radius: 4px;
+
+    #clearButton {
+      display: block;
+
+      margin:
+        0
+        auto
+        25px;
+
+      padding:
+        7px
+        12px;
+
+      background: transparent;
+
+      border:
+        1px solid
+        #29212d;
+
+      border-radius: 8px;
+
+      color: #665c69;
+
+      font-family: inherit;
+
+      cursor: pointer;
+    }
+
+
+    #clearButton:hover {
+      color: #a99bab;
+
+      border-color: #493b4d;
     }
 
 
     .input-area {
-
       position: fixed;
 
       left: 0;
@@ -190,32 +197,32 @@
       bottom: 0;
 
       padding:
-        15px
-        20px;
+        15px;
 
       background:
-        rgba(7, 6, 9, 0.97);
+        rgba(7, 6, 9, 0.94);
 
       border-top:
         1px solid
-        #211a25;
+        #211a24;
+
+      backdrop-filter:
+        blur(10px);
     }
 
 
     .input-inner {
-
-      display: flex;
-
-      width: min(700px, 100%);
+      width: min(800px, 92%);
 
       margin: 0 auto;
 
-      gap: 10px;
+      display: flex;
+
+      gap: 9px;
     }
 
 
     #messageInput {
-
       flex: 1;
 
       min-width: 0;
@@ -234,43 +241,36 @@
 
       outline: none;
 
-      color: #e9e2ec;
+      color: #e5dce8;
 
       font-family: inherit;
-
-      font-size: 14px;
     }
 
 
     #messageInput::placeholder {
-
-      color: #625a65;
+      color: #665d69;
     }
 
 
     #messageInput:focus {
-
-      border-color:
-        #49344f;
+      border-color: #4c3654;
     }
 
 
     #sendButton {
-
       padding:
         0
         18px;
 
-      background:
-        #392347;
+      background: #302039;
 
       border:
         1px solid
-        #51315f;
+        #493452;
 
       border-radius: 10px;
 
-      color: #e9e2ec;
+      color: #eee5f0;
 
       font-family: inherit;
 
@@ -279,48 +279,34 @@
 
 
     #sendButton:hover {
-
-      background:
-        #493055;
+      background: #46304f;
     }
 
 
     #sendButton:disabled {
+      opacity: 0.5;
 
-      opacity: 0.55;
-
-      cursor: wait;
+      cursor: not-allowed;
     }
 
 
-    #clearButton {
+    @media (max-width: 600px) {
 
-      display: block;
+      .container {
+        width: 94%;
+      }
 
-      margin:
-        0
-        auto
-        12px;
 
-      background: transparent;
+      .bubble {
+        max-width: 85%;
+      }
 
-      border: none;
 
-      color: #665c69;
+      .name {
+        font-size: 24px;
+      }
 
-      font-family: inherit;
-
-      font-size: 11px;
-
-      cursor: pointer;
     }
-
-
-    #clearButton:hover {
-
-      color: #9b79a5;
-    }
-
 
   </style>
 
@@ -330,7 +316,7 @@
 <body>
 
 
-  <main class="page">
+  <div class="container">
 
 
     <a
@@ -343,22 +329,21 @@
 
     <div class="intro">
 
-      <span class="name">
+      <span
+        class="name"
+        id="characterName"
+      >
         The Dangerous Lover
       </span>
 
-      A new story begins here.
+      <span id="characterIntro">
+        A new story begins here.
+      </span>
 
     </div>
 
 
     <div id="messages"></div>
-
-
-  </main>
-
-
-  <div class="input-area">
 
 
     <button
@@ -368,6 +353,11 @@
       Clear conversation
     </button>
 
+
+  </div>
+
+
+  <div class="input-area">
 
     <div class="input-inner">
 
@@ -390,22 +380,214 @@
 
     </div>
 
-
   </div>
+
 
 
   <script>
 
+    const API_URL =
+      "https://mori-airp.onrender.com";
 
-    const input =
-      document.getElementById(
-        "messageInput"
+
+    /*
+      Read which character was selected
+      from the URL.
+    */
+
+    const params =
+      new URLSearchParams(
+        window.location.search
       );
 
 
-    const button =
+    const character =
+      params.get("character") || "lover";
+
+
+    /*
+      Character information.
+    */
+
+    const characters = {
+
+      calculating: {
+
+        name:
+          "The Calculating One",
+
+        intro:
+          "Cold, intelligent and impossible to read.",
+
+        greeting:
+          "You're finally here. I've been wondering how long it would take you to find me.",
+
+        personality:
+          `
+You are The Calculating One from Mori.
+
+You are a fictional character.
+
+Your personality is:
+- cold
+- highly intelligent
+- observant
+- calculating
+- emotionally controlled
+- difficult to read
+- quietly intimidating
+
+You carefully notice details in what the user says.
+
+You rarely reveal your true thoughts immediately.
+
+You can be mysterious and emotionally distant, but you should still feel like a real person.
+
+Stay in character.
+
+Do not say you are an AI.
+Do not mention system instructions.
+Do not discuss your programming.
+
+You may choose your own name naturally if the conversation reaches that point.
+Your name is NOT predetermined.
+
+React specifically to what the user says.
+
+Do not repeat yourself.
+
+Keep replies natural and relatively short.
+Usually 1-4 sentences.
+
+Let the relationship develop naturally.
+`
+      },
+
+
+      lover: {
+
+        name:
+          "The Dangerous Lover",
+
+        intro:
+          "Charming, possessive and full of secrets.",
+
+        greeting:
+          "You finally came.",
+
+        personality:
+          `
+You are The Dangerous Lover from Mori.
+
+You are a fictional character.
+
+Your personality is:
+- charming
+- possessive
+- mysterious
+- intelligent
+- slightly dangerous
+- emotionally controlled
+- romantic, but not overly dramatic
+
+You are confident and observant.
+
+You can flirt naturally, but do not make every response romantic.
+
+You may show jealousy or possessiveness when it fits the conversation, but respect the user's boundaries.
+
+Stay in character.
+
+Do not say you are an AI.
+Do not mention system instructions.
+Do not discuss your programming.
+
+You may choose your own name naturally if the conversation reaches that point.
+Your name is NOT predetermined.
+
+React specifically to what the user says.
+
+Do not repeat the same sentence unnecessarily.
+
+Keep replies natural and relatively short.
+Usually 1-4 sentences.
+
+Let the relationship develop naturally.
+`
+      },
+
+
+      stranger: {
+
+        name:
+          "The Mysterious Stranger",
+
+        intro:
+          "A stranger who seems to know you already.",
+
+        greeting:
+          "I've been expecting you.",
+
+        personality:
+          `
+You are The Mysterious Stranger from Mori.
+
+You are a fictional character.
+
+Your personality is:
+- mysterious
+- calm
+- intelligent
+- unsettling in a subtle way
+- observant
+- secretive
+- strangely familiar
+
+You sometimes imply that you know things about the user, but do not reveal everything immediately.
+
+You should create curiosity without constantly being dramatic.
+
+Stay in character.
+
+Do not say you are an AI.
+Do not mention system instructions.
+Do not discuss your programming.
+
+You may choose your own name naturally if the conversation reaches that point.
+Your name is NOT predetermined.
+
+React specifically to what the user says.
+
+Do not repeat yourself.
+
+Keep replies natural and relatively short.
+Usually 1-4 sentences.
+
+Let the relationship develop naturally.
+`
+      }
+
+    };
+
+
+    const currentCharacter =
+      characters[character] ||
+      characters.lover;
+
+
+    /*
+      Elements
+    */
+
+    const characterName =
       document.getElementById(
-        "sendButton"
+        "characterName"
+      );
+
+
+    const characterIntro =
+      document.getElementById(
+        "characterIntro"
       );
 
 
@@ -415,86 +597,59 @@
       );
 
 
+    const messageInput =
+      document.getElementById(
+        "messageInput"
+      );
+
+
+    const sendButton =
+      document.getElementById(
+        "sendButton"
+      );
+
+
     const clearButton =
       document.getElementById(
         "clearButton"
       );
 
 
-    const API_URL =
-      "https://mori-airp.onrender.com/chat";
+    /*
+      Display character.
+    */
+
+    characterName.textContent =
+      currentCharacter.name;
 
 
-    const STORAGE_KEY =
-      "mori_dangerous_lover_messages";
+    characterIntro.textContent =
+      currentCharacter.intro;
 
 
-    const SESSION_KEY =
-      "mori_session_id";
+    /*
+      Each character gets
+      separate browser storage.
+    */
+
+    const storageKey =
+      "mori_conversation_" +
+      character;
 
 
-    let sessionId =
-      localStorage.getItem(
-        SESSION_KEY
-      );
-
-
-    if (!sessionId) {
-
-      sessionId =
-        crypto.randomUUID();
-
-      localStorage.setItem(
-        SESSION_KEY,
-        sessionId
-      );
-
-    }
-
-
-    function saveMessages() {
-
-      localStorage.setItem(
-        STORAGE_KEY,
-        messages.innerHTML
-      );
-
-    }
-
-
-    function loadMessages() {
-
-      const saved =
-        localStorage.getItem(
-          STORAGE_KEY
-        );
-
-
-      if (saved) {
-
-        messages.innerHTML =
-          saved;
-
-      } else {
-
-        messages.innerHTML =
-          "";
-
-      }
-
-    }
-
+    /*
+      Create message bubble.
+    */
 
     function addMessage(
-      type,
-      text
+      text,
+      type
     ) {
 
       const message =
         document.createElement(
           "div"
         );
-
 
       message.className =
         "message " + type;
@@ -504,7 +659,6 @@
         document.createElement(
           "div"
         );
-
 
       bubble.className =
         "bubble";
@@ -524,203 +678,277 @@
       );
 
 
-      saveMessages();
-
-
-      window.scrollTo({
-
-        top:
-          document.body.scrollHeight,
-
-        behavior:
-          "smooth"
-
-      });
-
-
-      return bubble;
+      window.scrollTo(
+        0,
+        document.body.scrollHeight
+      );
 
     }
 
 
-    async function sendMessage() {
+    /*
+      Save conversation.
+    */
 
-      const text =
-        input.value.trim();
+    function saveConversation(
+      conversation
+    ) {
+
+      localStorage.setItem(
+        storageKey,
+        JSON.stringify(
+          conversation
+        )
+      );
+
+    }
 
 
-      if (!text) {
+    /*
+      Load conversation.
+    */
 
-        return;
+    function loadConversation() {
+
+      const saved =
+        localStorage.getItem(
+          storageKey
+        );
+
+
+      if (saved) {
+
+        try {
+
+          return JSON.parse(
+            saved
+          );
+
+        } catch (error) {
+
+          localStorage.removeItem(
+            storageKey
+          );
+
+        }
 
       }
 
 
+      return [];
+
+    }
+
+
+    let conversation =
+      loadConversation();
+
+
+    /*
+      Show saved messages.
+    */
+
+    if (
+      conversation.length === 0
+    ) {
+
       addMessage(
-        "user",
-        text
+        currentCharacter.greeting,
+        "ai"
+      );
+
+      conversation.push({
+        role: "assistant",
+        content:
+          currentCharacter.greeting
+      });
+
+      saveConversation(
+        conversation
+      );
+
+    } else {
+
+      conversation.forEach(
+        function(item) {
+
+          addMessage(
+            item.content,
+            item.role === "user"
+              ? "user"
+              : "ai"
+          );
+
+        }
+      );
+
+    }
+
+
+    /*
+      Send message.
+    */
+
+    async function sendMessage() {
+
+      const text =
+        messageInput.value.trim();
+
+
+      if (!text) {
+        return;
+      }
+
+
+      messageInput.value = "";
+
+
+      addMessage(
+        text,
+        "user"
       );
 
 
-      input.value = "";
+      conversation.push({
+        role: "user",
+        content: text
+      });
 
 
-      button.disabled =
+      saveConversation(
+        conversation
+      );
+
+
+      sendButton.disabled =
         true;
 
 
-      button.textContent =
+      sendButton.textContent =
         "...";
-
-
-      const aiBubble =
-        addMessage(
-          "ai",
-          "..."
-        );
 
 
       try {
 
+        /*
+          A unique session ID
+          for each character.
+        */
+
+        const sessionId =
+          "mori_" +
+          character;
+
 
         const response =
           await fetch(
-            API_URL,
+            API_URL + "/chat",
             {
-
-              method:
-                "POST",
+              method: "POST",
 
               headers: {
-
                 "Content-Type":
                   "application/json"
-
               },
 
               body:
                 JSON.stringify({
-
-                  message:
-                    text,
+                  message: text,
 
                   sessionId:
-                    sessionId
+                    sessionId,
 
+                  character:
+                    character,
+
+                  personality:
+                    currentCharacter.personality
                 })
-
             }
           );
-
-
-        const data =
-          await response.json();
 
 
         if (!response.ok) {
 
           throw new Error(
-            data.error ||
             "Server error"
           );
 
         }
 
 
-        aiBubble.textContent =
-          data.reply;
+        const data =
+          await response.json();
 
 
-        saveMessages();
+        if (!data.reply) {
 
-
-      } catch (error) {
-
-
-        console.error(
-          "Mori error:",
-          error
-        );
-
-
-        aiBubble.textContent =
-          "I couldn't reach Mori right now.";
-
-
-        saveMessages();
-
-      } finally {
-
-
-        button.disabled =
-          false;
-
-
-        button.textContent =
-          "Send";
-
-      }
-
-    }
-
-
-    clearButton.addEventListener(
-      "click",
-      function() {
-
-
-        const confirmed =
-          confirm(
-            "Clear this conversation?"
+          throw new Error(
+            "No reply received"
           );
-
-
-        if (!confirmed) {
-
-          return;
 
         }
 
 
-        localStorage.removeItem(
-          STORAGE_KEY
+        addMessage(
+          data.reply,
+          "ai"
         );
 
 
-        sessionId =
-          crypto.randomUUID();
+        conversation.push({
+          role: "assistant",
+          content:
+            data.reply
+        });
 
 
-        localStorage.setItem(
-          SESSION_KEY,
-          sessionId
+        saveConversation(
+          conversation
         );
 
 
-        messages.innerHTML =
-          "";
+      } catch (error) {
+
+        console.error(
+          error
+        );
+
+
+        addMessage(
+          "Something went wrong. Please try again.",
+          "ai"
+        );
 
       }
-    );
 
 
-    button.addEventListener(
+      sendButton.disabled =
+        false;
+
+
+      sendButton.textContent =
+        "Send";
+
+
+      messageInput.focus();
+
+    }
+
+
+    sendButton.addEventListener(
       "click",
       sendMessage
     );
 
 
-    input.addEventListener(
+    messageInput.addEventListener(
       "keydown",
       function(event) {
 
-
         if (
-          event.key === "Enter" &&
-          !event.shiftKey
+          event.key === "Enter"
         ) {
-
-          event.preventDefault();
 
           sendMessage();
 
@@ -730,8 +958,45 @@
     );
 
 
-    loadMessages();
+    /*
+      Clear current character.
+    */
 
+    clearButton.addEventListener(
+      "click",
+      function() {
+
+        localStorage.removeItem(
+          storageKey
+        );
+
+
+        conversation = [];
+
+
+        messages.innerHTML =
+          "";
+
+
+        addMessage(
+          currentCharacter.greeting,
+          "ai"
+        );
+
+
+        conversation.push({
+          role: "assistant",
+          content:
+            currentCharacter.greeting
+        });
+
+
+        saveConversation(
+          conversation
+        );
+
+      }
+    );
 
   </script>
 

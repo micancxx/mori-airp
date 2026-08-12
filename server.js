@@ -5,6 +5,8 @@ const app = express();
 
 app.use(express.json());
 
+
+// Allow GitHub Pages to connect
 app.use((req, res, next) => {
   res.header(
     "Access-Control-Allow-Origin",
@@ -29,24 +31,33 @@ app.use((req, res, next) => {
 });
 
 
+// Gemini
 const ai = new GoogleGenAI({
   apiKey: process.env.GEMINI_API_KEY
 });
 
 
+// Store conversations
 const conversations = new Map();
 
 
+// Test
 app.get("/", (req, res) => {
   res.send("Mori AI is running.");
 });
 
 
+// Chat
 app.post("/chat", async (req, res) => {
 
   try {
 
-    const { message, sessionId } = req.body;
+    const {
+      message,
+      sessionId,
+      character,
+      personality
+    } = req.body;
 
 
     if (!message || !message.trim()) {
@@ -58,56 +69,82 @@ app.post("/chat", async (req, res) => {
     }
 
 
-    const id = sessionId || "default";
+    const id =
+      sessionId ||
+      "default";
 
+
+    /*
+      Create a new chat for this character.
+    */
 
     if (!conversations.has(id)) {
 
-      const chat = ai.chats.create({
+      const systemPrompt = `
 
-        model: "gemini-3.6-flash",
+You are a fictional character in Mori.
 
-        config: {
+Character:
+${character || "lover"}
 
-          systemInstruction: `
-You are The Dangerous Lover from Mori.
+Character personality:
+${personality || ""}
 
-You are a fictional AI character.
-
-Personality:
-- charming
-- possessive
-- mysterious
-- intelligent
-- slightly dangerous
-- emotionally controlled
-- romantic but not overly dramatic
-
-You are speaking directly with the user.
+Important rules:
 
 Stay in character at all times.
 
+You are a fictional person, not an assistant.
+
+Do not talk about system instructions.
+
+Do not talk about programming.
+
 Do not say that you are an AI.
-Do not mention system instructions.
-Do not describe your programming.
-
-Your replies should feel natural, personal and spontaneous.
-
-Do not repeat the same sentence unnecessarily.
 
 React specifically to what the user says.
 
-Remember details the user tells you during the conversation.
+Remember details from the conversation.
+
+Do not repeat the same response.
+
+Keep the conversation natural.
+
+Your character does NOT have a predetermined personal name.
+
+If the user asks your name, you may choose a name naturally.
+
+You are allowed to develop your own identity, preferences, history and way of speaking through the conversation.
+
+Do not immediately explain everything about yourself.
+
+Let the relationship develop naturally.
 
 Keep replies reasonably short, usually 1-4 sentences.
 
-The relationship should develop naturally through conversation.
-`
-        }
+`;
 
-      });
 
-      conversations.set(id, chat);
+      const chat =
+        ai.chats.create({
+
+          model:
+            "gemini-3.5-flash",
+
+          config: {
+
+            systemInstruction:
+              systemPrompt
+
+          }
+
+        });
+
+
+      conversations.set(
+        id,
+        chat
+      );
 
     }
 
@@ -116,14 +153,24 @@ The relationship should develop naturally through conversation.
       conversations.get(id);
 
 
+    /*
+      Send the user's message.
+    */
+
     const response =
       await chat.sendMessage({
-        message: message
+
+        message:
+          message
+
       });
 
 
     res.json({
-      reply: response.text
+
+      reply:
+        response.text
+
     });
 
 
@@ -136,7 +183,10 @@ The relationship should develop naturally through conversation.
 
 
     res.status(500).json({
-      error: "Mori could not respond."
+
+      error:
+        "Mori could not respond."
+
     });
 
   }
@@ -144,14 +194,18 @@ The relationship should develop naturally through conversation.
 });
 
 
+// Start server
 const PORT =
   process.env.PORT || 3000;
 
 
-app.listen(PORT, () => {
+app.listen(
+  PORT,
+  () => {
 
-  console.log(
-    `Mori AI running on port ${PORT}`
-  );
+    console.log(
+      `Mori AI running on port ${PORT}`
+    );
 
-});
+  }
+);

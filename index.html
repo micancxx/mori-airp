@@ -12,6 +12,7 @@
 
   <title>Mori</title>
 
+  <!-- Supabase -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <style>
@@ -31,6 +32,9 @@
         serif;
     }
 
+
+    /* HEADER */
+
     header {
       display: flex;
       align-items: center;
@@ -38,6 +42,7 @@
       padding: 28px 7%;
       border-bottom: 1px solid #242429;
     }
+
 
     .logo {
       display: flex;
@@ -49,10 +54,12 @@
       white-space: nowrap;
     }
 
+
     .logo-symbol {
       color: #c8a98a;
       font-size: 28px;
     }
+
 
     .search {
       flex: 1;
@@ -68,196 +75,354 @@
       font-size: 14px;
     }
 
+
     .search::placeholder {
       color: #77777f;
     }
+
 
     .search:focus {
       border-color: #67584d;
     }
 
+
+    /* LOGIN BUTTONS */
+
     #googleLogin,
     #logoutButton {
+
       border: 1px solid #3b3b43;
+
       border-radius: 25px;
+
       padding: 11px 18px;
+
       background: #17171b;
+
       color: #eee;
+
       cursor: pointer;
+
       font-family: inherit;
+
       white-space: nowrap;
+
       transition: 0.2s;
+
     }
+
 
     #googleLogin:hover,
     #logoutButton:hover {
+
       background: #242429;
+
       border-color: #77716b;
+
     }
+
+
+    /* TITLE */
 
     .title {
+
       text-align: center;
+
       padding: 75px 20px 45px;
+
     }
+
 
     .title h1 {
+
       margin: 0 0 14px;
+
       font-size: 34px;
+
       font-weight: normal;
+
       letter-spacing: 0.3px;
+
     }
+
 
     .title p {
+
       margin: 0;
+
       color: #898990;
+
       font-size: 15px;
+
     }
+
+
+    /* CHARACTERS */
 
     .characters {
+
       width: 86%;
+
       max-width: 1100px;
+
       margin: 0 auto;
+
       display: grid;
+
       grid-template-columns:
         repeat(3, 1fr);
+
       gap: 24px;
+
     }
 
+
     .card {
+
       padding: 30px 25px 28px;
+
       min-height: 350px;
+
       border: 1px solid #29292f;
+
       border-radius: 16px;
+
       background:
         linear-gradient(
           145deg,
           #151519,
           #101012
         );
+
       text-align: center;
+
       transition:
         transform 0.25s,
         border-color 0.25s,
         box-shadow 0.25s;
+
     }
 
+
     .card:hover {
+
       transform: translateY(-5px);
+
       border-color: #49434a;
+
       box-shadow:
         0 15px 40px
         rgba(0, 0, 0, 0.3);
+
     }
+
 
     .avatar {
+
       width: 76px;
+
       height: 76px;
+
       margin: 0 auto 22px;
+
       display: flex;
+
       align-items: center;
+
       justify-content: center;
+
       border: 1px solid #38383f;
+
       border-radius: 50%;
+
       background: #111114;
+
     }
+
 
     .avatar-symbol {
+
       color: #c5a88d;
+
       font-size: 29px;
+
     }
+
 
     .card h3 {
+
       margin: 0 0 13px;
+
       font-size: 21px;
+
       font-weight: normal;
+
     }
+
 
     .description {
+
       min-height: 42px;
+
       margin: 0 auto 18px;
+
       max-width: 250px;
+
       color: #98989f;
+
       font-size: 14px;
+
       line-height: 1.6;
+
     }
+
 
     .stats {
+
       margin: 0 0 24px;
+
       color: #66666e;
+
       font-size: 12px;
+
     }
+
 
     .chat-button {
+
       display: inline-block;
+
       padding: 10px 22px;
+
       border: 1px solid #48434a;
+
       border-radius: 25px;
+
       color: #eee;
+
       text-decoration: none;
+
       font-size: 13px;
+
       transition: 0.2s;
+
     }
+
 
     .chat-button:hover {
+
       background: #242126;
+
       border-color: #71645a;
+
     }
+
+
+    /* CATEGORIES */
 
     .categories {
+
       width: 86%;
+
       max-width: 1100px;
+
       margin: 45px auto 0;
+
       display: flex;
+
       justify-content: center;
+
       gap: 10px;
+
       flex-wrap: wrap;
+
     }
+
 
     .category {
+
       padding: 8px 16px;
+
       border: 1px solid #29292f;
+
       border-radius: 20px;
+
       color: #77777f;
+
       font-size: 12px;
+
     }
 
+
+    /* FOOTER */
+
     footer {
+
       padding: 55px 20px 30px;
+
       text-align: center;
+
       color: #55555c;
+
       font-size: 12px;
+
     }
+
+
+    /* MOBILE */
 
     @media (max-width: 800px) {
 
       header {
+
         flex-wrap: wrap;
+
         padding: 22px 6%;
+
       }
 
+
       .search {
+
         order: 3;
+
         width: 100%;
+
         max-width: none;
+
       }
+
 
       #googleLogin,
       #logoutButton {
+
         margin-left: auto;
+
       }
+
 
       .title {
+
         padding-top: 55px;
+
       }
+
 
       .title h1 {
+
         font-size: 28px;
+
       }
 
+
       .characters {
+
         grid-template-columns: 1fr;
+
         width: 90%;
+
         max-width: 500px;
+
       }
 
     }
@@ -271,6 +436,7 @@
 
 
 <header>
+
 
   <div class="logo">
 
@@ -304,10 +470,11 @@
   <button
     id="logoutButton"
     type="button"
-    style="display:none;"
+    style="display: none;"
   >
     Sign out
   </button>
+
 
 </header>
 
@@ -485,17 +652,26 @@
 
 
 <footer>
+
   Mori · A place where stories live.
+
 </footer>
 
 
 <script>
 
+
+/* ========================================
+   SUPABASE
+======================================== */
+
+
 const SUPABASE_URL =
   "https://luidkakxsmmrpnsoycof.supabase.co";
 
+
 const SUPABASE_KEY =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzIiwicmVmIjoibHVpZGtha3hzbW1ycG5zb3ljb2YiLCJyb2xlIjoiYW5vbiIsImlhdCI6MTc4NjQ5ODM2MSwiZXhwIjoyMTAyMDc0MzYxfQ.DeRQ5cRPaBfb3ex6nFMhJqOnX_3gLcTugZH6zBxoxVg";
+  "把你之前的 anon key 粘贴在这里";
 
 
 const supabaseClient =
@@ -505,10 +681,16 @@ const supabaseClient =
   );
 
 
+/* ========================================
+   ELEMENTS
+======================================== */
+
+
 const googleLogin =
   document.getElementById(
     "googleLogin"
   );
+
 
 const logoutButton =
   document.getElementById(
@@ -516,14 +698,40 @@ const logoutButton =
   );
 
 
+/* ========================================
+   UPDATE LOGIN UI
+======================================== */
+
+
 async function updateLoginState() {
 
   const {
-    data: {
-      session
-    }
+    data,
+    error
   } =
     await supabaseClient.auth.getSession();
+
+
+  if (error) {
+
+    console.error(
+      "Session error:",
+      error
+    );
+
+    return;
+
+  }
+
+
+  const session =
+    data.session;
+
+
+  console.log(
+    "Current session:",
+    session
+  );
 
 
   if (session) {
@@ -531,13 +739,16 @@ async function updateLoginState() {
     googleLogin.style.display =
       "none";
 
+
     logoutButton.style.display =
       "inline-block";
+
 
   } else {
 
     googleLogin.style.display =
       "inline-block";
+
 
     logoutButton.style.display =
       "none";
@@ -547,11 +758,25 @@ async function updateLoginState() {
 }
 
 
+/* ========================================
+   GOOGLE LOGIN
+======================================== */
+
+
 googleLogin.addEventListener(
   "click",
   async () => {
 
+    googleLogin.disabled =
+      true;
+
+
+    googleLogin.textContent =
+      "Connecting...";
+
+
     const {
+      data,
       error
     } =
       await supabaseClient.auth
@@ -562,8 +787,7 @@ googleLogin.addEventListener(
           options: {
 
             redirectTo:
-              window.location.origin +
-              window.location.pathname
+              "https://micancxx.github.io/mori-airp/"
 
           }
 
@@ -572,65 +796,131 @@ googleLogin.addEventListener(
 
     if (error) {
 
-      console.error(error);
+      console.error(
+        "Google login error:",
+        error
+      );
+
 
       alert(
-        "Google login failed: " +
+        "Google login failed:\n\n" +
         error.message
       );
 
-    }
 
-  }
-);
-
-
-logoutButton.addEventListener(
-  "click",
-  async () => {
-
-    const {
-      error
-    } =
-      await supabaseClient.auth.signOut();
+      googleLogin.disabled =
+        false;
 
 
-    if (error) {
+      googleLogin.textContent =
+        "Continue with Google";
 
-      alert(
-        "Sign out failed: " +
-        error.message
-      );
 
       return;
 
     }
 
 
+    console.log(
+      "OAuth started:",
+      data
+    );
+
+  }
+);
+
+
+/* ========================================
+   LOGOUT
+======================================== */
+
+
+logoutButton.addEventListener(
+  "click",
+  async () => {
+
+    logoutButton.disabled =
+      true;
+
+
+    const {
+      error
+    } =
+      await supabaseClient.auth
+        .signOut();
+
+
+    if (error) {
+
+      console.error(
+        "Logout error:",
+        error
+      );
+
+
+      alert(
+        "Sign out failed:\n\n" +
+        error.message
+      );
+
+
+      logoutButton.disabled =
+        false;
+
+
+      return;
+
+    }
+
+
+    logoutButton.disabled =
+      false;
+
+
     updateLoginState();
 
   }
 );
+
+
+/* ========================================
+   AUTH STATE
+======================================== */
 
 
 supabaseClient.auth.onAuthStateChange(
-  () => {
+  (event, session) => {
+
+    console.log(
+      "Auth event:",
+      event
+    );
+
 
     updateLoginState();
 
   }
 );
+
+
+/* ========================================
+   INITIAL SESSION CHECK
+======================================== */
 
 
 updateLoginState();
 
 
-/* SEARCH */
+/* ========================================
+   SEARCH
+======================================== */
+
 
 const searchInput =
   document.getElementById(
     "searchInput"
   );
+
 
 const cards =
   document.querySelectorAll(
@@ -656,16 +946,26 @@ searchInput.addEventListener(
             .toLowerCase();
 
 
-        card.style.display =
+        if (
           name.includes(search)
-            ? ""
-            : "none";
+        ) {
+
+          card.style.display =
+            "";
+
+        } else {
+
+          card.style.display =
+            "none";
+
+        }
 
       }
     );
 
   }
 );
+
 
 </script>
 

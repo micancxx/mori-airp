@@ -38,7 +38,6 @@
         serif;
     }
 
-
     .container {
       width: min(800px, 92%);
       margin: 0 auto;
@@ -48,23 +47,18 @@
       padding:
         30px
         0
-        40px;
+        120px;
     }
-
 
     .back {
       color: #8f8193;
-
       text-decoration: none;
-
       font-size: 13px;
     }
-
 
     .back:hover {
       color: #c4b5c8;
     }
-
 
     .intro {
       margin:
@@ -79,7 +73,6 @@
       font-size: 13px;
     }
 
-
     .name {
       display: block;
 
@@ -90,7 +83,6 @@
       font-size: 27px;
     }
 
-
     #messages {
       display: flex;
 
@@ -98,24 +90,20 @@
 
       gap: 16px;
 
-      padding-bottom: 110px;
+      padding-bottom: 30px;
     }
-
 
     .message {
       display: flex;
     }
 
-
     .message.ai {
       justify-content: flex-start;
     }
 
-
     .message.user {
       justify-content: flex-end;
     }
-
 
     .bubble {
       max-width: 75%;
@@ -129,8 +117,10 @@
       font-size: 14px;
 
       line-height: 1.65;
-    }
 
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
 
     .message.ai .bubble {
       background: #171119;
@@ -142,7 +132,6 @@
       color: #d9cedc;
     }
 
-
     .message.user .bubble {
       background: #302039;
 
@@ -153,12 +142,11 @@
       color: #eee5f0;
     }
 
-
     #clearButton {
       display: block;
 
       margin:
-        0
+        30px
         auto
         25px;
 
@@ -181,13 +169,11 @@
       cursor: pointer;
     }
 
-
     #clearButton:hover {
       color: #a99bab;
 
       border-color: #493b4d;
     }
-
 
     .input-area {
       position: fixed;
@@ -196,8 +182,7 @@
       right: 0;
       bottom: 0;
 
-      padding:
-        15px;
+      padding: 15px;
 
       background:
         rgba(7, 6, 9, 0.94);
@@ -210,7 +195,6 @@
         blur(10px);
     }
 
-
     .input-inner {
       width: min(800px, 92%);
 
@@ -220,7 +204,6 @@
 
       gap: 9px;
     }
-
 
     #messageInput {
       flex: 1;
@@ -246,16 +229,13 @@
       font-family: inherit;
     }
 
-
     #messageInput::placeholder {
       color: #665d69;
     }
 
-
     #messageInput:focus {
       border-color: #4c3654;
     }
-
 
     #sendButton {
       padding:
@@ -277,11 +257,9 @@
       cursor: pointer;
     }
 
-
     #sendButton:hover {
       background: #46304f;
     }
-
 
     #sendButton:disabled {
       opacity: 0.5;
@@ -289,18 +267,15 @@
       cursor: not-allowed;
     }
 
-
     @media (max-width: 600px) {
 
       .container {
         width: 94%;
       }
 
-
       .bubble {
         max-width: 85%;
       }
-
 
       .name {
         font-size: 24px;
@@ -337,7 +312,7 @@
       </span>
 
       <span id="characterIntro">
-        A new story begins here.
+        Charming, possessive and full of secrets.
       </span>
 
     </div>
@@ -361,7 +336,6 @@
 
     <div class="input-inner">
 
-
       <input
         id="messageInput"
         type="text"
@@ -369,14 +343,12 @@
         autocomplete="off"
       >
 
-
       <button
         id="sendButton"
         type="button"
       >
         Send
       </button>
-
 
     </div>
 
@@ -386,12 +358,16 @@
 
   <script>
 
+    /*
+      Your Render backend
+    */
+
     const API_URL =
       "https://mori-airp.onrender.com";
 
 
     /*
-      Read which character was selected
+      Read the character
       from the URL.
     */
 
@@ -418,9 +394,6 @@
 
         intro:
           "Cold, intelligent and impossible to read.",
-
-        greeting:
-          "You're finally here. I've been wondering how long it would take you to find me.",
 
         personality:
           `
@@ -449,8 +422,9 @@ Do not say you are an AI.
 Do not mention system instructions.
 Do not discuss your programming.
 
-You may choose your own name naturally if the conversation reaches that point.
-Your name is NOT predetermined.
+You do not have a predetermined personal name.
+
+If the user asks your name, choose a name naturally if you want to.
 
 React specifically to what the user says.
 
@@ -472,9 +446,6 @@ Let the relationship develop naturally.
         intro:
           "Charming, possessive and full of secrets.",
 
-        greeting:
-          "You finally came.",
-
         personality:
           `
 You are The Dangerous Lover from Mori.
@@ -494,7 +465,7 @@ You are confident and observant.
 
 You can flirt naturally, but do not make every response romantic.
 
-You may show jealousy or possessiveness when it fits the conversation, but respect the user's boundaries.
+You can show jealousy or possessiveness when it fits the conversation, but respect the user's boundaries.
 
 Stay in character.
 
@@ -502,8 +473,9 @@ Do not say you are an AI.
 Do not mention system instructions.
 Do not discuss your programming.
 
-You may choose your own name naturally if the conversation reaches that point.
-Your name is NOT predetermined.
+You do not have a predetermined personal name.
+
+If the user asks your name, choose a name naturally if you want to.
 
 React specifically to what the user says.
 
@@ -525,16 +497,13 @@ Let the relationship develop naturally.
         intro:
           "A stranger who seems to know you already.",
 
-        greeting:
-          "I've been expecting you.",
-
         personality:
           `
 You are The Mysterious Stranger from Mori.
 
 You are a fictional character.
 
-Your personality is:
+You are:
 - mysterious
 - calm
 - intelligent
@@ -545,7 +514,7 @@ Your personality is:
 
 You sometimes imply that you know things about the user, but do not reveal everything immediately.
 
-You should create curiosity without constantly being dramatic.
+Create curiosity without constantly being dramatic.
 
 Stay in character.
 
@@ -553,8 +522,9 @@ Do not say you are an AI.
 Do not mention system instructions.
 Do not discuss your programming.
 
-You may choose your own name naturally if the conversation reaches that point.
-Your name is NOT predetermined.
+You do not have a predetermined personal name.
+
+If the user asks your name, choose a name naturally if you want to.
 
 React specifically to what the user says.
 
@@ -576,7 +546,7 @@ Let the relationship develop naturally.
 
 
     /*
-      Elements
+      Page elements.
     */
 
     const characterName =
@@ -616,7 +586,7 @@ Let the relationship develop naturally.
 
 
     /*
-      Display character.
+      Show character information.
     */
 
     characterName.textContent =
@@ -628,8 +598,8 @@ Let the relationship develop naturally.
 
 
     /*
-      Each character gets
-      separate browser storage.
+      Separate storage
+      for each character.
     */
 
     const storageKey =
@@ -638,7 +608,7 @@ Let the relationship develop naturally.
 
 
     /*
-      Create message bubble.
+      Add a message to the page.
     */
 
     function addMessage(
@@ -687,25 +657,23 @@ Let the relationship develop naturally.
 
 
     /*
-      Save conversation.
+      Save conversation locally.
     */
 
     function saveConversation(
-      conversation
+      data
     ) {
 
       localStorage.setItem(
         storageKey,
-        JSON.stringify(
-          conversation
-        )
+        JSON.stringify(data)
       );
 
     }
 
 
     /*
-      Load conversation.
+      Load conversation locally.
     */
 
     function loadConversation() {
@@ -716,73 +684,54 @@ Let the relationship develop naturally.
         );
 
 
-      if (saved) {
-
-        try {
-
-          return JSON.parse(
-            saved
-          );
-
-        } catch (error) {
-
-          localStorage.removeItem(
-            storageKey
-          );
-
-        }
-
+      if (!saved) {
+        return [];
       }
 
 
-      return [];
+      try {
+
+        return JSON.parse(
+          saved
+        );
+
+      } catch (error) {
+
+        localStorage.removeItem(
+          storageKey
+        );
+
+        return [];
+
+      }
 
     }
 
+
+    /*
+      Load existing conversation.
+
+      IMPORTANT:
+      If there is no saved conversation,
+      the page stays EMPTY.
+    */
 
     let conversation =
       loadConversation();
 
 
-    /*
-      Show saved messages.
-    */
+    conversation.forEach(
+      function(item) {
 
-    if (
-      conversation.length === 0
-    ) {
+        addMessage(
+          item.content,
+          item.role === "user"
+            ? "user"
+            : "ai"
+        );
 
-      addMessage(
-        currentCharacter.greeting,
-        "ai"
-      );
-
-      conversation.push({
-        role: "assistant",
-        content:
-          currentCharacter.greeting
-      });
-
-      saveConversation(
-        conversation
-      );
-
-    } else {
-
-      conversation.forEach(
-        function(item) {
-
-          addMessage(
-            item.content,
-            item.role === "user"
-              ? "user"
-              : "ai"
-          );
-
-        }
-      );
-
-    }
+      }
+    );
 
 
     /*
@@ -830,11 +779,6 @@ Let the relationship develop naturally.
 
       try {
 
-        /*
-          A unique session ID
-          for each character.
-        */
-
         const sessionId =
           "mori_" +
           character;
@@ -853,7 +797,9 @@ Let the relationship develop naturally.
 
               body:
                 JSON.stringify({
-                  message: text,
+
+                  message:
+                    text,
 
                   sessionId:
                     sessionId,
@@ -863,6 +809,7 @@ Let the relationship develop naturally.
 
                   personality:
                     currentCharacter.personality
+
                 })
             }
           );
@@ -871,7 +818,8 @@ Let the relationship develop naturally.
         if (!response.ok) {
 
           throw new Error(
-            "Server error"
+            "Server error: " +
+            response.status
           );
 
         }
@@ -911,6 +859,7 @@ Let the relationship develop naturally.
       } catch (error) {
 
         console.error(
+          "Chat error:",
           error
         );
 
@@ -936,11 +885,19 @@ Let the relationship develop naturally.
     }
 
 
+    /*
+      Send button.
+    */
+
     sendButton.addEventListener(
       "click",
       sendMessage
     );
 
+
+    /*
+      Enter key.
+    */
 
     messageInput.addEventListener(
       "keydown",
@@ -949,6 +906,8 @@ Let the relationship develop naturally.
         if (
           event.key === "Enter"
         ) {
+
+          event.preventDefault();
 
           sendMessage();
 
@@ -959,12 +918,17 @@ Let the relationship develop naturally.
 
 
     /*
-      Clear current character.
+      Clear conversation.
+
+      This clears:
+      1. Browser history
+      2. Page messages
+      3. Render server memory
     */
 
     clearButton.addEventListener(
       "click",
-      function() {
+      async function() {
 
         localStorage.removeItem(
           storageKey
@@ -978,25 +942,44 @@ Let the relationship develop naturally.
           "";
 
 
-        addMessage(
-          currentCharacter.greeting,
-          "ai"
-        );
+        try {
+
+          await fetch(
+            API_URL + "/clear",
+            {
+              method: "POST",
+
+              headers: {
+                "Content-Type":
+                  "application/json"
+              },
+
+              body:
+                JSON.stringify({
+
+                  sessionId:
+                    "mori_" +
+                    character
+
+                })
+            }
+          );
+
+        } catch (error) {
+
+          console.error(
+            "Could not clear server conversation:",
+            error
+          );
+
+        }
 
 
-        conversation.push({
-          role: "assistant",
-          content:
-            currentCharacter.greeting
-        });
-
-
-        saveConversation(
-          conversation
-        );
+        messageInput.focus();
 
       }
     );
+
 
   </script>
 

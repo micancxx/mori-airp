@@ -12,7 +12,6 @@
 
   <title>Mori</title>
 
-  <!-- Supabase -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <style>
@@ -74,6 +73,12 @@
       border-color: #67584d;
     }
 
+    .login-area {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
     #googleLogin,
     #logoutButton {
       border: 1px solid #3b3b43;
@@ -97,6 +102,27 @@
     #logoutButton:disabled {
       opacity: 0.6;
       cursor: default;
+    }
+
+    #userInfo {
+      display: none;
+      align-items: center;
+      gap: 10px;
+      color: #aaa;
+      font-size: 13px;
+    }
+
+    #userAvatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid #444;
+      display: none;
+    }
+
+    #userName {
+      color: #eee;
     }
 
     .title {
@@ -238,8 +264,7 @@
         margin-left: 0;
       }
 
-      #googleLogin,
-      #logoutButton {
+      .login-area {
         margin-left: auto;
       }
 
@@ -267,8 +292,6 @@
 <body>
 
 
-  <!-- HEADER -->
-
   <header>
 
     <div class="logo">
@@ -293,26 +316,43 @@
     >
 
 
-    <button
-      id="googleLogin"
-      type="button"
-    >
-      Continue with Google
-    </button>
+    <div class="login-area">
+
+      <button
+        id="googleLogin"
+        type="button"
+      >
+        Continue with Google
+      </button>
 
 
-    <button
-      id="logoutButton"
-      type="button"
-      style="display: none;"
-    >
-      Sign out
-    </button>
+      <div id="userInfo">
+
+        <img
+          id="userAvatar"
+          src=""
+          alt=""
+        >
+
+        <span id="userName">
+          Signed in
+        </span>
+
+      </div>
+
+
+      <button
+        id="logoutButton"
+        type="button"
+        style="display: none;"
+      >
+        Sign out
+      </button>
+
+    </div>
 
   </header>
 
-
-  <!-- TITLE -->
 
   <section class="title">
 
@@ -326,8 +366,6 @@
 
   </section>
 
-
-  <!-- CHARACTERS -->
 
   <section
     class="characters"
@@ -443,8 +481,6 @@
   </section>
 
 
-  <!-- CATEGORIES -->
-
   <div class="categories">
 
     <div class="category">
@@ -470,76 +506,42 @@
   </div>
 
 
-  <!-- FOOTER -->
-
   <footer>
     Mori · A place where stories live.
   </footer>
 
 
-
-  <!-- =========================
-       JAVASCRIPT
-  ========================= -->
-
   <script>
 
-    console.log("Mori script started");
-
-
     /* =========================
-       CHECK SUPABASE
-    ========================= */
-
-    if (!window.supabase) {
-
-      console.error(
-        "Supabase library did NOT load."
-      );
-
-      alert(
-        "Mori cannot connect to Supabase.\n\n" +
-        "The Supabase library failed to load."
-      );
-
-      throw new Error(
-        "Supabase library not loaded"
-      );
-
-    }
-
-
-    console.log(
-      "Supabase library loaded"
-    );
-
-
-    /* =========================
-       SUPABASE SETTINGS
+       SUPABASE
     ========================= */
 
     const SUPABASE_URL =
       "https://luidkakxsmmrpnsoycof.supabase.co";
 
-
     const SUPABASE_KEY =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmF0YWt4c21tcnBuc295Y29iIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY0OTgzNjEsImV4cCI6MjEwMjA3NDM2MX0.DeRQ5cRPaBfb3ex6nFMhJqOnX_3gLcTugZH6zBxoxVg";
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJsdWlkYWtheHNtbXJwbnNveWNvZiIsInJvbGUiOiJhbm9uIiwiaWF0IjoxNzg2NDk4MzYxLCJleHAiOjIxMDIwNzQzNjF9.DeRQ5cRPaBfb3ex6nFMhJqOnX_3gLcTugZH6zBxoxVg";
 
 
-    /* =========================
-       CREATE SUPABASE CLIENT
-    ========================= */
+    if (!window.supabase) {
+
+      alert(
+        "Mori could not load the login system."
+      );
+
+      throw new Error(
+        "Supabase library did not load."
+      );
+
+    }
+
 
     const supabaseClient =
       window.supabase.createClient(
         SUPABASE_URL,
         SUPABASE_KEY
       );
-
-
-    console.log(
-      "Supabase client created"
-    );
 
 
     /* =========================
@@ -551,18 +553,30 @@
         "googleLogin"
       );
 
-
     const logoutButton =
       document.getElementById(
         "logoutButton"
       );
 
+    const userInfo =
+      document.getElementById(
+        "userInfo"
+      );
+
+    const userName =
+      document.getElementById(
+        "userName"
+      );
+
+    const userAvatar =
+      document.getElementById(
+        "userAvatar"
+      );
 
     const searchInput =
       document.getElementById(
         "searchInput"
       );
-
 
     const cards =
       document.querySelectorAll(
@@ -571,15 +585,108 @@
 
 
     /* =========================
-       UPDATE LOGIN UI
+       SHOW USER
     ========================= */
 
-    async function updateLoginState() {
+    function showUser(session) {
 
-      console.log(
-        "Checking login state..."
-      );
+      if (!session || !session.user) {
 
+        googleLogin.style.display =
+          "inline-block";
+
+        userInfo.style.display =
+          "none";
+
+        logoutButton.style.display =
+          "none";
+
+        return;
+
+      }
+
+
+      const user =
+        session.user;
+
+
+      const metadata =
+        user.user_metadata || {};
+
+
+      const name =
+        metadata.full_name ||
+        metadata.name ||
+        user.email ||
+        "Signed in";
+
+
+      userName.textContent =
+        "Hi, " + name;
+
+
+      if (metadata.avatar_url) {
+
+        userAvatar.src =
+          metadata.avatar_url;
+
+        userAvatar.style.display =
+          "block";
+
+      } else {
+
+        userAvatar.style.display =
+          "none";
+
+      }
+
+
+      googleLogin.style.display =
+        "none";
+
+      userInfo.style.display =
+        "flex";
+
+      logoutButton.style.display =
+        "inline-block";
+
+    }
+
+
+    /* =========================
+       CLEAN LOGIN URL
+    ========================= */
+
+    function cleanAuthUrl() {
+
+      if (
+        window.location.hash &&
+        window.location.hash.includes(
+          "access_token"
+        )
+      ) {
+
+        const cleanUrl =
+          window.location.origin +
+          window.location.pathname +
+          window.location.search;
+
+        window.history.replaceState(
+          {},
+          document.title,
+          cleanUrl
+        );
+
+      }
+
+    }
+
+
+    /* =========================
+       CHECK SESSION
+    ========================= */
+
+    async function checkSession() {
 
       try {
 
@@ -603,46 +710,24 @@
         }
 
 
-        const session =
-          data.session;
+        if (data.session) {
 
-
-        if (session) {
-
-          console.log(
-            "Logged in:",
-            session.user.email
+          showUser(
+            data.session
           );
 
-
-          googleLogin.style.display =
-            "none";
-
-
-          logoutButton.style.display =
-            "inline-block";
-
+          cleanAuthUrl();
 
         } else {
 
-          console.log(
-            "No active session"
-          );
-
-
-          googleLogin.style.display =
-            "inline-block";
-
-
-          logoutButton.style.display =
-            "none";
+          showUser(null);
 
         }
 
       } catch (error) {
 
         console.error(
-          "Session check failed:",
+          "Could not check session:",
           error
         );
 
@@ -659,14 +744,8 @@
       "click",
       async () => {
 
-        console.log(
-          "Google login button clicked"
-        );
-
-
         googleLogin.disabled =
           true;
-
 
         googleLogin.textContent =
           "Connecting...";
@@ -674,19 +753,9 @@
 
         try {
 
-          /*
-            Return to the current page
-            after Google login.
-          */
-
           const redirectTo =
-            window.location.href;
-
-
-          console.log(
-            "Redirect URL:",
-            redirectTo
-          );
+            window.location.origin +
+            window.location.pathname;
 
 
           const {
@@ -708,12 +777,6 @@
               });
 
 
-          console.log(
-            "OAuth response:",
-            data
-          );
-
-
           if (error) {
 
             console.error(
@@ -721,66 +784,33 @@
               error
             );
 
-
             alert(
               "Google login failed:\n\n" +
               error.message
             );
 
-
             googleLogin.disabled =
               false;
 
-
             googleLogin.textContent =
               "Continue with Google";
-
-
-            return;
-
-          }
-
-
-          /*
-            Supabase normally redirects
-            automatically.
-
-            If it doesn't, use the URL
-            returned by Supabase.
-          */
-
-          if (
-            data &&
-            data.url
-          ) {
-
-            console.log(
-              "Redirecting to Google..."
-            );
-
-
-            window.location.href =
-              data.url;
 
           }
 
         } catch (error) {
 
           console.error(
-            "Unexpected Google login error:",
+            "Google login error:",
             error
           );
 
-
           alert(
-            "Something went wrong:\n\n" +
+            "Google login failed:\n\n" +
             error.message
           );
 
-
           googleLogin.disabled =
             false;
-
 
           googleLogin.textContent =
             "Continue with Google";
@@ -792,51 +822,37 @@
 
 
     /* =========================
-       SIGN OUT
+       LOGOUT
     ========================= */
 
     logoutButton.addEventListener(
       "click",
       async () => {
 
-        console.log(
-          "Signing out..."
-        );
-
-
         logoutButton.disabled =
           true;
 
-
-        try {
-
-          const {
-            error
-          } =
-            await supabaseClient.auth
-              .signOut();
+        logoutButton.textContent =
+          "Signing out...";
 
 
-          if (error) {
+        const {
+          error
+        } =
+          await supabaseClient.auth
+            .signOut();
 
-            console.error(
-              "Sign out error:",
-              error
-            );
 
-
-            alert(
-              "Sign out failed:\n\n" +
-              error.message
-            );
-
-          }
-
-        } catch (error) {
+        if (error) {
 
           console.error(
-            "Unexpected sign out error:",
+            "Sign out error:",
             error
+          );
+
+          alert(
+            "Sign out failed:\n\n" +
+            error.message
           );
 
         }
@@ -845,8 +861,11 @@
         logoutButton.disabled =
           false;
 
+        logoutButton.textContent =
+          "Sign out";
 
-        await updateLoginState();
+
+        await checkSession();
 
       }
     );
@@ -869,7 +888,14 @@
           );
 
 
-          updateLoginState();
+          showUser(session);
+
+
+          if (session) {
+
+            cleanAuthUrl();
+
+          }
 
         }
       );
@@ -910,15 +936,10 @@
 
 
     /* =========================
-       INITIALIZE
+       START
     ========================= */
 
-    console.log(
-      "Mori initialized successfully"
-    );
-
-
-    updateLoginState();
+    checkSession();
 
   </script>
 

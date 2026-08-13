@@ -20,12 +20,30 @@
     }
 
 
+    html {
+      scroll-behavior: smooth;
+    }
+
+
     body {
       margin: 0;
       min-height: 100vh;
-      background: #0d0d0f;
+
+      background:
+        radial-gradient(
+          circle at 50% -10%,
+          rgba(170, 140, 110, 0.06),
+          transparent 35%
+        ),
+        #0d0d0f;
+
       color: #eee;
-      font-family: Georgia, "Times New Roman", "Noto Serif SC", serif;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        "Noto Serif SC",
+        serif;
     }
 
 
@@ -35,16 +53,18 @@
     }
 
 
-    /* =========================
+
+    /* ========================================
        HEADER
-    ========================= */
+    ======================================== */
 
     header {
+
       position: sticky;
       top: 0;
       z-index: 20;
 
-      height: 76px;
+      height: 72px;
 
       display: flex;
       align-items: center;
@@ -52,23 +72,27 @@
 
       border-bottom: 1px solid #242429;
 
-      background: rgba(13, 13, 15, 0.94);
-      backdrop-filter: blur(12px);
+      background:
+        rgba(13, 13, 15, 0.94);
+
+      backdrop-filter: blur(14px);
     }
 
 
     .back-button {
+
       position: absolute;
-      left: 6%;
+      left: 5%;
 
       border: none;
+
       background: transparent;
 
       color: #77777f;
 
-      font-size: 13px;
-
       cursor: pointer;
+
+      font-size: 13px;
 
       transition: 0.2s;
     }
@@ -85,122 +109,95 @@
 
 
     .header-character-name {
+
       color: #eee;
+
       font-size: 18px;
+
+      letter-spacing: 0.5px;
     }
 
 
     .header-character-info {
+
       margin-top: 5px;
 
       color: #66666e;
 
       font-size: 11px;
-      letter-spacing: 0.5px;
+
+      letter-spacing: 0.8px;
     }
 
 
 
-    /* =========================
-       BOOK
-    ========================= */
+    /* ========================================
+       MAIN
+    ======================================== */
 
-    #bookSection {
-      min-height: calc(100vh - 76px);
+    main {
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: 100%;
 
-      padding: 55px 20px;
+      max-width: 820px;
+
+      margin: 0 auto;
+
+      padding:
+        55px 25px 160px;
     }
 
 
-    .book {
-      width: 90%;
-      max-width: 720px;
-
-      min-height: 500px;
-
-      position: relative;
-
-      display: flex;
-      flex-direction: column;
-
-      padding: 55px 65px 45px;
-
-      border: 1px solid #2c2c32;
-      border-radius: 18px;
-
-      background:
-        radial-gradient(
-          circle at top,
-          rgba(197, 168, 141, 0.045),
-          transparent 45%
-        ),
-        linear-gradient(
-          145deg,
-          #151519,
-          #101012
-        );
-
-      box-shadow:
-        0 25px 80px rgba(0, 0, 0, 0.35);
+    .container {
+      width: 100%;
     }
 
 
-    .book-page {
-      flex: 1;
 
-      display: none;
+    /* ========================================
+       CHARACTER INTRO
+    ======================================== */
 
-      animation: fadeIn 0.35s ease;
+    .character-intro {
+
+      margin-bottom: 55px;
+
+      padding-bottom: 42px;
+
+      border-bottom:
+        1px solid #29292f;
     }
 
 
-    .book-page.active {
-      display: block;
-    }
+    .section-label {
 
-
-    @keyframes fadeIn {
-
-      from {
-        opacity: 0;
-        transform: translateX(8px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-
-    }
-
-
-    .page-label {
-      margin-bottom: 30px;
+      margin-bottom: 18px;
 
       color: #8f7966;
 
-      font-size: 11px;
+      font-size: 10px;
+
       letter-spacing: 3px;
+
       text-transform: uppercase;
     }
 
 
-    .book h1 {
+    .character-name {
+
       margin: 0 0 10px;
 
       color: #f3eee8;
 
-      font-size: 34px;
+      font-size: 36px;
+
       font-weight: normal;
     }
 
 
-    .age {
-      margin-bottom: 32px;
+    .character-age {
+
+      margin-bottom: 30px;
 
       color: #77777f;
 
@@ -208,188 +205,164 @@
     }
 
 
-    .book h2 {
+    .character-job {
+
+      margin-bottom: 25px;
+
+      color: #aaa6a2;
+
+      font-size: 14px;
+
+      line-height: 1.8;
+    }
+
+
+    .info-title {
+
+      margin:
+        28px 0 10px;
+
+      color: #a98f79;
+
+      font-size: 11px;
+
+      letter-spacing: 1.8px;
+    }
+
+
+    .info-text {
+
+      margin: 0;
+
+      color: #aaa7aa;
+
+      font-size: 14px;
+
+      line-height: 2;
+    }
+
+
+    .character-quote {
+
+      margin-top: 25px;
+
+      padding-left: 18px;
+
+      border-left:
+        1px solid #665447;
+
+      color: #8e8988;
+
+      font-size: 14px;
+
+      line-height: 1.9;
+
+      font-style: italic;
+    }
+
+
+
+    /* ========================================
+       BACKGROUND
+    ======================================== */
+
+    .background-section {
+
+      margin-bottom: 55px;
+
+      padding-bottom: 42px;
+
+      border-bottom:
+        1px solid #29292f;
+    }
+
+
+    .background-title {
+
       margin: 0 0 25px;
 
       color: #e7e1da;
 
       font-size: 24px;
+
       font-weight: normal;
     }
 
 
-    .book h3 {
-      margin: 26px 0 9px;
+    .background-text {
 
-      color: #a98f79;
-
-      font-size: 12px;
-      font-weight: normal;
-
-      letter-spacing: 1.5px;
-    }
-
-
-    .book p {
-      margin: 0;
+      margin: 0 0 17px;
 
       color: #a5a3a6;
 
       font-size: 14px;
+
+      line-height: 2;
+    }
+
+
+    .background-highlight {
+
+      margin: 25px 0;
+
+      padding-left: 18px;
+
+      border-left:
+        1px solid #665447;
+
+      color: #ddd5cc;
+
+      font-size: 15px;
+
       line-height: 1.9;
     }
 
 
-    .book strong {
-      color: #ddd5cc;
+
+    /* ========================================
+       STORY
+    ======================================== */
+
+    .story-section {
+
+      margin-bottom: 45px;
+    }
+
+
+    .story-title {
+
+      margin: 0 0 28px;
+
+      color: #e7e1da;
+
+      font-size: 24px;
+
       font-weight: normal;
     }
 
 
-    .book-quote {
-      margin-top: 30px !important;
-
-      padding-left: 18px;
-
-      border-left: 1px solid #665447;
-
-      color: #8e8988 !important;
-
-      font-style: italic;
-    }
-
-
-    /* =========================
-       BOOK NAVIGATION
-    ========================= */
-
-    .book-navigation {
-      margin-top: 40px;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-
-    .page-button {
-      width: 42px;
-      height: 42px;
-
-      border: 1px solid #34343a;
-      border-radius: 50%;
-
-      background: #151519;
-      color: #aaa;
-
-      cursor: pointer;
-
-      font-size: 18px;
-
-      transition: 0.2s;
-    }
-
-
-    .page-button:hover {
-      border-color: #756658;
-      color: #eee;
-      background: #211f20;
-    }
-
-
-    .page-button:disabled {
-      opacity: 0.25;
-      cursor: default;
-    }
-
-
-    .page-indicator {
-      color: #5f5d62;
-
-      font-size: 11px;
-      letter-spacing: 2px;
-    }
-
-
-    .start-button {
-      margin: 0 auto;
-
-      padding: 12px 28px;
-
-      border: 1px solid #625548;
-      border-radius: 25px;
-
-      background: #181619;
-      color: #e8e0d8;
-
-      cursor: pointer;
-
-      font-size: 13px;
-
-      transition: 0.25s;
-    }
-
-
-    .start-button:hover {
-      background: #292427;
-      border-color: #927b69;
-      transform: translateY(-2px);
-    }
-
-
-
-    /* =========================
-       STORY
-    ========================= */
-
-    #storySection {
-      display: none;
-
-      width: 100%;
-      max-width: 780px;
-
-      margin: 0 auto;
-
-      padding: 55px 25px 150px;
-    }
-
-
-    .story {
-      max-width: 680px;
-
-      margin: 0 auto;
-    }
-
-
     .story-text {
-      margin: 0 0 24px;
 
-      color: #b0adb0;
+      margin: 0 0 21px;
+
+      color: #a8a5a8;
 
       font-size: 15px;
+
       line-height: 2;
 
-      letter-spacing: 0.1px;
-    }
-
-
-    .story-text.italic {
-      color: #8e8b90;
       font-style: italic;
     }
 
 
-    .story-break {
-      height: 18px;
-    }
+    .story-impact {
 
-
-    .impact {
-      margin: 25px 0;
+      margin: 28px 0;
 
       color: #d8d0c8;
 
       font-size: 20px;
+
       text-align: center;
 
       letter-spacing: 2px;
@@ -397,16 +370,96 @@
 
 
 
-    /* =========================
-       CHARACTER DIALOGUE
-    ========================= */
+    /* ========================================
+       CHAT AREA
+    ======================================== */
 
-    .dialogue {
-      margin: 32px 0;
+    .chat-section {
 
-      padding: 20px 24px;
+      padding-top: 10px;
+    }
 
-      border: 1px solid #403b3c;
+
+    .chat-divider {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 15px;
+
+      margin: 35px 0;
+    }
+
+
+    .chat-divider::before,
+    .chat-divider::after {
+
+      content: "";
+
+      flex: 1;
+
+      height: 1px;
+
+      background: #29292f;
+    }
+
+
+    .chat-divider span {
+
+      color: #5f5d62;
+
+      font-size: 10px;
+
+      letter-spacing: 2px;
+    }
+
+
+
+    /* ========================================
+       MESSAGES
+    ======================================== */
+
+    #messages {
+      width: 100%;
+    }
+
+
+    .message {
+
+      margin: 25px 0;
+
+      animation:
+        messageAppear 0.3s ease;
+    }
+
+
+    @keyframes messageAppear {
+
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+    }
+
+
+
+    /* CHARACTER MESSAGE */
+
+    .character-message {
+
+      padding:
+        19px 22px;
+
+      border:
+        1px solid #403b3c;
+
       border-radius: 12px;
 
       background:
@@ -417,91 +470,162 @@
         );
 
       box-shadow:
-        0 10px 35px rgba(0, 0, 0, 0.18);
+        0 10px 35px
+        rgba(0, 0, 0, 0.16);
     }
 
 
-    .dialogue-name {
+    .message-name {
+
       margin-bottom: 10px;
 
       color: #b99d84;
 
       font-size: 11px;
+
       letter-spacing: 1.5px;
     }
 
 
-    .dialogue-text {
+    .message-body {
+
       color: #eeeae6;
 
       font-size: 15px;
-      line-height: 1.8;
+
+      line-height: 1.9;
+
+      white-space: pre-wrap;
     }
 
 
 
-    /* =========================
-       USER MESSAGE
-    ========================= */
+    /* USER MESSAGE */
 
     .user-message {
+
       width: fit-content;
-      max-width: 75%;
 
-      margin: 28px 0 28px auto;
+      max-width: 78%;
 
-      padding: 12px 17px;
+      margin-left: auto;
 
-      border: 1px solid #39353a;
-      border-radius: 14px 14px 3px 14px;
+      padding:
+        12px 17px;
+
+      border:
+        1px solid #39353a;
+
+      border-radius:
+        14px
+        14px
+        3px
+        14px;
 
       background: #1b1a1e;
 
       color: #ddd;
 
-      font-family: Georgia, "Times New Roman", serif;
       font-size: 14px;
-      line-height: 1.7;
+
+      line-height: 1.8;
+
+      white-space: pre-wrap;
+    }
+
+
+    .user-label {
+
+      margin-bottom: 7px;
+
+      color: #66636a;
+
+      font-size: 10px;
+
+      text-align: right;
+
+      letter-spacing: 1px;
     }
 
 
 
-    /* =========================
-       INPUT AREA
-    ========================= */
+    /* ========================================
+       TYPING
+    ======================================== */
+
+    .typing {
+
+      display: none;
+
+      padding:
+        18px 22px;
+
+      border:
+        1px solid #333137;
+
+      border-radius: 12px;
+
+      background: #151519;
+
+      color: #77737a;
+
+      font-size: 13px;
+
+      font-style: italic;
+    }
+
+
+    .typing.show {
+      display: block;
+    }
+
+
+
+    /* ========================================
+       INPUT
+    ======================================== */
 
     .input-area {
+
       position: fixed;
 
       left: 50%;
       bottom: 0;
 
-      transform: translateX(-50%);
+      transform:
+        translateX(-50%);
 
       z-index: 30;
 
       width: 100%;
+
       max-width: 820px;
 
-      padding: 18px 25px 24px;
+      padding:
+        18px 25px 24px;
 
       background:
         linear-gradient(
           to top,
-          #0d0d0f 70%,
-          rgba(13, 13, 15, 0)
+          #0d0d0f 72%,
+          rgba(13,13,15,0)
         );
     }
 
 
     .input-box {
+
       display: flex;
+
       align-items: flex-end;
+
       gap: 10px;
 
       padding: 8px;
 
-      border: 1px solid #303037;
+      border:
+        1px solid #303037;
+
       border-radius: 15px;
 
       background: #151519;
@@ -509,22 +633,28 @@
 
 
     #messageInput {
+
       flex: 1;
 
       min-height: 42px;
-      max-height: 130px;
+
+      max-height: 140px;
 
       resize: none;
 
       border: none;
+
       outline: none;
 
-      padding: 11px 10px;
+      padding:
+        11px 10px;
 
       background: transparent;
+
       color: #eee;
 
       font-size: 14px;
+
       line-height: 1.5;
     }
 
@@ -535,13 +665,18 @@
 
 
     #sendButton {
+
       min-width: 62px;
+
       height: 42px;
 
-      border: 1px solid #494148;
+      border:
+        1px solid #494148;
+
       border-radius: 10px;
 
       background: #211f22;
+
       color: #ddd5ce;
 
       cursor: pointer;
@@ -551,15 +686,61 @@
 
 
     #sendButton:hover {
+
       background: #302c30;
+
       border-color: #746457;
     }
 
 
+    #sendButton:disabled {
 
-    /* =========================
-       RESPONSIVE
-    ========================= */
+      opacity: 0.45;
+
+      cursor: default;
+    }
+
+
+
+    /* ========================================
+       CLEAR CHAT
+    ======================================== */
+
+    .chat-tools {
+
+      display: flex;
+
+      justify-content: center;
+
+      margin-top: 35px;
+    }
+
+
+    .clear-button {
+
+      border: none;
+
+      background: transparent;
+
+      color: #55535a;
+
+      cursor: pointer;
+
+      font-size: 11px;
+
+      transition: 0.2s;
+    }
+
+
+    .clear-button:hover {
+      color: #9a8b80;
+    }
+
+
+
+    /* ========================================
+       MOBILE
+    ======================================== */
 
     @media (max-width: 650px) {
 
@@ -569,7 +750,7 @@
 
 
       .back-button {
-        left: 20px;
+        left: 18px;
       }
 
 
@@ -578,60 +759,63 @@
       }
 
 
-      #bookSection {
-        padding: 30px 12px;
+      main {
+
+        padding:
+          38px 20px 150px;
       }
 
 
-      .book {
-        width: 100%;
-        min-height: 560px;
-
-        padding: 38px 28px 30px;
-
-        border-radius: 14px;
+      .character-name {
+        font-size: 30px;
       }
 
 
-      .book h1 {
-        font-size: 29px;
+      .character-intro,
+      .background-section {
+
+        margin-bottom: 40px;
+
+        padding-bottom: 35px;
       }
 
 
-      .book h2 {
-        font-size: 21px;
-      }
+      .story-text,
+      .background-text,
+      .info-text {
 
-
-      .book p {
-        font-size: 13px;
-        line-height: 1.85;
-      }
-
-
-      #storySection {
-        padding: 40px 20px 145px;
-      }
-
-
-      .story-text {
         font-size: 14px;
+
         line-height: 1.95;
       }
 
 
-      .dialogue {
-        padding: 17px 18px;
+      .character-quote {
+
+        font-size: 13px;
       }
 
 
-      .dialogue-text {
+      .character-message {
+
+        padding:
+          17px 18px;
+      }
+
+
+      .message-body {
         font-size: 14px;
       }
 
 
       .user-message {
-        max-width: 85%;
+        max-width: 88%;
+      }
+
+
+      .input-area {
+        padding:
+          14px 15px 18px;
       }
 
     }
@@ -641,14 +825,16 @@
 </head>
 
 
+
 <body>
 
 
-  <!-- =========================
+  <!-- ========================================
        HEADER
-  ========================= -->
+  ======================================== -->
 
   <header>
+
 
     <button
       class="back-button"
@@ -666,77 +852,81 @@
       </div>
 
       <div class="header-character-info">
-        27 · 心脏外科主治医师
+        28 · 心脏外科主治医师
       </div>
 
     </div>
+
 
   </header>
 
 
 
-  <!-- =========================
-       CHARACTER BOOK
-  ========================= -->
+  <!-- ========================================
+       MAIN
+  ======================================== -->
 
-  <section id="bookSection">
+  <main>
+
+    <div class="container">
 
 
-    <div class="book">
+
+      <!-- ========================================
+           CHARACTER
+      ======================================== -->
+
+      <section class="character-intro">
 
 
-      <!-- PAGE 1 -->
-
-      <div
-        class="book-page active"
-        data-page="1"
-      >
-
-        <div class="page-label">
+        <div class="section-label">
           Character
         </div>
 
 
-        <h1>
+        <h1 class="character-name">
           夏亦谦
         </h1>
 
 
-        <div class="age">
-          27岁
+        <div class="character-age">
+          28岁
         </div>
 
 
-        <h3>
+        <div class="info-title">
           职业
-        </h3>
+        </div>
 
-        <p>
+
+        <p class="character-job">
+
           京南市第一人民医院 · 心脏外科主治医师
+
           <br>
+
           临床医学硕士
+
         </p>
 
 
-        <h3>
+        <div class="info-title">
           性格
-        </h3>
+        </div>
 
-        <p>
+
+        <p class="info-text">
+
           温和儒雅，冷静克制。
-        </p>
 
-
-        <p style="margin-top: 16px;">
+          <br><br>
 
           他很少真正动怒，也不习惯把情绪写在脸上。
+
           待人永远保持着恰到好处的礼貌与距离，
           声音温和，做事沉稳，很难让人看出他的真实想法。
 
-        </p>
-
-
-        <p style="margin-top: 16px;">
+          <br><br>
 
           他习惯掌控自己的情绪，
           也习惯把人生安排得井然有序。
@@ -744,50 +934,48 @@
         </p>
 
 
-        <p class="book-quote">
+        <div class="character-quote">
 
           只是偶尔，那份过分的克制会让人觉得——
+
           <br>
+
           这个人似乎从来没有真正为自己活过。
 
-        </p>
-
-      </div>
+        </div>
 
 
+      </section>
 
-      <!-- PAGE 2 -->
 
-      <div
-        class="book-page"
-        data-page="2"
-      >
 
-        <div class="page-label">
+      <!-- ========================================
+           BACKGROUND
+      ======================================== -->
+
+      <section class="background-section">
+
+
+        <div class="section-label">
           Background
         </div>
 
 
-        <h2>
+        <h2 class="background-title">
           他的人生
         </h2>
 
 
-        <p>
+        <p class="background-text">
 
           夏亦谦五岁那年，父母离婚。
 
         </p>
 
 
-        <p style="margin-top: 15px;">
+        <p class="background-text">
 
           那之后，他的人生便开始被父亲一笔一画地规划。
-
-        </p>
-
-
-        <p style="margin-top: 15px;">
 
           什么时候上学，学什么专业，
           将来做什么工作，似乎每一步都有既定的答案。
@@ -795,25 +983,20 @@
         </p>
 
 
-        <p class="book-quote">
+        <div class="background-highlight">
 
           当医生。
 
-        </p>
+        </div>
 
 
-        <p style="margin-top: 18px;">
+        <p class="background-text">
 
           七岁那年，父亲再婚。
 
           <br><br>
 
           从那以后，夏亦谦和父亲之间便逐渐少了交流。
-
-        </p>
-
-
-        <p style="margin-top: 15px;">
 
           不是争吵，也不是怨恨。
 
@@ -824,11 +1007,11 @@
         </p>
 
 
-        <p style="margin-top: 18px;">
+        <p class="background-text">
 
           他依旧按照父亲安排好的轨迹长大。
 
-          <br>
+          <br><br>
 
           成绩优异，履历漂亮，
           从医学院一路读到硕士毕业。
@@ -836,44 +1019,20 @@
         </p>
 
 
-      </div>
-
-
-
-      <!-- PAGE 3 -->
-
-      <div
-        class="book-page"
-        data-page="3"
-      >
-
-        <div class="page-label">
-          Background
-        </div>
-
-
-        <h2>
-          顺风的人生
-        </h2>
-
-
-        <p>
+        <p class="background-text">
 
           硕士毕业时，他以优异成绩完成学业，
-          并获评 <strong>优秀医学毕业生</strong>，
-          顺利进入京南市第一人民医院工作。
+          并获评优秀医学毕业生，
+          随后进入京南市第一人民医院工作。
 
         </p>
 
 
-        <p style="margin-top: 18px;">
+        <p class="background-text">
 
           他的人生似乎一直顺风顺水。
 
-        </p>
-
-
-        <p style="margin-top: 15px;">
+          <br><br>
 
           没有叛逆期，没有离经叛道，
           也没有真正失控过。
@@ -881,14 +1040,14 @@
         </p>
 
 
-        <p style="margin-top: 18px;">
+        <p class="background-text">
 
           父亲以为，他已经成为了自己最满意的样子。
 
         </p>
 
 
-        <p class="book-quote">
+        <div class="character-quote">
 
           只有夏亦谦自己知道——
 
@@ -897,309 +1056,347 @@
           他其实只是很早就学会了，
           不去问自己究竟想要什么。
 
-        </p>
+        </div>
 
 
-        <p style="margin-top: 22px;">
+        <p class="background-text"
+           style="margin-top: 25px;">
 
           而在那些无人知道的夜晚，
           他偶尔会打开微信，
           和远在另一边生活的母亲聊几句。
 
-        </p>
-
-
-        <p style="margin-top: 15px;">
+          <br><br>
 
           母亲是他和过去之间，
           少数还保留下来的联系。
 
         </p>
 
-      </div>
+
+      </section>
 
 
 
-      <!-- BOOK NAVIGATION -->
+      <!-- ========================================
+           STORY
+      ======================================== -->
 
-      <div class="book-navigation">
+      <section class="story-section">
 
-        <button
-          class="page-button"
-          id="previousPage"
-          type="button"
-          disabled
-        >
-          ‹
-        </button>
 
+        <div class="section-label">
+          Story
+        </div>
+
+
+        <h2 class="story-title">
+          初雪
+        </h2>
+
+
+        <p class="story-text">
+          雪下得很大。
+        </p>
+
+
+        <p class="story-text">
+
+          漫天的雪花被风卷起，
+          在视线里交织成一片朦胧的白。
+
+        </p>
+
+
+        <p class="story-text">
+
+          今天的雪场比平日热闹许多。
+
+          赛道上有不少第一次来滑雪的新手，
+          小心翼翼地扶着雪杖，
+          一点一点往下挪。
+
+        </p>
+
+
+        <p class="story-text">
+
+          夏亦谦从高处俯冲而下。
+
+        </p>
+
+
+        <p class="story-text">
+
+          速度并不算快，却稳得惊人。
+
+          他侧身避开迎面而来的滑雪者，
+          轻巧地调整方向，
+          又从另一名新手身侧擦过。
+
+        </p>
+
+
+        <p class="story-text">
+
+          雪板划过雪面，
+          留下两道干净利落的痕迹。
+
+        </p>
+
+
+        <p class="story-text">
+
+          直到临近坡底，
+          他微微压低身体，
+          雪板横过雪面——
+
+        </p>
+
+
+        <div class="story-impact">
+          唰——
+        </div>
+
+
+        <p class="story-text">
+
+          细碎的雪雾扬起。
+
+        </p>
+
+
+        <p class="story-text">
+
+          他稳稳停了下来。
+
+        </p>
+
+
+        <p class="story-text">
+
+          夏亦谦摘下一只手套，
+          抬手拂去肩上的雪。
+
+        </p>
+
+
+        <p class="story-text">
+
+          下一秒——
+
+        </p>
+
+
+        <div class="story-impact">
+          砰。
+        </div>
+
+
+        <p class="story-text">
+
+          一道身影毫无预兆地从后方撞了上来。
+
+        </p>
+
+
+        <p class="story-text">
+
+          巨大的冲力让他向前踉跄了一步。
+
+          身后的人似乎完全没有刹住，
+          连同雪板一起撞进了他的怀里。
+
+        </p>
+
+
+        <p class="story-text">
+
+          两个人同时摔进松软的雪地。
+
+        </p>
+
+
+        <p class="story-text">
+
+          周围安静了一瞬。
+
+        </p>
+
+
+        <p class="story-text">
+
+          夏亦谦撑着雪地坐起身，
+          下意识先看向你。
+
+        </p>
+
+
+        <p class="story-text">
+
+          确认你没有受伤后，
+          他才低头看了看自己被撞歪的雪镜。
+
+        </p>
+
+
+        <p class="story-text">
+
+          沉默两秒。
+
+        </p>
+
+
+        <p class="story-text">
+
+          他忽然轻轻笑了一声。
+
+        </p>
+
+
+      </section>
+
+
+
+      <!-- ========================================
+           CHAT
+      ======================================== -->
+
+      <section class="chat-section">
+
+
+        <div class="chat-divider">
+          <span>THE STORY CONTINUES</span>
+        </div>
+
+
+        <div id="messages">
+
+
+          <!-- FIRST CHARACTER MESSAGE -->
+
+          <div
+            class="message character-message"
+          >
+
+            <div class="message-name">
+              夏亦谦
+            </div>
+
+            <div class="message-body">
+
+              “……还好吗？”
+
+            </div>
+
+          </div>
+
+
+          <!-- FIRST NARRATION -->
+
+          <div
+            class="message character-message"
+          >
+
+            <div class="message-name">
+              夏亦谦
+            </div>
+
+            <div class="message-body">
+
+              *他的声音比想象中温和。*
+
+              *没有责怪，也没有不耐烦。*
+
+              *他只是看着你，随后伸出手。*
+
+              “先起来。”
+
+            </div>
+
+          </div>
+
+
+          <!-- SECOND NARRATION -->
+
+          <div
+            class="message character-message"
+          >
+
+            <div class="message-name">
+              夏亦谦
+            </div>
+
+            <div class="message-body">
+
+              *他看了一眼你身上的滑雪装备，又看向你刚才一路冲下来的方向。*
+
+              *雪镜后的目光似乎带着一点若有若无的笑意。*
+
+              “第一次滑雪？”
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+        <!-- TYPING -->
 
         <div
-          class="page-indicator"
-          id="pageIndicator"
+          class="typing"
+          id="typing"
         >
-          1 / 3
+
+          夏亦谦正在思考……
+
         </div>
 
 
-        <button
-          class="page-button"
-          id="nextPage"
-          type="button"
-        >
-          ›
-        </button>
+        <!-- CLEAR -->
 
-      </div>
+        <div class="chat-tools">
+
+          <button
+            class="clear-button"
+            id="clearButton"
+            type="button"
+          >
+
+            清除这段剧情
+
+          </button>
+
+        </div>
 
 
-      <button
-        class="start-button"
-        id="startButton"
-        type="button"
-      >
-        Enter Story
-      </button>
+      </section>
 
 
     </div>
-
-  </section>
-
-
-
-  <!-- =========================
-       STORY
-  ========================= -->
-
-  <main id="storySection">
-
-
-    <div class="story">
-
-
-      <p class="story-text italic">
-        雪下得很大。
-      </p>
-
-
-      <p class="story-text italic">
-        漫天的雪花被风卷起，在视线里交织成一片朦胧的白。
-      </p>
-
-
-      <p class="story-text italic">
-        今天的雪场比平日热闹许多。
-        赛道上有不少第一次来滑雪的新手，
-        小心翼翼地扶着雪杖，一点一点往下挪。
-      </p>
-
-
-      <p class="story-text italic">
-        夏亦谦从高处俯冲而下。
-      </p>
-
-
-      <p class="story-text italic">
-        速度并不算快，却稳得惊人。
-      </p>
-
-
-      <p class="story-text italic">
-        他侧身避开迎面而来的滑雪者，
-        轻巧地调整方向，又从另一名新手身侧擦过。
-      </p>
-
-
-      <p class="story-text italic">
-        雪板划过雪面，留下两道干净利落的痕迹。
-      </p>
-
-
-      <p class="story-text italic">
-        直到临近坡底，他微微压低身体，
-        雪板横过雪面——
-      </p>
-
-
-      <div class="impact">
-        唰——
-      </div>
-
-
-      <p class="story-text italic">
-        细碎的雪雾扬起。
-      </p>
-
-
-      <p class="story-text italic">
-        他稳稳停了下来。
-      </p>
-
-
-      <p class="story-text italic">
-        夏亦谦摘下一只手套，
-        抬手拂去肩上的雪。
-      </p>
-
-
-      <p class="story-text italic">
-        下一秒——
-      </p>
-
-
-      <div class="impact">
-        砰。
-      </div>
-
-
-      <p class="story-text italic">
-        一道身影毫无预兆地从后方撞了上来。
-      </p>
-
-
-      <p class="story-text italic">
-        巨大的冲力让他向前踉跄了一步。
-      </p>
-
-
-      <p class="story-text italic">
-        身后的人似乎完全没有刹住，
-        连同雪板一起撞了上来。
-      </p>
-
-
-      <p class="story-text italic">
-        两个人同时摔进松软的雪地。
-      </p>
-
-
-      <p class="story-text italic">
-        周围安静了一瞬。
-      </p>
-
-
-      <p class="story-text italic">
-        夏亦谦撑着雪地坐起身，
-        下意识先看向身后的人。
-      </p>
-
-
-      <p class="story-text italic">
-        确认对方没有受伤后，
-        他才低头看了看自己被撞歪的雪镜。
-      </p>
-
-
-      <p class="story-text italic">
-        沉默两秒。
-      </p>
-
-
-      <p class="story-text italic">
-        他忽然轻轻笑了一声。
-      </p>
-
-
-
-      <!-- DIALOGUE 1 -->
-
-      <div class="dialogue">
-
-        <div class="dialogue-name">
-          夏亦谦
-        </div>
-
-        <div class="dialogue-text">
-          “……还好吗？”
-        </div>
-
-      </div>
-
-
-
-      <p class="story-text italic">
-        他的声音比想象中温和。
-      </p>
-
-
-      <p class="story-text italic">
-        没有责怪，也没有不耐烦。
-      </p>
-
-
-      <p class="story-text italic">
-        只是看着你，伸出手。
-      </p>
-
-
-
-      <!-- DIALOGUE 2 -->
-
-      <div class="dialogue">
-
-        <div class="dialogue-name">
-          夏亦谦
-        </div>
-
-        <div class="dialogue-text">
-          “先起来。”
-        </div>
-
-      </div>
-
-
-
-      <p class="story-text italic">
-        顿了顿，他看了一眼你身上的滑雪装备，
-        又看向刚才一路冲下来的方向。
-      </p>
-
-
-
-      <!-- DIALOGUE 3 -->
-
-      <div class="dialogue">
-
-        <div class="dialogue-name">
-          夏亦谦
-        </div>
-
-        <div class="dialogue-text">
-          “第一次滑雪？”
-        </div>
-
-      </div>
-
-
-      <!-- USER MESSAGES WILL APPEAR HERE -->
-
-      <div id="messages"></div>
-
-
-    </div>
-
 
   </main>
 
 
 
-  <!-- =========================
+  <!-- ========================================
        INPUT
-  ========================= -->
+  ======================================== -->
 
   <div
     class="input-area"
     id="inputArea"
-    style="display: none;"
   >
 
     <div class="input-box">
 
+
       <textarea
         id="messageInput"
         rows="1"
-        placeholder="说点什么……"
+        placeholder="输入你的动作、对白或想法……"
       ></textarea>
 
 
@@ -1207,8 +1404,11 @@
         id="sendButton"
         type="button"
       >
+
         Send
+
       </button>
+
 
     </div>
 
@@ -1219,170 +1419,106 @@
   <script>
 
 
-    /* =========================
-       PAGE NAVIGATION
-    ========================= */
+    /* ========================================
+       CHARACTER
+    ======================================== */
+
+    const CHARACTER_NAME =
+      "夏亦谦";
 
 
-    const pages =
-      document.querySelectorAll(
-        ".book-page"
-      );
+    const CHARACTER_ID =
+      "xia-yi-qian";
 
 
-    const previousPage =
+    /*
+      以后真正接 AI 的时候，
+      这些资料会一起发送给 AI。
+    */
+
+    const CHARACTER_PERSONA = `
+
+你正在扮演夏亦谦。
+
+年龄：28岁。
+
+职业：
+京南市第一人民医院心脏外科主治医师。
+临床医学硕士。
+
+性格：
+温和儒雅，冷静克制。
+很少真正动怒，不轻易把情绪写在脸上。
+待人礼貌，有分寸，声音温和，做事沉稳。
+习惯控制自己的情绪，也习惯把人生安排得井然有序。
+
+背景：
+五岁时父母离婚。
+父亲从那以后开始安排他的人生。
+七岁时父亲再婚。
+他和父亲逐渐变得没有什么话可说。
+他按照父亲安排的轨迹长大，成绩优异，从医学院一路读到硕士毕业。
+毕业时获评优秀医学毕业生，之后进入京南市第一人民医院工作。
+他偶尔会和母亲通过微信联系。
+
+重要：
+夏亦谦不是一个冷漠的人。
+他的温柔是克制的。
+他不会轻易说出非常直白的情感。
+他更习惯通过动作、眼神、语气和细节表现情绪。
+
+聊天方式：
+这是剧情式角色扮演，而不是普通问答。
+每次回复都应该结合当前场景。
+
+回复可以包含：
+*环境描写*
+*人物动作*
+*表情*
+*心理或细微反应*
+
+然后再使用：
+
+“角色说的话。”
+
+不要只回复一句干巴巴的对白。
+
+用户拥有自己的角色。
+不要替用户决定想法、动作、感受或对白。
+
+例如用户说：
+
+“嗯……我第一次滑雪。”小声。
+
+应该自然接续剧情，例如：
+
+*夏亦谦看了你一眼，没有催促。*
+
+*他伸手扶住你的手臂，将掉在雪地旁的滑雪杖递给你。*
+
+“没事就好。”
+
+`;
+
+
+    /* ========================================
+       LOCAL STORAGE
+    ======================================== */
+
+    const STORAGE_KEY =
+      "mori_chat_" +
+      CHARACTER_ID;
+
+
+
+    /* ========================================
+       ELEMENTS
+    ======================================== */
+
+    const messages =
       document.getElementById(
-        "previousPage"
+        "messages"
       );
-
-
-    const nextPage =
-      document.getElementById(
-        "nextPage"
-      );
-
-
-    const pageIndicator =
-      document.getElementById(
-        "pageIndicator"
-      );
-
-
-    const startButton =
-      document.getElementById(
-        "startButton"
-      );
-
-
-    let currentPage = 0;
-
-
-    function updateBook() {
-
-      pages.forEach(
-        (page, index) => {
-
-          page.classList.toggle(
-            "active",
-            index === currentPage
-          );
-
-        }
-      );
-
-
-      previousPage.disabled =
-        currentPage === 0;
-
-
-      nextPage.disabled =
-        currentPage === pages.length - 1;
-
-
-      pageIndicator.textContent =
-        `${currentPage + 1} / ${pages.length}`;
-
-    }
-
-
-    previousPage.addEventListener(
-      "click",
-      () => {
-
-        if (currentPage > 0) {
-
-          currentPage--;
-
-          updateBook();
-
-        }
-
-      }
-    );
-
-
-    nextPage.addEventListener(
-      "click",
-      () => {
-
-        if (
-          currentPage <
-          pages.length - 1
-        ) {
-
-          currentPage++;
-
-          updateBook();
-
-        }
-
-      }
-    );
-
-
-
-    /* =========================
-       ENTER STORY
-    ========================= */
-
-
-    const bookSection =
-      document.getElementById(
-        "bookSection"
-      );
-
-
-    const storySection =
-      document.getElementById(
-        "storySection"
-      );
-
-
-    const inputArea =
-      document.getElementById(
-        "inputArea"
-      );
-
-
-    startButton.addEventListener(
-      "click",
-      () => {
-
-        bookSection.style.display =
-          "none";
-
-
-        storySection.style.display =
-          "block";
-
-
-        inputArea.style.display =
-          "block";
-
-
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth"
-        });
-
-
-        setTimeout(
-          () => {
-
-            messageInput.focus();
-
-          },
-          500
-        );
-
-      }
-    );
-
-
-
-    /* =========================
-       USER MESSAGE
-    ========================= */
 
 
     const messageInput =
@@ -1397,13 +1533,413 @@
       );
 
 
-    const messages =
+    const typing =
       document.getElementById(
-        "messages"
+        "typing"
       );
 
 
-    function sendMessage() {
+    const clearButton =
+      document.getElementById(
+        "clearButton"
+      );
+
+
+    const backButton =
+      document.getElementById(
+        "backButton"
+      );
+
+
+
+    /* ========================================
+       SAVE CHAT
+    ======================================== */
+
+    function saveMessages() {
+
+      const saved =
+        [];
+
+
+      const allMessages =
+        messages.querySelectorAll(
+          ".message"
+        );
+
+
+      allMessages.forEach(
+        (message) => {
+
+          const isUser =
+            message.classList.contains(
+              "user-message"
+            );
+
+
+          const body =
+            message.querySelector(
+              ".message-body"
+            );
+
+
+          if (!body) {
+            return;
+          }
+
+
+          saved.push({
+
+            type:
+              isUser
+                ? "user"
+                : "character",
+
+            text:
+              body.textContent
+
+          });
+
+        }
+      );
+
+
+      localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(saved)
+      );
+
+    }
+
+
+
+    /* ========================================
+       LOAD CHAT
+    ======================================== */
+
+    function loadMessages() {
+
+      const saved =
+        localStorage.getItem(
+          STORAGE_KEY
+        );
+
+
+      if (!saved) {
+        return;
+      }
+
+
+      try {
+
+        const data =
+          JSON.parse(saved);
+
+
+        if (
+          !Array.isArray(data) ||
+          data.length === 0
+        ) {
+          return;
+        }
+
+
+        messages.innerHTML = "";
+
+
+        data.forEach(
+          (item) => {
+
+            if (
+              item.type === "user"
+            ) {
+
+              addUserMessage(
+                item.text,
+                false
+              );
+
+            } else {
+
+              addCharacterMessage(
+                item.text,
+                false
+              );
+
+            }
+
+          }
+        );
+
+
+      } catch (error) {
+
+        console.error(
+          "读取聊天记录失败：",
+          error
+        );
+
+      }
+
+    }
+
+
+
+    /* ========================================
+       ADD USER MESSAGE
+    ======================================== */
+
+    function addUserMessage(
+      text,
+      save = true
+    ) {
+
+      const message =
+        document.createElement(
+          "div"
+        );
+
+
+      message.className =
+        "message user-message";
+
+
+      const label =
+        document.createElement(
+          "div"
+        );
+
+
+      label.className =
+        "user-label";
+
+
+      label.textContent =
+        "YOU";
+
+
+      const body =
+        document.createElement(
+          "div"
+        );
+
+
+      body.className =
+        "message-body";
+
+
+      body.textContent =
+        text;
+
+
+      message.appendChild(
+        label
+      );
+
+
+      message.appendChild(
+        body
+      );
+
+
+      messages.appendChild(
+        message
+      );
+
+
+      if (save) {
+        saveMessages();
+      }
+
+
+      message.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+
+    }
+
+
+
+    /* ========================================
+       ADD CHARACTER MESSAGE
+    ======================================== */
+
+    function addCharacterMessage(
+      text,
+      save = true
+    ) {
+
+      const message =
+        document.createElement(
+          "div"
+        );
+
+
+      message.className =
+        "message character-message";
+
+
+      const name =
+        document.createElement(
+          "div"
+        );
+
+
+      name.className =
+        "message-name";
+
+
+      name.textContent =
+        CHARACTER_NAME;
+
+
+      const body =
+        document.createElement(
+          "div"
+        );
+
+
+      body.className =
+        "message-body";
+
+
+      body.textContent =
+        text;
+
+
+      message.appendChild(
+        name
+      );
+
+
+      message.appendChild(
+        body
+      );
+
+
+      messages.appendChild(
+        message
+      );
+
+
+      if (save) {
+        saveMessages();
+      }
+
+
+      message.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+
+    }
+
+
+
+    /* ========================================
+       TEST STORY RESPONSE
+    ======================================== */
+
+    function generateTestReply(
+      userText
+    ) {
+
+      const text =
+        userText.toLowerCase();
+
+
+      /*
+        这里暂时不是正式 AI。
+
+        只是让网页在真正接入 AI
+        之前，可以先体验剧情式回复。
+      */
+
+
+      if (
+        text.includes("第一次") ||
+        text.includes("不会") ||
+        text.includes("新手")
+      ) {
+
+        return `*夏亦谦看了你一会儿。*
+
+*他似乎并没有因为刚才那一撞而生气，只是伸手扶住你的手臂，将你从雪地里慢慢带起来。*
+
+*确认你站稳后，他弯腰捡起一旁的滑雪杖，递回到你手里。*
+
+“没事就好。”
+
+*他顿了顿，又看了一眼你的雪板。*
+
+“第一次的话，不建议从这条道下来。”`;
+
+      }
+
+
+      if (
+        text.includes("疼") ||
+        text.includes("痛") ||
+        text.includes("摔")
+      ) {
+
+        return `*夏亦谦的眉心轻轻皱了一下。*
+
+*他没有立刻说话，而是先低头看了看你的膝盖，又确认了一遍你身上有没有明显的擦伤。*
+
+“哪里疼？”
+
+*他的语气依旧温和，却比刚才认真了几分。*
+
+“别急，先让我看看。”`;
+
+      }
+
+
+      if (
+        text.includes("谢谢") ||
+        text.includes("没事")
+      ) {
+
+        return `*夏亦谦轻轻摇了摇头。*
+
+*他将手套重新戴好，视线落在你身上，神情依旧平静。*
+
+“没关系。”
+
+*片刻后，他像是想起什么似的，又问了一句。*
+
+“你一个人来的？”`;
+
+      }
+
+
+      return `*夏亦谦安静地听完你的话。*
+
+*雪花落在他的肩头，他却没有立刻拂去。*
+
+*他看着你，神情仍旧温和而平静，只是眼底多了一点认真。*
+
+“嗯。”
+
+*短暂的停顿后，他才继续开口。*
+
+“我在听。”
+
+*他的声音很轻。*
+
+“你慢慢说。”`;
+
+    }
+
+
+
+    /* ========================================
+       SEND MESSAGE
+    ======================================== */
+
+    async function sendMessage() {
 
       const text =
         messageInput.value.trim();
@@ -1414,22 +1950,16 @@
       }
 
 
-      const message =
-        document.createElement(
-          "div"
-        );
+      if (
+        sendButton.disabled
+      ) {
+        return;
+      }
 
 
-      message.className =
-        "user-message";
-
-
-      message.textContent =
-        text;
-
-
-      messages.appendChild(
-        message
+      addUserMessage(
+        text,
+        true
       );
 
 
@@ -1441,66 +1971,73 @@
         "42px";
 
 
-      message.scrollIntoView({
+      sendButton.disabled =
+        true;
+
+
+      typing.classList.add(
+        "show"
+      );
+
+
+      typing.scrollIntoView({
         behavior: "smooth",
         block: "center"
       });
 
 
       /*
-        暂时测试用。
-        下一步会在这里接真正的 AI。
+        模拟角色思考时间。
       */
-
 
       setTimeout(
         () => {
 
           const reply =
-            document.createElement(
-              "div"
+            generateTestReply(
+              text
             );
 
 
-          reply.className =
-            "dialogue";
-
-
-          reply.innerHTML = `
-
-            <div class="dialogue-name">
-              夏亦谦
-            </div>
-
-            <div class="dialogue-text">
-              “嗯……先别急着走。”
-            </div>
-
-          `;
-
-
-          messages.appendChild(
-            reply
+          typing.classList.remove(
+            "show"
           );
 
 
-          reply.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-          });
+          addCharacterMessage(
+            reply,
+            true
+          );
+
+
+          sendButton.disabled =
+            false;
+
+
+          messageInput.focus();
 
         },
-        800
+        900
       );
 
     }
 
+
+
+    /* ========================================
+       SEND BUTTON
+    ======================================== */
 
     sendButton.addEventListener(
       "click",
       sendMessage
     );
 
+
+
+    /* ========================================
+       ENTER
+    ======================================== */
 
     messageInput.addEventListener(
       "keydown",
@@ -1521,6 +2058,11 @@
     );
 
 
+
+    /* ========================================
+       AUTO RESIZE
+    ======================================== */
+
     messageInput.addEventListener(
       "input",
       () => {
@@ -1532,7 +2074,7 @@
         messageInput.style.height =
           Math.min(
             messageInput.scrollHeight,
-            130
+            140
           ) + "px";
 
       }
@@ -1540,16 +2082,40 @@
 
 
 
-    /* =========================
+    /* ========================================
+       CLEAR CHAT
+    ======================================== */
+
+    clearButton.addEventListener(
+      "click",
+      () => {
+
+        const confirmed =
+          confirm(
+            "确定要清除夏亦谦的聊天记录吗？"
+          );
+
+
+        if (!confirmed) {
+          return;
+        }
+
+
+        localStorage.removeItem(
+          STORAGE_KEY
+        );
+
+
+        location.reload();
+
+      }
+    );
+
+
+
+    /* ========================================
        BACK TO MORI
-    ========================= */
-
-
-    const backButton =
-      document.getElementById(
-        "backButton"
-      );
-
+    ======================================== */
 
     backButton.addEventListener(
       "click",
@@ -1560,6 +2126,17 @@
 
       }
     );
+
+
+
+    /* ========================================
+       START
+    ======================================== */
+
+    loadMessages();
+
+
+    messageInput.focus();
 
 
   </script>

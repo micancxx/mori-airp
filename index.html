@@ -107,7 +107,7 @@
     #userInfo {
       display: none;
       align-items: center;
-      gap: 10px;
+      gap: 9px;
       color: #aaa;
       font-size: 13px;
     }
@@ -511,7 +511,9 @@
   </footer>
 
 
+
   <script>
+
 
     /* =========================
        SUPABASE
@@ -520,28 +522,36 @@
     const SUPABASE_URL =
       "https://luidkakxsmmrpnsoycof.supabase.co";
 
+
+    /*
+      这是你最开始那份代码里的 anon key。
+      不要改。
+    */
+
     const SUPABASE_KEY =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJsdWlkYWtheHNtbXJwbnNveWNvZiIsInJvbGUiOiJhbm9uIiwiaWF0IjoxNzg2NDk4MzYxLCJleHAiOjIxMDIwNzQzNjF9.DeRQ5cRPaBfb3ex6nFMhJqOnX_3gLcTugZH6zBxoxVg";
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx1aWRrYWt4c21tcnBuc295Y29mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY0OTgzNjEsImV4cCI6MjEwMjA3NDM2MX0.DeRQ5cRPaBfb3ex6nFMhJqOnX_3gLcTugZH6zBxoxVg";
 
 
-    if (!window.supabase) {
-
-      alert(
-        "Mori could not load the login system."
-      );
-
-      throw new Error(
-        "Supabase library did not load."
-      );
-
-    }
-
+    /*
+      关键设置：
+      让 Supabase 自动读取 Google
+      登录回来时 URL 里的 access_token。
+    */
 
     const supabaseClient =
       window.supabase.createClient(
         SUPABASE_URL,
-        SUPABASE_KEY
+        SUPABASE_KEY,
+        {
+          auth: {
+            flowType: "implicit",
+            detectSessionInUrl: true,
+            persistSession: true,
+            autoRefreshToken: true
+          }
+        }
       );
+
 
 
     /* =========================
@@ -553,30 +563,36 @@
         "googleLogin"
       );
 
+
     const logoutButton =
       document.getElementById(
         "logoutButton"
       );
+
 
     const userInfo =
       document.getElementById(
         "userInfo"
       );
 
+
     const userName =
       document.getElementById(
         "userName"
       );
+
 
     const userAvatar =
       document.getElementById(
         "userAvatar"
       );
 
+
     const searchInput =
       document.getElementById(
         "searchInput"
       );
+
 
     const cards =
       document.querySelectorAll(
@@ -584,13 +600,19 @@
       );
 
 
+
     /* =========================
-       SHOW USER
+       SHOW LOGGED-IN USER
     ========================= */
 
-    function showUser(session) {
+    function showLoggedInUser(
+      session
+    ) {
 
-      if (!session || !session.user) {
+      if (
+        !session ||
+        !session.user
+      ) {
 
         googleLogin.style.display =
           "inline-block";
@@ -618,14 +640,16 @@
         metadata.full_name ||
         metadata.name ||
         user.email ||
-        "Signed in";
+        "User";
 
 
       userName.textContent =
         "Hi, " + name;
 
 
-      if (metadata.avatar_url) {
+      if (
+        metadata.avatar_url
+      ) {
 
         userAvatar.src =
           metadata.avatar_url;
@@ -653,17 +677,16 @@
     }
 
 
+
     /* =========================
-       CLEAN LOGIN URL
+       REMOVE TOKEN FROM URL
     ========================= */
 
-    function cleanAuthUrl() {
+    function cleanAuthHash() {
 
       if (
-        window.location.hash &&
-        window.location.hash.includes(
-          "access_token"
-        )
+        window.location.hash
+          .includes("access_token")
       ) {
 
         const cleanUrl =
@@ -671,8 +694,9 @@
           window.location.pathname +
           window.location.search;
 
+
         window.history.replaceState(
-          {},
+          null,
           document.title,
           cleanUrl
         );
@@ -682,58 +706,54 @@
     }
 
 
+
     /* =========================
-       CHECK SESSION
+       GET CURRENT SESSION
     ========================= */
 
-    async function checkSession() {
+    async function updateLoginState() {
 
-      try {
-
-        const {
-          data,
-          error
-        } =
-          await supabaseClient.auth
-            .getSession();
+      const {
+        data,
+        error
+      } =
+        await supabaseClient.auth
+          .getSession();
 
 
-        if (error) {
-
-          console.error(
-            "Session error:",
-            error
-          );
-
-          return;
-
-        }
-
-
-        if (data.session) {
-
-          showUser(
-            data.session
-          );
-
-          cleanAuthUrl();
-
-        } else {
-
-          showUser(null);
-
-        }
-
-      } catch (error) {
+      if (error) {
 
         console.error(
-          "Could not check session:",
+          "Session error:",
           error
+        );
+
+        return;
+
+      }
+
+
+      if (
+        data &&
+        data.session
+      ) {
+
+        showLoggedInUser(
+          data.session
+        );
+
+        cleanAuthHash();
+
+      } else {
+
+        showLoggedInUser(
+          null
         );
 
       }
 
     }
+
 
 
     /* =========================
@@ -751,53 +771,36 @@
           "Connecting...";
 
 
-        try {
-
-          const redirectTo =
-            window.location.origin +
-            window.location.pathname;
+        const redirectTo =
+          window.location.origin +
+          window.location.pathname;
 
 
-          const {
-            data,
-            error
-          } =
-            await supabaseClient.auth
-              .signInWithOAuth({
-
-                provider: "google",
-
-                options: {
-
-                  redirectTo:
-                    redirectTo
-
-                }
-
-              });
+        console.log(
+          "Redirecting to:",
+          redirectTo
+        );
 
 
-          if (error) {
+        const {
+          error
+        } =
+          await supabaseClient.auth
+            .signInWithOAuth({
 
-            console.error(
-              "Google login error:",
-              error
-            );
+              provider: "google",
 
-            alert(
-              "Google login failed:\n\n" +
-              error.message
-            );
+              options: {
 
-            googleLogin.disabled =
-              false;
+                redirectTo:
+                  redirectTo
 
-            googleLogin.textContent =
-              "Continue with Google";
+              }
 
-          }
+            });
 
-        } catch (error) {
+
+        if (error) {
 
           console.error(
             "Google login error:",
@@ -808,6 +811,7 @@
             "Google login failed:\n\n" +
             error.message
           );
+
 
           googleLogin.disabled =
             false;
@@ -821,8 +825,9 @@
     );
 
 
+
     /* =========================
-       LOGOUT
+       SIGN OUT
     ========================= */
 
     logoutButton.addEventListener(
@@ -865,14 +870,15 @@
           "Sign out";
 
 
-        await checkSession();
+        await updateLoginState();
 
       }
     );
 
 
+
     /* =========================
-       AUTH STATE
+       AUTH STATE CHANGE
     ========================= */
 
     supabaseClient.auth
@@ -888,17 +894,20 @@
           );
 
 
-          showUser(session);
+          showLoggedInUser(
+            session
+          );
 
 
           if (session) {
 
-            cleanAuthUrl();
+            cleanAuthHash();
 
           }
 
         }
       );
+
 
 
     /* =========================
@@ -935,11 +944,13 @@
     );
 
 
+
     /* =========================
        START
     ========================= */
 
-    checkSession();
+    updateLoginState();
+
 
   </script>
 

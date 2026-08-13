@@ -12,6 +12,7 @@
 
   <title>Mori</title>
 
+  <!-- Supabase -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <style>
@@ -266,6 +267,8 @@
 <body>
 
 
+  <!-- HEADER -->
+
   <header>
 
     <div class="logo">
@@ -309,6 +312,8 @@
   </header>
 
 
+  <!-- TITLE -->
+
   <section class="title">
 
     <h1>
@@ -321,6 +326,8 @@
 
   </section>
 
+
+  <!-- CHARACTERS -->
 
   <section
     class="characters"
@@ -436,6 +443,8 @@
   </section>
 
 
+  <!-- CATEGORIES -->
+
   <div class="categories">
 
     <div class="category">
@@ -461,34 +470,65 @@
   </div>
 
 
+  <!-- FOOTER -->
+
   <footer>
     Mori · A place where stories live.
   </footer>
 
 
 
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
   <script>
+
+    console.log("Mori script started");
 
 
     /* =========================
-       SUPABASE
+       CHECK SUPABASE
     ========================= */
 
+    if (!window.supabase) {
+
+      console.error(
+        "Supabase library did NOT load."
+      );
+
+      alert(
+        "Mori cannot connect to Supabase.\n\n" +
+        "The Supabase library failed to load."
+      );
+
+      throw new Error(
+        "Supabase library not loaded"
+      );
+
+    }
+
+
+    console.log(
+      "Supabase library loaded"
+    );
+
+
+    /* =========================
+       SUPABASE SETTINGS
+    ========================= */
 
     const SUPABASE_URL =
       "https://luidkakxsmmrpnsoycof.supabase.co";
 
 
-    /*
-      把你刚才复制的 anon key
-      粘贴在下面这一行。
-
-      不要使用 service_role / secret key。
-    */
-
     const SUPABASE_KEY =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx1aWRrYWt4c21tcnBuc295Y29mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY0OTgzNjEsImV4cCI6MjEwMjA3NDM2MX0.DeRQ5cRPaBfb3ex6nFMhJqOnX_3gLcTugZH6zBxoxVg;
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmF0YWt4c21tcnBuc295Y29iIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY0OTgzNjEsImV4cCI6MjEwMjA3NDM2MX0.DeRQ5cRPaBfb3ex6nFMhJqOnX_3gLcTugZH6zBxoxVg";
 
+
+    /* =========================
+       CREATE SUPABASE CLIENT
+    ========================= */
 
     const supabaseClient =
       window.supabase.createClient(
@@ -497,11 +537,14 @@
       );
 
 
+    console.log(
+      "Supabase client created"
+    );
+
 
     /* =========================
        ELEMENTS
     ========================= */
-
 
     const googleLogin =
       document.getElementById(
@@ -527,112 +570,217 @@
       );
 
 
-
     /* =========================
-       LOGIN UI
+       UPDATE LOGIN UI
     ========================= */
-
 
     async function updateLoginState() {
 
-      const {
-        data,
-        error
-      } =
-        await supabaseClient.auth.getSession();
+      console.log(
+        "Checking login state..."
+      );
 
 
-      if (error) {
+      try {
+
+        const {
+          data,
+          error
+        } =
+          await supabaseClient.auth
+            .getSession();
+
+
+        if (error) {
+
+          console.error(
+            "Session error:",
+            error
+          );
+
+          return;
+
+        }
+
+
+        const session =
+          data.session;
+
+
+        if (session) {
+
+          console.log(
+            "Logged in:",
+            session.user.email
+          );
+
+
+          googleLogin.style.display =
+            "none";
+
+
+          logoutButton.style.display =
+            "inline-block";
+
+
+        } else {
+
+          console.log(
+            "No active session"
+          );
+
+
+          googleLogin.style.display =
+            "inline-block";
+
+
+          logoutButton.style.display =
+            "none";
+
+        }
+
+      } catch (error) {
 
         console.error(
-          "Session error:",
+          "Session check failed:",
           error
         );
 
-        return;
-      }
-
-
-      const session =
-        data.session;
-
-
-      if (session) {
-
-        googleLogin.style.display =
-          "none";
-
-        logoutButton.style.display =
-          "inline-block";
-
-      } else {
-
-        googleLogin.style.display =
-          "inline-block";
-
-        logoutButton.style.display =
-          "none";
       }
 
     }
-
 
 
     /* =========================
        GOOGLE LOGIN
     ========================= */
 
-
     googleLogin.addEventListener(
       "click",
       async () => {
 
+        console.log(
+          "Google login button clicked"
+        );
+
+
         googleLogin.disabled =
           true;
+
 
         googleLogin.textContent =
           "Connecting...";
 
 
-        const {
-          error
-        } =
-          await supabaseClient.auth
-            .signInWithOAuth({
+        try {
 
-              provider: "google",
+          /*
+            Return to the current page
+            after Google login.
+          */
 
-              options: {
-
-                /*
-                  关键：
-                  登录完成后回到当前
-                  GitHub Pages 页面。
-                */
-
-                redirectTo:
-                  window.location.origin +
-                  window.location.pathname
-
-              }
-
-            });
+          const redirectTo =
+            window.location.href;
 
 
-        if (error) {
+          console.log(
+            "Redirect URL:",
+            redirectTo
+          );
+
+
+          const {
+            data,
+            error
+          } =
+            await supabaseClient.auth
+              .signInWithOAuth({
+
+                provider: "google",
+
+                options: {
+
+                  redirectTo:
+                    redirectTo
+
+                }
+
+              });
+
+
+          console.log(
+            "OAuth response:",
+            data
+          );
+
+
+          if (error) {
+
+            console.error(
+              "Google login error:",
+              error
+            );
+
+
+            alert(
+              "Google login failed:\n\n" +
+              error.message
+            );
+
+
+            googleLogin.disabled =
+              false;
+
+
+            googleLogin.textContent =
+              "Continue with Google";
+
+
+            return;
+
+          }
+
+
+          /*
+            Supabase normally redirects
+            automatically.
+
+            If it doesn't, use the URL
+            returned by Supabase.
+          */
+
+          if (
+            data &&
+            data.url
+          ) {
+
+            console.log(
+              "Redirecting to Google..."
+            );
+
+
+            window.location.href =
+              data.url;
+
+          }
+
+        } catch (error) {
 
           console.error(
-            "Google login error:",
+            "Unexpected Google login error:",
             error
           );
 
+
           alert(
-            "Google login failed:\n\n" +
+            "Something went wrong:\n\n" +
             error.message
           );
 
+
           googleLogin.disabled =
             false;
+
 
           googleLogin.textContent =
             "Continue with Google";
@@ -643,37 +791,52 @@
     );
 
 
-
     /* =========================
        SIGN OUT
     ========================= */
-
 
     logoutButton.addEventListener(
       "click",
       async () => {
 
+        console.log(
+          "Signing out..."
+        );
+
+
         logoutButton.disabled =
           true;
 
 
-        const {
-          error
-        } =
-          await supabaseClient.auth
-            .signOut();
+        try {
+
+          const {
+            error
+          } =
+            await supabaseClient.auth
+              .signOut();
 
 
-        if (error) {
+          if (error) {
+
+            console.error(
+              "Sign out error:",
+              error
+            );
+
+
+            alert(
+              "Sign out failed:\n\n" +
+              error.message
+            );
+
+          }
+
+        } catch (error) {
 
           console.error(
-            "Sign out error:",
+            "Unexpected sign out error:",
             error
-          );
-
-          alert(
-            "Sign out failed:\n\n" +
-            error.message
           );
 
         }
@@ -689,40 +852,32 @@
     );
 
 
-
     /* =========================
        AUTH STATE
     ========================= */
 
+    supabaseClient.auth
+      .onAuthStateChange(
+        (
+          event,
+          session
+        ) => {
 
-    supabaseClient.auth.onAuthStateChange(
-      (event, session) => {
-
-        console.log(
-          "Auth event:",
-          event
-        );
-
-        updateLoginState();
-
-      }
-    );
+          console.log(
+            "Auth event:",
+            event
+          );
 
 
+          updateLoginState();
 
-    /* =========================
-       INITIAL SESSION
-    ========================= */
-
-
-    updateLoginState();
-
+        }
+      );
 
 
     /* =========================
        SEARCH
     ========================= */
-
 
     searchInput.addEventListener(
       "input",
@@ -753,6 +908,17 @@
       }
     );
 
+
+    /* =========================
+       INITIALIZE
+    ========================= */
+
+    console.log(
+      "Mori initialized successfully"
+    );
+
+
+    updateLoginState();
 
   </script>
 

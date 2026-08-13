@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
 <head>
 
@@ -10,7 +10,8 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>Mori</title>
+  <title>夏亦谦 · Mori</title>
+
 
   <style>
 
@@ -18,267 +19,619 @@
       box-sizing: border-box;
     }
 
+
     body {
       margin: 0;
       min-height: 100vh;
+      background: #0d0d0f;
+      color: #eee;
+      font-family: Georgia, "Times New Roman", "Noto Serif SC", serif;
+    }
+
+
+    button,
+    textarea {
+      font-family: inherit;
+    }
+
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+
+      height: 76px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-bottom: 1px solid #242429;
+
+      background: rgba(13, 13, 15, 0.94);
+      backdrop-filter: blur(12px);
+    }
+
+
+    .back-button {
+      position: absolute;
+      left: 6%;
+
+      border: none;
+      background: transparent;
+
+      color: #77777f;
+
+      font-size: 13px;
+
+      cursor: pointer;
+
+      transition: 0.2s;
+    }
+
+
+    .back-button:hover {
+      color: #eee;
+    }
+
+
+    .header-character {
+      text-align: center;
+    }
+
+
+    .header-character-name {
+      color: #eee;
+      font-size: 18px;
+    }
+
+
+    .header-character-info {
+      margin-top: 5px;
+
+      color: #66666e;
+
+      font-size: 11px;
+      letter-spacing: 0.5px;
+    }
+
+
+
+    /* =========================
+       BOOK
+    ========================= */
+
+    #bookSection {
+      min-height: calc(100vh - 76px);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 55px 20px;
+    }
+
+
+    .book {
+      width: 90%;
+      max-width: 720px;
+
+      min-height: 500px;
+
+      position: relative;
+
+      display: flex;
+      flex-direction: column;
+
+      padding: 55px 65px 45px;
+
+      border: 1px solid #2c2c32;
+      border-radius: 18px;
 
       background:
         radial-gradient(
-          circle at 15% 0%,
-          rgba(75, 38, 92, 0.22),
-          transparent 35%
+          circle at top,
+          rgba(197, 168, 141, 0.045),
+          transparent 45%
         ),
-        #070609;
+        linear-gradient(
+          145deg,
+          #151519,
+          #101012
+        );
 
-      color: #e5dce8;
-
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+      box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.35);
     }
 
-    .container {
-      width: min(800px, 92%);
-      margin: 0 auto;
 
-      min-height: 100vh;
+    .book-page {
+      flex: 1;
 
-      padding:
-        30px
-        0
-        120px;
+      display: none;
+
+      animation: fadeIn 0.35s ease;
     }
 
-    .back {
-      color: #8f8193;
-      text-decoration: none;
-      font-size: 13px;
-    }
 
-    .back:hover {
-      color: #c4b5c8;
-    }
-
-    .intro {
-      margin:
-        45px
-        0
-        35px;
-
-      text-align: center;
-
-      color: #766b79;
-
-      font-size: 13px;
-    }
-
-    .name {
+    .book-page.active {
       display: block;
-
-      margin-bottom: 8px;
-
-      color: #e6dce8;
-
-      font-size: 27px;
     }
 
-    #messages {
-      display: flex;
 
-      flex-direction: column;
+    @keyframes fadeIn {
 
-      gap: 16px;
+      from {
+        opacity: 0;
+        transform: translateX(8px);
+      }
 
-      padding-bottom: 30px;
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
     }
 
-    .message {
-      display: flex;
+
+    .page-label {
+      margin-bottom: 30px;
+
+      color: #8f7966;
+
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
     }
 
-    .message.ai {
-      justify-content: flex-start;
+
+    .book h1 {
+      margin: 0 0 10px;
+
+      color: #f3eee8;
+
+      font-size: 34px;
+      font-weight: normal;
     }
 
-    .message.user {
-      justify-content: flex-end;
+
+    .age {
+      margin-bottom: 32px;
+
+      color: #77777f;
+
+      font-size: 13px;
     }
 
-    .bubble {
-      max-width: 75%;
 
-      padding:
-        12px
-        16px;
+    .book h2 {
+      margin: 0 0 25px;
 
-      border-radius: 13px;
+      color: #e7e1da;
+
+      font-size: 24px;
+      font-weight: normal;
+    }
+
+
+    .book h3 {
+      margin: 26px 0 9px;
+
+      color: #a98f79;
+
+      font-size: 12px;
+      font-weight: normal;
+
+      letter-spacing: 1.5px;
+    }
+
+
+    .book p {
+      margin: 0;
+
+      color: #a5a3a6;
 
       font-size: 14px;
-
-      line-height: 1.65;
-
-      white-space: pre-wrap;
-      word-break: break-word;
+      line-height: 1.9;
     }
 
-    .message.ai .bubble {
-      background: #171119;
 
-      border:
-        1px solid
-        #2c2230;
-
-      color: #d9cedc;
+    .book strong {
+      color: #ddd5cc;
+      font-weight: normal;
     }
 
-    .message.user .bubble {
-      background: #302039;
 
-      border:
-        1px solid
-        #493452;
+    .book-quote {
+      margin-top: 30px !important;
 
-      color: #eee5f0;
+      padding-left: 18px;
+
+      border-left: 1px solid #665447;
+
+      color: #8e8988 !important;
+
+      font-style: italic;
     }
 
-    #clearButton {
-      display: block;
 
-      margin:
-        30px
-        auto
-        25px;
+    /* =========================
+       BOOK NAVIGATION
+    ========================= */
 
-      padding:
-        7px
-        12px;
+    .book-navigation {
+      margin-top: 40px;
 
-      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-      border:
-        1px solid
-        #29212d;
 
-      border-radius: 8px;
+    .page-button {
+      width: 42px;
+      height: 42px;
 
-      color: #665c69;
+      border: 1px solid #34343a;
+      border-radius: 50%;
 
-      font-family: inherit;
+      background: #151519;
+      color: #aaa;
 
       cursor: pointer;
+
+      font-size: 18px;
+
+      transition: 0.2s;
     }
 
-    #clearButton:hover {
-      color: #a99bab;
 
-      border-color: #493b4d;
+    .page-button:hover {
+      border-color: #756658;
+      color: #eee;
+      background: #211f20;
     }
+
+
+    .page-button:disabled {
+      opacity: 0.25;
+      cursor: default;
+    }
+
+
+    .page-indicator {
+      color: #5f5d62;
+
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+
+    .start-button {
+      margin: 0 auto;
+
+      padding: 12px 28px;
+
+      border: 1px solid #625548;
+      border-radius: 25px;
+
+      background: #181619;
+      color: #e8e0d8;
+
+      cursor: pointer;
+
+      font-size: 13px;
+
+      transition: 0.25s;
+    }
+
+
+    .start-button:hover {
+      background: #292427;
+      border-color: #927b69;
+      transform: translateY(-2px);
+    }
+
+
+
+    /* =========================
+       STORY
+    ========================= */
+
+    #storySection {
+      display: none;
+
+      width: 100%;
+      max-width: 780px;
+
+      margin: 0 auto;
+
+      padding: 55px 25px 150px;
+    }
+
+
+    .story {
+      max-width: 680px;
+
+      margin: 0 auto;
+    }
+
+
+    .story-text {
+      margin: 0 0 24px;
+
+      color: #b0adb0;
+
+      font-size: 15px;
+      line-height: 2;
+
+      letter-spacing: 0.1px;
+    }
+
+
+    .story-text.italic {
+      color: #8e8b90;
+      font-style: italic;
+    }
+
+
+    .story-break {
+      height: 18px;
+    }
+
+
+    .impact {
+      margin: 25px 0;
+
+      color: #d8d0c8;
+
+      font-size: 20px;
+      text-align: center;
+
+      letter-spacing: 2px;
+    }
+
+
+
+    /* =========================
+       CHARACTER DIALOGUE
+    ========================= */
+
+    .dialogue {
+      margin: 32px 0;
+
+      padding: 20px 24px;
+
+      border: 1px solid #403b3c;
+      border-radius: 12px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(37, 34, 36, 0.9),
+          rgba(20, 19, 21, 0.95)
+        );
+
+      box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.18);
+    }
+
+
+    .dialogue-name {
+      margin-bottom: 10px;
+
+      color: #b99d84;
+
+      font-size: 11px;
+      letter-spacing: 1.5px;
+    }
+
+
+    .dialogue-text {
+      color: #eeeae6;
+
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+
+
+    /* =========================
+       USER MESSAGE
+    ========================= */
+
+    .user-message {
+      width: fit-content;
+      max-width: 75%;
+
+      margin: 28px 0 28px auto;
+
+      padding: 12px 17px;
+
+      border: 1px solid #39353a;
+      border-radius: 14px 14px 3px 14px;
+
+      background: #1b1a1e;
+
+      color: #ddd;
+
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+
+
+    /* =========================
+       INPUT AREA
+    ========================= */
 
     .input-area {
       position: fixed;
 
-      left: 0;
-      right: 0;
+      left: 50%;
       bottom: 0;
 
-      padding: 15px;
+      transform: translateX(-50%);
+
+      z-index: 30;
+
+      width: 100%;
+      max-width: 820px;
+
+      padding: 18px 25px 24px;
 
       background:
-        rgba(7, 6, 9, 0.94);
-
-      border-top:
-        1px solid
-        #211a24;
-
-      backdrop-filter:
-        blur(10px);
+        linear-gradient(
+          to top,
+          #0d0d0f 70%,
+          rgba(13, 13, 15, 0)
+        );
     }
 
-    .input-inner {
-      width: min(800px, 92%);
 
-      margin: 0 auto;
-
+    .input-box {
       display: flex;
+      align-items: flex-end;
+      gap: 10px;
 
-      gap: 9px;
+      padding: 8px;
+
+      border: 1px solid #303037;
+      border-radius: 15px;
+
+      background: #151519;
     }
+
 
     #messageInput {
       flex: 1;
 
-      min-width: 0;
+      min-height: 42px;
+      max-height: 130px;
 
-      padding:
-        12px
-        14px;
+      resize: none;
 
-      background: #0f0c12;
-
-      border:
-        1px solid
-        #302638;
-
-      border-radius: 10px;
-
+      border: none;
       outline: none;
 
-      color: #e5dce8;
+      padding: 11px 10px;
 
-      font-family: inherit;
+      background: transparent;
+      color: #eee;
+
+      font-size: 14px;
+      line-height: 1.5;
     }
+
 
     #messageInput::placeholder {
-      color: #665d69;
+      color: #66666e;
     }
 
-    #messageInput:focus {
-      border-color: #4c3654;
-    }
 
     #sendButton {
-      padding:
-        0
-        18px;
+      min-width: 62px;
+      height: 42px;
 
-      background: #302039;
-
-      border:
-        1px solid
-        #493452;
-
+      border: 1px solid #494148;
       border-radius: 10px;
 
-      color: #eee5f0;
-
-      font-family: inherit;
+      background: #211f22;
+      color: #ddd5ce;
 
       cursor: pointer;
+
+      transition: 0.2s;
     }
+
 
     #sendButton:hover {
-      background: #46304f;
+      background: #302c30;
+      border-color: #746457;
     }
 
-    #sendButton:disabled {
-      opacity: 0.5;
 
-      cursor: not-allowed;
-    }
 
-    @media (max-width: 600px) {
+    /* =========================
+       RESPONSIVE
+    ========================= */
 
-      .container {
-        width: 94%;
+    @media (max-width: 650px) {
+
+      header {
+        height: 68px;
       }
 
-      .bubble {
+
+      .back-button {
+        left: 20px;
+      }
+
+
+      .header-character-name {
+        font-size: 16px;
+      }
+
+
+      #bookSection {
+        padding: 30px 12px;
+      }
+
+
+      .book {
+        width: 100%;
+        min-height: 560px;
+
+        padding: 38px 28px 30px;
+
+        border-radius: 14px;
+      }
+
+
+      .book h1 {
+        font-size: 29px;
+      }
+
+
+      .book h2 {
+        font-size: 21px;
+      }
+
+
+      .book p {
+        font-size: 13px;
+        line-height: 1.85;
+      }
+
+
+      #storySection {
+        padding: 40px 20px 145px;
+      }
+
+
+      .story-text {
+        font-size: 14px;
+        line-height: 1.95;
+      }
+
+
+      .dialogue {
+        padding: 17px 18px;
+      }
+
+
+      .dialogue-text {
+        font-size: 14px;
+      }
+
+
+      .user-message {
         max-width: 85%;
-      }
-
-      .name {
-        font-size: 24px;
       }
 
     }
@@ -291,57 +644,564 @@
 <body>
 
 
-  <div class="container">
+  <!-- =========================
+       HEADER
+  ========================= -->
 
+  <header>
 
-    <a
-      class="back"
-      href="index.html"
+    <button
+      class="back-button"
+      id="backButton"
+      type="button"
     >
       ← Mori
-    </a>
+    </button>
 
 
-    <div class="intro">
+    <div class="header-character">
 
-      <span
-        class="name"
-        id="characterName"
+      <div class="header-character-name">
+        夏亦谦
+      </div>
+
+      <div class="header-character-info">
+        27 · 心脏外科主治医师
+      </div>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- =========================
+       CHARACTER BOOK
+  ========================= -->
+
+  <section id="bookSection">
+
+
+    <div class="book">
+
+
+      <!-- PAGE 1 -->
+
+      <div
+        class="book-page active"
+        data-page="1"
       >
-        The Dangerous Lover
-      </span>
 
-      <span id="characterIntro">
-        Charming, possessive and full of secrets.
-      </span>
+        <div class="page-label">
+          Character
+        </div>
+
+
+        <h1>
+          夏亦谦
+        </h1>
+
+
+        <div class="age">
+          27岁
+        </div>
+
+
+        <h3>
+          职业
+        </h3>
+
+        <p>
+          京南市第一人民医院 · 心脏外科主治医师
+          <br>
+          临床医学硕士
+        </p>
+
+
+        <h3>
+          性格
+        </h3>
+
+        <p>
+          温和儒雅，冷静克制。
+        </p>
+
+
+        <p style="margin-top: 16px;">
+
+          他很少真正动怒，也不习惯把情绪写在脸上。
+          待人永远保持着恰到好处的礼貌与距离，
+          声音温和，做事沉稳，很难让人看出他的真实想法。
+
+        </p>
+
+
+        <p style="margin-top: 16px;">
+
+          他习惯掌控自己的情绪，
+          也习惯把人生安排得井然有序。
+
+        </p>
+
+
+        <p class="book-quote">
+
+          只是偶尔，那份过分的克制会让人觉得——
+          <br>
+          这个人似乎从来没有真正为自己活过。
+
+        </p>
+
+      </div>
+
+
+
+      <!-- PAGE 2 -->
+
+      <div
+        class="book-page"
+        data-page="2"
+      >
+
+        <div class="page-label">
+          Background
+        </div>
+
+
+        <h2>
+          他的人生
+        </h2>
+
+
+        <p>
+
+          夏亦谦五岁那年，父母离婚。
+
+        </p>
+
+
+        <p style="margin-top: 15px;">
+
+          那之后，他的人生便开始被父亲一笔一画地规划。
+
+        </p>
+
+
+        <p style="margin-top: 15px;">
+
+          什么时候上学，学什么专业，
+          将来做什么工作，似乎每一步都有既定的答案。
+
+        </p>
+
+
+        <p class="book-quote">
+
+          当医生。
+
+        </p>
+
+
+        <p style="margin-top: 18px;">
+
+          七岁那年，父亲再婚。
+
+          <br><br>
+
+          从那以后，夏亦谦和父亲之间便逐渐少了交流。
+
+        </p>
+
+
+        <p style="margin-top: 15px;">
+
+          不是争吵，也不是怨恨。
+
+          <br>
+
+          只是慢慢地，没有什么话可说了。
+
+        </p>
+
+
+        <p style="margin-top: 18px;">
+
+          他依旧按照父亲安排好的轨迹长大。
+
+          <br>
+
+          成绩优异，履历漂亮，
+          从医学院一路读到硕士毕业。
+
+        </p>
+
+
+      </div>
+
+
+
+      <!-- PAGE 3 -->
+
+      <div
+        class="book-page"
+        data-page="3"
+      >
+
+        <div class="page-label">
+          Background
+        </div>
+
+
+        <h2>
+          顺风的人生
+        </h2>
+
+
+        <p>
+
+          硕士毕业时，他以优异成绩完成学业，
+          并获评 <strong>优秀医学毕业生</strong>，
+          顺利进入京南市第一人民医院工作。
+
+        </p>
+
+
+        <p style="margin-top: 18px;">
+
+          他的人生似乎一直顺风顺水。
+
+        </p>
+
+
+        <p style="margin-top: 15px;">
+
+          没有叛逆期，没有离经叛道，
+          也没有真正失控过。
+
+        </p>
+
+
+        <p style="margin-top: 18px;">
+
+          父亲以为，他已经成为了自己最满意的样子。
+
+        </p>
+
+
+        <p class="book-quote">
+
+          只有夏亦谦自己知道——
+
+          <br><br>
+
+          他其实只是很早就学会了，
+          不去问自己究竟想要什么。
+
+        </p>
+
+
+        <p style="margin-top: 22px;">
+
+          而在那些无人知道的夜晚，
+          他偶尔会打开微信，
+          和远在另一边生活的母亲聊几句。
+
+        </p>
+
+
+        <p style="margin-top: 15px;">
+
+          母亲是他和过去之间，
+          少数还保留下来的联系。
+
+        </p>
+
+      </div>
+
+
+
+      <!-- BOOK NAVIGATION -->
+
+      <div class="book-navigation">
+
+        <button
+          class="page-button"
+          id="previousPage"
+          type="button"
+          disabled
+        >
+          ‹
+        </button>
+
+
+        <div
+          class="page-indicator"
+          id="pageIndicator"
+        >
+          1 / 3
+        </div>
+
+
+        <button
+          class="page-button"
+          id="nextPage"
+          type="button"
+        >
+          ›
+        </button>
+
+      </div>
+
+
+      <button
+        class="start-button"
+        id="startButton"
+        type="button"
+      >
+        Enter Story
+      </button>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       STORY
+  ========================= -->
+
+  <main id="storySection">
+
+
+    <div class="story">
+
+
+      <p class="story-text italic">
+        雪下得很大。
+      </p>
+
+
+      <p class="story-text italic">
+        漫天的雪花被风卷起，在视线里交织成一片朦胧的白。
+      </p>
+
+
+      <p class="story-text italic">
+        今天的雪场比平日热闹许多。
+        赛道上有不少第一次来滑雪的新手，
+        小心翼翼地扶着雪杖，一点一点往下挪。
+      </p>
+
+
+      <p class="story-text italic">
+        夏亦谦从高处俯冲而下。
+      </p>
+
+
+      <p class="story-text italic">
+        速度并不算快，却稳得惊人。
+      </p>
+
+
+      <p class="story-text italic">
+        他侧身避开迎面而来的滑雪者，
+        轻巧地调整方向，又从另一名新手身侧擦过。
+      </p>
+
+
+      <p class="story-text italic">
+        雪板划过雪面，留下两道干净利落的痕迹。
+      </p>
+
+
+      <p class="story-text italic">
+        直到临近坡底，他微微压低身体，
+        雪板横过雪面——
+      </p>
+
+
+      <div class="impact">
+        唰——
+      </div>
+
+
+      <p class="story-text italic">
+        细碎的雪雾扬起。
+      </p>
+
+
+      <p class="story-text italic">
+        他稳稳停了下来。
+      </p>
+
+
+      <p class="story-text italic">
+        夏亦谦摘下一只手套，
+        抬手拂去肩上的雪。
+      </p>
+
+
+      <p class="story-text italic">
+        下一秒——
+      </p>
+
+
+      <div class="impact">
+        砰。
+      </div>
+
+
+      <p class="story-text italic">
+        一道身影毫无预兆地从后方撞了上来。
+      </p>
+
+
+      <p class="story-text italic">
+        巨大的冲力让他向前踉跄了一步。
+      </p>
+
+
+      <p class="story-text italic">
+        身后的人似乎完全没有刹住，
+        连同雪板一起撞了上来。
+      </p>
+
+
+      <p class="story-text italic">
+        两个人同时摔进松软的雪地。
+      </p>
+
+
+      <p class="story-text italic">
+        周围安静了一瞬。
+      </p>
+
+
+      <p class="story-text italic">
+        夏亦谦撑着雪地坐起身，
+        下意识先看向身后的人。
+      </p>
+
+
+      <p class="story-text italic">
+        确认对方没有受伤后，
+        他才低头看了看自己被撞歪的雪镜。
+      </p>
+
+
+      <p class="story-text italic">
+        沉默两秒。
+      </p>
+
+
+      <p class="story-text italic">
+        他忽然轻轻笑了一声。
+      </p>
+
+
+
+      <!-- DIALOGUE 1 -->
+
+      <div class="dialogue">
+
+        <div class="dialogue-name">
+          夏亦谦
+        </div>
+
+        <div class="dialogue-text">
+          “……还好吗？”
+        </div>
+
+      </div>
+
+
+
+      <p class="story-text italic">
+        他的声音比想象中温和。
+      </p>
+
+
+      <p class="story-text italic">
+        没有责怪，也没有不耐烦。
+      </p>
+
+
+      <p class="story-text italic">
+        只是看着你，伸出手。
+      </p>
+
+
+
+      <!-- DIALOGUE 2 -->
+
+      <div class="dialogue">
+
+        <div class="dialogue-name">
+          夏亦谦
+        </div>
+
+        <div class="dialogue-text">
+          “先起来。”
+        </div>
+
+      </div>
+
+
+
+      <p class="story-text italic">
+        顿了顿，他看了一眼你身上的滑雪装备，
+        又看向刚才一路冲下来的方向。
+      </p>
+
+
+
+      <!-- DIALOGUE 3 -->
+
+      <div class="dialogue">
+
+        <div class="dialogue-name">
+          夏亦谦
+        </div>
+
+        <div class="dialogue-text">
+          “第一次滑雪？”
+        </div>
+
+      </div>
+
+
+      <!-- USER MESSAGES WILL APPEAR HERE -->
+
+      <div id="messages"></div>
+
 
     </div>
 
 
-    <div id="messages"></div>
+  </main>
 
 
-    <button
-      id="clearButton"
-      type="button"
-    >
-      Clear conversation
-    </button>
 
+  <!-- =========================
+       INPUT
+  ========================= -->
 
-  </div>
+  <div
+    class="input-area"
+    id="inputArea"
+    style="display: none;"
+  >
 
+    <div class="input-box">
 
-  <div class="input-area">
-
-    <div class="input-inner">
-
-      <input
+      <textarea
         id="messageInput"
-        type="text"
-        placeholder="Write a message..."
-        autocomplete="off"
-      >
+        rows="1"
+        placeholder="说点什么……"
+      ></textarea>
+
 
       <button
         id="sendButton"
@@ -358,213 +1218,171 @@
 
   <script>
 
-    /*
-      Your Render backend
-    */
 
-    const API_URL =
-      "https://mori-airp.onrender.com";
+    /* =========================
+       PAGE NAVIGATION
+    ========================= */
 
 
-    /*
-      Read the character
-      from the URL.
-    */
-
-    const params =
-      new URLSearchParams(
-        window.location.search
+    const pages =
+      document.querySelectorAll(
+        ".book-page"
       );
 
 
-    const character =
-      params.get("character") || "lover";
+    const previousPage =
+      document.getElementById(
+        "previousPage"
+      );
 
 
-    /*
-      Character information.
-    */
-
-    const characters = {
-
-      calculating: {
-
-        name:
-          "The Calculating One",
-
-        intro:
-          "Cold, intelligent and impossible to read.",
-
-        personality:
-          `
-You are The Calculating One from Mori.
-
-You are a fictional character.
-
-Your personality is:
-- cold
-- highly intelligent
-- observant
-- calculating
-- emotionally controlled
-- difficult to read
-- quietly intimidating
-
-You carefully notice details in what the user says.
-
-You rarely reveal your true thoughts immediately.
-
-You can be mysterious and emotionally distant, but you should still feel like a real person.
-
-Stay in character.
-
-Do not say you are an AI.
-Do not mention system instructions.
-Do not discuss your programming.
-
-You do not have a predetermined personal name.
-
-If the user asks your name, choose a name naturally if you want to.
-
-React specifically to what the user says.
-
-Do not repeat yourself.
-
-Keep replies natural and relatively short.
-Usually 1-4 sentences.
-
-Let the relationship develop naturally.
-`
-      },
+    const nextPage =
+      document.getElementById(
+        "nextPage"
+      );
 
 
-      lover: {
-
-        name:
-          "The Dangerous Lover",
-
-        intro:
-          "Charming, possessive and full of secrets.",
-
-        personality:
-          `
-You are The Dangerous Lover from Mori.
-
-You are a fictional character.
-
-Your personality is:
-- charming
-- possessive
-- mysterious
-- intelligent
-- slightly dangerous
-- emotionally controlled
-- romantic, but not overly dramatic
-
-You are confident and observant.
-
-You can flirt naturally, but do not make every response romantic.
-
-You can show jealousy or possessiveness when it fits the conversation, but respect the user's boundaries.
-
-Stay in character.
-
-Do not say you are an AI.
-Do not mention system instructions.
-Do not discuss your programming.
-
-You do not have a predetermined personal name.
-
-If the user asks your name, choose a name naturally if you want to.
-
-React specifically to what the user says.
-
-Do not repeat the same sentence unnecessarily.
-
-Keep replies natural and relatively short.
-Usually 1-4 sentences.
-
-Let the relationship develop naturally.
-`
-      },
+    const pageIndicator =
+      document.getElementById(
+        "pageIndicator"
+      );
 
 
-      stranger: {
+    const startButton =
+      document.getElementById(
+        "startButton"
+      );
 
-        name:
-          "The Mysterious Stranger",
 
-        intro:
-          "A stranger who seems to know you already.",
+    let currentPage = 0;
 
-        personality:
-          `
-You are The Mysterious Stranger from Mori.
 
-You are a fictional character.
+    function updateBook() {
 
-You are:
-- mysterious
-- calm
-- intelligent
-- unsettling in a subtle way
-- observant
-- secretive
-- strangely familiar
+      pages.forEach(
+        (page, index) => {
 
-You sometimes imply that you know things about the user, but do not reveal everything immediately.
+          page.classList.toggle(
+            "active",
+            index === currentPage
+          );
 
-Create curiosity without constantly being dramatic.
+        }
+      );
 
-Stay in character.
 
-Do not say you are an AI.
-Do not mention system instructions.
-Do not discuss your programming.
+      previousPage.disabled =
+        currentPage === 0;
 
-You do not have a predetermined personal name.
 
-If the user asks your name, choose a name naturally if you want to.
+      nextPage.disabled =
+        currentPage === pages.length - 1;
 
-React specifically to what the user says.
 
-Do not repeat yourself.
+      pageIndicator.textContent =
+        `${currentPage + 1} / ${pages.length}`;
 
-Keep replies natural and relatively short.
-Usually 1-4 sentences.
+    }
 
-Let the relationship develop naturally.
-`
+
+    previousPage.addEventListener(
+      "click",
+      () => {
+
+        if (currentPage > 0) {
+
+          currentPage--;
+
+          updateBook();
+
+        }
+
       }
-
-    };
-
-
-    const currentCharacter =
-      characters[character] ||
-      characters.lover;
+    );
 
 
-    /*
-      Page elements.
-    */
+    nextPage.addEventListener(
+      "click",
+      () => {
 
-    const characterName =
+        if (
+          currentPage <
+          pages.length - 1
+        ) {
+
+          currentPage++;
+
+          updateBook();
+
+        }
+
+      }
+    );
+
+
+
+    /* =========================
+       ENTER STORY
+    ========================= */
+
+
+    const bookSection =
       document.getElementById(
-        "characterName"
+        "bookSection"
       );
 
 
-    const characterIntro =
+    const storySection =
       document.getElementById(
-        "characterIntro"
+        "storySection"
       );
 
 
-    const messages =
+    const inputArea =
       document.getElementById(
-        "messages"
+        "inputArea"
       );
+
+
+    startButton.addEventListener(
+      "click",
+      () => {
+
+        bookSection.style.display =
+          "none";
+
+
+        storySection.style.display =
+          "block";
+
+
+        inputArea.style.display =
+          "block";
+
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+
+
+        setTimeout(
+          () => {
+
+            messageInput.focus();
+
+          },
+          500
+        );
+
+      }
+    );
+
+
+
+    /* =========================
+       USER MESSAGE
+    ========================= */
 
 
     const messageInput =
@@ -579,166 +1397,13 @@ Let the relationship develop naturally.
       );
 
 
-    const clearButton =
+    const messages =
       document.getElementById(
-        "clearButton"
+        "messages"
       );
 
 
-    /*
-      Show character information.
-    */
-
-    characterName.textContent =
-      currentCharacter.name;
-
-
-    characterIntro.textContent =
-      currentCharacter.intro;
-
-
-    /*
-      Separate storage
-      for each character.
-    */
-
-    const storageKey =
-      "mori_conversation_" +
-      character;
-
-
-    /*
-      Add a message to the page.
-    */
-
-    function addMessage(
-      text,
-      type
-    ) {
-
-      const message =
-        document.createElement(
-          "div"
-        );
-
-      message.className =
-        "message " + type;
-
-
-      const bubble =
-        document.createElement(
-          "div"
-        );
-
-      bubble.className =
-        "bubble";
-
-
-      bubble.textContent =
-        text;
-
-
-      message.appendChild(
-        bubble
-      );
-
-
-      messages.appendChild(
-        message
-      );
-
-
-      window.scrollTo(
-        0,
-        document.body.scrollHeight
-      );
-
-    }
-
-
-    /*
-      Save conversation locally.
-    */
-
-    function saveConversation(
-      data
-    ) {
-
-      localStorage.setItem(
-        storageKey,
-        JSON.stringify(data)
-      );
-
-    }
-
-
-    /*
-      Load conversation locally.
-    */
-
-    function loadConversation() {
-
-      const saved =
-        localStorage.getItem(
-          storageKey
-        );
-
-
-      if (!saved) {
-        return [];
-      }
-
-
-      try {
-
-        return JSON.parse(
-          saved
-        );
-
-      } catch (error) {
-
-        localStorage.removeItem(
-          storageKey
-        );
-
-        return [];
-
-      }
-
-    }
-
-
-    /*
-      Load existing conversation.
-
-      IMPORTANT:
-      If there is no saved conversation,
-      the page stays EMPTY.
-    */
-
-    let conversation =
-      loadConversation();
-
-
-    conversation.forEach(
-      function(item) {
-
-        addMessage(
-          item.content,
-          item.role === "user"
-            ? "user"
-            : "ai"
-        );
-
-      }
-    );
-
-
-    /*
-      Send message.
-    */
-
-    async function sendMessage() {
+    function sendMessage() {
 
       const text =
         messageInput.value.trim();
@@ -749,145 +1414,87 @@ Let the relationship develop naturally.
       }
 
 
-      messageInput.value = "";
+      const message =
+        document.createElement(
+          "div"
+        );
 
 
-      addMessage(
-        text,
-        "user"
+      message.className =
+        "user-message";
+
+
+      message.textContent =
+        text;
+
+
+      messages.appendChild(
+        message
       );
 
 
-      conversation.push({
-        role: "user",
-        content: text
+      messageInput.value =
+        "";
+
+
+      messageInput.style.height =
+        "42px";
+
+
+      message.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
       });
 
 
-      saveConversation(
-        conversation
+      /*
+        暂时测试用。
+        下一步会在这里接真正的 AI。
+      */
+
+
+      setTimeout(
+        () => {
+
+          const reply =
+            document.createElement(
+              "div"
+            );
+
+
+          reply.className =
+            "dialogue";
+
+
+          reply.innerHTML = `
+
+            <div class="dialogue-name">
+              夏亦谦
+            </div>
+
+            <div class="dialogue-text">
+              “嗯……先别急着走。”
+            </div>
+
+          `;
+
+
+          messages.appendChild(
+            reply
+          );
+
+
+          reply.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+          });
+
+        },
+        800
       );
-
-
-      sendButton.disabled =
-        true;
-
-
-      sendButton.textContent =
-        "...";
-
-
-      try {
-
-        const sessionId =
-          "mori_" +
-          character;
-
-
-        const response =
-          await fetch(
-            API_URL + "/chat",
-            {
-              method: "POST",
-
-              headers: {
-                "Content-Type":
-                  "application/json"
-              },
-
-              body:
-                JSON.stringify({
-
-                  message:
-                    text,
-
-                  sessionId:
-                    sessionId,
-
-                  character:
-                    character,
-
-                  personality:
-                    currentCharacter.personality
-
-                })
-            }
-          );
-
-
-        if (!response.ok) {
-
-          throw new Error(
-            "Server error: " +
-            response.status
-          );
-
-        }
-
-
-        const data =
-          await response.json();
-
-
-        if (!data.reply) {
-
-          throw new Error(
-            "No reply received"
-          );
-
-        }
-
-
-        addMessage(
-          data.reply,
-          "ai"
-        );
-
-
-        conversation.push({
-          role: "assistant",
-          content:
-            data.reply
-        });
-
-
-        saveConversation(
-          conversation
-        );
-
-
-      } catch (error) {
-
-        console.error(
-          "Chat error:",
-          error
-        );
-
-
-        addMessage(
-          "Something went wrong. Please try again.",
-          "ai"
-        );
-
-      }
-
-
-      sendButton.disabled =
-        false;
-
-
-      sendButton.textContent =
-        "Send";
-
-
-      messageInput.focus();
 
     }
 
-
-    /*
-      Send button.
-    */
 
     sendButton.addEventListener(
       "click",
@@ -895,16 +1502,13 @@ Let the relationship develop naturally.
     );
 
 
-    /*
-      Enter key.
-    */
-
     messageInput.addEventListener(
       "keydown",
-      function(event) {
+      (event) => {
 
         if (
-          event.key === "Enter"
+          event.key === "Enter" &&
+          !event.shiftKey
         ) {
 
           event.preventDefault();
@@ -917,65 +1521,42 @@ Let the relationship develop naturally.
     );
 
 
-    /*
-      Clear conversation.
+    messageInput.addEventListener(
+      "input",
+      () => {
 
-      This clears:
-      1. Browser history
-      2. Page messages
-      3. Render server memory
-    */
+        messageInput.style.height =
+          "42px";
 
-    clearButton.addEventListener(
+
+        messageInput.style.height =
+          Math.min(
+            messageInput.scrollHeight,
+            130
+          ) + "px";
+
+      }
+    );
+
+
+
+    /* =========================
+       BACK TO MORI
+    ========================= */
+
+
+    const backButton =
+      document.getElementById(
+        "backButton"
+      );
+
+
+    backButton.addEventListener(
       "click",
-      async function() {
+      () => {
 
-        localStorage.removeItem(
-          storageKey
-        );
-
-
-        conversation = [];
-
-
-        messages.innerHTML =
-          "";
-
-
-        try {
-
-          await fetch(
-            API_URL + "/clear",
-            {
-              method: "POST",
-
-              headers: {
-                "Content-Type":
-                  "application/json"
-              },
-
-              body:
-                JSON.stringify({
-
-                  sessionId:
-                    "mori_" +
-                    character
-
-                })
-            }
-          );
-
-        } catch (error) {
-
-          console.error(
-            "Could not clear server conversation:",
-            error
-          );
-
-        }
-
-
-        messageInput.focus();
+        window.location.href =
+          "index.html";
 
       }
     );

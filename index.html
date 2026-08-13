@@ -28,6 +28,11 @@
       font-family: Georgia, "Times New Roman", serif;
     }
 
+
+    /* =========================
+       HEADER
+    ========================= */
+
     header {
       display: flex;
       align-items: center;
@@ -51,6 +56,11 @@
       font-size: 28px;
     }
 
+
+    /* =========================
+       SEARCH
+    ========================= */
+
     .search {
       flex: 1;
       max-width: 420px;
@@ -72,6 +82,11 @@
     .search:focus {
       border-color: #67584d;
     }
+
+
+    /* =========================
+       LOGIN
+    ========================= */
 
     .login-area {
       display: flex;
@@ -125,9 +140,14 @@
       color: #eee;
     }
 
+
+    /* =========================
+       TITLE
+    ========================= */
+
     .title {
       text-align: center;
-      padding: 75px 20px 45px;
+      padding: 75px 20px 48px;
     }
 
     .title h1 {
@@ -143,6 +163,11 @@
       font-size: 15px;
     }
 
+
+    /* =========================
+       CHARACTERS
+    ========================= */
+
     .characters {
       width: 86%;
       max-width: 1100px;
@@ -152,13 +177,23 @@
       gap: 24px;
     }
 
+
+    /* =========================
+       CHARACTER CARD
+    ========================= */
+
     .card {
-      padding: 30px 25px 28px;
-      min-height: 350px;
+      padding: 22px 22px 28px;
       border: 1px solid #29292f;
       border-radius: 16px;
-      background: linear-gradient(145deg, #151519, #101012);
+      background: linear-gradient(
+        145deg,
+        #151519,
+        #101012
+      );
+
       text-align: center;
+
       transition:
         transform 0.25s,
         border-color 0.25s,
@@ -168,99 +203,153 @@
     .card:hover {
       transform: translateY(-5px);
       border-color: #49434a;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+      box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.3);
     }
 
-    .avatar {
-      width: 76px;
-      height: 76px;
+
+    /* =========================
+       CHARACTER IMAGE
+    ========================= */
+
+    .character-image {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+
+      display: block;
+
       margin: 0 auto 22px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid #38383f;
-      border-radius: 50%;
-      background: #111114;
+
+      border-radius: 12px;
+
+      object-fit: cover;
+
+      background:
+        linear-gradient(
+          145deg,
+          #1c1b1e,
+          #111114
+        );
+
+      border: 1px solid #303037;
     }
 
-    .avatar-symbol {
-      color: #c5a88d;
-      font-size: 29px;
-    }
+
+    /* =========================
+       CHARACTER NAME
+    ========================= */
 
     .card h3 {
-      margin: 0 0 13px;
-      font-size: 21px;
+      margin: 0 0 15px;
+
+      font-size: 23px;
+
       font-weight: normal;
+
+      letter-spacing: 0.5px;
+
+      color: #f2eee9;
     }
 
-    .description {
-      min-height: 42px;
-      margin: 0 auto 18px;
-      max-width: 250px;
-      color: #98989f;
-      font-size: 14px;
-      line-height: 1.6;
+
+    /* =========================
+       TAGS
+    ========================= */
+
+    .tags {
+      display: flex;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      gap: 7px;
+
+      margin-bottom: 23px;
     }
 
-    .stats {
-      margin: 0 0 24px;
-      color: #66666e;
-      font-size: 12px;
+    .tag {
+      padding: 6px 11px;
+
+      border: 1px solid #36343a;
+
+      border-radius: 18px;
+
+      color: #9b9794;
+
+      background: #131316;
+
+      font-size: 11px;
+
+      letter-spacing: 0.3px;
     }
+
+
+    /* =========================
+       START CHAT
+    ========================= */
 
     .chat-button {
       display: inline-block;
-      padding: 10px 22px;
+
+      padding: 11px 25px;
+
       border: 1px solid #48434a;
+
       border-radius: 25px;
+
       color: #eee;
+
+      background: transparent;
+
       text-decoration: none;
+
       font-size: 13px;
+
       transition: 0.2s;
     }
 
     .chat-button:hover {
       background: #242126;
+
       border-color: #71645a;
     }
 
-    .categories {
-      width: 86%;
-      max-width: 1100px;
-      margin: 45px auto 0;
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
 
-    .category {
-      padding: 8px 16px;
-      border: 1px solid #29292f;
-      border-radius: 20px;
-      color: #77777f;
-      font-size: 12px;
-    }
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer {
-      padding: 55px 20px 30px;
+      padding: 70px 20px 30px;
+
       text-align: center;
+
       color: #55555c;
+
       font-size: 12px;
     }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
 
     @media (max-width: 800px) {
 
       header {
         flex-wrap: wrap;
+
         padding: 22px 6%;
       }
 
       .search {
         order: 3;
+
         width: 100%;
+
         max-width: none;
+
         margin-left: 0;
       }
 
@@ -270,6 +359,8 @@
 
       .title {
         padding-top: 55px;
+
+        padding-bottom: 35px;
       }
 
       .title h1 {
@@ -278,8 +369,14 @@
 
       .characters {
         grid-template-columns: 1fr;
+
         width: 90%;
-        max-width: 500px;
+
+        max-width: 480px;
+      }
+
+      .character-image {
+        aspect-ratio: 4 / 5;
       }
 
     }
@@ -291,6 +388,10 @@
 
 <body>
 
+
+  <!-- =========================
+       HEADER
+  ========================= -->
 
   <header>
 
@@ -354,6 +455,11 @@
   </header>
 
 
+
+  <!-- =========================
+       TITLE
+  ========================= -->
+
   <section class="title">
 
     <h1>
@@ -367,113 +473,70 @@
   </section>
 
 
+
+  <!-- =========================
+       CHARACTERS
+  ========================= -->
+
   <section
     class="characters"
     id="characters"
   >
 
 
+    <!-- 夏亦谦 -->
+
     <div
       class="card"
-      data-name="The Calculating One"
+      data-name="夏亦谦"
     >
 
-      <div class="avatar">
 
-        <div class="avatar-symbol">
-          ◇
-        </div>
+      <img
+        class="character-image"
+        src="images/xia-yiqian.jpg"
+        alt="夏亦谦"
+        onerror="this.style.display='none';"
+      >
+
+
+      <h3>
+        夏亦谦
+      </h3>
+
+
+      <div class="tags">
+
+        <span class="tag">
+          bg
+        </span>
+
+        <span class="tag">
+          洁
+        </span>
+
+        <span class="tag">
+          纯爱
+        </span>
+
+        <span class="tag">
+          ST
+        </span>
+
+        <span class="tag">
+          限左
+        </span>
 
       </div>
 
-      <h3>
-        The Calculating One
-      </h3>
-
-      <p class="description">
-        Cold, intelligent and impossible to read.
-      </p>
-
-      <p class="stats">
-        2.4k chats · Dark
-      </p>
 
       <a
         class="chat-button"
-        href="chat.html?character=calculating"
+        href="chat.html?character=xia-yiqian"
       >
         Start Chat
       </a>
 
-    </div>
-
-
-    <div
-      class="card"
-      data-name="The Dangerous Lover"
-    >
-
-      <div class="avatar">
-
-        <div class="avatar-symbol">
-          ❧
-        </div>
-
-      </div>
-
-      <h3>
-        The Dangerous Lover
-      </h3>
-
-      <p class="description">
-        Charming, possessive and full of secrets.
-      </p>
-
-      <p class="stats">
-        8.1k chats · Romance
-      </p>
-
-      <a
-        class="chat-button"
-        href="chat.html?character=lover"
-      >
-        Start Chat
-      </a>
-
-    </div>
-
-
-    <div
-      class="card"
-      data-name="The Mysterious Stranger"
-    >
-
-      <div class="avatar">
-
-        <div class="avatar-symbol">
-          ◌
-        </div>
-
-      </div>
-
-      <h3>
-        The Mysterious Stranger
-      </h3>
-
-      <p class="description">
-        A stranger who seems to know you already.
-      </p>
-
-      <p class="stats">
-        1.2k chats · Mystery
-      </p>
-
-      <a
-        class="chat-button"
-        href="chat.html?character=stranger"
-      >
-        Start Chat
-      </a>
 
     </div>
 
@@ -481,30 +544,10 @@
   </section>
 
 
-  <div class="categories">
 
-    <div class="category">
-      Romance
-    </div>
-
-    <div class="category">
-      Dark
-    </div>
-
-    <div class="category">
-      Mystery
-    </div>
-
-    <div class="category">
-      Fantasy
-    </div>
-
-    <div class="category">
-      Trending
-    </div>
-
-  </div>
-
+  <!-- =========================
+       FOOTER
+  ========================= -->
 
   <footer>
     Mori · A place where stories live.
@@ -523,20 +566,9 @@
       "https://luidkakxsmmrpnsoycof.supabase.co";
 
 
-    /*
-      这是你最开始那份代码里的 anon key。
-      不要改。
-    */
-
     const SUPABASE_KEY =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx1aWRrYWt4c21tcnBuc295Y29mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY0OTgzNjEsImV4cCI6MjEwMjA3NDM2MX0.DeRQ5cRPaBfb3ex6nFMhJqOnX_3gLcTugZH6zBxoxVg";
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFub24iLCJpYXQiOjE3ODY0OTgzNjEsImV4cCI6MjEwMjA3NDM2MX0.DeRQ5cRPaBfb3ex6nFMhJqOnX_3gLcTugZH6zBxoxVg";
 
-
-    /*
-      关键设置：
-      让 Supabase 自动读取 Google
-      登录回来时 URL 里的 access_token。
-    */
 
     const supabaseClient =
       window.supabase.createClient(
@@ -774,12 +806,6 @@
         const redirectTo =
           window.location.origin +
           window.location.pathname;
-
-
-        console.log(
-          "Redirecting to:",
-          redirectTo
-        );
 
 
         const {

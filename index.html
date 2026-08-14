@@ -14,21 +14,17 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-
   <style>
 
     * {
       box-sizing: border-box;
     }
 
-
     body {
       margin: 0;
       min-height: 100vh;
-
       background: #0d0d0f;
       color: #eee;
-
       font-family:
         Georgia,
         "Times New Roman",
@@ -36,102 +32,70 @@
         serif;
     }
 
-
     header {
-
       display: flex;
       align-items: center;
-
       gap: 20px;
-
-      padding: 24px 7%;
-
-      border-bottom:
-        1px solid #242429;
-
+      padding: 26px 7%;
+      border-bottom: 1px solid #242429;
     }
-
 
     .logo {
-
       display: flex;
       align-items: center;
-
       gap: 9px;
-
       font-size: 25px;
-
       letter-spacing: 1px;
-
       color: #f5f2ee;
-
       white-space: nowrap;
-
     }
-
 
     .logo-symbol {
-
       color: #c8a98a;
-
       font-size: 28px;
-
     }
 
-
     .search {
-
       flex: 1;
-
       max-width: 420px;
-
       margin-left: auto;
 
-      padding: 11px 17px;
+      padding: 12px 17px;
 
-      border:
-        1px solid #303037;
-
+      border: 1px solid #303037;
       border-radius: 30px;
 
       outline: none;
 
       background: #151519;
-
       color: #eee;
 
       font-family: inherit;
-
+      font-size: 14px;
     }
-
 
     .search::placeholder {
-      color: #66666e;
+      color: #77777f;
     }
 
+    .search:focus {
+      border-color: #67584d;
+    }
 
     .login-area {
-
       display: flex;
       align-items: center;
-
       gap: 10px;
-
     }
-
 
     #googleLogin,
     #logoutButton {
-
-      border:
-        1px solid #3b3b43;
-
+      border: 1px solid #3b3b43;
       border-radius: 25px;
 
-      padding: 10px 17px;
+      padding: 11px 18px;
 
       background: #17171b;
-
       color: #eee;
 
       cursor: pointer;
@@ -140,96 +104,83 @@
 
       white-space: nowrap;
 
+      transition: 0.2s;
     }
-
 
     #googleLogin:hover,
     #logoutButton:hover {
-
       background: #242429;
-
+      border-color: #77716b;
     }
 
+    #googleLogin:disabled,
+    #logoutButton:disabled {
+      opacity: 0.6;
+      cursor: default;
+    }
 
     #userInfo {
-
       display: none;
-
       align-items: center;
-
-      gap: 8px;
+      gap: 9px;
 
       color: #aaa;
-
       font-size: 13px;
-
     }
 
-
     #userAvatar {
-
-      width: 31px;
-      height: 31px;
+      width: 32px;
+      height: 32px;
 
       border-radius: 50%;
 
       object-fit: cover;
 
-    }
+      border: 1px solid #444;
 
+      display: none;
+    }
 
     #userName {
       color: #eee;
     }
-
-
 
     /* =========================
        TITLE
     ========================= */
 
     .title {
-
       text-align: center;
 
-      padding:
-        65px 20px 40px;
-
+      padding: 70px 20px 45px;
     }
-
 
     .title h1 {
+      margin: 0 0 14px;
 
-      margin: 0 0 13px;
-
-      font-size: 32px;
-
+      font-size: 34px;
       font-weight: normal;
 
+      letter-spacing: 0.3px;
     }
-
 
     .title p {
-
       margin: 0;
 
-      color: #77777f;
+      color: #898990;
 
-      font-size: 14px;
-
+      font-size: 15px;
     }
-
 
 
     /* =========================
-       CHARACTER CARD
+       CHARACTERS
     ========================= */
 
     .characters {
 
-      width: 90%;
-
-      max-width: 1050px;
+      width: 86%;
+      max-width: 1100px;
 
       margin: 0 auto;
 
@@ -238,8 +189,7 @@
       grid-template-columns:
         repeat(3, 1fr);
 
-      gap: 22px;
-
+      gap: 24px;
     }
 
 
@@ -247,10 +197,8 @@
 
       overflow: hidden;
 
-      border:
-        1px solid #29292f;
-
-      border-radius: 17px;
+      border: 1px solid #29292f;
+      border-radius: 16px;
 
       background:
         linear-gradient(
@@ -259,67 +207,81 @@
           #101012
         );
 
-      transition:
-        transform .25s,
-        border-color .25s,
-        box-shadow .25s;
+      text-align: center;
 
+      transition:
+        transform 0.25s,
+        border-color 0.25s,
+        box-shadow 0.25s;
     }
 
 
     .card:hover {
 
-      transform:
-        translateY(-5px);
+      transform: translateY(-5px);
 
-      border-color:
-        #514a50;
+      border-color: #49434a;
 
       box-shadow:
-        0 18px 45px
-        rgba(0,0,0,.35);
-
+        0 15px 40px
+        rgba(0, 0, 0, 0.3);
     }
 
 
-    .card-image {
+    /* =========================
+       CHARACTER IMAGE
+    ========================= */
+
+    .character-image-wrapper {
 
       width: 100%;
+      height: 245px;
 
-      height: 285px;
+      overflow: hidden;
+
+      background: #111114;
+    }
+
+
+    .character-image {
+
+      width: 100%;
+      height: 100%;
 
       object-fit: cover;
 
-      object-position:
-        center 22%;
+      object-position: center 20%;
 
       display: block;
 
-      filter:
-        brightness(.91);
+      transition: transform 0.4s ease;
+    }
+
+
+    .card:hover
+    .character-image {
+
+      transform: scale(1.035);
 
     }
 
 
     .card-content {
 
-      padding:
-        22px 22px 23px;
-
-      text-align: center;
+      padding: 25px 25px 28px;
 
     }
 
 
     .card h3 {
 
-      margin:
-        0 0 12px;
+      margin: 0 0 15px;
 
-      font-size: 21px;
+      font-size: 22px;
 
       font-weight: normal;
 
+      color: #f1ece7;
     }
 
 
@@ -333,25 +295,24 @@
 
       gap: 7px;
 
-      margin-bottom: 20px;
+      margin-bottom: 22px;
 
     }
 
 
     .tag {
 
-      padding:
-        5px 10px;
+      padding: 6px 11px;
 
-      border:
-        1px solid #36333a;
+      border: 1px solid #39353a;
 
       border-radius: 20px;
 
-      color: #8e898e;
+      color: #99949a;
 
       font-size: 11px;
 
+      background: #141417;
     }
 
 
@@ -359,11 +320,9 @@
 
       display: inline-block;
 
-      padding:
-        10px 25px;
+      padding: 10px 24px;
 
-      border:
-        1px solid #51484d;
+      border: 1px solid #514a4c;
 
       border-radius: 25px;
 
@@ -373,39 +332,64 @@
 
       font-size: 13px;
 
-      transition: .2s;
-
+      transition: 0.2s;
     }
 
 
     .chat-button:hover {
 
-      background: #252125;
+      background: #242126;
 
-      border-color:
-        #8a7565;
+      border-color: #8b7667;
 
     }
 
 
-
     /* =========================
-       FOOTER
+       CATEGORIES
     ========================= */
+
+    .categories {
+
+      width: 86%;
+      max-width: 1100px;
+
+      margin: 45px auto 0;
+
+      display: flex;
+
+      justify-content: center;
+
+      gap: 10px;
+
+      flex-wrap: wrap;
+    }
+
+
+    .category {
+
+      padding: 8px 16px;
+
+      border: 1px solid #29292f;
+
+      border-radius: 20px;
+
+      color: #77777f;
+
+      font-size: 12px;
+    }
+
 
     footer {
 
-      padding:
-        60px 20px 30px;
+      padding: 55px 20px 30px;
 
       text-align: center;
 
       color: #55555c;
 
       font-size: 12px;
-
     }
-
 
 
     @media (max-width: 800px) {
@@ -414,8 +398,7 @@
 
         flex-wrap: wrap;
 
-        padding: 20px 6%;
-
+        padding: 22px 6%;
       }
 
 
@@ -428,21 +411,24 @@
         max-width: none;
 
         margin-left: 0;
-
       }
 
 
       .login-area {
 
         margin-left: auto;
-
       }
 
 
       .title {
 
-        padding-top: 50px;
+        padding-top: 55px;
+      }
 
+
+      .title h1 {
+
+        font-size: 28px;
       }
 
 
@@ -450,15 +436,15 @@
 
         grid-template-columns: 1fr;
 
-        max-width: 430px;
+        width: 90%;
 
+        max-width: 500px;
       }
 
 
-      .card-image {
+      .character-image-wrapper {
 
-        height: 340px;
-
+        height: 300px;
       }
 
     }
@@ -471,514 +457,544 @@
 <body>
 
 
-<header>
+  <!-- HEADER -->
 
-  <div class="logo">
+  <header>
 
-    <span class="logo-symbol">
-      𓆱
-    </span>
+    <div class="logo">
 
-    <span>
-      Mori
-    </span>
+      <span class="logo-symbol">
+        𓆱
+      </span>
 
-  </div>
-
-
-  <input
-    class="search"
-    id="searchInput"
-    type="text"
-    placeholder="Search characters..."
-    autocomplete="off"
-  >
-
-
-  <div class="login-area">
-
-    <button
-      id="googleLogin"
-      type="button"
-    >
-      Continue with Google
-    </button>
-
-
-    <div id="userInfo">
-
-      <img
-        id="userAvatar"
-        src=""
-        alt=""
-      >
-
-      <span id="userName">
-        Signed in
+      <span>
+        Mori
       </span>
 
     </div>
 
 
-    <button
-      id="logoutButton"
-      type="button"
-      style="display:none;"
-    >
-      Sign out
-    </button>
-
-  </div>
-
-</header>
-
-
-
-<section class="title">
-
-  <h1>
-    Choose someone to talk to.
-  </h1>
-
-  <p>
-    Every story begins with a conversation.
-  </p>
-
-</section>
-
-
-
-<section
-  class="characters"
-  id="characters"
->
-
-
-  <!-- 夏亦谦 -->
-
-  <div
-    class="card"
-    data-name="夏亦谦"
-  >
-
-    <img
-      class="card-image"
-      src="xia-yiqian.jpg"
-      alt="夏亦谦"
+    <input
+      class="search"
+      type="text"
+      placeholder="Search characters..."
+      id="searchInput"
+      autocomplete="off"
     >
 
 
-    <div class="card-content">
+    <div class="login-area">
 
-      <h3>
-        夏亦谦
-      </h3>
+      <button
+        id="googleLogin"
+        type="button"
+      >
+        Continue with Google
+      </button>
 
 
-      <div class="tags">
+      <div id="userInfo">
 
-        <span class="tag">
-          bg
-        </span>
+        <img
+          id="userAvatar"
+          src=""
+          alt=""
+        >
 
-        <span class="tag">
-          洁
-        </span>
-
-        <span class="tag">
-          纯爱
-        </span>
-
-        <span class="tag">
-          st
-        </span>
-
-        <span class="tag">
-          限左
+        <span id="userName">
+          Signed in
         </span>
 
       </div>
 
 
-      <a
-        class="chat-button"
-        href="chat.html?character=xiayiqian"
+      <button
+        id="logoutButton"
+        type="button"
+        style="display:none;"
       >
-        Start Chat
-      </a>
+        Sign out
+      </button>
 
+    </div>
+
+  </header>
+
+
+
+  <!-- TITLE -->
+
+  <section class="title">
+
+    <h1>
+      Choose someone to talk to.
+    </h1>
+
+    <p>
+      Every story begins with a conversation.
+    </p>
+
+  </section>
+
+
+
+  <!-- CHARACTERS -->
+
+  <section
+    class="characters"
+    id="characters"
+  >
+
+
+    <!-- 夏亦谦 -->
+
+    <div
+      class="card"
+      data-name="夏亦谦"
+    >
+
+      <div class="character-image-wrapper">
+
+        <img
+          class="character-image"
+          src="https://f2.zxgjw.com/i/2026/08/14/k0odpx.jpeg"
+          alt="夏亦谦"
+        >
+
+      </div>
+
+
+      <div class="card-content">
+
+        <h3>
+          夏亦谦
+        </h3>
+
+
+        <div class="tags">
+
+          <span class="tag">
+            医生
+          </span>
+
+          <span class="tag">
+            温和
+          </span>
+
+          <span class="tag">
+            克制
+          </span>
+
+          <span class="tag">
+            纯爱
+          </span>
+
+        </div>
+
+
+        <a
+          class="chat-button"
+          href="chat.html?character=xiayiqian"
+        >
+          Start Chat
+        </a>
+
+      </div>
+
+    </div>
+
+
+  </section>
+
+
+
+  <!-- CATEGORIES -->
+
+  <div class="categories">
+
+    <div class="category">
+      Romance
+    </div>
+
+    <div class="category">
+      Dark
+    </div>
+
+    <div class="category">
+      Mystery
+    </div>
+
+    <div class="category">
+      Fantasy
     </div>
 
   </div>
 
 
-</section>
 
+  <footer>
 
+    Mori · A place where stories live.
 
-<footer>
+  </footer>
 
-  Mori · A place where stories live.
 
-</footer>
 
+  <script>
 
 
-<script>
+    /* =========================
+       SUPABASE
+    ========================= */
 
+    const SUPABASE_URL =
+      "https://luidkakxsmmrpnsoycof.supabase.co";
 
-/* =========================
-   SUPABASE
-========================= */
 
+    const SUPABASE_KEY =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx1aWRrYWt4c21tcnBuc295Y29mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY0OTgzNjEsImV4cCI6MjEwMjA3NDM2MX0.DeRQ5cRPaBfb3ex6nFMhJqOnX_3gLcTugZH6zBxoxVg";
 
-const SUPABASE_URL =
-  "https://luidkakxsmmrpnsoycof.supabase.co";
 
-
-const SUPABASE_KEY =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFub24iLCJpYXQiOjE3ODY0OTgzNjEsImV4cCI6MjEwMjA3NDM2MX0.DeRQ5cRPaBfb3ex6nFMhJqOnX_3gLcTugZH6zBxoxVg";
-
-
-const supabaseClient =
-  window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_KEY,
-    {
-      auth: {
-        flowType: "implicit",
-
-        detectSessionInUrl: true,
-
-        persistSession: true,
-
-        autoRefreshToken: true
-      }
-    }
-  );
-
-
-
-/* =========================
-   ELEMENTS
-========================= */
-
-
-const googleLogin =
-  document.getElementById(
-    "googleLogin"
-  );
-
-
-const logoutButton =
-  document.getElementById(
-    "logoutButton"
-  );
-
-
-const userInfo =
-  document.getElementById(
-    "userInfo"
-  );
-
-
-const userName =
-  document.getElementById(
-    "userName"
-  );
-
-
-const userAvatar =
-  document.getElementById(
-    "userAvatar"
-  );
-
-
-const searchInput =
-  document.getElementById(
-    "searchInput"
-  );
-
-
-const cards =
-  document.querySelectorAll(
-    ".card"
-  );
-
-
-
-/* =========================
-   USER
-========================= */
-
-
-function showLoggedInUser(session) {
-
-  if (
-    !session ||
-    !session.user
-  ) {
-
-    googleLogin.style.display =
-      "inline-block";
-
-    userInfo.style.display =
-      "none";
-
-    logoutButton.style.display =
-      "none";
-
-    return;
-
-  }
-
-
-  const user =
-    session.user;
-
-
-  const metadata =
-    user.user_metadata || {};
-
-
-  const name =
-    metadata.full_name ||
-    metadata.name ||
-    user.email ||
-    "User";
-
-
-  userName.textContent =
-    "Hi, " + name;
-
-
-  if (
-    metadata.avatar_url
-  ) {
-
-    userAvatar.src =
-      metadata.avatar_url;
-
-    userAvatar.style.display =
-      "block";
-
-  }
-
-
-  googleLogin.style.display =
-    "none";
-
-  userInfo.style.display =
-    "flex";
-
-  logoutButton.style.display =
-    "inline-block";
-
-}
-
-
-
-/* =========================
-   CLEAN AUTH URL
-========================= */
-
-
-function cleanAuthHash() {
-
-  if (
-    window.location.hash
-      .includes("access_token")
-  ) {
-
-    const cleanUrl =
-      window.location.origin +
-      window.location.pathname +
-      window.location.search;
-
-
-    window.history.replaceState(
-      null,
-      document.title,
-      cleanUrl
-    );
-
-  }
-
-}
-
-
-
-/* =========================
-   SESSION
-========================= */
-
-
-async function updateLoginState() {
-
-  const {
-    data,
-    error
-  } =
-    await supabaseClient.auth
-      .getSession();
-
-
-  if (error) {
-
-    console.error(
-      "Session error:",
-      error
-    );
-
-    return;
-
-  }
-
-
-  if (
-    data &&
-    data.session
-  ) {
-
-    showLoggedInUser(
-      data.session
-    );
-
-    cleanAuthHash();
-
-  } else {
-
-    showLoggedInUser(
-      null
-    );
-
-  }
-
-}
-
-
-
-/* =========================
-   GOOGLE
-========================= */
-
-
-googleLogin.addEventListener(
-  "click",
-  async () => {
-
-    googleLogin.disabled =
-      true;
-
-    googleLogin.textContent =
-      "Connecting...";
-
-
-    const redirectTo =
-      window.location.origin +
-      window.location.pathname;
-
-
-    const {
-      error
-    } =
-      await supabaseClient.auth
-        .signInWithOAuth({
-
-          provider: "google",
-
-          options: {
-
-            redirectTo:
-              redirectTo
-
+    const supabaseClient =
+      window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY,
+        {
+          auth: {
+            flowType: "implicit",
+            detectSessionInUrl: true,
+            persistSession: true,
+            autoRefreshToken: true
           }
-
-        });
-
-
-    if (error) {
-
-      alert(
-        "Google login failed:\n\n" +
-        error.message
+        }
       );
 
 
-      googleLogin.disabled =
-        false;
+    /* =========================
+       ELEMENTS
+    ========================= */
 
-      googleLogin.textContent =
-        "Continue with Google";
+    const googleLogin =
+      document.getElementById(
+        "googleLogin"
+      );
+
+
+    const logoutButton =
+      document.getElementById(
+        "logoutButton"
+      );
+
+
+    const userInfo =
+      document.getElementById(
+        "userInfo"
+      );
+
+
+    const userName =
+      document.getElementById(
+        "userName"
+      );
+
+
+    const userAvatar =
+      document.getElementById(
+        "userAvatar"
+      );
+
+
+    /* =========================
+       LOGIN DISPLAY
+    ========================= */
+
+    function showLoggedInUser(session) {
+
+      if (
+        !session ||
+        !session.user
+      ) {
+
+        googleLogin.style.display =
+          "inline-block";
+
+        userInfo.style.display =
+          "none";
+
+        logoutButton.style.display =
+          "none";
+
+        return;
+
+      }
+
+
+      const user =
+        session.user;
+
+
+      const metadata =
+        user.user_metadata || {};
+
+
+      const name =
+        metadata.full_name ||
+        metadata.name ||
+        user.email ||
+        "User";
+
+
+      userName.textContent =
+        "Hi, " + name;
+
+
+      if (metadata.avatar_url) {
+
+        userAvatar.src =
+          metadata.avatar_url;
+
+        userAvatar.style.display =
+          "block";
+
+      }
+
+
+      googleLogin.style.display =
+        "none";
+
+      userInfo.style.display =
+        "flex";
+
+      logoutButton.style.display =
+        "inline-block";
 
     }
 
-  }
-);
+
+    /* =========================
+       CLEAN URL
+    ========================= */
+
+    function cleanAuthHash() {
+
+      if (
+        window.location.hash
+          .includes("access_token")
+      ) {
+
+        const cleanUrl =
+          window.location.origin +
+          window.location.pathname +
+          window.location.search;
 
 
+        window.history.replaceState(
+          null,
+          document.title,
+          cleanUrl
+        );
 
-/* =========================
-   SIGN OUT
-========================= */
+      }
 
-
-logoutButton.addEventListener(
-  "click",
-  async () => {
-
-    await supabaseClient.auth
-      .signOut();
-
-    await updateLoginState();
-
-  }
-);
+    }
 
 
+    /* =========================
+       SESSION
+    ========================= */
 
-/* =========================
-   SEARCH
-========================= */
+    async function updateLoginState() {
 
-
-searchInput.addEventListener(
-  "input",
-  () => {
-
-    const search =
-      searchInput.value
-        .toLowerCase()
-        .trim();
+      const {
+        data,
+        error
+      } =
+        await supabaseClient.auth
+          .getSession();
 
 
-    cards.forEach(card => {
+      if (error) {
 
-      const name =
-        card.dataset.name
-          .toLowerCase();
+        console.error(
+          error
+        );
 
+        return;
 
-      card.style.display =
-        name.includes(search)
-          ? ""
-          : "none";
-
-    });
-
-  }
-);
+      }
 
 
+      if (
+        data &&
+        data.session
+      ) {
 
-/* =========================
-   START
-========================= */
+        showLoggedInUser(
+          data.session
+        );
+
+        cleanAuthHash();
+
+      } else {
+
+        showLoggedInUser(
+          null
+        );
+
+      }
+
+    }
 
 
-updateLoginState();
+    /* =========================
+       GOOGLE LOGIN
+    ========================= */
 
-</script>
+    googleLogin.addEventListener(
+      "click",
+      async () => {
+
+        googleLogin.disabled =
+          true;
+
+        googleLogin.textContent =
+          "Connecting...";
+
+
+        const redirectTo =
+          window.location.origin +
+          window.location.pathname;
+
+
+        const {
+          error
+        } =
+          await supabaseClient.auth
+            .signInWithOAuth({
+
+              provider: "google",
+
+              options: {
+
+                redirectTo:
+                  redirectTo
+
+              }
+
+            });
+
+
+        if (error) {
+
+          alert(
+            "Google login failed:\n\n" +
+            error.message
+          );
+
+
+          googleLogin.disabled =
+            false;
+
+          googleLogin.textContent =
+            "Continue with Google";
+
+        }
+
+      }
+    );
+
+
+    /* =========================
+       LOGOUT
+    ========================= */
+
+    logoutButton.addEventListener(
+      "click",
+      async () => {
+
+        await supabaseClient.auth
+          .signOut();
+
+        await updateLoginState();
+
+      }
+    );
+
+
+    supabaseClient.auth
+      .onAuthStateChange(
+        (
+          event,
+          session
+        ) => {
+
+          showLoggedInUser(
+            session
+          );
+
+          if (session) {
+
+            cleanAuthHash();
+
+          }
+
+        }
+      );
+
+
+    /* =========================
+       SEARCH
+    ========================= */
+
+    const searchInput =
+      document.getElementById(
+        "searchInput"
+      );
+
+
+    const cards =
+      document.querySelectorAll(
+        ".card"
+      );
+
+
+    searchInput.addEventListener(
+      "input",
+      () => {
+
+        const search =
+          searchInput.value
+            .toLowerCase()
+            .trim();
+
+
+        cards.forEach(
+          (card) => {
+
+            const name =
+              card.dataset.name
+                .toLowerCase();
+
+
+            card.style.display =
+              name.includes(search)
+                ? ""
+                : "none";
+
+          }
+        );
+
+      }
+    );
+
+
+    /* =========================
+       START
+    ========================= */
+
+    updateLoginState();
+
+  </script>
 
 
 </body>

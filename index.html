@@ -23,8 +23,10 @@
     body {
       margin: 0;
       min-height: 100vh;
+
       background: #0d0d0f;
       color: #eee;
+
       font-family:
         Georgia,
         "Times New Roman",
@@ -32,32 +34,49 @@
         serif;
     }
 
+
+    /* =========================
+       HEADER
+    ========================= */
+
     header {
       display: flex;
       align-items: center;
+
       gap: 20px;
-      padding: 26px 7%;
+
+      padding: 25px 7%;
+
       border-bottom: 1px solid #242429;
     }
+
 
     .logo {
       display: flex;
       align-items: center;
+
       gap: 9px;
+
       font-size: 25px;
       letter-spacing: 1px;
+
       color: #f5f2ee;
+
       white-space: nowrap;
     }
+
 
     .logo-symbol {
       color: #c8a98a;
       font-size: 28px;
     }
 
+
     .search {
       flex: 1;
+
       max-width: 420px;
+
       margin-left: auto;
 
       padding: 12px 17px;
@@ -74,22 +93,32 @@
       font-size: 14px;
     }
 
+
     .search::placeholder {
       color: #77777f;
     }
+
 
     .search:focus {
       border-color: #67584d;
     }
 
+
+    /* =========================
+       LOGIN
+    ========================= */
+
     .login-area {
       display: flex;
       align-items: center;
+
       gap: 10px;
     }
 
+
     #googleLogin,
     #logoutButton {
+
       border: 1px solid #3b3b43;
       border-radius: 25px;
 
@@ -107,28 +136,39 @@
       transition: 0.2s;
     }
 
+
     #googleLogin:hover,
     #logoutButton:hover {
+
       background: #242429;
       border-color: #77716b;
     }
 
+
     #googleLogin:disabled,
     #logoutButton:disabled {
+
       opacity: 0.6;
       cursor: default;
     }
 
+
     #userInfo {
+
       display: none;
+
       align-items: center;
+
       gap: 9px;
 
       color: #aaa;
+
       font-size: 13px;
     }
 
+
     #userAvatar {
+
       width: 32px;
       height: 32px;
 
@@ -141,30 +181,37 @@
       display: none;
     }
 
+
     #userName {
       color: #eee;
     }
+
+
 
     /* =========================
        TITLE
     ========================= */
 
     .title {
+
       text-align: center;
 
-      padding: 70px 20px 45px;
+      padding: 70px 20px 42px;
     }
 
+
     .title h1 {
+
       margin: 0 0 14px;
 
       font-size: 34px;
-      font-weight: normal;
 
-      letter-spacing: 0.3px;
+      font-weight: normal;
     }
 
+
     .title p {
+
       margin: 0;
 
       color: #898990;
@@ -173,13 +220,15 @@
     }
 
 
+
     /* =========================
-       CHARACTERS
+       CHARACTER GRID
     ========================= */
 
     .characters {
 
       width: 86%;
+
       max-width: 1100px;
 
       margin: 0 auto;
@@ -193,11 +242,17 @@
     }
 
 
+
+    /* =========================
+       CARD
+    ========================= */
+
     .card {
 
-      overflow: hidden;
+      padding: 25px 24px 25px;
 
       border: 1px solid #29292f;
+
       border-radius: 16px;
 
       background:
@@ -218,7 +273,8 @@
 
     .card:hover {
 
-      transform: translateY(-5px);
+      transform:
+        translateY(-5px);
 
       border-color: #49434a;
 
@@ -228,62 +284,60 @@
     }
 
 
+
     /* =========================
-       CHARACTER IMAGE
+       IMAGE
     ========================= */
 
-    .character-image-wrapper {
+    .avatar {
 
-      width: 100%;
-      height: 245px;
+      width: 125px;
+      height: 155px;
+
+      margin: 0 auto 20px;
 
       overflow: hidden;
+
+      border-radius: 12px;
+
+      border: 1px solid #38383f;
 
       background: #111114;
     }
 
 
-    .character-image {
+    .avatar img {
 
       width: 100%;
       height: 100%;
 
-      object-fit: cover;
-
-      object-position: center 20%;
-
       display: block;
 
-      transition: transform 0.4s ease;
+      object-fit: cover;
     }
 
 
-    .card:hover
-    .character-image {
 
-      transform: scale(1.035);
-
-    }
-
-
-    .card-content {
-
-      padding: 25px 25px 28px;
-
-    }
-
+    /* =========================
+       NAME
+    ========================= */
 
     .card h3 {
 
-      margin: 0 0 15px;
+      margin: 0 0 14px;
+
+      color: #f0ebe5;
 
       font-size: 22px;
 
       font-weight: normal;
-
-      color: #f1ece7;
     }
 
+
+
+    /* =========================
+       TAGS
+    ========================= */
 
     .tags {
 
@@ -296,25 +350,31 @@
       gap: 7px;
 
       margin-bottom: 22px;
-
     }
 
 
     .tag {
 
-      padding: 6px 11px;
+      padding: 5px 10px;
 
-      border: 1px solid #39353a;
+      border: 1px solid #343238;
 
       border-radius: 20px;
 
-      color: #99949a;
+      color: #8e898d;
+
+      background: #141317;
 
       font-size: 11px;
 
-      background: #141417;
+      letter-spacing: 0.3px;
     }
 
+
+
+    /* =========================
+       START CHAT
+    ========================= */
 
     .chat-button {
 
@@ -322,7 +382,7 @@
 
       padding: 10px 24px;
 
-      border: 1px solid #514a4c;
+      border: 1px solid #48434a;
 
       border-radius: 25px;
 
@@ -340,9 +400,9 @@
 
       background: #242126;
 
-      border-color: #8b7667;
-
+      border-color: #71645a;
     }
+
 
 
     /* =========================
@@ -352,6 +412,7 @@
     .categories {
 
       width: 86%;
+
       max-width: 1100px;
 
       margin: 45px auto 0;
@@ -380,6 +441,11 @@
     }
 
 
+
+    /* =========================
+       FOOTER
+    ========================= */
+
     footer {
 
       padding: 55px 20px 30px;
@@ -391,6 +457,11 @@
       font-size: 12px;
     }
 
+
+
+    /* =========================
+       MOBILE
+    ========================= */
 
     @media (max-width: 800px) {
 
@@ -422,7 +493,7 @@
 
       .title {
 
-        padding-top: 55px;
+        padding-top: 50px;
       }
 
 
@@ -441,12 +512,6 @@
         max-width: 500px;
       }
 
-
-      .character-image-wrapper {
-
-        height: 300px;
-      }
-
     }
 
   </style>
@@ -457,7 +522,9 @@
 <body>
 
 
-  <!-- HEADER -->
+  <!-- =========================
+       HEADER
+  ========================= -->
 
   <header>
 
@@ -499,6 +566,7 @@
           id="userAvatar"
           src=""
           alt=""
+          id="userAvatar"
         >
 
         <span id="userName">
@@ -522,7 +590,9 @@
 
 
 
-  <!-- TITLE -->
+  <!-- =========================
+       TITLE
+  ========================= -->
 
   <section class="title">
 
@@ -538,7 +608,9 @@
 
 
 
-  <!-- CHARACTERS -->
+  <!-- =========================
+       CHARACTERS
+  ========================= -->
 
   <section
     class="characters"
@@ -553,10 +625,9 @@
       data-name="夏亦谦"
     >
 
-      <div class="character-image-wrapper">
+      <div class="avatar">
 
         <img
-          class="character-image"
           src="https://f2.zxgjw.com/i/2026/08/14/k0odpx.jpeg"
           alt="夏亦谦"
         >
@@ -564,42 +635,42 @@
       </div>
 
 
-      <div class="card-content">
-
-        <h3>
-          夏亦谦
-        </h3>
+      <h3>
+        夏亦谦
+      </h3>
 
 
-        <div class="tags">
+      <div class="tags">
 
-          <span class="tag">
-            医生
-          </span>
+        <span class="tag">
+          bg
+        </span>
 
-          <span class="tag">
-            温和
-          </span>
+        <span class="tag">
+          洁
+        </span>
 
-          <span class="tag">
-            克制
-          </span>
+        <span class="tag">
+          纯爱
+        </span>
 
-          <span class="tag">
-            纯爱
-          </span>
+        <span class="tag">
+          st
+        </span>
 
-        </div>
-
-
-        <a
-          class="chat-button"
-          href="chat.html?character=xiayiqian"
-        >
-          Start Chat
-        </a>
+        <span class="tag">
+          限左
+        </span>
 
       </div>
+
+
+      <a
+        class="chat-button"
+        href="chat.html?character=xia-yiqian"
+      >
+        Start Chat
+      </a>
 
     </div>
 
@@ -607,8 +678,6 @@
   </section>
 
 
-
-  <!-- CATEGORIES -->
 
   <div class="categories">
 
@@ -628,6 +697,10 @@
       Fantasy
     </div>
 
+    <div class="category">
+      Trending
+    </div>
+
   </div>
 
 
@@ -642,7 +715,6 @@
 
   <script>
 
-
     /* =========================
        SUPABASE
     ========================= */
@@ -652,7 +724,7 @@
 
 
     const SUPABASE_KEY =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx1aWRrYWt4c21tcnBuc295Y29mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY0OTgzNjEsImV4cCI6MjEwMjA3NDM2MX0.DeRQ5cRPaBfb3ex6nFMhJqOnX_3gLcTugZH6zBxoxVg";
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFub24iLCJpYXQiOjE3ODY0OTgzNjEsImV4cCI6MjEwMjA3NDM2MX0.DeRQ5cRPaBfb3ex6nFMhJqOnX_3gLcTugZH6zBxoxVg";
 
 
     const supabaseClient =
@@ -668,6 +740,7 @@
           }
         }
       );
+
 
 
     /* =========================
@@ -704,11 +777,26 @@
       );
 
 
+    const searchInput =
+      document.getElementById(
+        "searchInput"
+      );
+
+
+    const cards =
+      document.querySelectorAll(
+        ".card"
+      );
+
+
+
     /* =========================
-       LOGIN DISPLAY
+       USER
     ========================= */
 
-    function showLoggedInUser(session) {
+    function showLoggedInUser(
+      session
+    ) {
 
       if (
         !session ||
@@ -725,7 +813,6 @@
           "none";
 
         return;
-
       }
 
 
@@ -748,13 +835,20 @@
         "Hi, " + name;
 
 
-      if (metadata.avatar_url) {
+      if (
+        metadata.avatar_url
+      ) {
 
         userAvatar.src =
           metadata.avatar_url;
 
         userAvatar.style.display =
           "block";
+
+      } else {
+
+        userAvatar.style.display =
+          "none";
 
       }
 
@@ -771,8 +865,9 @@
     }
 
 
+
     /* =========================
-       CLEAN URL
+       CLEAN AUTH HASH
     ========================= */
 
     function cleanAuthHash() {
@@ -799,6 +894,7 @@
     }
 
 
+
     /* =========================
        SESSION
     ========================= */
@@ -816,6 +912,7 @@
       if (error) {
 
         console.error(
+          "Session error:",
           error
         );
 
@@ -837,13 +934,12 @@
 
       } else {
 
-        showLoggedInUser(
-          null
-        );
+        showLoggedInUser(null);
 
       }
 
     }
+
 
 
     /* =========================
@@ -875,16 +971,20 @@
               provider: "google",
 
               options: {
-
                 redirectTo:
                   redirectTo
-
               }
 
             });
 
 
         if (error) {
+
+          console.error(
+            "Google login error:",
+            error
+          );
+
 
           alert(
             "Google login failed:\n\n" +
@@ -904,22 +1004,56 @@
     );
 
 
+
     /* =========================
-       LOGOUT
+       SIGN OUT
     ========================= */
 
     logoutButton.addEventListener(
       "click",
       async () => {
 
-        await supabaseClient.auth
-          .signOut();
+        logoutButton.disabled =
+          true;
+
+        logoutButton.textContent =
+          "Signing out...";
+
+
+        const {
+          error
+        } =
+          await supabaseClient.auth
+            .signOut();
+
+
+        if (error) {
+
+          alert(
+            "Sign out failed:\n\n" +
+            error.message
+          );
+
+        }
+
+
+        logoutButton.disabled =
+          false;
+
+        logoutButton.textContent =
+          "Sign out";
+
 
         await updateLoginState();
 
       }
     );
 
+
+
+    /* =========================
+       AUTH STATE
+    ========================= */
 
     supabaseClient.auth
       .onAuthStateChange(
@@ -928,9 +1062,16 @@
           session
         ) => {
 
+          console.log(
+            "Auth event:",
+            event
+          );
+
+
           showLoggedInUser(
             session
           );
+
 
           if (session) {
 
@@ -942,21 +1083,10 @@
       );
 
 
+
     /* =========================
        SEARCH
     ========================= */
-
-    const searchInput =
-      document.getElementById(
-        "searchInput"
-      );
-
-
-    const cards =
-      document.querySelectorAll(
-        ".card"
-      );
-
 
     searchInput.addEventListener(
       "input",
@@ -988,6 +1118,7 @@
     );
 
 
+
     /* =========================
        START
     ========================= */
@@ -995,7 +1126,6 @@
     updateLoginState();
 
   </script>
-
 
 </body>
 

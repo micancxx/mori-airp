@@ -26,16 +26,12 @@
 
 
     body {
+
       margin: 0;
+
       min-height: 100vh;
 
-      background:
-        radial-gradient(
-          circle at 50% 0%,
-          rgba(197, 168, 141, 0.045),
-          transparent 35%
-        ),
-        #0d0d0f;
+      background: #0d0d0f;
 
       color: #eee;
 
@@ -44,6 +40,7 @@
         "Times New Roman",
         "Noto Serif SC",
         serif;
+
     }
 
 
@@ -53,10 +50,9 @@
     }
 
 
-
-    /* ==================================================
+    /* =========================
        HEADER
-    ================================================== */
+    ========================= */
 
     header {
 
@@ -64,7 +60,7 @@
 
       top: 0;
 
-      z-index: 50;
+      z-index: 20;
 
       height: 70px;
 
@@ -81,7 +77,8 @@
         rgba(13, 13, 15, 0.94);
 
       backdrop-filter:
-        blur(14px);
+        blur(12px);
+
     }
 
 
@@ -89,7 +86,7 @@
 
       position: absolute;
 
-      left: 5%;
+      left: 6%;
 
       border: none;
 
@@ -97,11 +94,12 @@
 
       color: #77777f;
 
-      cursor: pointer;
-
       font-size: 13px;
 
+      cursor: pointer;
+
       transition: 0.2s;
+
     }
 
 
@@ -115,430 +113,391 @@
     }
 
 
-    .header-name {
+    .header-character-name {
 
       color: #eee;
 
       font-size: 18px;
 
-      letter-spacing: 0.5px;
     }
 
 
-    .header-info {
+    .header-character-info {
 
-      margin-top: 4px;
+      margin-top: 5px;
 
       color: #66666e;
 
       font-size: 11px;
 
-      letter-spacing: 0.5px;
     }
 
 
 
-    /* ==================================================
-       MAIN
-    ================================================== */
+    /* =========================
+       CHARACTER INTRO
+    ========================= */
 
-    main {
+    .character-section {
 
-      width: 100%;
+      width: 90%;
 
-      max-width: 850px;
+      max-width: 780px;
 
       margin: 0 auto;
 
-      padding: 45px 25px 170px;
+      padding: 55px 0 30px;
+
     }
 
 
+    .character-image {
 
-    /* ==================================================
-       CHARACTER PROFILE
-    ================================================== */
+      width: 190px;
 
-    .profile {
+      height: 250px;
 
-      position: relative;
+      margin: 0 auto 32px;
 
-      overflow: hidden;
-
-      border:
-        1px solid #302e32;
-
-      border-radius: 18px;
-
-      background:
-        linear-gradient(
-          145deg,
-          #171619,
-          #101012
-        );
-
-      box-shadow:
-        0 25px 80px
-        rgba(0, 0, 0, 0.32);
-
-      margin-bottom: 55px;
-    }
-
-
-    .profile-top {
-
-      display: flex;
-
-      gap: 28px;
-
-      padding: 28px;
-    }
-
-
-    .profile-image {
-
-      flex-shrink: 0;
-
-      width: 155px;
-
-      height: 205px;
+      display: block;
 
       object-fit: cover;
 
-      border-radius: 12px;
+      object-position: center 20%;
 
-      border:
-        1px solid #403b3d;
+      border-radius: 14px;
+
+      border: 1px solid #363238;
 
       box-shadow:
-        0 12px 35px
-        rgba(0, 0, 0, 0.4);
+        0 20px 60px
+        rgba(0,0,0,0.35);
+
     }
 
 
-    .profile-main {
+    .character-title {
 
-      flex: 1;
+      text-align: center;
 
-      min-width: 0;
+      margin-bottom: 35px;
 
-      padding-top: 5px;
     }
 
 
-    .profile-label {
+    .character-title h1 {
 
-      margin-bottom: 8px;
+      margin: 0 0 10px;
 
-      color: #927d6c;
-
-      font-size: 10px;
-
-      letter-spacing: 3px;
-
-      text-transform: uppercase;
-    }
-
-
-    .profile-name {
-
-      margin: 0;
-
-      color: #f1ece7;
+      color: #f2ece5;
 
       font-size: 32px;
 
       font-weight: normal;
+
     }
 
 
-    .profile-age {
+    .character-title p {
 
-      margin-top: 7px;
+      margin: 0;
 
-      color: #77777f;
+      color: #77747a;
 
       font-size: 13px;
+
     }
 
 
-    .tags {
+    /* =========================
+       INFO CARD
+    ========================= */
 
-      display: flex;
+    .info-card {
 
-      flex-wrap: wrap;
-
-      gap: 7px;
-
-      margin-top: 20px;
-    }
-
-
-    .tag {
-
-      padding: 6px 11px;
+      padding: 30px;
 
       border:
-        1px solid #37343a;
+        1px solid #29292f;
 
-      border-radius: 20px;
+      border-radius: 15px;
 
-      color: #aaa3a0;
+      background:
+        linear-gradient(
+          145deg,
+          #151519,
+          #101012
+        );
 
-      background: #131216;
-
-      font-size: 11px;
     }
 
 
+    .info-title {
 
-    /* ==================================================
-       CHARACTER DETAILS
-    ================================================== */
+      margin-bottom: 25px;
 
-    .profile-details {
+      color: #9b816d;
+
+      font-size: 11px;
+
+      letter-spacing: 3px;
+
+      text-transform: uppercase;
+
+    }
+
+
+    .info-grid {
 
       display: grid;
 
       grid-template-columns:
         repeat(2, 1fr);
 
-      border-top:
-        1px solid #29282d;
+      gap: 22px;
+
     }
 
 
-    .detail {
+    .info-item {
 
-      min-height: 110px;
-
-      padding: 22px 25px;
-
-      border-right:
-        1px solid #29282d;
+      padding-bottom: 18px;
 
       border-bottom:
-        1px solid #29282d;
+        1px solid #242429;
+
     }
 
 
-    .detail:nth-child(2n) {
-      border-right: none;
+    .info-label {
+
+      margin-bottom: 7px;
+
+      color: #65636a;
+
+      font-size: 11px;
+
+      letter-spacing: 1px;
+
     }
 
 
-    .detail:nth-last-child(-n + 2) {
-      border-bottom: none;
+    .info-value {
+
+      color: #d5d0cb;
+
+      font-size: 14px;
+
+      line-height: 1.7;
+
     }
 
 
-    .detail-title {
+    .personality {
 
-      margin-bottom: 10px;
+      margin-top: 25px;
 
-      color: #967f6c;
+      padding-top: 22px;
 
-      font-size: 10px;
+      border-top:
+        1px solid #29292f;
 
-      letter-spacing: 2px;
-
-      text-transform: uppercase;
     }
 
 
-    .detail-content {
+    .personality p {
 
-      color: #bbb7b6;
+      margin: 0;
 
-      font-size: 13px;
+      color: #aaa7aa;
 
-      line-height: 1.75;
+      font-size: 14px;
+
+      line-height: 1.9;
+
     }
 
 
-    .detail-content strong {
-
-      color: #e0d9d2;
-
-      font-weight: normal;
-    }
-
-
-
-    /* ==================================================
+    /* =========================
        BACKGROUND
-    ================================================== */
+    ========================= */
 
-    .section {
+    .background {
 
-      margin-bottom: 58px;
+      margin-top: 25px;
+
+      padding: 30px;
+
+      border:
+        1px solid #29292f;
+
+      border-radius: 15px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #151519,
+          #101012
+        );
+
     }
 
 
-    .section-heading {
+    .section-label {
 
-      display: flex;
+      margin-bottom: 20px;
 
-      align-items: center;
-
-      gap: 14px;
-
-      margin-bottom: 22px;
-    }
-
-
-    .section-heading-line {
-
-      width: 30px;
-
-      height: 1px;
-
-      background: #685548;
-    }
-
-
-    .section-heading-text {
-
-      color: #a38a75;
+      color: #9b816d;
 
       font-size: 11px;
 
       letter-spacing: 3px;
 
       text-transform: uppercase;
+
     }
 
 
-    .section-title {
+    .background p {
 
-      margin: 0 0 22px;
-
-      color: #eee8e1;
-
-      font-size: 25px;
-
-      font-weight: normal;
-    }
-
-
-    .background-text {
-
-      margin: 0 0 17px;
-
-      color: #a8a5a7;
-
-      font-size: 14px;
-
-      line-height: 2;
-    }
-
-
-    .background-quote {
-
-      margin: 27px 0;
-
-      padding:
-        5px 0 5px 18px;
-
-      border-left:
-        1px solid #675446;
-
-      color: #c9c0b8;
-
-      font-size: 15px;
-
-      line-height: 1.9;
-
-      font-style: italic;
-    }
-
-
-
-    /* ==================================================
-       STORY
-    ================================================== */
-
-    .story-section {
-
-      margin-top: 60px;
-
-      margin-bottom: 55px;
-    }
-
-
-    .story-intro {
-
-      margin-bottom: 30px;
-
-      color: #8f8b90;
-
-      font-size: 14px;
-
-      line-height: 2.05;
-
-      font-style: italic;
-    }
-
-
-    .story-line {
-
-      margin: 0 0 20px;
+      margin: 0 0 15px;
 
       color: #aaa7aa;
 
       font-size: 14px;
 
-      line-height: 2.05;
+      line-height: 2;
+
+    }
+
+
+    .background p:last-child {
+      margin-bottom: 0;
+    }
+
+
+    .quote {
+
+      padding-left: 17px;
+
+      border-left:
+        1px solid #685548;
+
+      color: #d0c5ba !important;
+
+    }
+
+
+
+    /* =========================
+       STORY
+    ========================= */
+
+    #storySection {
+
+      width: 90%;
+
+      max-width: 780px;
+
+      margin: 0 auto;
+
+      padding: 35px 0 150px;
+
+    }
+
+
+    .story {
+
+      max-width: 680px;
+
+      margin: 0 auto;
+
+    }
+
+
+    .story-label {
+
+      margin-bottom: 30px;
+
+      color: #9b816d;
+
+      font-size: 11px;
+
+      letter-spacing: 3px;
+
+      text-transform: uppercase;
+
+    }
+
+
+    .story-text {
+
+      margin: 0 0 20px;
+
+      color: #aaa7aa;
+
+      font-size: 15px;
+
+      line-height: 2;
+
+    }
+
+
+    .story-text.italic {
+
+      color: #969399;
 
       font-style: italic;
+
     }
 
 
-    .story-impact {
+    /* =========================
+       IMPACT
+    ========================= */
 
-      margin:
-        -3px 0 18px;
+    .impact {
 
-      padding-left: 4px;
+      margin: 4px 0 10px 18px;
 
-      color: #d4ccc5;
+      color: #d5ccc4;
 
-      font-size: 19px;
+      font-size: 18px;
 
-      line-height: 1.5;
+      letter-spacing: 2px;
 
-      letter-spacing: 1px;
+      text-align: left;
+
     }
 
 
 
-    /* ==================================================
-       CHARACTER DIALOGUE
-    ================================================== */
+    /* =========================
+       DIALOGUE
+    ========================= */
 
     .dialogue {
 
-      margin:
-        25px 0;
+      margin: 28px 0;
 
-      padding:
-        17px 21px;
+      padding: 18px 22px;
 
       border:
-        1px solid #3d393d;
+        1px solid #403b3c;
 
-      border-radius: 11px;
+      border-radius: 12px;
 
       background:
         linear-gradient(
           145deg,
-          rgba(34, 32, 35, 0.95),
-          rgba(19, 18, 21, 0.96)
+          rgba(37,34,36,0.9),
+          rgba(20,19,21,0.95)
         );
 
       box-shadow:
-        0 10px 30px
-        rgba(0, 0, 0, 0.17);
+        0 10px 35px
+        rgba(0,0,0,0.18);
+
     }
 
 
@@ -546,11 +505,12 @@
 
       margin-bottom: 9px;
 
-      color: #b89b82;
+      color: #b99d84;
 
-      font-size: 10px;
+      font-size: 11px;
 
       letter-spacing: 1.5px;
+
     }
 
 
@@ -558,71 +518,54 @@
 
       color: #eeeae6;
 
-      font-size: 14px;
+      font-size: 15px;
 
       line-height: 1.9;
+
     }
 
 
-
-    /* ==================================================
-       CHAT AREA
-    ================================================== */
-
-    #messages {
-
-      margin-top: 38px;
-    }
-
+    /* =========================
+       USER MESSAGE
+    ========================= */
 
     .user-message {
 
       width: fit-content;
 
-      max-width: 76%;
+      max-width: 75%;
 
       margin:
-        24px 0 24px auto;
+        28px 0
+        28px
+        auto;
 
       padding:
-        12px 16px;
+        12px 17px;
 
       border:
-        1px solid #39363b;
+        1px solid #39353a;
 
       border-radius:
         14px 14px 3px 14px;
 
       background: #1b1a1e;
 
-      color: #dedbdd;
+      color: #ddd;
 
       font-size: 14px;
 
       line-height: 1.8;
 
       white-space: pre-wrap;
-    }
 
-
-    .empty-memory {
-
-      margin: 35px 0;
-
-      color: #57545a;
-
-      font-size: 11px;
-
-      text-align: center;
-
-      letter-spacing: 1px;
     }
 
 
 
-    /* ==================================================
+    /* =========================
        INPUT
-    ================================================== */
+    ========================= */
 
     .input-area {
 
@@ -635,21 +578,23 @@
       transform:
         translateX(-50%);
 
-      z-index: 40;
+      z-index: 30;
 
       width: 100%;
 
-      max-width: 850px;
+      max-width: 820px;
 
       padding:
-        18px 25px 22px;
+        18px 25px
+        24px;
 
       background:
         linear-gradient(
           to top,
-          #0d0d0f 65%,
+          #0d0d0f 70%,
           rgba(13,13,15,0)
         );
+
     }
 
 
@@ -659,9 +604,9 @@
 
       align-items: flex-end;
 
-      gap: 9px;
+      gap: 10px;
 
-      padding: 7px;
+      padding: 8px;
 
       border:
         1px solid #303037;
@@ -670,9 +615,6 @@
 
       background: #151519;
 
-      box-shadow:
-        0 8px 30px
-        rgba(0,0,0,0.25);
     }
 
 
@@ -682,7 +624,7 @@
 
       min-height: 42px;
 
-      max-height: 140px;
+      max-height: 130px;
 
       resize: none;
 
@@ -691,7 +633,7 @@
       outline: none;
 
       padding:
-        10px 9px;
+        11px 10px;
 
       background: transparent;
 
@@ -699,7 +641,8 @@
 
       font-size: 14px;
 
-      line-height: 1.55;
+      line-height: 1.5;
+
     }
 
 
@@ -710,7 +653,7 @@
 
     #sendButton {
 
-      width: 62px;
+      min-width: 62px;
 
       height: 42px;
 
@@ -725,7 +668,6 @@
 
       cursor: pointer;
 
-      transition: 0.2s;
     }
 
 
@@ -734,21 +676,14 @@
       background: #302c30;
 
       border-color: #746457;
-    }
 
-
-    #sendButton:disabled {
-
-      opacity: 0.5;
-
-      cursor: default;
     }
 
 
 
-    /* ==================================================
+    /* =========================
        MOBILE
-    ================================================== */
+    ========================= */
 
     @media (max-width: 650px) {
 
@@ -762,97 +697,85 @@
       }
 
 
-      .header-name {
-        font-size: 16px;
+      .character-section {
+
+        width: 92%;
+
+        padding-top: 38px;
+
       }
 
 
-      main {
+      .character-image {
 
-        padding:
-          25px 16px 155px;
+        width: 155px;
+
+        height: 210px;
+
       }
 
 
-      .profile-top {
+      .character-title h1 {
 
-        flex-direction: column;
-
-        align-items: center;
-
-        text-align: center;
-
-        padding: 24px;
-      }
-
-
-      .profile-image {
-
-        width: 125px;
-
-        height: 165px;
-      }
-
-
-      .profile-name {
         font-size: 28px;
+
       }
 
 
-      .tags {
-        justify-content: center;
+      .info-card,
+      .background {
+
+        padding: 23px;
+
       }
 
 
-      .profile-details {
+      .info-grid {
 
         grid-template-columns: 1fr;
+
+        gap: 16px;
+
       }
 
 
-      .detail,
-      .detail:nth-child(2n) {
+      #storySection {
 
-        border-right: none;
+        width: 92%;
 
-        border-bottom:
-          1px solid #29282d;
+        padding-bottom: 145px;
+
       }
 
 
-      .detail:last-child {
-        border-bottom: none;
+      .story-text {
+
+        font-size: 14px;
+
+        line-height: 1.95;
+
       }
 
 
-      .section-title {
-        font-size: 22px;
-      }
+      .dialogue {
 
+        padding:
+          17px 18px;
 
-      .background-text,
-      .story-line,
-      .story-intro {
-
-        font-size: 13px;
-
-        line-height: 2;
       }
 
 
       .dialogue-text {
-        font-size: 13px;
+
+        font-size: 14px;
+
       }
 
 
       .user-message {
-        max-width: 86%;
-      }
 
+        max-width: 85%;
 
-      .input-area {
-        padding:
-          12px 14px 17px;
       }
 
     }
@@ -862,14 +785,12 @@
 </head>
 
 
-
 <body>
 
 
-
-  <!-- ==================================================
+  <!-- =========================
        HEADER
-  ================================================== -->
+  ========================= -->
 
   <header>
 
@@ -884,11 +805,11 @@
 
     <div class="header-character">
 
-      <div class="header-name">
+      <div class="header-character-name">
         夏亦谦
       </div>
 
-      <div class="header-info">
+      <div class="header-character-info">
         28 · 心脏外科主治医师
       </div>
 
@@ -898,168 +819,108 @@
 
 
 
-  <!-- ==================================================
-       MAIN
-  ================================================== -->
+  <!-- =========================
+       CHARACTER
+  ========================= -->
 
-  <main>
-
-
-
-    <!-- ==================================================
-         CHARACTER
-    ================================================== -->
-
-    <section class="profile">
+  <section class="character-section">
 
 
-      <div class="profile-top">
+    <img
+      class="character-image"
+      src="https://f2.zxgjw.com/i/2026/08/14/k0odpx.jpeg"
+      alt="夏亦谦"
+    >
 
 
-        <img
-          class="profile-image"
-          src="https://f2.zxgjw.com/i/2026/08/14/k0odpx.jpeg"
-          alt="夏亦谦"
-        >
+    <div class="character-title">
+
+      <h1>
+        夏亦谦
+      </h1>
+
+      <p>
+        28岁 · 京南市第一人民医院
+      </p>
+
+    </div>
 
 
-        <div class="profile-main">
 
-          <div class="profile-label">
-            CHARACTER
-          </div>
+    <!-- INFO -->
 
+    <div class="info-card">
 
-          <h1 class="profile-name">
-            夏亦谦
-          </h1>
-
-
-          <div class="profile-age">
-            28岁
-          </div>
-
-
-          <div class="tags">
-
-            <span class="tag">
-              bg
-            </span>
-
-            <span class="tag">
-              洁
-            </span>
-
-            <span class="tag">
-              纯爱
-            </span>
-
-            <span class="tag">
-              st
-            </span>
-
-            <span class="tag">
-              限左
-            </span>
-
-          </div>
-
-        </div>
-
+      <div class="info-title">
+        Character
       </div>
 
 
-
-      <!-- CHARACTER DETAILS -->
-
-      <div class="profile-details">
+      <div class="info-grid">
 
 
-        <div class="detail">
+        <div class="info-item">
 
-          <div class="detail-title">
+          <div class="info-label">
             职业
           </div>
 
-          <div class="detail-content">
-
-            <strong>
-              京南市第一人民医院
-            </strong>
-
+          <div class="info-value">
+            京南市第一人民医院 · 心脏外科主治医师
             <br>
-
-            心脏外科主治医师
-
-            <br>
-
             临床医学硕士
-
           </div>
 
         </div>
 
 
+        <div class="info-item">
 
-        <div class="detail">
-
-          <div class="detail-title">
-            性格
+          <div class="info-label">
+            年龄
           </div>
 
-          <div class="detail-content">
-
-            温和儒雅，冷静克制。
-
-            <br>
-
-            情绪稳定，做事沉稳，
-            待人礼貌而有分寸。
-
+          <div class="info-value">
+            28岁
           </div>
 
         </div>
 
 
+        <div class="info-item">
 
-        <div class="detail">
-
-          <div class="detail-title">
+          <div class="info-label">
             生日
           </div>
 
-          <div class="detail-content">
-
-            <strong>
-              11月18日
-            </strong>
-
-            <br>
-
-            天蝎座
-
+          <div class="info-value">
+            11月18日
           </div>
 
         </div>
 
 
+        <div class="info-item">
 
-        <div class="detail">
-
-          <div class="detail-title">
+          <div class="info-label">
             喜欢的食物
           </div>
 
-          <div class="detail-content">
-
+          <div class="info-value">
             肉桂卷
+          </div>
 
-            <br>
+        </div>
 
-            <span style="color:#777;">
-              常配一杯拿铁
-            </span>
 
+        <div class="info-item">
+
+          <div class="info-label">
+            喜欢的饮料
+          </div>
+
+          <div class="info-value">
+            拿铁
           </div>
 
         </div>
@@ -1067,416 +928,271 @@
 
       </div>
 
-    </section>
 
+      <div class="personality">
 
-
-    <!-- ==================================================
-         PERSONALITY
-    ================================================== -->
-
-    <section class="section">
-
-
-      <div class="section-heading">
-
-        <div class="section-heading-line"></div>
-
-        <div class="section-heading-text">
-          Personality
+        <div class="info-label">
+          性格
         </div>
+
+        <p>
+
+          温和儒雅，冷静克制。
+
+          <br><br>
+
+          他很少真正动怒，也不习惯把情绪写在脸上。
+          待人永远保持着恰到好处的礼貌与距离，
+          声音温和，做事沉稳，很难让人看出他的真实想法。
+
+          <br><br>
+
+          他习惯掌控自己的情绪，
+          也习惯把人生安排得井然有序。
+
+          <br><br>
+
+          只是偶尔，那份过分的克制会让人觉得——
+          <br>
+          <span style="color:#d0c5ba;">
+            这个人似乎从来没有真正为自己活过。
+          </span>
+
+        </p>
 
       </div>
 
-
-      <h2 class="section-title">
-        他是什么样的人
-      </h2>
-
-
-      <p class="background-text">
-
-        夏亦谦很少真正动怒，
-        也不习惯把情绪写在脸上。
-
-      </p>
-
-
-      <p class="background-text">
-
-        待人永远保持着恰到好处的礼貌与距离。
-        他说话时声音温和，做事沉稳，
-        很难让人从他的表情里猜出真正的想法。
-
-      </p>
-
-
-      <p class="background-text">
-
-        他习惯掌控自己的情绪，
-        也习惯把人生安排得井然有序。
-
-      </p>
-
-
-      <p class="background-quote">
-
-        只是偶尔，那份过分的克制会让人觉得——
-
-        <br>
-
-        这个人似乎从来没有真正为自己活过。
-
-      </p>
-
-    </section>
+    </div>
 
 
 
-    <!-- ==================================================
-         BACKGROUND
-    ================================================== -->
+    <!-- BACKGROUND -->
 
-    <section class="section">
+    <div class="background">
 
-
-      <div class="section-heading">
-
-        <div class="section-heading-line"></div>
-
-        <div class="section-heading-text">
-          Background
-        </div>
-
+      <div class="section-label">
+        Background
       </div>
 
 
-      <h2 class="section-title">
-        他的人生
-      </h2>
-
-
-      <p class="background-text">
-
-        夏亦谦五岁那年，
-        父母离婚。
-
+      <p>
+        夏亦谦五岁那年，父母离婚。
       </p>
 
 
-      <p class="background-text">
-
-        那之后，他的人生便开始被父亲
-        一笔一画地规划。
-
-      </p>
-
-
-      <p class="background-text">
-
-        什么时候上学，
-        学什么专业，
-        将来做什么工作，
+      <p>
+        那之后，他的人生便开始被父亲一笔一画地规划。
+        什么时候上学，学什么专业，将来做什么工作，
         似乎每一步都有既定的答案。
-
       </p>
 
 
-      <p class="background-quote">
-
+      <p class="quote">
         当医生。
-
       </p>
 
 
-      <p class="background-text">
-
+      <p>
         七岁那年，父亲再婚。
-
-        <br><br>
-
-        从那以后，
-        夏亦谦和父亲之间便逐渐少了交流。
-
+        从那以后，夏亦谦和父亲之间便逐渐少了交流。
       </p>
 
 
-      <p class="background-text">
-
+      <p>
         不是争吵，也不是怨恨。
-
-        <br>
-
-        只是慢慢地，
-        没有什么话可说了。
-
+        只是慢慢地，没有什么话可说了。
       </p>
 
 
-      <p class="background-text">
-
+      <p>
         他依旧按照父亲安排好的轨迹长大。
-
-        <br>
-
         成绩优异，履历漂亮，
         从医学院一路读到硕士毕业。
-
       </p>
 
 
-      <p class="background-text">
-
-        硕士毕业时，
-        他以优异成绩完成学业，
-        获评优秀医学毕业生，
-        随后进入京南市第一人民医院。
-
+      <p>
+        硕士毕业时，他以优异成绩完成学业，
+        并获评优秀医学毕业生，
+        顺利进入京南市第一人民医院工作。
       </p>
 
 
-      <p class="background-text">
-
+      <p>
         他的人生似乎一直顺风顺水。
-
       </p>
 
 
-      <p class="background-text">
-
-        没有叛逆期，
-        没有离经叛道，
+      <p>
+        没有叛逆期，没有离经叛道，
         也没有真正失控过。
-
       </p>
 
 
-      <p class="background-quote">
+      <p>
+        父亲以为，他已经成为了自己最满意的样子。
+      </p>
 
-        父亲以为，
-        他已经成为了自己最满意的样子。
 
-        <br><br>
-
+      <p class="quote">
         只有夏亦谦自己知道——
-
         <br><br>
-
-        他只是很早就学会了，
+        他其实只是很早就学会了，
         不去问自己究竟想要什么。
-
       </p>
 
 
-      <p class="background-text">
-
+      <p>
         而在那些无人知道的夜晚，
         他偶尔会打开微信，
         和远在另一边生活的母亲聊几句。
-
       </p>
 
 
-      <p class="background-text">
+    </div>
 
-        母亲是他和过去之间，
-        少数还保留下来的联系。
-
-      </p>
-
-    </section>
+  </section>
 
 
 
-    <!-- ==================================================
-         STORY
-    ================================================== -->
+  <!-- =========================
+       STORY
+  ========================= -->
 
-    <section class="story-section">
+  <main id="storySection">
 
 
-      <div class="section-heading">
+    <div class="story">
 
-        <div class="section-heading-line"></div>
 
-        <div class="section-heading-text">
-          Story
-        </div>
-
+      <div class="story-label">
+        Story
       </div>
 
 
-      <h2 class="section-title">
-        雪天
-      </h2>
-
-
-      <p class="story-intro">
-
+      <p class="story-text italic">
         雪下得很大。
+      </p>
 
-        <br><br>
 
+      <p class="story-text italic">
         漫天的雪花被风卷起，
         在视线里交织成一片朦胧的白。
-
       </p>
 
 
-      <p class="story-line">
-
+      <p class="story-text italic">
         今天的雪场比平日热闹许多。
-
         赛道上有不少第一次来滑雪的新手，
-        小心翼翼地扶着雪杖，
-        一点一点往下挪。
-
+        小心翼翼地扶着雪杖，一点一点往下挪。
       </p>
 
 
-      <p class="story-line">
-
+      <p class="story-text italic">
         夏亦谦从高处俯冲而下。
-
       </p>
 
 
-      <p class="story-line">
-
-        速度并不算快，
-        却稳得惊人。
-
+      <p class="story-text italic">
+        速度并不算快，却稳得惊人。
       </p>
 
 
-      <p class="story-line">
-
+      <p class="story-text italic">
         他侧身避开迎面而来的滑雪者，
-        轻巧地调整方向，
-        又从另一名新手身侧擦过。
-
+        轻巧地调整方向，又从另一名新手身侧擦过。
       </p>
 
 
-      <p class="story-line">
-
+      <p class="story-text italic">
         雪板划过雪面，
         留下两道干净利落的痕迹。
-
       </p>
 
 
-      <p class="story-line">
-
+      <p class="story-text italic">
         直到临近坡底，
         他微微压低身体，
         雪板横过雪面——
-
       </p>
 
 
-      <div class="story-impact">
+      <div class="impact">
         唰——
       </div>
 
 
-      <p class="story-line">
-
+      <p class="story-text italic">
         细碎的雪雾扬起。
-
       </p>
 
 
-      <p class="story-line">
-
+      <p class="story-text italic">
         他稳稳停了下来。
-
       </p>
 
 
-      <p class="story-line">
-
+      <p class="story-text italic">
         夏亦谦摘下一只手套，
         抬手拂去肩上的雪。
-
       </p>
 
 
-      <p class="story-line">
-
+      <p class="story-text italic">
         下一秒——
-
       </p>
 
 
-      <div class="story-impact">
+      <div class="impact">
         砰。
       </div>
 
 
-      <p class="story-line">
-
+      <p class="story-text italic">
         一道身影毫无预兆地从后方撞了上来。
-
       </p>
 
 
-      <p class="story-line">
-
+      <p class="story-text italic">
         巨大的冲力让他向前踉跄了一步。
-
       </p>
 
 
-      <p class="story-line">
-
+      <p class="story-text italic">
         身后的人似乎完全没有刹住，
         连同雪板一起撞了上来。
-
       </p>
 
 
-      <p class="story-line">
-
+      <p class="story-text italic">
         两个人同时摔进松软的雪地。
-
       </p>
 
 
-      <p class="story-line">
-
+      <p class="story-text italic">
         周围安静了一瞬。
-
       </p>
 
 
-      <p class="story-line">
-
+      <p class="story-text italic">
         夏亦谦撑着雪地坐起身，
         下意识先看向你。
-
       </p>
 
 
-      <p class="story-line">
-
+      <p class="story-text italic">
         确认你没有受伤后，
         他才低头看了看自己被撞歪的雪镜。
-
       </p>
 
 
-      <p class="story-line">
-
+      <p class="story-text italic">
         沉默两秒。
-
       </p>
 
 
-      <p class="story-line">
-
+      <p class="story-text italic">
         他忽然轻轻笑了一声。
-
       </p>
 
 
@@ -1490,32 +1206,25 @@
         </div>
 
         <div class="dialogue-text">
-
           “……还好吗？”
-
         </div>
 
       </div>
 
 
-      <p class="story-line">
-
+      <p class="story-text italic">
         他的声音比想象中温和。
-
       </p>
 
 
-      <p class="story-line">
-
+      <p class="story-text italic">
         没有责怪，也没有不耐烦。
-
       </p>
 
 
-      <p class="story-line">
-
-        他朝你伸出手。
-
+      <p class="story-text italic">
+        他朝你伸出手，
+        手套上的雪被轻轻抖落。
       </p>
 
 
@@ -1526,19 +1235,16 @@
         </div>
 
         <div class="dialogue-text">
-
           “先起来。”
-
         </div>
 
       </div>
 
 
-      <p class="story-line">
-
-        顿了顿，他看了一眼你身上的滑雪装备，
+      <p class="story-text italic">
+        他顿了顿，
+        看了一眼你身上的滑雪装备，
         又看向刚才一路冲下来的方向。
-
       </p>
 
 
@@ -1549,43 +1255,36 @@
         </div>
 
         <div class="dialogue-text">
-
           “第一次滑雪？”
-
         </div>
 
       </div>
 
 
 
-      <!-- ==================================================
-           CHAT HISTORY
-      ================================================== -->
+      <!-- USER / AI MESSAGES -->
 
       <div id="messages"></div>
 
 
-    </section>
-
+    </div>
 
   </main>
 
 
 
-  <!-- ==================================================
+  <!-- =========================
        INPUT
-  ================================================== -->
+  ========================= -->
 
   <div class="input-area">
 
     <div class="input-box">
 
-
       <textarea
         id="messageInput"
         rows="1"
         placeholder="说点什么……"
-        autocomplete="off"
       ></textarea>
 
 
@@ -1596,7 +1295,6 @@
         Send
       </button>
 
-
     </div>
 
   </div>
@@ -1606,10 +1304,9 @@
   <script>
 
 
-    /* ==================================================
+    /* =========================
        STORAGE
-    ================================================== */
-
+    ========================= */
 
     const STORAGE_KEY =
       "mori_xiayiqian_chat";
@@ -1634,190 +1331,26 @@
 
 
 
-    /* ==================================================
-       CREATE USER MESSAGE
-    ================================================== */
+    /* =========================
+       SAVE
+    ========================= */
 
-    function createUserMessage(text) {
-
-      const element =
-        document.createElement(
-          "div"
-        );
-
-
-      element.className =
-        "user-message";
-
-
-      element.textContent =
-        text;
-
-
-      messages.appendChild(
-        element
-      );
-
-
-      return element;
-
-    }
-
-
-
-    /* ==================================================
-       CREATE CHARACTER MESSAGE
-    ================================================== */
-
-    function createCharacterMessage(
-      text
-    ) {
-
-      const element =
-        document.createElement(
-          "div"
-        );
-
-
-      element.className =
-        "dialogue";
-
-
-      element.innerHTML = `
-
-        <div class="dialogue-name">
-          夏亦谦
-        </div>
-
-        <div class="dialogue-text">
-          ${escapeHtml(text)}
-        </div>
-
-      `;
-
-
-      messages.appendChild(
-        element
-      );
-
-
-      return element;
-
-    }
-
-
-
-    /* ==================================================
-       SAFE TEXT
-    ================================================== */
-
-    function escapeHtml(text) {
-
-      return text
-        .replace(
-          /&/g,
-          "&amp;"
-        )
-        .replace(
-          /</g,
-          "&lt;"
-        )
-        .replace(
-          />/g,
-          "&gt;"
-        )
-        .replace(
-          /"/g,
-          "&quot;"
-        )
-        .replace(
-          /'/g,
-          "&#039;"
-        )
-        .replace(
-          /\n/g,
-          "<br>"
-        );
-
-    }
-
-
-
-    /* ==================================================
-       SAVE CHAT
-    ================================================== */
-
-    function saveChat() {
-
-      const history = [];
-
-
-      messages
-        .querySelectorAll(
-          ".user-message, .dialogue"
-        )
-        .forEach(
-          element => {
-
-            if (
-              element.classList.contains(
-                "user-message"
-              )
-            ) {
-
-              history.push({
-
-                type: "user",
-
-                text:
-                  element.textContent
-
-              });
-
-            } else {
-
-              const dialogue =
-                element.querySelector(
-                  ".dialogue-text"
-                );
-
-
-              if (dialogue) {
-
-                history.push({
-
-                  type: "character",
-
-                  text:
-                    dialogue.innerText
-
-                });
-
-              }
-
-            }
-
-          }
-        );
-
+    function saveMessages() {
 
       localStorage.setItem(
-
         STORAGE_KEY,
-
-        JSON.stringify(history)
-
+        messages.innerHTML
       );
 
     }
 
 
 
-    /* ==================================================
-       LOAD CHAT
-    ================================================== */
+    /* =========================
+       LOAD
+    ========================= */
 
-    function loadChat() {
+    function loadMessages() {
 
       const saved =
         localStorage.getItem(
@@ -1825,54 +1358,10 @@
         );
 
 
-      if (!saved) {
-        return;
-      }
+      if (saved) {
 
-
-      try {
-
-        const history =
-          JSON.parse(
-            saved
-          );
-
-
-        history.forEach(
-          item => {
-
-            if (
-              item.type ===
-              "user"
-            ) {
-
-              createUserMessage(
-                item.text
-              );
-
-            }
-
-
-            if (
-              item.type ===
-              "character"
-            ) {
-
-              createCharacterMessage(
-                item.text
-              );
-
-            }
-
-          }
-        );
-
-      } catch (error) {
-
-        console.error(
-          "无法读取聊天记录:",
-          error
-        );
+        messages.innerHTML =
+          saved;
 
       }
 
@@ -1880,173 +1369,76 @@
 
 
 
-    /* ==================================================
-       SIMPLE CHARACTER RESPONSE
-       
-       现在先让角色能够根据玩家说的话
-       做出不同的反应。
-       
-       后面接真正 AI 时，
-       这里会换成 AI API。
-    ================================================== */
+    /* =========================
+       ADD USER MESSAGE
+    ========================= */
 
-    function generateReply(
-      userText
+    function addUserMessage(text) {
+
+      const message =
+        document.createElement(
+          "div"
+        );
+
+
+      message.className =
+        "user-message";
+
+
+      message.textContent =
+        text;
+
+
+      messages.appendChild(
+        message
+      );
+
+    }
+
+
+
+    /* =========================
+       ADD CHARACTER MESSAGE
+    ========================= */
+
+    function addCharacterMessage(
+      text
     ) {
 
-      const text =
-        userText.toLowerCase();
+      const dialogue =
+        document.createElement(
+          "div"
+        );
 
 
-      if (
-        text.includes("第一次") ||
-        text.includes("不会") ||
-        text.includes("新手")
-      ) {
-
-        return `
-他看了一眼你，目光在你明显有些慌乱的动作上停了片刻。
-
-夏亦谦没有笑你，只是俯身替你把有些歪掉的雪板重新调整好，又伸手将你从雪地里扶起来。
-
-“没关系。”
-
-他松开手，却没有立刻走开，只是站在你身侧，替你挡住了一些迎面而来的风雪。
-
-“第一次滑，别急着往下冲。”
-
-他的语气很温和。
-
-“先学会怎么停下来。”
-        `;
-
-      }
+      dialogue.className =
+        "dialogue";
 
 
-      if (
-        text.includes("疼") ||
-        text.includes("痛") ||
-        text.includes("受伤")
-      ) {
+      dialogue.innerHTML = `
 
-        return `
-夏亦谦的神色明显认真了些。
+        <div class="dialogue-name">
+          夏亦谦
+        </div>
 
-他没有急着回答，而是先低下身查看你的手腕和膝盖。
+        <div class="dialogue-text">
+          ${text}
+        </div>
 
-“哪里疼？”
-
-确认没有明显的外伤后，他才稍稍松了口气。
-
-“如果不舒服就告诉我。”
-
-他抬眼看向你，声音依旧温和。
-
-“别硬撑。”
-        `;
-
-      }
-
-
-      if (
-        text.includes("谢谢") ||
-        text.includes("感谢")
-      ) {
-
-        return `
-夏亦谦微微一怔。
-
-随后，他只是轻轻弯了下唇角。
-
-“没什么。”
-
-他重新戴好手套，目光却仍落在你身上。
-
-“不过……”
-
-他顿了顿。
-
-“下次下坡之前，记得先确认自己会刹车。”
-        `;
-
-      }
-
-
-      if (
-        text.includes("你是谁") ||
-        text.includes("叫什么") ||
-        text.includes("名字")
-      ) {
-
-        return `
-夏亦谦看着你，安静了两秒。
-
-他似乎觉得这个问题有些突然，却没有表现出介意。
-
-“夏亦谦。”
-
-他简单地回答。
-
-“夏天的夏，亦然的亦，谦逊的谦。”
-
-说完，他又看了你一眼。
-
-“现在呢？”
-
-“该轮到你介绍自己了。”
-        `;
-
-      }
-
-
-      if (
-        text.includes("医生") ||
-        text.includes("工作") ||
-        text.includes("职业")
-      ) {
-
-        return `
-夏亦谦低头看了一眼自己身上的滑雪服。
-
-“医生。”
-
-他回答得很简单。
-
-随后像是觉得这样太过简略，又补了一句。
-
-“心脏外科。”
-
-他的语气依旧平静。
-
-“所以，如果你刚才真的撞伤了，我大概会比普通人更紧张一点。”
-        `;
-
-      }
-
-
-      return `
-夏亦谦安静地听你说完。
-
-他没有马上接话，只是看着你，像是在认真理解你的意思。
-
-片刻后，他轻轻点了下头。
-
-“嗯。”
-
-他声音很低，语气却温和。
-
-“我在听。”
-
-说完，他没有催促你，只是安静地站在你面前，等着你继续。
       `;
+
+
+      messages.appendChild(
+        dialogue
+      );
 
     }
 
 
 
-    /* ==================================================
+    /* =========================
        SEND
-    ================================================== */
+    ========================= */
 
     function sendMessage() {
 
@@ -2059,73 +1451,33 @@
       }
 
 
-      createUserMessage(
-        text
-      );
+      addUserMessage(text);
 
 
-      messageInput.value =
-        "";
+      messageInput.value = "";
 
 
       messageInput.style.height =
         "42px";
 
 
-      saveChat();
+      saveMessages();
 
 
-      scrollToLatest();
-
-
-      sendButton.disabled =
-        true;
+      const reply =
+        generateReply(text);
 
 
       setTimeout(
         () => {
 
-          const reply =
-            generateReply(
-              text
-            );
-
-
-          createCharacterMessage(
+          addCharacterMessage(
             reply
           );
 
 
-          saveChat();
+          saveMessages();
 
-
-          sendButton.disabled =
-            false;
-
-
-          scrollToLatest();
-
-
-          messageInput.focus();
-
-        },
-
-        650
-
-      );
-
-    }
-
-
-
-    /* ==================================================
-       SCROLL
-    ================================================== */
-
-    function scrollToLatest() {
-
-      setTimeout(
-        () => {
 
           const last =
             messages.lastElementChild;
@@ -2134,54 +1486,111 @@
           if (last) {
 
             last.scrollIntoView({
-
-              behavior:
-                "smooth",
-
-              block:
-                "center"
-
+              behavior: "smooth",
+              block: "center"
             });
 
           }
 
         },
-
-        50
-
+        650
       );
 
     }
 
 
 
-    /* ==================================================
-       SEND BUTTON
-    ================================================== */
+    /* =========================
+       CHARACTER REPLY
+    ========================= */
+
+    function generateReply(text) {
+
+      const lower =
+        text.toLowerCase();
+
+
+      if (
+        lower.includes("第一次") ||
+        lower.includes("不会") ||
+        lower.includes("新手") ||
+        lower.includes("不会滑")
+      ) {
+
+        return `
+          <span style="color:#aaa7aa;">
+            他没有催促你，只是顺手将掉在一旁的滑雪杖捡起来，
+            再慢慢扶着你的手臂站稳。
+          </span>
+          <br><br>
+          “没事就好。”
+          <br>
+          <span style="color:#aaa7aa;">
+            他垂眸看了一眼你的雪板，语气依旧温和。
+          </span>
+          <br><br>
+          “第一次滑雪的话，慢一点。”
+        `;
+
+      }
+
+
+      if (
+        lower.includes("谢谢")
+      ) {
+
+        return `
+          <span style="color:#aaa7aa;">
+            夏亦谦轻轻摇了摇头，
+            顺手替你拍掉肩上的雪。
+          </span>
+          <br><br>
+          “不用谢。”
+          <br>
+          <span style="color:#aaa7aa;">
+            他停了一下，目光落到你的雪板上。
+          </span>
+          <br><br>
+          “不过下次，记得先学会刹车。”
+        `;
+
+      }
+
+
+      return `
+        <span style="color:#aaa7aa;">
+          夏亦谦安静地看着你，
+          没有急着打断。
+        </span>
+        <br><br>
+        “嗯，我在听。”
+      `;
+
+    }
+
+
+
+    /* =========================
+       BUTTON
+    ========================= */
 
     sendButton.addEventListener(
-
       "click",
-
       sendMessage
-
     );
 
 
 
-    /* ==================================================
+    /* =========================
        ENTER
-    ================================================== */
+    ========================= */
 
     messageInput.addEventListener(
-
       "keydown",
-
-      event => {
+      (event) => {
 
         if (
-          event.key ===
-          "Enter" &&
+          event.key === "Enter" &&
           !event.shiftKey
         ) {
 
@@ -2192,19 +1601,16 @@
         }
 
       }
-
     );
 
 
 
-    /* ==================================================
-       TEXTAREA AUTO HEIGHT
-    ================================================== */
+    /* =========================
+       AUTO RESIZE
+    ========================= */
 
     messageInput.addEventListener(
-
       "input",
-
       () => {
 
         messageInput.style.height =
@@ -2214,43 +1620,37 @@
         messageInput.style.height =
           Math.min(
             messageInput.scrollHeight,
-            140
+            130
           ) + "px";
 
       }
-
     );
 
 
 
-    /* ==================================================
-       BACK TO MORI
-    ================================================== */
+    /* =========================
+       BACK
+    ========================= */
 
     document
-      .getElementById(
-        "backButton"
-      )
+      .getElementById("backButton")
       .addEventListener(
-
         "click",
-
         () => {
 
           window.location.href =
             "index.html";
 
         }
-
       );
 
 
 
-    /* ==================================================
-       LOAD
-    ================================================== */
+    /* =========================
+       LOAD OLD CHAT
+    ========================= */
 
-    loadChat();
+    loadMessages();
 
   </script>
 

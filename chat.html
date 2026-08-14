@@ -3,739 +3,861 @@
 
 <head>
 
-<meta charset="UTF-8">
+  <meta charset="UTF-8">
 
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-<title>夏亦谦 · Mori</title>
+  <title>夏亦谦 · Mori</title>
 
 
-<style>
+  <style>
 
-* {
-  box-sizing: border-box;
-}
+    * {
+      box-sizing: border-box;
+    }
 
 
-body {
+    html {
+      scroll-behavior: smooth;
+    }
 
-  margin: 0;
 
-  min-height: 100vh;
+    body {
+      margin: 0;
+      min-height: 100vh;
 
-  background: #0d0d0f;
+      background:
+        radial-gradient(
+          circle at 50% 0%,
+          rgba(197, 168, 141, 0.045),
+          transparent 35%
+        ),
+        #0d0d0f;
 
-  color: #eee;
+      color: #eee;
 
-  font-family:
-    Georgia,
-    "Times New Roman",
-    "Noto Serif SC",
-    serif;
+      font-family:
+        Georgia,
+        "Times New Roman",
+        "Noto Serif SC",
+        serif;
+    }
 
-}
 
+    button,
+    textarea {
+      font-family: inherit;
+    }
 
-/* =========================
-   HEADER
-========================= */
 
-header {
 
-  position: sticky;
+    /* ==================================================
+       HEADER
+    ================================================== */
 
-  top: 0;
+    header {
 
-  z-index: 20;
+      position: sticky;
 
-  height: 70px;
+      top: 0;
 
-  display: flex;
+      z-index: 50;
 
-  align-items: center;
+      height: 70px;
 
-  justify-content: center;
+      display: flex;
 
-  border-bottom:
-    1px solid #242429;
+      align-items: center;
 
-  background:
-    rgba(13,13,15,.94);
+      justify-content: center;
 
-  backdrop-filter:
-    blur(14px);
+      border-bottom:
+        1px solid #242429;
 
-}
+      background:
+        rgba(13, 13, 15, 0.94);
 
+      backdrop-filter:
+        blur(14px);
+    }
 
-.back-button {
 
-  position: absolute;
+    .back-button {
 
-  left: 6%;
+      position: absolute;
 
-  border: none;
+      left: 5%;
 
-  background: transparent;
+      border: none;
 
-  color: #77777f;
+      background: transparent;
 
-  cursor: pointer;
+      color: #77777f;
 
-  font-family: inherit;
+      cursor: pointer;
 
-}
+      font-size: 13px;
 
+      transition: 0.2s;
+    }
 
-.back-button:hover {
-  color: #eee;
-}
 
+    .back-button:hover {
+      color: #eee;
+    }
 
-.header-name {
 
-  font-size: 18px;
+    .header-character {
+      text-align: center;
+    }
 
-}
 
+    .header-name {
 
-.header-info {
+      color: #eee;
 
-  margin-top: 4px;
+      font-size: 18px;
 
-  color: #66666e;
+      letter-spacing: 0.5px;
+    }
 
-  font-size: 11px;
 
-}
+    .header-info {
 
+      margin-top: 4px;
 
+      color: #66666e;
 
-/* =========================
-   CHARACTER INFO
-========================= */
+      font-size: 11px;
 
-.character-area {
+      letter-spacing: 0.5px;
+    }
 
-  width: 92%;
 
-  max-width: 820px;
 
-  margin:
-    35px auto 20px;
+    /* ==================================================
+       MAIN
+    ================================================== */
 
-}
+    main {
 
+      width: 100%;
 
-.character-card {
+      max-width: 850px;
 
-  display: grid;
+      margin: 0 auto;
 
-  grid-template-columns:
-    230px 1fr;
+      padding: 45px 25px 170px;
+    }
 
-  gap: 28px;
 
-  padding: 22px;
 
-  border:
-    1px solid #29292f;
+    /* ==================================================
+       CHARACTER PROFILE
+    ================================================== */
 
-  border-radius: 17px;
+    .profile {
 
-  background:
-    linear-gradient(
-      145deg,
-      #151519,
-      #101012
-    );
+      position: relative;
 
-}
+      overflow: hidden;
 
+      border:
+        1px solid #302e32;
 
-.character-image {
+      border-radius: 18px;
 
-  width: 230px;
+      background:
+        linear-gradient(
+          145deg,
+          #171619,
+          #101012
+        );
 
-  height: 300px;
+      box-shadow:
+        0 25px 80px
+        rgba(0, 0, 0, 0.32);
 
-  object-fit: cover;
+      margin-bottom: 55px;
+    }
 
-  object-position:
-    center 20%;
 
-  border-radius: 12px;
+    .profile-top {
 
-  display: block;
+      display: flex;
 
-}
+      gap: 28px;
 
+      padding: 28px;
+    }
 
-.character-details {
 
-  min-width: 0;
+    .profile-image {
 
-}
+      flex-shrink: 0;
 
+      width: 155px;
 
-.character-details h1 {
+      height: 205px;
 
-  margin:
-    3px 0 6px;
+      object-fit: cover;
 
-  font-size: 30px;
+      border-radius: 12px;
 
-  font-weight: normal;
+      border:
+        1px solid #403b3d;
 
-}
+      box-shadow:
+        0 12px 35px
+        rgba(0, 0, 0, 0.4);
+    }
 
 
-.character-age {
+    .profile-main {
 
-  color: #77777f;
+      flex: 1;
 
-  font-size: 12px;
+      min-width: 0;
 
-  margin-bottom: 18px;
+      padding-top: 5px;
+    }
 
-}
 
+    .profile-label {
 
-.tags {
+      margin-bottom: 8px;
 
-  display: flex;
+      color: #927d6c;
 
-  flex-wrap: wrap;
+      font-size: 10px;
 
-  gap: 7px;
+      letter-spacing: 3px;
 
-  margin-bottom: 20px;
+      text-transform: uppercase;
+    }
 
-}
 
+    .profile-name {
 
-.tag {
+      margin: 0;
 
-  padding:
-    5px 10px;
+      color: #f1ece7;
 
-  border:
-    1px solid #38343a;
+      font-size: 32px;
 
-  border-radius: 20px;
+      font-weight: normal;
+    }
 
-  color: #8d878d;
 
-  font-size: 10px;
+    .profile-age {
 
-}
+      margin-top: 7px;
 
+      color: #77777f;
 
-.info-tabs {
+      font-size: 13px;
+    }
 
-  display: flex;
 
-  gap: 22px;
+    .tags {
 
-  margin-bottom: 15px;
+      display: flex;
 
-  border-bottom:
-    1px solid #29292f;
+      flex-wrap: wrap;
 
-}
+      gap: 7px;
 
+      margin-top: 20px;
+    }
 
-.info-tab {
 
-  padding:
-    8px 0 10px;
+    .tag {
 
-  border: none;
+      padding: 6px 11px;
 
-  background: transparent;
+      border:
+        1px solid #37343a;
 
-  color: #656269;
+      border-radius: 20px;
 
-  cursor: pointer;
+      color: #aaa3a0;
 
-  font-family: inherit;
+      background: #131216;
 
-}
+      font-size: 11px;
+    }
 
 
-.info-tab.active {
 
-  color: #c8a98a;
+    /* ==================================================
+       CHARACTER DETAILS
+    ================================================== */
 
-  border-bottom:
-    1px solid #9a7d65;
+    .profile-details {
 
-}
+      display: grid;
 
+      grid-template-columns:
+        repeat(2, 1fr);
 
-.info-page {
+      border-top:
+        1px solid #29282d;
+    }
 
-  display: none;
 
-  animation:
-    fade .25s ease;
+    .detail {
 
-}
+      min-height: 110px;
 
+      padding: 22px 25px;
 
-.info-page.active {
-  display: block;
-}
+      border-right:
+        1px solid #29282d;
 
+      border-bottom:
+        1px solid #29282d;
+    }
 
-@keyframes fade {
 
-  from {
-    opacity: 0;
-  }
+    .detail:nth-child(2n) {
+      border-right: none;
+    }
 
-  to {
-    opacity: 1;
-  }
 
-}
+    .detail:nth-last-child(-n + 2) {
+      border-bottom: none;
+    }
 
 
-.info-row {
+    .detail-title {
 
-  display: flex;
+      margin-bottom: 10px;
 
-  gap: 10px;
+      color: #967f6c;
 
-  margin-bottom: 10px;
+      font-size: 10px;
 
-  font-size: 13px;
+      letter-spacing: 2px;
 
-  line-height: 1.7;
+      text-transform: uppercase;
+    }
 
-}
 
+    .detail-content {
 
-.info-label {
+      color: #bbb7b6;
 
-  min-width: 70px;
+      font-size: 13px;
 
-  color: #756c68;
+      line-height: 1.75;
+    }
 
-}
 
+    .detail-content strong {
 
-.info-value {
+      color: #e0d9d2;
 
-  color: #aaa6a8;
+      font-weight: normal;
+    }
 
-}
 
 
-.personality {
+    /* ==================================================
+       BACKGROUND
+    ================================================== */
 
-  color: #aaa6a8;
+    .section {
 
-  font-size: 13px;
+      margin-bottom: 58px;
+    }
 
-  line-height: 1.9;
 
-}
+    .section-heading {
 
+      display: flex;
 
+      align-items: center;
 
-/* =========================
-   STORY
-========================= */
+      gap: 14px;
 
-.story-area {
+      margin-bottom: 22px;
+    }
 
-  width: 92%;
 
-  max-width: 720px;
+    .section-heading-line {
 
-  margin:
-    30px auto 160px;
+      width: 30px;
 
-}
+      height: 1px;
 
+      background: #685548;
+    }
 
-.story-title {
 
-  margin-bottom: 28px;
+    .section-heading-text {
 
-  color: #9b816d;
+      color: #a38a75;
 
-  font-size: 11px;
+      font-size: 11px;
 
-  letter-spacing: 3px;
+      letter-spacing: 3px;
 
-}
+      text-transform: uppercase;
+    }
 
 
-.story-text {
+    .section-title {
 
-  margin:
-    0 0 17px;
+      margin: 0 0 22px;
 
-  color: #a7a3a6;
+      color: #eee8e1;
 
-  font-size: 14px;
+      font-size: 25px;
 
-  line-height: 1.95;
+      font-weight: normal;
+    }
 
-  font-style: italic;
 
-}
+    .background-text {
 
+      margin: 0 0 17px;
 
-.impact {
+      color: #a8a5a7;
 
-  margin:
-    3px 0 8px;
+      font-size: 14px;
 
-  padding-left: 8px;
+      line-height: 2;
+    }
 
-  color: #d8d0c8;
 
-  font-size: 18px;
+    .background-quote {
 
-  letter-spacing: 1px;
+      margin: 27px 0;
 
-}
+      padding:
+        5px 0 5px 18px;
 
+      border-left:
+        1px solid #675446;
 
-.dialogue {
+      color: #c9c0b8;
 
-  margin:
-    22px 0;
+      font-size: 15px;
 
-  padding:
-    17px 20px;
+      line-height: 1.9;
 
-  border:
-    1px solid #403b3d;
+      font-style: italic;
+    }
 
-  border-radius: 11px;
 
-  background:
-    linear-gradient(
-      145deg,
-      #252225,
-      #161518
-    );
 
-}
+    /* ==================================================
+       STORY
+    ================================================== */
 
+    .story-section {
 
-.dialogue-name {
+      margin-top: 60px;
 
-  margin-bottom: 7px;
+      margin-bottom: 55px;
+    }
 
-  color: #b99d84;
 
-  font-size: 10px;
+    .story-intro {
 
-  letter-spacing: 1.5px;
+      margin-bottom: 30px;
 
-}
+      color: #8f8b90;
 
+      font-size: 14px;
 
-.dialogue-text {
+      line-height: 2.05;
 
-  color: #eeeae6;
+      font-style: italic;
+    }
 
-  font-size: 14px;
 
-  line-height: 1.85;
+    .story-line {
 
-}
+      margin: 0 0 20px;
 
+      color: #aaa7aa;
 
+      font-size: 14px;
 
-/* =========================
-   CHAT
-========================= */
+      line-height: 2.05;
 
-#messages {
+      font-style: italic;
+    }
 
-  margin-top: 35px;
 
-}
+    .story-impact {
 
+      margin:
+        -3px 0 18px;
 
-.user-message {
+      padding-left: 4px;
 
-  width: fit-content;
+      color: #d4ccc5;
 
-  max-width: 78%;
+      font-size: 19px;
 
-  margin:
-    25px 0 25px auto;
+      line-height: 1.5;
 
-  padding:
-    11px 16px;
+      letter-spacing: 1px;
+    }
 
-  border:
-    1px solid #39353a;
 
-  border-radius:
-    14px 14px 3px 14px;
 
-  background: #1b1a1e;
+    /* ==================================================
+       CHARACTER DIALOGUE
+    ================================================== */
 
-  color: #ddd;
+    .dialogue {
 
-  font-size: 14px;
+      margin:
+        25px 0;
 
-  line-height: 1.75;
+      padding:
+        17px 21px;
 
-}
+      border:
+        1px solid #3d393d;
 
+      border-radius: 11px;
 
-.chat-reply {
+      background:
+        linear-gradient(
+          145deg,
+          rgba(34, 32, 35, 0.95),
+          rgba(19, 18, 21, 0.96)
+        );
 
-  margin:
-    25px 0;
+      box-shadow:
+        0 10px 30px
+        rgba(0, 0, 0, 0.17);
+    }
 
-  padding:
-    17px 20px;
 
-  border:
-    1px solid #403b3d;
+    .dialogue-name {
 
-  border-radius: 11px;
+      margin-bottom: 9px;
 
-  background:
-    linear-gradient(
-      145deg,
-      #252225,
-      #161518
-    );
+      color: #b89b82;
 
-}
+      font-size: 10px;
 
+      letter-spacing: 1.5px;
+    }
 
-.reply-name {
 
-  margin-bottom: 8px;
+    .dialogue-text {
 
-  color: #b99d84;
+      color: #eeeae6;
 
-  font-size: 10px;
+      font-size: 14px;
 
-  letter-spacing: 1.5px;
+      line-height: 1.9;
+    }
 
-}
 
 
-.reply-body {
+    /* ==================================================
+       CHAT AREA
+    ================================================== */
 
-  color: #eeeae6;
+    #messages {
 
-  font-size: 14px;
+      margin-top: 38px;
+    }
 
-  line-height: 1.9;
 
-}
+    .user-message {
 
+      width: fit-content;
 
-.reply-action {
+      max-width: 76%;
 
-  color: #999398;
+      margin:
+        24px 0 24px auto;
 
-  font-style: italic;
+      padding:
+        12px 16px;
 
-}
+      border:
+        1px solid #39363b;
 
+      border-radius:
+        14px 14px 3px 14px;
 
-.reply-speech {
+      background: #1b1a1e;
 
-  color: #eeeae6;
+      color: #dedbdd;
 
-  margin-top: 8px;
+      font-size: 14px;
 
-}
+      line-height: 1.8;
 
+      white-space: pre-wrap;
+    }
 
 
-/* =========================
-   INPUT
-========================= */
+    .empty-memory {
 
-.input-area {
+      margin: 35px 0;
 
-  position: fixed;
+      color: #57545a;
 
-  z-index: 30;
+      font-size: 11px;
 
-  left: 50%;
+      text-align: center;
 
-  bottom: 0;
+      letter-spacing: 1px;
+    }
 
-  transform:
-    translateX(-50%);
 
-  width: 100%;
 
-  max-width: 820px;
+    /* ==================================================
+       INPUT
+    ================================================== */
 
-  padding:
-    15px 22px 22px;
+    .input-area {
 
-  background:
-    linear-gradient(
-      to top,
-      #0d0d0f 72%,
-      transparent
-    );
+      position: fixed;
 
-}
+      left: 50%;
 
+      bottom: 0;
 
-.input-box {
+      transform:
+        translateX(-50%);
 
-  display: flex;
+      z-index: 40;
 
-  align-items: flex-end;
+      width: 100%;
 
-  gap: 9px;
+      max-width: 850px;
 
-  padding: 7px;
+      padding:
+        18px 25px 22px;
 
-  border:
-    1px solid #303037;
+      background:
+        linear-gradient(
+          to top,
+          #0d0d0f 65%,
+          rgba(13,13,15,0)
+        );
+    }
 
-  border-radius: 14px;
 
-  background: #151519;
+    .input-box {
 
-}
+      display: flex;
 
+      align-items: flex-end;
 
-#messageInput {
+      gap: 9px;
 
-  flex: 1;
+      padding: 7px;
 
-  min-height: 42px;
+      border:
+        1px solid #303037;
 
-  max-height: 130px;
+      border-radius: 15px;
 
-  resize: none;
+      background: #151519;
 
-  border: none;
+      box-shadow:
+        0 8px 30px
+        rgba(0,0,0,0.25);
+    }
 
-  outline: none;
 
-  padding:
-    10px;
+    #messageInput {
 
-  background: transparent;
+      flex: 1;
 
-  color: #eee;
+      min-height: 42px;
 
-  font-family: inherit;
+      max-height: 140px;
 
-  font-size: 14px;
+      resize: none;
 
-  line-height: 1.5;
+      border: none;
 
-}
+      outline: none;
 
+      padding:
+        10px 9px;
 
-#messageInput::placeholder {
-  color: #66666e;
-}
+      background: transparent;
 
+      color: #eee;
 
-#sendButton {
+      font-size: 14px;
 
-  min-width: 60px;
+      line-height: 1.55;
+    }
 
-  height: 42px;
 
-  border:
-    1px solid #494148;
+    #messageInput::placeholder {
+      color: #66666e;
+    }
 
-  border-radius: 10px;
 
-  background: #211f22;
+    #sendButton {
 
-  color: #ddd5ce;
+      width: 62px;
 
-  cursor: pointer;
+      height: 42px;
 
-}
+      border:
+        1px solid #494148;
 
+      border-radius: 10px;
 
-#sendButton:hover {
+      background: #211f22;
 
-  background: #302c30;
+      color: #ddd5ce;
 
-}
+      cursor: pointer;
 
+      transition: 0.2s;
+    }
 
 
-/* =========================
-   MOBILE
-========================= */
+    #sendButton:hover {
 
-@media (max-width: 680px) {
+      background: #302c30;
 
-  header {
-    height: 64px;
-  }
+      border-color: #746457;
+    }
 
 
-  .back-button {
-    left: 18px;
-  }
+    #sendButton:disabled {
 
+      opacity: 0.5;
 
-  .character-card {
+      cursor: default;
+    }
 
-    grid-template-columns: 1fr;
 
-    padding: 16px;
 
-  }
+    /* ==================================================
+       MOBILE
+    ================================================== */
 
+    @media (max-width: 650px) {
 
-  .character-image {
+      header {
+        height: 65px;
+      }
 
-    width: 100%;
 
-    height: 360px;
+      .back-button {
+        left: 18px;
+      }
 
-  }
 
+      .header-name {
+        font-size: 16px;
+      }
 
-  .character-area {
 
-    width: 94%;
+      main {
 
-  }
+        padding:
+          25px 16px 155px;
+      }
 
 
-  .story-area {
+      .profile-top {
 
-    width: 90%;
+        flex-direction: column;
 
-  }
+        align-items: center;
 
+        text-align: center;
 
-  .user-message {
+        padding: 24px;
+      }
 
-    max-width: 88%;
 
-  }
+      .profile-image {
 
-}
+        width: 125px;
 
-</style>
+        height: 165px;
+      }
+
+
+      .profile-name {
+        font-size: 28px;
+      }
+
+
+      .tags {
+        justify-content: center;
+      }
+
+
+      .profile-details {
+
+        grid-template-columns: 1fr;
+      }
+
+
+      .detail,
+      .detail:nth-child(2n) {
+
+        border-right: none;
+
+        border-bottom:
+          1px solid #29282d;
+      }
+
+
+      .detail:last-child {
+        border-bottom: none;
+      }
+
+
+      .section-title {
+        font-size: 22px;
+      }
+
+
+      .background-text,
+      .story-line,
+      .story-intro {
+
+        font-size: 13px;
+
+        line-height: 2;
+      }
+
+
+      .dialogue-text {
+        font-size: 13px;
+      }
+
+
+      .user-message {
+        max-width: 86%;
+      }
+
+
+      .input-area {
+        padding:
+          12px 14px 17px;
+      }
+
+    }
+
+  </style>
 
 </head>
 
@@ -745,1123 +867,1392 @@ header {
 
 
 
-<header>
-
-  <button
-    class="back-button"
-    id="backButton"
-  >
-    ← Mori
-  </button>
-
-
-  <div>
-
-    <div class="header-name">
-      夏亦谦
-    </div>
-
-    <div class="header-info">
-      28 · 心脏外科主治医师
-    </div>
-
-  </div>
-
-</header>
-
-
-
-<!-- =========================
-     CHARACTER
-========================= -->
-
-<section class="character-area">
-
-
-  <div class="character-card">
-
-
-    <img
-      class="character-image"
-      src="xia-yiqian.jpg"
-      alt="夏亦谦"
-    >
-
-
-    <div class="character-details">
-
-
-      <h1>
-        夏亦谦
-      </h1>
-
-
-      <div class="character-age">
-        28岁
-      </div>
-
-
-      <div class="tags">
-
-        <span class="tag">bg</span>
-        <span class="tag">洁</span>
-        <span class="tag">纯爱</span>
-        <span class="tag">st</span>
-        <span class="tag">限左</span>
-
-      </div>
-
-
-
-      <!-- tabs -->
-
-      <div class="info-tabs">
-
-        <button
-          class="info-tab active"
-          data-page="character"
-        >
-          人物
-        </button>
-
-        <button
-          class="info-tab"
-          data-page="background"
-        >
-          背景
-        </button>
-
-      </div>
-
-
-
-      <!-- 人物 -->
-
-      <div
-        class="info-page active"
-        id="character"
-      >
-
-
-        <div class="info-row">
-
-          <span class="info-label">
-            职业
-          </span>
-
-          <span class="info-value">
-            京南市第一人民医院 ·
-            心脏外科主治医师
-          </span>
-
-        </div>
-
-
-        <div class="info-row">
-
-          <span class="info-label">
-            学历
-          </span>
-
-          <span class="info-value">
-            临床医学硕士
-          </span>
-
-        </div>
-
-
-        <div class="info-row">
-
-          <span class="info-label">
-            生日
-          </span>
-
-          <span class="info-value">
-            11月18日
-          </span>
-
-        </div>
-
-
-        <div class="info-row">
-
-          <span class="info-label">
-            喜欢
-          </span>
-
-          <span class="info-value">
-            肉桂卷 · 拿铁
-          </span>
-
-        </div>
-
-
-        <div class="info-row">
-
-          <span class="info-label">
-            性格
-          </span>
-
-          <span class="info-value">
-            温和儒雅，冷静克制
-          </span>
-
-        </div>
-
-
-        <p class="personality">
-
-          他很少真正动怒，也不习惯把情绪写在脸上。
-          待人永远保持着恰到好处的礼貌与距离，
-          声音温和，做事沉稳，很难让人看出他的真实想法。
-
-        </p>
-
-
-      </div>
-
-
-
-      <!-- 背景 -->
-
-      <div
-        class="info-page"
-        id="background"
-      >
-
-        <p class="personality">
-
-          夏亦谦五岁那年，父母离婚。
-
-          <br><br>
-
-          那之后，他的人生便开始被父亲一笔一画地规划。
-
-          <br><br>
-
-          七岁那年，父亲再婚。
-
-          从那以后，两人之间逐渐少了交流。
-
-          <br><br>
-
-          不是争吵，也不是怨恨。
-
-          只是慢慢地，没有什么话可说了。
-
-          <br><br>
-
-          他依旧按照父亲安排好的轨迹长大，
-          从医学院一路读到硕士毕业。
-
-          <br><br>
-
-          他的人生似乎一直顺风顺水。
-
-          <br><br>
-
-          只有他自己知道——
-
-          <br>
-
-          他只是很早就学会了，
-          不去问自己究竟想要什么。
-
-        </p>
-
-      </div>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- =========================
-     STORY
-========================= -->
-
-<main class="story-area">
-
-
-  <div class="story-title">
-    STORY
-  </div>
-
-
-  <p class="story-text">
-
-    雪下得很大。
-
-  </p>
-
-
-  <p class="story-text">
-
-    漫天的雪花被风卷起，
-    在视线里交织成一片朦胧的白。
-
-  </p>
-
-
-  <p class="story-text">
-
-    今天的雪场比平日热闹许多。
-    赛道上有不少第一次来滑雪的新手，
-    小心翼翼地扶着雪杖，一点一点往下挪。
-
-  </p>
-
-
-  <p class="story-text">
-
-    夏亦谦从高处俯冲而下。
-
-  </p>
-
-
-  <p class="story-text">
-
-    速度并不算快，却稳得惊人。
-
-  </p>
-
-
-  <p class="story-text">
-
-    他侧身避开迎面而来的滑雪者，
-    轻巧地调整方向，又从另一名新手身侧擦过。
-
-  </p>
-
-
-  <p class="story-text">
-
-    雪板划过雪面，
-    留下两道干净利落的痕迹。
-
-  </p>
-
-
-  <p class="story-text">
-
-    直到临近坡底，
-    他微微压低身体，
-    雪板横过雪面——
-
-  </p>
-
-
-  <div class="impact">
-    唰——
-  </div>
-
-
-  <p class="story-text">
-
-    细碎的雪雾扬起。
-
-  </p>
-
-
-  <p class="story-text">
-
-    他稳稳停了下来。
-
-  </p>
-
-
-  <p class="story-text">
-
-    夏亦谦摘下一只手套，
-    抬手拂去肩上的雪。
-
-  </p>
-
-
-  <p class="story-text">
-
-    下一秒——
-
-  </p>
-
-
-  <div class="impact">
-    砰。
-  </div>
-
-
-  <p class="story-text">
-
-    一道身影毫无预兆地从后方撞了上来。
-
-  </p>
-
-
-  <p class="story-text">
-
-    巨大的冲力让他向前踉跄了一步。
-
-  </p>
-
-
-  <p class="story-text">
-
-    身后的人似乎完全没有刹住，
-    连同雪板一起撞了上来。
-
-  </p>
-
-
-  <p class="story-text">
-
-    两个人同时摔进松软的雪地。
-
-  </p>
-
-
-  <p class="story-text">
-
-    周围安静了一瞬。
-
-  </p>
-
-
-  <p class="story-text">
-
-    夏亦谦撑着雪地坐起身，
-    下意识先看向你。
-
-  </p>
-
-
-  <p class="story-text">
-
-    确认你没有受伤后，
-    他才低头看了看自己被撞歪的雪镜。
-
-  </p>
-
-
-  <p class="story-text">
-
-    沉默两秒。
-
-  </p>
-
-
-  <p class="story-text">
-
-    他忽然轻轻笑了一声。
-
-  </p>
-
-
-
-  <div class="dialogue">
-
-    <div class="dialogue-name">
-      夏亦谦
-    </div>
-
-    <div class="dialogue-text">
-      “……还好吗？”
-    </div>
-
-  </div>
-
-
-  <p class="story-text">
-
-    他的声音比想象中温和。
-
-  </p>
-
-
-  <p class="story-text">
-
-    没有责怪，也没有不耐烦。
-
-  </p>
-
-
-  <p class="story-text">
-
-    他伸出手，
-    等着你握住。
-
-  </p>
-
-
-  <div class="dialogue">
-
-    <div class="dialogue-name">
-      夏亦谦
-    </div>
-
-    <div class="dialogue-text">
-      “先起来。”
-    </div>
-
-  </div>
-
-
-  <p class="story-text">
-
-    顿了顿，他看了一眼你身上的滑雪装备，
-    又看向刚才一路冲下来的方向。
-
-  </p>
-
-
-  <div class="dialogue">
-
-    <div class="dialogue-name">
-      夏亦谦
-    </div>
-
-    <div class="dialogue-text">
-      “第一次滑雪？”
-    </div>
-
-  </div>
-
-
-
-  <!-- =========================
-       MESSAGES
-  ========================= -->
-
-  <div id="messages"></div>
-
-
-</main>
-
-
-
-<!-- =========================
-     INPUT
-========================= -->
-
-<div class="input-area">
-
-
-  <div class="input-box">
-
-
-    <textarea
-      id="messageInput"
-      rows="1"
-      placeholder="说点什么……"
-    ></textarea>
-
+  <!-- ==================================================
+       HEADER
+  ================================================== -->
+
+  <header>
 
     <button
-      id="sendButton"
+      class="back-button"
+      id="backButton"
       type="button"
     >
-      Send
+      ← Mori
     </button>
 
 
+    <div class="header-character">
+
+      <div class="header-name">
+        夏亦谦
+      </div>
+
+      <div class="header-info">
+        28 · 心脏外科主治医师
+      </div>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- ==================================================
+       MAIN
+  ================================================== -->
+
+  <main>
+
+
+
+    <!-- ==================================================
+         CHARACTER
+    ================================================== -->
+
+    <section class="profile">
+
+
+      <div class="profile-top">
+
+
+        <img
+          class="profile-image"
+          src="https://f2.zxgjw.com/i/2026/08/14/k0odpx.jpeg"
+          alt="夏亦谦"
+        >
+
+
+        <div class="profile-main">
+
+          <div class="profile-label">
+            CHARACTER
+          </div>
+
+
+          <h1 class="profile-name">
+            夏亦谦
+          </h1>
+
+
+          <div class="profile-age">
+            28岁
+          </div>
+
+
+          <div class="tags">
+
+            <span class="tag">
+              bg
+            </span>
+
+            <span class="tag">
+              洁
+            </span>
+
+            <span class="tag">
+              纯爱
+            </span>
+
+            <span class="tag">
+              st
+            </span>
+
+            <span class="tag">
+              限左
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- CHARACTER DETAILS -->
+
+      <div class="profile-details">
+
+
+        <div class="detail">
+
+          <div class="detail-title">
+            职业
+          </div>
+
+          <div class="detail-content">
+
+            <strong>
+              京南市第一人民医院
+            </strong>
+
+            <br>
+
+            心脏外科主治医师
+
+            <br>
+
+            临床医学硕士
+
+          </div>
+
+        </div>
+
+
+
+        <div class="detail">
+
+          <div class="detail-title">
+            性格
+          </div>
+
+          <div class="detail-content">
+
+            温和儒雅，冷静克制。
+
+            <br>
+
+            情绪稳定，做事沉稳，
+            待人礼貌而有分寸。
+
+          </div>
+
+        </div>
+
+
+
+        <div class="detail">
+
+          <div class="detail-title">
+            生日
+          </div>
+
+          <div class="detail-content">
+
+            <strong>
+              11月18日
+            </strong>
+
+            <br>
+
+            天蝎座
+
+          </div>
+
+        </div>
+
+
+
+        <div class="detail">
+
+          <div class="detail-title">
+            喜欢的食物
+          </div>
+
+          <div class="detail-content">
+
+            肉桂卷
+
+            <br>
+
+            <span style="color:#777;">
+              常配一杯拿铁
+            </span>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         PERSONALITY
+    ================================================== -->
+
+    <section class="section">
+
+
+      <div class="section-heading">
+
+        <div class="section-heading-line"></div>
+
+        <div class="section-heading-text">
+          Personality
+        </div>
+
+      </div>
+
+
+      <h2 class="section-title">
+        他是什么样的人
+      </h2>
+
+
+      <p class="background-text">
+
+        夏亦谦很少真正动怒，
+        也不习惯把情绪写在脸上。
+
+      </p>
+
+
+      <p class="background-text">
+
+        待人永远保持着恰到好处的礼貌与距离。
+        他说话时声音温和，做事沉稳，
+        很难让人从他的表情里猜出真正的想法。
+
+      </p>
+
+
+      <p class="background-text">
+
+        他习惯掌控自己的情绪，
+        也习惯把人生安排得井然有序。
+
+      </p>
+
+
+      <p class="background-quote">
+
+        只是偶尔，那份过分的克制会让人觉得——
+
+        <br>
+
+        这个人似乎从来没有真正为自己活过。
+
+      </p>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         BACKGROUND
+    ================================================== -->
+
+    <section class="section">
+
+
+      <div class="section-heading">
+
+        <div class="section-heading-line"></div>
+
+        <div class="section-heading-text">
+          Background
+        </div>
+
+      </div>
+
+
+      <h2 class="section-title">
+        他的人生
+      </h2>
+
+
+      <p class="background-text">
+
+        夏亦谦五岁那年，
+        父母离婚。
+
+      </p>
+
+
+      <p class="background-text">
+
+        那之后，他的人生便开始被父亲
+        一笔一画地规划。
+
+      </p>
+
+
+      <p class="background-text">
+
+        什么时候上学，
+        学什么专业，
+        将来做什么工作，
+        似乎每一步都有既定的答案。
+
+      </p>
+
+
+      <p class="background-quote">
+
+        当医生。
+
+      </p>
+
+
+      <p class="background-text">
+
+        七岁那年，父亲再婚。
+
+        <br><br>
+
+        从那以后，
+        夏亦谦和父亲之间便逐渐少了交流。
+
+      </p>
+
+
+      <p class="background-text">
+
+        不是争吵，也不是怨恨。
+
+        <br>
+
+        只是慢慢地，
+        没有什么话可说了。
+
+      </p>
+
+
+      <p class="background-text">
+
+        他依旧按照父亲安排好的轨迹长大。
+
+        <br>
+
+        成绩优异，履历漂亮，
+        从医学院一路读到硕士毕业。
+
+      </p>
+
+
+      <p class="background-text">
+
+        硕士毕业时，
+        他以优异成绩完成学业，
+        获评优秀医学毕业生，
+        随后进入京南市第一人民医院。
+
+      </p>
+
+
+      <p class="background-text">
+
+        他的人生似乎一直顺风顺水。
+
+      </p>
+
+
+      <p class="background-text">
+
+        没有叛逆期，
+        没有离经叛道，
+        也没有真正失控过。
+
+      </p>
+
+
+      <p class="background-quote">
+
+        父亲以为，
+        他已经成为了自己最满意的样子。
+
+        <br><br>
+
+        只有夏亦谦自己知道——
+
+        <br><br>
+
+        他只是很早就学会了，
+        不去问自己究竟想要什么。
+
+      </p>
+
+
+      <p class="background-text">
+
+        而在那些无人知道的夜晚，
+        他偶尔会打开微信，
+        和远在另一边生活的母亲聊几句。
+
+      </p>
+
+
+      <p class="background-text">
+
+        母亲是他和过去之间，
+        少数还保留下来的联系。
+
+      </p>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         STORY
+    ================================================== -->
+
+    <section class="story-section">
+
+
+      <div class="section-heading">
+
+        <div class="section-heading-line"></div>
+
+        <div class="section-heading-text">
+          Story
+        </div>
+
+      </div>
+
+
+      <h2 class="section-title">
+        雪天
+      </h2>
+
+
+      <p class="story-intro">
+
+        雪下得很大。
+
+        <br><br>
+
+        漫天的雪花被风卷起，
+        在视线里交织成一片朦胧的白。
+
+      </p>
+
+
+      <p class="story-line">
+
+        今天的雪场比平日热闹许多。
+
+        赛道上有不少第一次来滑雪的新手，
+        小心翼翼地扶着雪杖，
+        一点一点往下挪。
+
+      </p>
+
+
+      <p class="story-line">
+
+        夏亦谦从高处俯冲而下。
+
+      </p>
+
+
+      <p class="story-line">
+
+        速度并不算快，
+        却稳得惊人。
+
+      </p>
+
+
+      <p class="story-line">
+
+        他侧身避开迎面而来的滑雪者，
+        轻巧地调整方向，
+        又从另一名新手身侧擦过。
+
+      </p>
+
+
+      <p class="story-line">
+
+        雪板划过雪面，
+        留下两道干净利落的痕迹。
+
+      </p>
+
+
+      <p class="story-line">
+
+        直到临近坡底，
+        他微微压低身体，
+        雪板横过雪面——
+
+      </p>
+
+
+      <div class="story-impact">
+        唰——
+      </div>
+
+
+      <p class="story-line">
+
+        细碎的雪雾扬起。
+
+      </p>
+
+
+      <p class="story-line">
+
+        他稳稳停了下来。
+
+      </p>
+
+
+      <p class="story-line">
+
+        夏亦谦摘下一只手套，
+        抬手拂去肩上的雪。
+
+      </p>
+
+
+      <p class="story-line">
+
+        下一秒——
+
+      </p>
+
+
+      <div class="story-impact">
+        砰。
+      </div>
+
+
+      <p class="story-line">
+
+        一道身影毫无预兆地从后方撞了上来。
+
+      </p>
+
+
+      <p class="story-line">
+
+        巨大的冲力让他向前踉跄了一步。
+
+      </p>
+
+
+      <p class="story-line">
+
+        身后的人似乎完全没有刹住，
+        连同雪板一起撞了上来。
+
+      </p>
+
+
+      <p class="story-line">
+
+        两个人同时摔进松软的雪地。
+
+      </p>
+
+
+      <p class="story-line">
+
+        周围安静了一瞬。
+
+      </p>
+
+
+      <p class="story-line">
+
+        夏亦谦撑着雪地坐起身，
+        下意识先看向你。
+
+      </p>
+
+
+      <p class="story-line">
+
+        确认你没有受伤后，
+        他才低头看了看自己被撞歪的雪镜。
+
+      </p>
+
+
+      <p class="story-line">
+
+        沉默两秒。
+
+      </p>
+
+
+      <p class="story-line">
+
+        他忽然轻轻笑了一声。
+
+      </p>
+
+
+
+      <!-- CHARACTER DIALOGUE -->
+
+      <div class="dialogue">
+
+        <div class="dialogue-name">
+          夏亦谦
+        </div>
+
+        <div class="dialogue-text">
+
+          “……还好吗？”
+
+        </div>
+
+      </div>
+
+
+      <p class="story-line">
+
+        他的声音比想象中温和。
+
+      </p>
+
+
+      <p class="story-line">
+
+        没有责怪，也没有不耐烦。
+
+      </p>
+
+
+      <p class="story-line">
+
+        他朝你伸出手。
+
+      </p>
+
+
+      <div class="dialogue">
+
+        <div class="dialogue-name">
+          夏亦谦
+        </div>
+
+        <div class="dialogue-text">
+
+          “先起来。”
+
+        </div>
+
+      </div>
+
+
+      <p class="story-line">
+
+        顿了顿，他看了一眼你身上的滑雪装备，
+        又看向刚才一路冲下来的方向。
+
+      </p>
+
+
+      <div class="dialogue">
+
+        <div class="dialogue-name">
+          夏亦谦
+        </div>
+
+        <div class="dialogue-text">
+
+          “第一次滑雪？”
+
+        </div>
+
+      </div>
+
+
+
+      <!-- ==================================================
+           CHAT HISTORY
+      ================================================== -->
+
+      <div id="messages"></div>
+
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- ==================================================
+       INPUT
+  ================================================== -->
+
+  <div class="input-area">
+
+    <div class="input-box">
+
+
+      <textarea
+        id="messageInput"
+        rows="1"
+        placeholder="说点什么……"
+        autocomplete="off"
+      ></textarea>
+
+
+      <button
+        id="sendButton"
+        type="button"
+      >
+        Send
+      </button>
+
+
+    </div>
+
   </div>
 
-</div>
 
 
-
-<script>
-
-
-/* =========================
-   CHARACTER TABS
-========================= */
+  <script>
 
 
-const tabs =
-  document.querySelectorAll(
-    ".info-tab"
-  );
+    /* ==================================================
+       STORAGE
+    ================================================== */
 
 
-const infoPages =
-  document.querySelectorAll(
-    ".info-page"
-  );
+    const STORAGE_KEY =
+      "mori_xiayiqian_chat";
 
 
-tabs.forEach(tab => {
-
-  tab.addEventListener(
-    "click",
-    () => {
-
-      const target =
-        tab.dataset.page;
-
-
-      tabs.forEach(t =>
-        t.classList.remove(
-          "active"
-        )
+    const messages =
+      document.getElementById(
+        "messages"
       );
 
 
-      infoPages.forEach(page =>
-        page.classList.remove(
-          "active"
-        )
+    const messageInput =
+      document.getElementById(
+        "messageInput"
       );
 
 
-      tab.classList.add(
-        "active"
+    const sendButton =
+      document.getElementById(
+        "sendButton"
       );
 
 
-      document
-        .getElementById(target)
-        .classList.add("active");
+
+    /* ==================================================
+       CREATE USER MESSAGE
+    ================================================== */
+
+    function createUserMessage(text) {
+
+      const element =
+        document.createElement(
+          "div"
+        );
+
+
+      element.className =
+        "user-message";
+
+
+      element.textContent =
+        text;
+
+
+      messages.appendChild(
+        element
+      );
+
+
+      return element;
 
     }
-  );
-
-});
 
 
 
-/* =========================
-   CHAT MEMORY
-========================= */
+    /* ==================================================
+       CREATE CHARACTER MESSAGE
+    ================================================== */
 
+    function createCharacterMessage(
+      text
+    ) {
 
-const STORAGE_KEY =
-  "mori_xiayiqian_chat";
-
-
-const messages =
-  document.getElementById(
-    "messages"
-  );
-
-
-const messageInput =
-  document.getElementById(
-    "messageInput"
-  );
-
-
-const sendButton =
-  document.getElementById(
-    "sendButton"
-  );
-
-
-
-/* =========================
-   LOAD CHAT
-========================= */
-
-
-function loadMessages() {
-
-  const saved =
-    localStorage.getItem(
-      STORAGE_KEY
-    );
-
-
-  if (!saved) {
-    return;
-  }
-
-
-  try {
-
-    const history =
-      JSON.parse(saved);
-
-
-    history.forEach(item => {
-
-      if (
-        item.type === "user"
-      ) {
-
-        addUserMessage(
-          item.text,
-          false
+      const element =
+        document.createElement(
+          "div"
         );
 
-      }
+
+      element.className =
+        "dialogue";
 
 
-      if (
-        item.type === "assistant"
-      ) {
+      element.innerHTML = `
 
-        addReply(
-          item.text,
-          false
+        <div class="dialogue-name">
+          夏亦谦
+        </div>
+
+        <div class="dialogue-text">
+          ${escapeHtml(text)}
+        </div>
+
+      `;
+
+
+      messages.appendChild(
+        element
+      );
+
+
+      return element;
+
+    }
+
+
+
+    /* ==================================================
+       SAFE TEXT
+    ================================================== */
+
+    function escapeHtml(text) {
+
+      return text
+        .replace(
+          /&/g,
+          "&amp;"
+        )
+        .replace(
+          /</g,
+          "&lt;"
+        )
+        .replace(
+          />/g,
+          "&gt;"
+        )
+        .replace(
+          /"/g,
+          "&quot;"
+        )
+        .replace(
+          /'/g,
+          "&#039;"
+        )
+        .replace(
+          /\n/g,
+          "<br>"
         );
 
-      }
-
-    });
-
-  } catch (error) {
-
-    console.error(
-      "Memory error:",
-      error
-    );
-
-  }
-
-}
+    }
 
 
 
-/* =========================
-   SAVE
-========================= */
+    /* ==================================================
+       SAVE CHAT
+    ================================================== */
+
+    function saveChat() {
+
+      const history = [];
 
 
-function saveMessage(
-  type,
-  text
-) {
+      messages
+        .querySelectorAll(
+          ".user-message, .dialogue"
+        )
+        .forEach(
+          element => {
 
-  let history = [];
+            if (
+              element.classList.contains(
+                "user-message"
+              )
+            ) {
+
+              history.push({
+
+                type: "user",
+
+                text:
+                  element.textContent
+
+              });
+
+            } else {
+
+              const dialogue =
+                element.querySelector(
+                  ".dialogue-text"
+                );
 
 
-  try {
+              if (dialogue) {
 
-    history =
-      JSON.parse(
+                history.push({
+
+                  type: "character",
+
+                  text:
+                    dialogue.innerText
+
+                });
+
+              }
+
+            }
+
+          }
+        );
+
+
+      localStorage.setItem(
+
+        STORAGE_KEY,
+
+        JSON.stringify(history)
+
+      );
+
+    }
+
+
+
+    /* ==================================================
+       LOAD CHAT
+    ================================================== */
+
+    function loadChat() {
+
+      const saved =
         localStorage.getItem(
           STORAGE_KEY
-        )
-      ) || [];
+        );
 
-  } catch {
 
-    history = [];
+      if (!saved) {
+        return;
+      }
 
-  }
 
+      try {
 
-  history.push({
+        const history =
+          JSON.parse(
+            saved
+          );
 
-    type: type,
 
-    text: text
+        history.forEach(
+          item => {
 
-  });
+            if (
+              item.type ===
+              "user"
+            ) {
 
+              createUserMessage(
+                item.text
+              );
 
-  localStorage.setItem(
-    STORAGE_KEY,
-    JSON.stringify(history)
-  );
+            }
 
-}
 
+            if (
+              item.type ===
+              "character"
+            ) {
 
+              createCharacterMessage(
+                item.text
+              );
 
-/* =========================
-   USER MESSAGE
-========================= */
+            }
 
+          }
+        );
 
-function addUserMessage(
-  text,
-  save = true
-) {
+      } catch (error) {
 
-  const message =
-    document.createElement(
-      "div"
-    );
+        console.error(
+          "无法读取聊天记录:",
+          error
+        );
 
+      }
 
-  message.className =
-    "user-message";
+    }
 
 
-  message.textContent =
-    text;
 
+    /* ==================================================
+       SIMPLE CHARACTER RESPONSE
+       
+       现在先让角色能够根据玩家说的话
+       做出不同的反应。
+       
+       后面接真正 AI 时，
+       这里会换成 AI API。
+    ================================================== */
 
-  messages.appendChild(
-    message
-  );
+    function generateReply(
+      userText
+    ) {
 
+      const text =
+        userText.toLowerCase();
 
-  if (save) {
 
-    saveMessage(
-      "user",
-      text
-    );
+      if (
+        text.includes("第一次") ||
+        text.includes("不会") ||
+        text.includes("新手")
+      ) {
 
-  }
+        return `
+他看了一眼你，目光在你明显有些慌乱的动作上停了片刻。
 
-}
-
-
-
-/* =========================
-   CHARACTER REPLY
-========================= */
-
-
-function addReply(
-  text,
-  save = true
-) {
-
-  const reply =
-    document.createElement(
-      "div"
-    );
-
-
-  reply.className =
-    "chat-reply";
-
-
-  reply.innerHTML = `
-
-    <div class="reply-name">
-      夏亦谦
-    </div>
-
-    <div class="reply-body">
-      ${formatReply(text)}
-    </div>
-
-  `;
-
-
-  messages.appendChild(
-    reply
-  );
-
-
-  if (save) {
-
-    saveMessage(
-      "assistant",
-      text
-    );
-
-  }
-
-}
-
-
-
-/* =========================
-   FORMAT REPLY
-========================= */
-
-
-function formatReply(text) {
-
-  /*
-    使用：
-    【动作】
-    “说话”
-  */
-
-
-  return text
-
-    .replace(
-      /\n/g,
-      "<br>"
-    )
-
-    .replace(
-      /【(.*?)】/g,
-      '<span class="reply-action">*$1*</span>'
-    );
-
-}
-
-
-
-/* =========================
-   TEST AI
-========================= */
-
-
-function generateReply(
-  userText
-) {
-
-  const text =
-    userText.toLowerCase();
-
-
-  /*
-    第一次回答
-  */
-
-  if (
-    text.includes("第一次滑雪") ||
-    text.includes("第一次")
-  ) {
-
-    return `
-
-【他看了一眼你还踩在雪板上的双脚，随后伸手扶住你的手臂。】
-
-“没事就好。”
-
-【夏亦谦把掉在雪地里的滑雪杖捡起来，递回你手里。】
-
-“刚开始滑的时候，不要急着往下冲。”
-
-【他说着，视线落到你的雪板上，语气依旧温和。】
-
-“先学会怎么停下来。”
-
-`;
-
-  }
-
-
-  if (
-    text.includes("冷") ||
-    text.includes("好冷")
-  ) {
-
-    return `
-
-【夏亦谦的目光在你冻得有些发红的手指上停了一瞬。】
-
-“冷？”
-
-【他稍稍皱了下眉，从自己的装备袋里拿出一副备用手套递给你。】
-
-“先戴上。”
-
-`;
-
-  }
-
-
-  if (
-    text.includes("对不起") ||
-    text.includes("抱歉")
-  ) {
-
-    return `
-
-【他低头看了一眼被撞歪的雪镜，随后重新抬眼看向你。】
+夏亦谦没有笑你，只是俯身替你把有些歪掉的雪板重新调整好，又伸手将你从雪地里扶起来。
 
 “没关系。”
 
-【他的语气听不出半点责怪。】
+他松开手，却没有立刻走开，只是站在你身侧，替你挡住了一些迎面而来的风雪。
 
-“人没受伤就好。”
+“第一次滑，别急着往下冲。”
 
-`;
+他的语气很温和。
 
-  }
+“先学会怎么停下来。”
+        `;
 
-
-  /*
-    默认回复
-  */
-
-  return `
-
-【夏亦谦安静地听完你的话，没有立刻回答。】
-
-【片刻后，他轻轻点了下头。】
-
-“嗯，我知道了。”
-
-【他的目光仍停留在你身上，像是在确认你真正想说的是什么。】
-
-`;
-
-}
+      }
 
 
+      if (
+        text.includes("疼") ||
+        text.includes("痛") ||
+        text.includes("受伤")
+      ) {
 
-/* =========================
-   SEND
-========================= */
+        return `
+夏亦谦的神色明显认真了些。
 
+他没有急着回答，而是先低下身查看你的手腕和膝盖。
 
-function sendMessage() {
+“哪里疼？”
 
-  const text =
-    messageInput.value.trim();
+确认没有明显的外伤后，他才稍稍松了口气。
 
+“如果不舒服就告诉我。”
 
-  if (!text) {
-    return;
-  }
+他抬眼看向你，声音依旧温和。
 
+“别硬撑。”
+        `;
 
-  addUserMessage(
-    text,
-    true
-  );
-
-
-  messageInput.value =
-    "";
+      }
 
 
-  messageInput.style.height =
-    "42px";
+      if (
+        text.includes("谢谢") ||
+        text.includes("感谢")
+      ) {
+
+        return `
+夏亦谦微微一怔。
+
+随后，他只是轻轻弯了下唇角。
+
+“没什么。”
+
+他重新戴好手套，目光却仍落在你身上。
+
+“不过……”
+
+他顿了顿。
+
+“下次下坡之前，记得先确认自己会刹车。”
+        `;
+
+      }
 
 
-  setTimeout(
-    () => {
+      if (
+        text.includes("你是谁") ||
+        text.includes("叫什么") ||
+        text.includes("名字")
+      ) {
 
-      const reply =
-        generateReply(
-          text
-        );
+        return `
+夏亦谦看着你，安静了两秒。
+
+他似乎觉得这个问题有些突然，却没有表现出介意。
+
+“夏亦谦。”
+
+他简单地回答。
+
+“夏天的夏，亦然的亦，谦逊的谦。”
+
+说完，他又看了你一眼。
+
+“现在呢？”
+
+“该轮到你介绍自己了。”
+        `;
+
+      }
 
 
-      addReply(
-        reply,
-        true
+      if (
+        text.includes("医生") ||
+        text.includes("工作") ||
+        text.includes("职业")
+      ) {
+
+        return `
+夏亦谦低头看了一眼自己身上的滑雪服。
+
+“医生。”
+
+他回答得很简单。
+
+随后像是觉得这样太过简略，又补了一句。
+
+“心脏外科。”
+
+他的语气依旧平静。
+
+“所以，如果你刚才真的撞伤了，我大概会比普通人更紧张一点。”
+        `;
+
+      }
+
+
+      return `
+夏亦谦安静地听你说完。
+
+他没有马上接话，只是看着你，像是在认真理解你的意思。
+
+片刻后，他轻轻点了下头。
+
+“嗯。”
+
+他声音很低，语气却温和。
+
+“我在听。”
+
+说完，他没有催促你，只是安静地站在你面前，等着你继续。
+      `;
+
+    }
+
+
+
+    /* ==================================================
+       SEND
+    ================================================== */
+
+    function sendMessage() {
+
+      const text =
+        messageInput.value.trim();
+
+
+      if (!text) {
+        return;
+      }
+
+
+      createUserMessage(
+        text
       );
 
 
-      scrollToBottom();
-
-    },
-    650
-  );
-
-}
+      messageInput.value =
+        "";
 
 
-
-/* =========================
-   SCROLL
-========================= */
+      messageInput.style.height =
+        "42px";
 
 
-function scrollToBottom() {
-
-  setTimeout(
-    () => {
-
-      window.scrollTo({
-
-        top:
-          document.body.scrollHeight,
-
-        behavior:
-          "smooth"
-
-      });
-
-    },
-    50
-  );
-
-}
+      saveChat();
 
 
-
-/* =========================
-   BUTTON
-========================= */
+      scrollToLatest();
 
 
-sendButton.addEventListener(
-  "click",
-  sendMessage
-);
+      sendButton.disabled =
+        true;
 
 
+      setTimeout(
+        () => {
 
-messageInput.addEventListener(
-  "keydown",
-  event => {
+          const reply =
+            generateReply(
+              text
+            );
 
-    if (
-      event.key === "Enter" &&
-      !event.shiftKey
-    ) {
 
-      event.preventDefault();
+          createCharacterMessage(
+            reply
+          );
 
-      sendMessage();
+
+          saveChat();
+
+
+          sendButton.disabled =
+            false;
+
+
+          scrollToLatest();
+
+
+          messageInput.focus();
+
+        },
+
+        650
+
+      );
 
     }
 
-  }
-);
 
 
+    /* ==================================================
+       SCROLL
+    ================================================== */
 
-/* =========================
-   TEXTAREA
-========================= */
+    function scrollToLatest() {
 
+      setTimeout(
+        () => {
 
-messageInput.addEventListener(
-  "input",
-  () => {
-
-    messageInput.style.height =
-      "42px";
-
-
-    messageInput.style.height =
-      Math.min(
-        messageInput.scrollHeight,
-        130
-      ) + "px";
-
-  }
-);
+          const last =
+            messages.lastElementChild;
 
 
+          if (last) {
 
-/* =========================
-   BACK
-========================= */
+            last.scrollIntoView({
 
+              behavior:
+                "smooth",
 
-document
-  .getElementById("backButton")
-  .addEventListener(
-    "click",
-    () => {
+              block:
+                "center"
 
-      window.location.href =
-        "index.html";
+            });
+
+          }
+
+        },
+
+        50
+
+      );
 
     }
-  );
 
 
 
-/* =========================
-   LOAD
-========================= */
+    /* ==================================================
+       SEND BUTTON
+    ================================================== */
+
+    sendButton.addEventListener(
+
+      "click",
+
+      sendMessage
+
+    );
 
 
-loadMessages();
 
-</script>
+    /* ==================================================
+       ENTER
+    ================================================== */
+
+    messageInput.addEventListener(
+
+      "keydown",
+
+      event => {
+
+        if (
+          event.key ===
+          "Enter" &&
+          !event.shiftKey
+        ) {
+
+          event.preventDefault();
+
+          sendMessage();
+
+        }
+
+      }
+
+    );
+
+
+
+    /* ==================================================
+       TEXTAREA AUTO HEIGHT
+    ================================================== */
+
+    messageInput.addEventListener(
+
+      "input",
+
+      () => {
+
+        messageInput.style.height =
+          "42px";
+
+
+        messageInput.style.height =
+          Math.min(
+            messageInput.scrollHeight,
+            140
+          ) + "px";
+
+      }
+
+    );
+
+
+
+    /* ==================================================
+       BACK TO MORI
+    ================================================== */
+
+    document
+      .getElementById(
+        "backButton"
+      )
+      .addEventListener(
+
+        "click",
+
+        () => {
+
+          window.location.href =
+            "index.html";
+
+        }
+
+      );
+
+
+
+    /* ==================================================
+       LOAD
+    ================================================== */
+
+    loadChat();
+
+  </script>
 
 
 </body>
